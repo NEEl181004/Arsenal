@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-plus-jakarta" });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono-jetbrains" });
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} dark`}>
+        <html lang="en" className={`${outfit.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} dark`}>
             <body className="bg-[#0a0a0a] text-white selection:bg-primary/20 selection:text-primary antialiased overflow-x-hidden">
                 <LayoutWrapper>
                     {children}

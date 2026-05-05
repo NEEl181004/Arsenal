@@ -31,12 +31,12 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
     const [activeSection, setActiveSection] = useState("");
 
     const sections = [
-        { id: "overview", label: "OVERVIEW", icon: Target },
-        { id: "core", label: "CORE MODULE", icon: Layers },
-        { id: "environment", label: "ENV & INSTALL", icon: Zap },
-        { id: "scenarios", label: "TEST SCENARIO", icon: Activity },
-        { id: "diagnostics", label: "DIAGNOSTICS", icon: AlertTriangle },
-        { id: "references", label: "REFERENCES", icon: FileText },
+        { id: "overview", label: "Overview", icon: Target },
+        { id: "core", label: "Core", icon: Layers },
+        { id: "environment", label: "Installation", icon: Zap },
+        { id: "scenarios", label: "Scenarios", icon: Activity },
+        { id: "diagnostics", label: "Diagnostics", icon: AlertTriangle },
+        { id: "references", label: "References", icon: FileText },
     ];
 
     useEffect(() => {
@@ -81,7 +81,7 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
             }`}
         >
             <Icon className={`w-4 h-4 transition-colors ${active ? "text-primary" : "group-hover:text-white"}`} />
-            <span className="text-[12px] font-black uppercase tracking-[0.2em]">{label}</span>
+            <span className="text-sm font-medium">{label}</span>
         </Link>
     );
 
@@ -95,7 +95,7 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
             }`}
         >
             <Icon className={`w-4 h-4 transition-colors ${active ? "text-primary" : "group-hover:text-white"}`} />
-            <span className="text-[12px] font-black uppercase tracking-[0.2em]">{label}</span>
+            <span className="text-sm font-medium">{label}</span>
         </button>
     );
 
@@ -142,8 +142,8 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
 
                 <nav className="flex-1 overflow-y-auto no-scrollbar overflow-x-hidden">
                     <div className="px-6 mb-6">
-                        <span className="text-[11px] font-black text-white/20 uppercase tracking-[0.3em]">
-                            {isCollapsed ? "NAV" : (isToolPage ? "MISSION_NAV" : "VAULT_INDEX")}
+                        <span className="text-[10px] font-bold text-white/20 uppercase tracking-widest">
+                            {isCollapsed ? "Nav" : (isToolPage ? "Navigation" : "Menu")}
                         </span>
                     </div>
                     {isToolPage ? (
@@ -170,10 +170,10 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
                     <div className="p-6 relative mt-auto border-t border-white/5">
                         <button 
                             onClick={() => signOut()}
-                            className="w-full bg-primary/10 text-primary font-black text-[11px] py-4 tracking-[0.3em] flex items-center justify-center gap-3 hover:bg-primary hover:text-white transition-all uppercase border border-primary/20 shadow-[0_0_20px_rgba(255,0,60,0.1)] group"
+                            className="w-full bg-primary/10 text-primary font-bold text-xs py-3 tracking-widest flex items-center justify-center gap-3 hover:bg-primary hover:text-white transition-all uppercase border border-primary/20 shadow-lg group"
                         >
                             <LogOut className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            TERMINATE SESSION
+                            Logout
                         </button>
                     </div>
                 )}
@@ -198,8 +198,8 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
 
                 <nav className="flex-1 overflow-y-auto no-scrollbar">
                     <div className="px-6 mb-6">
-                        <span className="text-[9px] font-black text-white/10 uppercase tracking-[0.3em]">
-                            {isToolPage ? "MISSION_NAV" : "VAULT_INDEX"}
+                        <span className="text-[9px] font-bold text-white/10 uppercase tracking-widest">
+                            {isToolPage ? "Navigation" : "Menu"}
                         </span>
                     </div>
                     {isToolPage ? (
@@ -219,10 +219,10 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
                 <div className="p-6 mt-auto border-t border-white/5">
                     <button 
                         onClick={() => signOut()}
-                        className="w-full bg-primary/10 text-primary font-black text-[10px] py-4 tracking-[0.3em] flex items-center justify-center gap-3 hover:bg-primary hover:text-white transition-all uppercase border border-primary/20 group"
+                        className="w-full bg-primary/10 text-primary font-bold text-xs py-3 tracking-widest flex items-center justify-center gap-3 hover:bg-primary hover:text-white transition-all uppercase border border-primary/20 group"
                     >
                         <LogOut className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        TERMINATE SESSION
+                        Logout
                     </button>
                 </div>
             </aside>

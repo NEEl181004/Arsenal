@@ -38,19 +38,19 @@ export default async function Home({
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
                     <div className="space-y-4">
                         <div className="classified-label">
-                            <Activity className="w-3.5 h-3.5" /> DATABASE_OVERVIEW
+                            <Activity className="w-3.5 h-3.5" /> Tools Overview
                         </div>
-                        <h1 className="text-7xl font-black font-headline tracking-tighter text-white uppercase leading-none">
-                            ARSENAL<span className="text-white/20">.DATABASE</span>
+                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
+                            Arsenal
                         </h1>
-                        <p className="text-white/40 font-light text-lg uppercase tracking-widest">
-                            {category ? `ACTIVE_FILTER: ${category.toUpperCase()}` : "CLASSIFIED_OFFENSIVE_SECURITY_INDEX"}
+                        <p className="text-white/40 font-medium text-sm uppercase tracking-widest">
+                            {category ? `Filter: ${category}` : "Offensive Security Index"}
                         </p>
                     </div>
                     
                     {isAdmin && (
-                        <Link href="/admin/tools/create" className="px-8 py-5 bg-primary text-white font-black text-[12px] tracking-[0.2em] hover:bg-primary-hover transition-all uppercase flex items-center gap-3 group">
-                            <Terminal className="w-5 h-5" /> ADD_NEW_ENTRY <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        <Link href="/admin/tools/create" className="px-6 py-4 bg-primary text-white font-bold text-xs tracking-widest hover:bg-primary-hover transition-all uppercase flex items-center gap-3 group">
+                            <Terminal className="w-5 h-5" /> Add Tool <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     )}
                 </div>
@@ -59,7 +59,7 @@ export default async function Home({
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {tools.length === 0 ? (
                     <div className="col-span-full py-24 text-center border border-dashed border-white/10">
-                        <span className="text-[12px] font-black text-white/20 uppercase tracking-[0.3em]">NO_RECORDS_FOUND_MATCHING_CRITERIA.</span>
+                        <span className="text-xs font-medium text-white/20 uppercase tracking-widest">No tools found matching your search.</span>
                     </div>
                 ) : (
                     tools.map((tool) => (
@@ -72,30 +72,30 @@ export default async function Home({
                                         <Shield className="w-5 h-5 text-white/20 group-hover:text-primary transition-colors" />
                                     </div>
                                     <div className="flex flex-col items-end">
-                                        <span className="text-[10px] font-black text-primary uppercase tracking-widest">{tool.tier.toUpperCase()}_TIER</span>
-                                        <span className="text-[10px] font-bold text-white/20 uppercase tracking-tighter">ID_{tool._id.toString().slice(-4).toUpperCase()}</span>
+                                        <span className="text-[10px] font-bold text-primary uppercase tracking-widest">{tool.tier} Tier</span>
+                                        <span className="text-[10px] font-medium text-white/20 uppercase tracking-tight">ID: {tool._id.toString().slice(-4)}</span>
                                     </div>
                                 </div>
                                 
                                 <div className="mb-8 flex-1">
-                                    <h2 className="text-3xl font-black font-headline tracking-tight text-white uppercase mb-2 group-hover:text-primary transition-colors">
+                                    <h2 className="text-2xl font-bold tracking-tight text-white group-hover:text-primary transition-colors">
                                         {tool.name}
                                     </h2>
-                                    <span className="text-[12px] font-black text-white/40 uppercase tracking-[0.2em]">
+                                    <span className="text-xs font-medium text-white/40 uppercase tracking-widest">
                                         {tool.category}
                                     </span>
                                 </div>
                                 
-                                <div className="space-y-4 pt-6 border-t border-white/[0.03]">
+                                <div className="space-y-3 pt-6 border-t border-white/[0.03]">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-[11px] font-black text-white/20 uppercase tracking-widest">CLEARANCE</span>
-                                        <span className="text-[11px] font-black text-white uppercase tracking-widest">L4_UNRESTRICTED</span>
+                                        <span className="text-[10px] font-bold text-white/20 uppercase tracking-widest">Clearance</span>
+                                        <span className="text-[10px] font-bold text-white uppercase tracking-widest">Unrestricted</span>
                                     </div>
                                     <div className="flex items-center justify-between">
-                                        <span className="text-[11px] font-black text-white/20 uppercase tracking-widest">STATUS</span>
+                                        <span className="text-[10px] font-bold text-white/20 uppercase tracking-widest">Status</span>
                                         <div className="flex items-center gap-1.5">
                                             <span className="w-1 h-1 bg-primary rounded-full security-pulse"></span>
-                                            <span className="text-[11px] font-black text-primary uppercase tracking-widest">ACTIVE</span>
+                                            <span className="text-[10px] font-bold text-primary uppercase tracking-widest">Active</span>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@ export default async function Home({
             <div className="mt-32 pt-12 border-t border-white/[0.03] flex items-center justify-center">
                 <div className="flex items-center gap-3">
                     <span className="w-8 h-[1px] bg-white/10"></span>
-                    <span className="text-[11px] font-black text-white/20 uppercase tracking-[0.4em]">END_OF_INDEX</span>
+                    <span className="text-[10px] font-bold text-white/20 uppercase tracking-[0.4em]">End of Index</span>
                     <span className="w-8 h-[1px] bg-white/10"></span>
                 </div>
             </div>

@@ -135,27 +135,27 @@ export default function EditToolPage() {
         <div className="max-w-none mx-auto pb-20 px-4 md:px-8 xl:px-16">
             <header className="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-white/5 pb-6 gap-4">
                 <div className="space-y-1">
-                    <h1 className="text-3xl md:text-5xl font-black font-headline text-white tracking-tighter uppercase leading-none">
-                        MODIFY_<span className="text-primary">ASSET</span>
+                    <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight leading-none">
+                        Edit <span className="text-primary">Tool</span>
                     </h1>
-                    <div className="text-[12px] font-black text-primary/60 uppercase tracking-[0.4em]">EDIT_PROTOCOL_V4.2.0</div>
+                    <div className="text-xs font-medium text-primary/60 uppercase tracking-widest">Update Tool Information</div>
                 </div>
-                <button onClick={handleSave} disabled={loading} className="bg-primary text-white px-8 py-3.5 font-black text-[12px] tracking-[0.3em] flex items-center gap-3 hover:bg-primary/90 transition-all uppercase shrink-0">
-                    <Save className="w-4 h-4" /> {loading ? "SAVING..." : "SAVE CHANGES"}
+                <button onClick={handleSave} disabled={loading} className="bg-primary text-white px-8 py-3.5 font-bold text-xs tracking-widest flex items-center gap-3 hover:bg-primary/90 transition-all uppercase shrink-0">
+                    <Save className="w-4 h-4" /> {loading ? "Saving..." : "Save Changes"}
                 </button>
             </header>
 
             <div className="flex flex-col lg:flex-row gap-6">
                 <nav className="w-full lg:w-56 flex lg:flex-col gap-1 shrink-0 overflow-x-auto">
                     {[
-                        { id: "overview", label: "OVERVIEW", icon: BookOpen },
-                        { id: "core", label: "CORE MODULE", icon: Activity },
-                        { id: "installation", label: "ENV & INSTALL", icon: LayoutGrid },
-                        { id: "scenarios", label: "TEST SCENARIO", icon: Target },
-                        { id: "troubleshooting", label: "DIAGNOSTICS", icon: AlertTriangle },
-                        { id: "references", label: "REFERENCES", icon: Globe }
+                        { id: "overview", label: "Overview", icon: BookOpen },
+                        { id: "core", label: "Modules", icon: Activity },
+                        { id: "installation", label: "Installation", icon: LayoutGrid },
+                        { id: "scenarios", label: "Scenarios", icon: Target },
+                        { id: "troubleshooting", label: "Diagnostics", icon: AlertTriangle },
+                        { id: "references", label: "References", icon: Globe }
                     ].map(t => (
-                        <button key={t.id} onClick={() => setActiveTab(t.id)} className={`shrink-0 lg:w-full text-left px-4 py-3 text-[12px] font-black uppercase tracking-[0.25em] border-l-2 transition-all flex items-center gap-3 whitespace-nowrap ${activeTab === t.id ? "bg-white/[0.04] border-primary text-white" : "border-transparent text-white/25 hover:text-white hover:bg-white/[0.01]"}`}>
+                        <button key={t.id} onClick={() => setActiveTab(t.id)} className={`shrink-0 lg:w-full text-left px-4 py-3 text-xs font-bold uppercase tracking-widest border-l-2 transition-all flex items-center gap-3 whitespace-nowrap ${activeTab === t.id ? "bg-white/[0.04] border-primary text-white" : "border-transparent text-white/25 hover:text-white hover:bg-white/[0.01]"}`}>
                             <t.icon className={`w-4 h-4 shrink-0 ${activeTab === t.id ? "text-primary" : "text-white/10"}`} />
                             {t.label}
                         </button>
@@ -168,10 +168,10 @@ export default function EditToolPage() {
                     {activeTab === "overview" && (
                         <div className="space-y-8 animate-in fade-in slide-in-from-left-4 duration-500">
                             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-                                <RichInput label="ASSET_NAME" value={name} onChange={setName} />
-                                <RichInput label="IDENTIFIER / DEVELOPER" value={developer} onChange={setDeveloper} />
+                                <RichInput label="Tool Name" value={name} onChange={setName} />
+                                <RichInput label="Developer" value={developer} onChange={setDeveloper} />
                                 <div className="space-y-2">
-                                    <label className="text-[12px] font-black text-white/20 uppercase tracking-widest">CLASSIFICATION</label>
+                                    <label className="text-xs font-bold text-white/20 uppercase tracking-widest">Category</label>
                                     <select value={category} onChange={e => setCategory(e.target.value)} className="w-full bg-black border border-white/10 p-4 text-white font-black focus:border-primary outline-none appearance-none text-sm">
                                         <option value="Exploitation">EXPLOITATION</option>
                                         <option value="Discovery">DISCOVERY</option>
@@ -180,7 +180,7 @@ export default function EditToolPage() {
                                     </select>
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-[12px] font-black text-white/20 uppercase tracking-widest">TIER</label>
+                                    <label className="text-xs font-bold text-white/20 uppercase tracking-widest">Tier</label>
                                     <select value={tier} onChange={e => setTier(e.target.value)} className="w-full bg-black border border-white/10 p-4 text-white font-black focus:border-primary outline-none appearance-none text-sm">
                                         <option value="Beginner">BEGINNER</option>
                                         <option value="Intermediate">INTERMEDIATE</option>
@@ -188,7 +188,7 @@ export default function EditToolPage() {
                                     </select>
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-[12px] font-black text-white/20 uppercase tracking-widest">BEST FOR</label>
+                                    <label className="text-xs font-bold text-white/20 uppercase tracking-widest">Best For</label>
                                     <select value={bestFor} onChange={e => setBestFor(e.target.value)} className="w-full bg-black border border-white/10 p-4 text-white font-black focus:border-primary outline-none appearance-none text-sm">
                                         <option value="Red Teaming">RED TEAMING</option>
                                         <option value="Penetration Testing">PENETRATION TESTING</option>
@@ -206,8 +206,8 @@ export default function EditToolPage() {
                     {activeTab === "core" && (
                         <div className="space-y-6 animate-in fade-in slide-in-from-left-4 duration-500">
                             <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                                <h3 className="text-lg font-black text-white uppercase tracking-widest">TACTICAL_MODULES</h3>
-                                <button onClick={addCoreModule} className="bg-white/5 px-4 py-2 hover:bg-primary transition-all border border-white/10 text-[11px] font-black tracking-widest uppercase">ADD_MODULE</button>
+                                <h3 className="text-lg font-bold text-white uppercase tracking-widest">Modules</h3>
+                                <button onClick={addCoreModule} className="bg-white/5 px-4 py-2 hover:bg-primary transition-all border border-white/10 text-[10px] font-bold tracking-widest uppercase">Add Module</button>
                             </div>
                             {coreModules.map((m, mi) => (
                                 <div key={mi} className="bg-white/[0.02] border border-white/5 p-5 space-y-4 relative group">
@@ -240,8 +240,8 @@ export default function EditToolPage() {
                     {activeTab === "installation" && (
                         <div className="space-y-6 animate-in fade-in slide-in-from-left-4 duration-500">
                             <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                                <h3 className="text-lg font-black text-white uppercase tracking-widest">ENV_&_INSTALL</h3>
-                                <button onClick={addInstallationTab} className="bg-white/5 px-4 py-2 hover:bg-primary transition-all border border-white/10 text-[10px] font-black tracking-widest uppercase">ADD_OS_TARGET</button>
+                                <h3 className="text-lg font-bold text-white uppercase tracking-widest">Installation</h3>
+                                <button onClick={addInstallationTab} className="bg-white/5 px-4 py-2 hover:bg-primary transition-all border border-white/10 text-[10px] font-bold tracking-widest uppercase">Add Target OS</button>
                             </div>
                             {installationSequence.map((tab, ti) => (
                                 <div key={ti} className="bg-white/[0.02] border border-white/5 p-5 space-y-4 relative">
@@ -266,8 +266,8 @@ export default function EditToolPage() {
                     {activeTab === "scenarios" && (
                         <div className="space-y-8 animate-in fade-in slide-in-from-left-4 duration-500">
                             <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                                <h3 className="text-lg font-black text-white uppercase tracking-widest">TEST_SCENARIO</h3>
-                                <button onClick={addScenario} className="bg-white/5 px-4 py-2 hover:bg-primary transition-all border border-white/10 text-[10px] font-black tracking-widest uppercase">ADD_SCENARIO</button>
+                                <h3 className="text-lg font-bold text-white uppercase tracking-widest">Scenarios</h3>
+                                <button onClick={addScenario} className="bg-white/5 px-4 py-2 hover:bg-primary transition-all border border-white/10 text-[10px] font-bold tracking-widest uppercase">Add Scenario</button>
                             </div>
                             {scenarios.map((s, si) => (
                                 <div key={si} className="bg-white/[0.02] border border-white/5 p-5 space-y-6 relative group">
@@ -329,8 +329,8 @@ export default function EditToolPage() {
                     {activeTab === "troubleshooting" && (
                         <div className="space-y-12 animate-in fade-in slide-in-from-left-4 duration-500">
                             <div className="flex justify-between items-center border-b border-white/5 pb-8">
-                                <h3 className="text-2xl font-black text-white uppercase tracking-widest">DIAGNOSTICS</h3>
-                                <button onClick={addTrouble} className="bg-white/5 p-4 hover:bg-primary transition-all border border-white/10 text-[10px] font-black tracking-widest uppercase">ADD_ENTRY</button>
+                                <h3 className="text-2xl font-bold text-white uppercase tracking-widest">Diagnostics</h3>
+                                <button onClick={addTrouble} className="bg-white/5 p-4 hover:bg-primary transition-all border border-white/10 text-[10px] font-bold tracking-widest uppercase">Add Entry</button>
                             </div>
                             {troubleshooting.map((t, i) => (
                                 <div key={i} className="bg-white/[0.02] border border-white/5 p-10 space-y-8 relative">
@@ -350,8 +350,8 @@ export default function EditToolPage() {
                     {activeTab === "references" && (
                         <div className="space-y-12 animate-in fade-in slide-in-from-left-4 duration-500">
                             <div className="flex justify-between items-center border-b border-white/5 pb-8">
-                                <h3 className="text-2xl font-black text-white uppercase tracking-widest">REFERENCES</h3>
-                                <button onClick={addReference} className="bg-white/5 p-4 hover:bg-primary transition-all border border-white/10 text-[10px] font-black tracking-widest uppercase">ADD_REFERENCE</button>
+                                <h3 className="text-2xl font-bold text-white uppercase tracking-widest">References</h3>
+                                <button onClick={addReference} className="bg-white/5 p-4 hover:bg-primary transition-all border border-white/10 text-[10px] font-bold tracking-widest uppercase">Add Reference</button>
                             </div>
                             {referencesList.map((ref, i) => (
                                 <div key={i} className="bg-white/[0.02] border border-white/5 p-8 flex gap-8 items-end relative">

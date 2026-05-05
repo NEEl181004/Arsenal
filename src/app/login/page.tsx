@@ -62,20 +62,20 @@ export default function LoginPage() {
                         <div className="w-8 h-8 bg-primary flex items-center justify-center">
                             <Shield className="w-4 h-4 text-white" />
                         </div>
-                        <span className="text-xl font-black tracking-[0.25em] text-white">ARSENAL</span>
+                        <span className="text-xl font-bold tracking-widest text-white">ARSENAL</span>
                     </div>
 
                     {/* Status badge */}
                     <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/20 px-4 py-1.5 mb-10">
                         <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.25em] text-primary">SYSTEM OPERATIONAL</span>
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-primary">System Operational</span>
                     </div>
 
                     {/* Headline */}
-                    <h1 className="font-black leading-[1.1] tracking-tighter uppercase text-white">
-                        <span className="block text-[clamp(1.6rem,3.2vw,3rem)] whitespace-nowrap">Red Teaming</span>
-                        <span className="block text-[clamp(1.6rem,3.2vw,3rem)] whitespace-nowrap text-primary">Tools</span>
-                        <span className="block text-[clamp(1.3rem,2.5vw,2.4rem)] whitespace-nowrap">Documentation</span>
+                    <h1 className="font-bold leading-[1.1] tracking-tight text-white">
+                        <span className="block text-4xl xl:text-5xl">Red Team</span>
+                        <span className="block text-4xl xl:text-5xl text-primary">Tools</span>
+                        <span className="block text-3xl xl:text-4xl text-white/80">Database</span>
                     </h1>
 
                     <p className="mt-8 text-sm text-white/30 font-light leading-relaxed max-w-sm">
@@ -111,13 +111,13 @@ export default function LoginPage() {
                     <div className="space-y-3">
                         <div className="flex items-center gap-2 text-primary mb-4">
                             <Lock className="w-4 h-4" />
-                            <span className="text-[10px] font-black uppercase tracking-[0.3em]">Secure Authentication</span>
+                            <span className="text-[10px] font-bold uppercase tracking-widest">Authentication</span>
                         </div>
-                        <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white uppercase">
-                            Access<br className="sm:hidden" /> Terminal
+                        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white uppercase">
+                            Sign In
                         </h2>
-                        <p className="text-white/30 text-sm font-light">
-                            Enter your credentials to authorize access to the Arsenal platform.
+                        <p className="text-white/40 text-sm font-medium">
+                            Enter your credentials to access the Arsenal platform.
                         </p>
                     </div>
 
@@ -133,7 +133,7 @@ export default function LoginPage() {
                         <div className="space-y-5">
                             {/* Email */}
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black text-white/30 uppercase tracking-[0.25em]">
+                                <label className="text-[10px] font-bold text-white/30 uppercase tracking-widest">
                                     Email Address
                                 </label>
                                 <input
@@ -150,10 +150,10 @@ export default function LoginPage() {
                             {/* Password */}
                             <div className="space-y-2">
                                 <div className="flex justify-between items-center">
-                                    <label className="text-[10px] font-black text-white/30 uppercase tracking-[0.25em]">Password</label>
+                                    <label className="text-[10px] font-bold text-white/30 uppercase tracking-widest">Password</label>
                                     <button
                                         type="button"
-                                        className="text-[9px] font-black text-primary/70 hover:text-primary transition-colors tracking-widest uppercase"
+                                        className="text-[9px] font-bold text-primary/70 hover:text-primary transition-colors tracking-widest uppercase"
                                     >
                                         Forgot?
                                     </button>
@@ -184,7 +184,7 @@ export default function LoginPage() {
                                     <div className="w-2 h-2 bg-primary scale-0 group-hover:scale-100 transition-transform" />
                                 </div>
                                 <span className="text-[11px] font-medium text-white/20 uppercase tracking-widest group-hover:text-white/40 transition-colors">
-                                    Remember this terminal
+                                    Remember me
                                 </span>
                             </label>
                         </div>
@@ -194,14 +194,14 @@ export default function LoginPage() {
                             <button
                                 type="submit"
                                 disabled={isAuthenticating}
-                                className="w-full bg-primary text-white font-black text-[11px] py-4 tracking-[0.3em] hover:bg-primary/90 active:scale-[0.98] transition-all duration-300 uppercase disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-xl shadow-primary/10"
+                                className="w-full bg-primary text-white font-bold text-xs py-4 tracking-widest hover:bg-primary/90 active:scale-[0.98] transition-all duration-300 uppercase disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-xl shadow-primary/10"
                             >
                                 {isAuthenticating ? (
                                     <>
                                         <Loader2 className="w-4 h-4 animate-spin" />
-                                        Authenticating...
+                                        Logging in...
                                     </>
-                                ) : "Initialize Session"}
+                                ) : "Login"}
                             </button>
 
                             <p className="text-center text-[11px] font-medium text-white/30 uppercase tracking-widest">
@@ -219,7 +219,7 @@ export default function LoginPage() {
                     {/* Footer links */}
                     <div className="pt-6 border-t border-white/[0.04] flex justify-center gap-8">
                         {["Privacy", "Terms", "Security"].map((l) => (
-                            <button key={l} className="text-[9px] font-black text-white/10 hover:text-white/30 uppercase tracking-widest transition-colors">
+                            <button key={l} className="text-[9px] font-bold text-white/10 hover:text-white/30 uppercase tracking-widest transition-colors">
                                 {l}
                             </button>
                         ))}

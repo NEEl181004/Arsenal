@@ -9,74 +9,48 @@
   --color-outline: #222222;
   --color-text-dim: #888888;
   
-  --font-headline: var(--font-space-grotesk), sans-serif;
-  --font-sans: var(--font-inter), sans-serif;
+  --font-headline: var(--font-outfit), sans-serif;
+  --font-sans: var(--font-plus-jakarta), sans-serif;
   --font-mono: var(--font-mono-jetbrains), monospace;
 }
 
 @layer base {
   body {
-    @apply bg-background text-white antialiased font-sans;
-    font-style: normal !important;
+    @apply bg-background text-white antialiased font-sans text-base;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-headline);
-    font-style: normal !important;
+    @apply font-headline;
   }
   
   * {
-    font-style: normal !important;
     overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
   }
 }
 
 @layer components {
   .font-headline {
-    @apply font-black;
-    font-size: clamp(2rem, 8vw, 6rem);
-    line-height: 1;
+    @apply font-bold tracking-tight;
   }
 
   .text-small {
-    font-size: 13px;
-    letter-spacing: 0.2em;
-    font-weight: 900;
+    @apply text-xs font-bold tracking-widest uppercase;
   }
 
   .text-base-custom {
-    font-size: 16px;
-    line-height: 1.6;
+    @apply text-base leading-relaxed;
   }
 
   .text-large-custom {
-    font-size: 28px;
-    font-weight: 900;
-    letter-spacing: -0.02em;
+    @apply text-2xl md:text-3xl font-bold tracking-tight;
   }
   
   .glass-panel {
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(4px);
-  }
-
-  .red-glow {
-    text-shadow: 0 0 10px rgba(255, 0, 60, 0.5);
-  }
-
-  .red-border-glow {
-    box-shadow: 0 0 15px rgba(255, 0, 60, 0.2);
+    @apply bg-white/[0.02] border border-white/[0.05] backdrop-blur-md;
   }
 
   .classified-label {
-    @apply text-[13px] font-black tracking-[0.2em] uppercase text-primary mb-2 flex items-center gap-2;
-  }
-  
-  .security-pulse {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    @apply text-[11px] font-bold tracking-widest uppercase text-primary mb-2 flex items-center gap-2 opacity-80;
   }
 }
 
