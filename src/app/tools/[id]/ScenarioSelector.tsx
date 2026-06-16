@@ -67,25 +67,31 @@ export default function ScenarioSelector({ scenarios }: { scenarios: IScenario[]
             </div>
 
             {/* REORDERED Sections */}
-            <div className="space-y-16">
+            <div className="space-y-12">
                 {/* 1. MISSION OBJECTIVE */}
-                <div className="space-y-8">
-                    <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">MISSION OBJECTIVE</div>
+                {(active.objective || (active.objectiveList && active.objectiveList.filter(Boolean).length > 0)) && (
                     <div className="space-y-6">
-                        <h3 className="text-sm md:text-base font-bold text-white uppercase tracking-tight break-words" dangerouslySetInnerHTML={{ __html: active.objective || "AWAITING..." }} />
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {(active.objectiveList || []).map((obj, i) => (
-                                <div key={i} className="flex items-start gap-4 p-5 bg-white/[0.02] border border-white/5">
-                                    <div className="w-1.5 h-1.5 bg-primary mt-1.5 shrink-0"></div>
-                                    <span className="text-sm text-white/60 font-light leading-relaxed break-words" dangerouslySetInnerHTML={{ __html: obj }} />
+                        <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">MISSION OBJECTIVE</div>
+                        <div className="space-y-4">
+                            {active.objective && (
+                                <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight break-words" dangerouslySetInnerHTML={{ __html: active.objective }} />
+                            )}
+                            {active.objectiveList && active.objectiveList.filter(Boolean).length > 0 && (
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    {active.objectiveList.filter(Boolean).map((obj, i) => (
+                                        <div key={i} className="flex items-start gap-3 p-4 bg-white/[0.01] border border-white/5">
+                                            <div className="w-1.5 h-1.5 bg-primary mt-1.5 shrink-0"></div>
+                                            <span className="text-xs text-white/60 font-light leading-relaxed break-words" dangerouslySetInnerHTML={{ __html: obj }} />
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            )}
                         </div>
                     </div>
-                </div>
+                )}
 
                 {/* 2. EXECUTION SCRIPT */}
-                <div className="space-y-6">
+                <div className="space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div className="flex items-center gap-4">
                             <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">EXECUTION SCRIPT</div>
@@ -127,16 +133,16 @@ export default function ScenarioSelector({ scenarios }: { scenarios: IScenario[]
                     </div>
                 </div>
 
-                {/* 3. LIVE EVIDENCE */}
-                <div className="space-y-8">
-                    <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">LIVE EVIDENCE LOGS</div>
+                {/* 3. OUTPUT */}
+                <div className="space-y-6">
+                    <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">OUTPUT</div>
                     <div className="bg-[#080808] border border-white/5 p-4 relative group overflow-hidden max-h-[400px] flex items-center justify-center shadow-inner">
                         {active.logsImage ? (
-                            <img src={active.logsImage} alt="Evidence" className="max-h-[360px] w-auto grayscale group-hover:grayscale-0 transition-all duration-1000 object-contain" />
+                            <img src={active.logsImage} alt="Output" className="max-h-[360px] w-auto grayscale group-hover:grayscale-0 transition-all duration-1000 object-contain" />
                         ) : (
                             <div className="py-20 text-white/5 flex flex-col items-center gap-6">
                                 <ShieldAlert className="w-20 h-20" />
-                                <span className="text-xs font-bold uppercase tracking-widest whitespace-nowrap">NO EVIDENCE ATTACHED</span>
+                                <span className="text-xs font-bold uppercase tracking-widest whitespace-nowrap">NO OUTPUT ATTACHED</span>
                             </div>
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>

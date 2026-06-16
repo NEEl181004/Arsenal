@@ -109,14 +109,6 @@ export default async function Home({
                     ))
                 )}
             </div>
-            
-            <div className="mt-20 pt-8 border-t border-white/[0.03] flex items-center justify-center">
-                <div className="flex items-center gap-3">
-                    <span className="w-8 h-[1px] bg-white/10"></span>
-                    <span className="text-[10px] font-bold text-white/20 uppercase tracking-[0.4em]">End of Index</span>
-                    <span className="w-8 h-[1px] bg-white/10"></span>
-                </div>
-            </div>
         </div>
     );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, Suspense } from "react";
+import { usePathname } from "next/navigation";
 import TopNav from "@/components/TopNav";
 import SideNav from "@/components/SideNav";
 import { NextAuthProvider } from "@/components/Providers";
@@ -12,6 +13,9 @@ export default function LayoutWrapper({
 }) {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
+    const pathname = usePathname();
+
+    const isAuthPage = pathname === "/login" || pathname === "/signup";
 
     const onMenuClick = () => {
         if (window.innerWidth < 768) {
@@ -20,6 +24,16 @@ export default function LayoutWrapper({
             setIsCollapsed(!isCollapsed);
         }
     };
+
+    if (isAuthPage) {
+        return (
+            <NextAuthProvider>
+                <div className="min-h-screen bg-[#0a0a0a]">
+                    {children}
+                </div>
+            </NextAuthProvider>
+        );
+    }
 
     return (
         <NextAuthProvider>
@@ -38,6 +52,11 @@ export default function LayoutWrapper({
                     <main className="flex-1 py-12 px-6 md:px-8 lg:px-16 w-full max-w-none">
                         {children}
                     </main>
+                    <footer className="py-6 border-t border-white/[0.03] text-center">
+                        <span className="text-[10px] text-white/20 uppercase tracking-[0.2em] font-medium">
+                            &copy; {new Date().getFullYear()} ARSENAL. ALL RIGHTS RESERVED.
+                        </span>
+                    </footer>
                 </div>
             </div>
         </NextAuthProvider>
