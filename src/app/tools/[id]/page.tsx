@@ -1,6 +1,6 @@
 import connectToDatabase from "@/lib/db";
 import Tool from "@/models/Tool";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import { 
     Pencil, 
@@ -45,9 +45,6 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
     if (!tool) return notFound();
 
     const session = await getServerSession(authOptions);
-    if (!session) {
-        redirect("/login");
-    }
     const isAdmin = session?.user?.role === "admin";
 
     return (
