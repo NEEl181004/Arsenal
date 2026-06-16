@@ -464,8 +464,117 @@ def build_structured_data(tool_name, docx_filename):
         if not s_name or s_name.lower().startswith('use case') or len(s_name) > 80:
             s_name = f"Security Action Scenario {s_idx+1}"
             
+        # Convert all images in the scenario to Base64 and join with "||"
+        base64_list = []
+        for img_name in raw_s["images"]:
+            b64 = extract_base64_image(filepath, img_name)
+            if b64:
+                base64_list.append(b64)
+        logs_image_base64 = "||".join(base64_list)
+
+        # Generate scenario-specific takeaways and attack plans
+        # Let's map scenario names or content to specialized takeaways
+        clean_name = raw_s["name"]
+        clean_name = re.sub(r'^(test\s*\d+\s*:\s*|scenario\s*\d+\s*:\s*|scenario\s*\d+\s*-\s*|\d+\.\d+\s*|use\s*cases\s*:-\s*\d+\.\d+\s*)', '', clean_name, flags=re.IGNORECASE).strip()
+        clean_name = re.sub(r'^[●\-\•\*\s\d\.\:]+', '', clean_name).strip()
+        if not clean_name or len(clean_name) > 85:
+            clean_name = f"Security Testing Scenario {s_idx+1}"
+
+        # Customized takeaways based on tool and scenario commands
+        takeaway_items = []
+        attack_items = []
+
+        # Parse from text if present
+        for el in raw_s["paragraphs"]:
+            t = el.get('text', '').strip()
+            if not t or len(t) < 15:
+                continue
+            lower_t = t.lower()
+            if any(x in lower_t for x in ['takeaway', 'finding', 'analysis', 'recommendation', 'vulnerability', 'cve', 'implication']):
+                if ':' in t:
+                    parts = t.split(':', 1)
+                    title = parts[0].strip().upper().replace(' ', '_').replace('-', '_')[:25]
+                    content = parts[1].strip()
+                    if len(title) > 3 and len(content) > 10:
+                        takeaway_items.append({"title": title, "content": content})
+                else:
+                    takeaway_items.append({
+                        "title": "SECURITY_FINDING",
+                        "content": t
+                    })
+            if any(x in lower_t for x in ['attack', 'exploit', 'pivot', 'lateral', 'privilege', 'risk']):
+                if '|' in t:
+                    parts = t.split('|')
+                    title = parts[0].strip().upper().replace(' ', '_')[:25]
+                    risk = "HIGH" if "high" in lower_t else ("CRITICAL" if "critical" in lower_t else "MEDIUM")
+                    desc = parts[-1].strip()
+                    attack_items.append({"title": title, "risk": risk, "desc": desc})
+                elif ':' in t:
+                    parts = t.split(':', 1)
+                    title = parts[0].strip().upper().replace(' ', '_')[:25]
+                    desc = parts[1].strip()
+                    attack_items.append({"title": title, "risk": "MEDIUM", "desc": desc})
+
+        # Ensure we have exactly 3 to 5 high-quality entries
+        if len(takeaway_items) < 3:
+            # Add scenario-specific high quality entries
+            if tool_name == "Auditd":
+                takeaway_items = [
+                    {"title": "REALTIME_MONITORING", "content": "The audit daemon captures system calls in real-time, providing immediate visibility into system and file changes."},
+                    {"title": "PERSISTENCE_VERIFICATION", "content": "Creating persistent rules in rules.d ensures monitoring policies survive server reboots and policy reloads."},
+                    {"title": "LEAST_PRIVILEGE_AUDIT", "content": "Auditing syscall execution paths directly exposes unauthorized privilege escalation or command run attempts."}
+                ]
+            elif tool_name == "DNSRecon":
+                takeaway_items = [
+                    {"title": "ZONE_EXPOSURE", "content": "Misconfigured DNS zones allow attackers to download complete host mappings via unauthorized AXFR queries."},
+                    {"title": "DNSSEC_DEFENSE", "content": "Implementing DNSSEC signatures prevents DNS poisoning and spoofing attacks at the boundary."},
+                    {"title": "SUBDOMAIN_DISCOVERY", "content": "Active subdomain brute-forcing reveals forgotten staging areas or unauthenticated internal tools."}
+                ]
+            elif tool_name == "HPING3":
+                takeaway_items = [
+                    {"title": "FIREWALL_BYPASS", "content": "Custom packet flag crafting helps bypass stateless firewall configurations by emulating established sessions."},
+                    {"title": "ICMP_PROBING", "content": "Triggering specific TCP replies is useful for network discovery when standard ICMP queries are filtered."},
+                    {"title": "RESOURCE_FLOODING", "content": "Simulating high-volume SYN request streams helps validate WAF and rate limiter security policies."}
+                ]
+            else:
+                takeaway_items = [
+                    {"title": "OPERATIONAL_EFFECTIVENESS", "content": f"Automated execution profiles of {tool_name} accelerate baseline information gathering."},
+                    {"title": "SECURITY_EXPOSURE", "content": "Exposing target systems configurations through OSINT indicators helps plan subsequent exploits."},
+                    {"title": "REMEDIATION_PRIORITY", "content": "Patching exposed vulnerabilities immediately restricts the available entry points for attackers."}
+                ]
+
+        if len(attack_items) < 3:
+            if tool_name == "Auditd":
+                attack_items = [
+                    {"title": "PRIVILEGE_ESCALATION", "risk": "HIGH", "desc": "Monitor execution of commands by root that were initiated by standard users."},
+                    {"title": "LOG_MUTATION", "risk": "CRITICAL", "desc": "Prevent or monitor unauthorized write access to /var/log/audit/ to ensure log integrity."},
+                    {"title": "SUDOERS_HIJACK", "risk": "HIGH", "desc": "Detect unauthorized modifications to the /etc/sudoers file that grant excessive permissions."}
+                ]
+            elif tool_name == "DNSRecon":
+                attack_items = [
+                    {"title": "SUBDOMAIN_TAKEOVER", "risk": "HIGH", "desc": "Identify subdomains pointing to unused third-party services for potential takeover attacks."},
+                    {"title": "DNS_SPOOFING", "risk": "MEDIUM", "desc": "Launch man-in-the-middle poisoning attacks on domains lacking DNSSEC validation."},
+                    {"title": "FOOTPRINT_PIVOT", "risk": "MEDIUM", "desc": "Utilize discovered host list to target vulnerabilities in internal application ports."}
+                ]
+            elif tool_name == "HPING3":
+                attack_items = [
+                    {"title": "DENIAL_OF_SERVICE", "risk": "HIGH", "desc": "Deploy custom SYN flood profiles to saturate server resources and trigger failover states."},
+                    {"title": "PORTSCAN_STEALTH", "risk": "MEDIUM", "desc": "Perform low-rate stealth scanning using custom FIN/XMAS flags to map firewall ACL rules."},
+                    {"title": "IP_SPOOFING", "risk": "HIGH", "desc": "Spoof source IP addresses to bypass IP-based access control lists on target hosts."}
+                ]
+            else:
+                attack_items = [
+                    {"title": "CVE_EXPLOITATION", "risk": "CRITICAL", "desc": "Target identified service version vulnerabilities with publicly available public exploits."},
+                    {"title": "CREDENTIAL_SPRAYING", "risk": "HIGH", "desc": "Leverage exposed logins or portals to perform low-and-slow default password brute forcing."},
+                    {"title": "DATA_EXFILTRATION", "risk": "MEDIUM", "desc": "Utilize open directory listings or exposed databases to directly siphon sensitive business assets."}
+                ]
+
+        # Limit count to 3-5
+        takeaway_items = takeaway_items[:5]
+        attack_items = attack_items[:5]
+            
         processed_scenarios.append({
-            "name": s_name,
+            "name": clean_name,
             "objective": objective_main,
             "objectiveList": objective_list,
             "script": script_text,

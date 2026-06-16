@@ -31,6 +31,9 @@ import DiagnosisAccordion from "./DiagnosisAccordion";
 import CoreModuleViewer from "./CoreModuleViewer";
 import AdminMobileLock from "./AdminMobileLock";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function ToolPage({ params }: { params: Promise<{ id: string }> }) {
     await connectToDatabase();
     
@@ -61,6 +64,8 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                             <Link href={`/admin/tools/${tool._id}/edit`} className="hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-widest bg-white/[0.03] px-6 py-2.5 hover:bg-primary transition-all border border-white/10 whitespace-nowrap">
                                 <Pencil className="w-3.5 h-3.5" /> Edit
                             </Link>
+                            {/* Delete button for Admin */}
+                            <DeleteToolButton id={tool._id.toString()} />
                             {/* Mobile edit button with warning */}
                             <AdminMobileLock />
                         </div>
