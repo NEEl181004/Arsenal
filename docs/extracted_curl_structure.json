@@ -1,0 +1,2290 @@
+[
+  {
+    "type": "p",
+    "text": "Web Application Security Testing Guide:  n for Information Gathering and Session Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. Introduction",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This document provides a comprehensive collection of curl commands for web application security testing, focusing on information gathering, application architecture mapping, website mirroring, cryptography testing, business logic testing, and session management testing. Each command includes a detailed explanation of its purpose, execution details, expected output, and security implications.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. URL Structure Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Understanding the URL structure of a target application is fundamental to effective security testing. The following commands help analyze and map URL patterns.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2.1 Extracting and Categorizing URLs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2.1.1 Extract All Links from the Homepage",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s https://example.com | grep -o 'href=\"[^\"]*\"' | sed 's/href=\"//g' | sed 's/\"//g' | sort | uniq > urls.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image22.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Harvests all hyperlinks from the target website's homepage for further analysis.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-s: Silent mode, suppresses progress meter and error messages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep -o 'href=\"[^\"]*\"': Extracts all href attributes from HTML tags",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sed 's/href=\"//g': Removes the \"href=\" prefix",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sed 's/\"//g': Removes remaining quotation marks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sort | uniq: Sorts alphabetically and removes duplicates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "> urls.txt: Saves results to a file for further analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image13.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: A text file containing all unique URLs found on the homepage.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Helps identify potentially sensitive areas of the application, API endpoints, and resource patterns that might not be immediately apparent.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2.1.2 Categorize URLs by Pattern",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep \"/product/\" urls.txt > product_urls.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep \"/category/\" urls.txt > category_urls.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep \"/api/\" urls.txt > api_urls.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep \"login\\|signin\\|auth\" urls.txt > auth_urls.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image21.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image12.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Organizes discovered URLs into functional categories for targeted testing.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These commands filter the previously extracted URLs based on common patterns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Each pattern is saved to a dedicated file for further analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: Multiple text files, each containing URLs that match specific functional categories.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Helps identify application structure and critical endpoints for more focused security testing.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2.2 Advanced URL Discovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2.2.1 Extract URL Parameters from JavaScript",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s https://example.com/main.js | grep -o \"url.*?\" | grep -o \"?[^'\\\"]*\" > parameters.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image23.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Identifies URL parameters that might be used in AJAX requests or other dynamic content loading.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Downloads JavaScript file(s) from the target application",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Uses regex to extract URL patterns and parameters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Saves parameters to a dedicated file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: A list of URL parameters used in JavaScript, potentially revealing undocumented API endpoints.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Exposes parameters that might be vulnerable to injection attacks or capable of controlling sensitive functionality.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2.2.2 Discover Hidden API Endpoints",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s https://www.w3schools.com | grep -o '<script[^>]*src=\"[^\"]*\"' | grep -o 'src=\"[^\"]*\"' | cut -d'\"' -f2 | while read script; do",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "if [[ ! $script =~ ^http ]]; then",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "if [[ $script =~ ^// ]]; then",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "script=\"https:$script\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "else",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "script=\"https://www.w3schools.com$script\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "fi",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "fi",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s \"$script\" | grep -oE '/api/[^\"]+' | sort -u",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "done",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image11.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Examines all loaded JavaScript files to identify references to API endpoints that may not be visible in the HTML content.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extracts all script source references from the target page",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Properly handles relative and absolute URLs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Downloads each script and searches for API endpoint references",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consolidates and de-duplicates findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: A list of API endpoints referenced in JavaScript files.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Reveals potentially sensitive API endpoints that might not be properly secured against unauthorized access.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Session Management Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Understanding how applications manage sessions is critical for security testing. These commands help identify and analyze session mechanisms.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3.1 Identifying Session Storage Mechanisms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3.1.1 Examine Cookies Set During Initial Visit",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -v https://example.com 2>&1 | grep -i \"set-cookie\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image19.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image32.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Identifies cookies set by the application during the initial visit, which often include session identifiers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-v: Enables verbose output to see headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2>&1: Redirects stderr to stdout since curl outputs headers to stderr",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep -i \"set-cookie\": Filters for cookie-setting headers, case-insensitive",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: A list of Set-Cookie headers returned by the server.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Reveals how the application initiates session tracking and what information is stored in cookies.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3.1.2 Save and Examine Cookies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Save cookies to a file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -I -c cookies.txt https://example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Display cookie contents",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "cat cookies.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image28.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Captures all cookies set by the application and allows detailed examination of their attributes.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-c cookies.txt: Saves cookies to the specified file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The file format includes domain, path, secure flag, expiration, name, and value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: A structured file containing all cookie details.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Allows assessment of cookie security attributes such as HttpOnly, Secure flags, expiration times, and domain scope.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3.2 Extracting Session Identifiers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3.2.1 Extract Session Cookie Values",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep -i \"sessionid\\|phpsessid\\|jsessionid\" cookies.txt | awk '{print $NF}'",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image20.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Isolates session identifier values from cookies for use in further testing.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep -i: Searches case-insensitively for common session cookie names",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "awk '{print $NF}': Prints the last field, which is the cookie value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: Raw session identifier values without additional cookie attributes.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Allows analysis of session ID entropy, predictability, and structure, which can reveal weaknesses in session management.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3.2.2 Capture Post-Authentication Session",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -c auth_cookies.txt -X POST https://example.com/login \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d \"username=test&password=test123\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-H \"Content-Type: application/x-www-form-urlencoded\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image16.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image33.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image14.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image17.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Simulates a login attempt and captures the resulting authenticated session cookies.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-X POST: Specifies POST method for form submission",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d: Provides form data for authentication",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The field names (username, password) must be adjusted based on the actual form",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: A cookie file containing authentication and session cookies set after login.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Enables comparison between pre-authentication and post-authentication cookies to identify session establishment patterns.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3.2.3 Extract and Store Session ID for Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SESSION_ID=$(grep -i \"sessionid\" auth_cookies.txt | awk '{print $NF}')",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Use it in a subsequent request",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -b \"SESSIONID=$SESSION_ID\" https://example.com/protected-area",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image2.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Extracts a session identifier for use in subsequent requests to test session management.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "First command extracts and stores the session ID in a variable",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Second command uses the session ID to access a protected resource",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-b: Sets the specified cookie in the request",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: The response from the protected resource if the session is valid.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Establishes a foundation for session manipulation tests and session management bypass attempts.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4. Information Gathering - Review Web Metadata",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These commands help identify potentially sensitive information exposed through HTTP headers and HTML metadata.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4.1 Basic HTTP Header Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4.1.1 Collect Server Information Headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -I https://example.com | grep -E 'Server|X-|Content-|Date'",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image1.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Retrieves HTTP headers that may reveal information about the server technology stack.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-I: Sends a HEAD request to retrieve only headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep -E: Filters for specific header types that commonly leak information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: HTTP headers that might reveal server software, version, frameworks, and custom headers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Excessive information disclosure in headers can help attackers identify vulnerabilities specific to the revealed technologies.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4.1.2 Check for Security Headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -I https://example.com | grep -E 'X-XSS-Protection|X-Frame-Options|Content-Security-Policy|Strict-Transport-Security'",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image31.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Identifies the presence or absence of security-related HTTP headers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Filters specifically for security headers that protect against common web vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: Any security headers implemented by the application.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Missing security headers may indicate vulnerability to attacks like XSS, clickjacking, or transport layer security issues.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4.2 HTML Metadata Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4.2.1 Extract HTML Meta Tags",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s https://example.com | grep -o '<meta[^>]*>'",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image8.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Gathers meta tags from HTML which may contain sensitive information.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep -o: Outputs only the matching part of the line",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Pattern matches complete meta tags",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: All meta tags from the page HTML.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Meta tags might reveal CMS information, author details, or internal documentation references that could be useful for attackers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4.2.2 Extract HTML Comments",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s https://example.com | grep -o '<!--.*?-->'",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image15.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Extracts developer comments from HTML that may contain sensitive information.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Pattern matches HTML comment syntax",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: All HTML comments in the page source.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Comments often contain debugging information, credentials, or other sensitive data inadvertently left by developers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4.3 Application Information Resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4.3.1 Retrieve robots.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s https://example.com/robots.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image27.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Examines the robots.txt file which may reveal directories the site owner wishes to keep private.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Simple direct request to the robots.txt file at the domain root",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: The contents of robots.txt if it exists.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Often reveals sensitive directories that should not be indexed by search engines but may be accessible directly.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4.3.2 Check for sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s https://example.com/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image38.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Retrieves the sitemap which provides a comprehensive list of accessible URLs.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Direct request to the standard sitemap location",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: XML content listing site URLs if available.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: May reveal forgotten or hidden content that wasn't intended for public access.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5. Information Gathering - Map Application Architecture",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These commands help identify the underlying technologies and architecture of the target application.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5.1 Server Technology Identification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5.1.1 Identify Web Server and Technology Stack",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -I https://example.com | grep -i 'server\\|x-powered-by'",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image29.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Determines the web server software and potential framework information.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-I: Sends a HEAD request to retrieve only headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep -i: Case-insensitive search for server technology indicators",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: Headers that reveal server software (Apache, Nginx, etc.) and frameworks (PHP, ASP.NET, etc.).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Knowing the exact technologies allows for targeted exploitation of known vulnerabilities.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5.1.2 Detect Web Application Firewall (WAF)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -I -X GET \"https://example.com/?test=<script>alert(1)</script>\" | grep -i 'server\\|x-powered-by\\|waf'",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image26.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Tests for the presence of a WAF by sending a basic XSS probe.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sends a request with a simple XSS payload",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Looks for WAF indicators in the response headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: Headers may reveal WAF presence or custom security headers if a WAF is active.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: WAF detection helps determine the level of protection and whether more sophisticated bypass techniques are needed.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5.2 Framework and Backend Detection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5.2.1 Check for Cookie Technology Indicators",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -I https://example.com | grep -i 'set-cookie'",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image35.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Examines cookies for framework-specific naming patterns.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Focuses on Set-Cookie headers which often contain framework-specific identifiers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: Cookie names that may indicate technologies (PHPSESSID, JSESSIONID, ASP.NET_SessionId).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Framework identification enables targeted attacks against known framework vulnerabilities.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5.2.2 Test HTTP Method Support",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -X OPTIONS https://example.com -i | grep -i allow",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image25.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Determines which HTTP methods are supported by the server.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-X OPTIONS: Sends an OPTIONS request",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-i: Includes response headers in output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep -i allow: Filters for the Allow header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: An Allow header listing supported HTTP methods.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Unusual HTTP method support (PUT, DELETE) may indicate REST APIs or potential for HTTP method-based attacks.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5.3 Proxy and Infrastructure Detection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5.3.1 Check for Proxy Headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -I https://example.com | grep -i 'via\\|x-forwarded'",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image7.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Identifies if the application sits behind a proxy or load balancer.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Looks for headers typically added by proxies and load balancers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: Headers like Via, X-Forwarded-For, X-Forwarded-Host if proxies are in use.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Reveals network architecture and potential for proxy-based attacks or header injection.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6. Session Management Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These commands help evaluate the security of the application's session management implementation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6.1 Session Fixation Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6.1.1 Test for Session Fixation Vulnerability",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Step 1: Capture an unauthenticated session",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -c unauth_cookies.txt http://testphp.vulnweb.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image5.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Step 2: Extract the session ID",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "UNAUTH_SESSION=$(awk '/sessionid/ {print $NF}' unauth_cookies.txt | tail -n 1)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Step 3: Attempt login while maintaining the same session ID",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -b unauth_cookies.txt -c post_login_cookies.txt -X POST http://testphp.vulnweb.com/login.php \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d \"test%2Ftest\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-H \"Content-Type: application/x-www-form-urlencoded\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image18.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Step 4: Extract the new session ID after login",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "NEW_SESSION=$(awk '/sessionid/ {print $NF}' post_login_cookies.txt | tail -n 1)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Step 5: Compare session IDs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "if [ \"$UNAUTH_SESSION\" = \"$NEW_SESSION\" ]; then",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo \"VULNERABLE: Session ID not regenerated after login\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "else",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo \"SECURE: Session ID regenerated after login\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "fi",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image4.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image37.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Tests whether the application regenerates session IDs upon login, which is essential to prevent session fixation attacks.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "First obtains an unauthenticated session",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attempts login while maintaining the same session ID",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Compares pre-login and post-login session IDs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: Indication of whether the session ID changes after authentication.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: If session IDs are not regenerated after authentication, the application is vulnerable to session fixation attacks.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6.2 Session Expiration Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6.2.1 Test for Session Timeout",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Login and capture session",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -c auth_cookies.txt -X POST https://example.com/login \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d \"username=test&password=test123\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-H \"Content-Type: application/x-www-form-urlencoded\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Extract session ID",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SESSION_ID=$(grep -i \"sessionid\" auth_cookies.txt | awk '{print $NF}')",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Test access to protected resource immediately",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -b \"SESSIONID=$SESSION_ID\" https://example.com/profile -o /dev/null -w \"Initial Access: %{http_code}\\n\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Wait for potential timeout period (e.g., 30 minutes)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo \"Waiting for 30 minutes to test session timeout...\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sleep 1800",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Test access again after waiting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -b \"SESSIONID=$SESSION_ID\" https://example.com/profile -o /dev/null -w \"After Timeout: %{http_code}\\n\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Evaluates whether the application implements proper session timeout mechanisms.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Authenticates and captures a valid session",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tests immediate access to a protected resource",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Waits for a reasonable timeout period",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tests access again to see if the session has expired",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: HTTP status codes indicating whether access is still granted after the timeout period.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Lack of proper session timeout increases the risk of session hijacking, especially on shared computers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6.3 Cookie Security Attribute Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6.3.1 Check for Secure and HttpOnly Flags",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -I https://example.com | grep -i \"set-cookie\" | grep -i \"secure\\|httponly\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image9.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Verifies if cookies are protected with the Secure and HttpOnly flags.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Examines Set-Cookie headers for security attributes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Secure flag ensures cookies are only sent over HTTPS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HttpOnly flag prevents JavaScript access to cookies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: Cookie headers showing whether these security flags are present.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Missing Secure flag allows cookie transmission over unencrypted connections; missing HttpOnly flag increases XSS risk.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6.3.2 Test for SameSite Attribute",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -I https://example.com | grep -i \"set-cookie\" | grep -i \"samesite\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image24.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Determines if cookies have SameSite attribute to prevent CSRF attacks.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Examines Set-Cookie headers for the SameSite attribute",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SameSite can be Strict, Lax, or None",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: Cookie headers showing whether the SameSite attribute is present and its value.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Missing SameSite attribute increases vulnerability to CSRF attacks.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6.4 Session Puzzling Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6.4.1 Test for Session Puzzling Vulnerability",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Create an account with registration form",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -c reg_cookies.txt -X POST https://example.com/register \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d \"username=test&email=test@example.com\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-H \"Content-Type: application/x-www-form-urlencoded\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Extract session ID from registration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "REG_SESSION=$(grep -i \"sessionid\" reg_cookies.txt | awk '{print $NF}')",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Try to access login-protected areas with registration session",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -b \"SESSIONID=$REG_SESSION\" https://example.com/dashboard -o /dev/null -w \"Access Status: %{http_code}\\n\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image22.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image6.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Tests if different authentication mechanisms (registration, login, password reset) share the same session context.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Initiates a session through registration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attempts to access resources that should require full authentication",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: HTTP status code indicating whether access is granted or denied.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: If different authentication contexts share session state, attackers might bypass authentication controls.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6.5 Concurrent Session Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6.5.1 Test for Concurrent Session Handling",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Login with first session",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -c session1.txt -X POST https://example.com/login \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d \"username=test&password=test123\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-H \"Content-Type: application/x-www-form-urlencoded\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Login with second session",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -c session2.txt -X POST https://example.com/login \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d \"username=test&password=test123\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-H \"Content-Type: application/x-www-form-urlencoded\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Extract session IDs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SESSION1=$(grep -i \"sessionid\" session1.txt | awk '{print $NF}')",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SESSION2=$(grep -i \"sessionid\" session2.txt | awk '{print $NF}')",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Check if both sessions are valid",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -b \"SESSIONID=$SESSION1\" https://example.com/profile -o /dev/null -w \"First Session: %{http_code}\\n\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -b \"SESSIONID=$SESSION2\" https://example.com/profile -o /dev/null -w \"Second Session: %{http_code}\\n\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image36.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image34.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Evaluates how the application handles multiple concurrent sessions for the same user.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Creates two separate authenticated sessions for the same user",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tests if both sessions remain active simultaneously",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: HTTP status codes indicating whether both sessions are valid.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Allowing unlimited concurrent sessions may increase the risk of account compromise.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7. Business Logic Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These commands help identify vulnerabilities in the application's business logic implementation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7.1 Parameter Manipulation Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7.1.1 Test for Parameter Manipulation Vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Baseline request",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -X POST https://example.com/api/user/profile \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-H \"Content-Type: application/json\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-H \"Cookie: SESSIONID=valid_session_id\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d '{\"user_id\": 123, \"action\": \"view\"}' \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-o baseline.json",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Manipulated request",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -X POST https://example.com/api/user/profile \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-H \"Content-Type: application/json\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-H \"Cookie: SESSIONID=valid_session_id\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d '{\"user_id\": 456, \"action\": \"view\"}' \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-o manipulated.json",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Compare responses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image39.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Tests if the application properly validates user permissions when accessing resources.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Makes a baseline request with legitimate parameters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Makes a similar request with manipulated parameters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Compares the responses to see if unauthorized access was granted",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: Differences between the responses indicating whether the manipulation was successful.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Successful parameter manipulation can lead to unauthorized access to other users' data.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7.1.2 Test for Hidden Field Manipulation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Get the form with hidden fields",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s https://example.com/checkout -b \"SESSIONID=valid_session_id\" > form.html",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Extract hidden fields",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep -o '<input[^>]*type=\"hidden\"[^>]*>' form.html",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Submit form with manipulated hidden field",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -X POST https://example.com/process_checkout \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-H \"Content-Type: application/x-www-form-urlencoded\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-H \"Cookie: SESSIONID=valid_session_id\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d \"product_id=123&quantity=1&price=10.00\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-o result.html",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image3.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Tests if the application relies on hidden form fields for critical data without server-side validation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Retrieves a form containing hidden fields",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identifies hidden fields that might control business logic",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Submits the form with manipulated values",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: The application's response to the manipulated submission.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: If successful, hidden field manipulation can lead to price tampering, unauthorized discounts, or other business logic bypasses.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8. Cryptography Testing - Sensitive Data Exposure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These commands help identify vulnerabilities related to transmission and storage of sensitive data.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8.1 Transport Layer Security Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8.1.1 Test for HTTP to HTTPS Redirection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -s -I http://example.com | grep -i \"location\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image30.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Verifies if the application enforces HTTPS by redirecting HTTP requests.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Execution Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sends an HTTP request to the application",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Checks for a redirect to the HTTPS version",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Output: Location header indicating redirection to HTTPS if implemented.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications: Lack of redirection to HTTPS allows attackers to intercept traffic via man-in-the-middle attacks.",
+    "images": []
+  }
+]

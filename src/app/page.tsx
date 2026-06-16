@@ -20,10 +20,11 @@ export default async function Home({
         query.category = { $regex: new RegExp(category, "i") };
     }
     if (search) {
+        const safeSearch = search.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&');
         query.$or = [
-            { name: { $regex: new RegExp(search, "i") } },
-            { category: { $regex: new RegExp(search, "i") } },
-            { bestFor: { $regex: new RegExp(search, "i") } }
+            { name: { $regex: new RegExp("\\b" + safeSearch, "i") } },
+            { category: { $regex: new RegExp("\\b" + safeSearch, "i") } },
+            { bestFor: { $regex: new RegExp("\\b" + safeSearch, "i") } }
         ];
     }
     
