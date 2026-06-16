@@ -29,12 +29,28 @@ export async function PUT(
         const { id } = await params;
         const data = await request.json();
         
-        // Basic validation or sanitization can go here.
-        // Update the tool document
-        const tool = await Tool.findByIdAndUpdate(id, data, { new: true, runValidators: true });
-        if (!tool) {
+        // Load existing tool to retrieve original Base64 screenshots if they haven't changed
+        const existingTool = await Tool.findById(id);
+        if (!existingTool) {
             return NextResponse.json({ error: "Tool not found" }, { status: 404 });
         }
+
+        if (data.scenarios && Array.isArray(data.scenarios)) {
+            data.scenarios = data.scenarios.map((sc: any, index: number) => {
+                if (sc.logsImage === "__KEEP_EXISTING_IMAGE__") {
+                    const existingScenario = existingTool.scenarios[index];
+                    if (existingScenario) {
+                        sc.logsImage = existingScenario.logsImage;
+                    } else {
+                        sc.logsImage = "";
+                    }
+                }
+                return sc;
+            });
+        }
+
+        // Update the tool document
+        const tool = await Tool.findByIdAndUpdate(id, data, { new: true, runValidators: true });
         return NextResponse.json(tool);
     } catch (error: any) {
         console.error("PUT /api/tools/[id] error:", error);

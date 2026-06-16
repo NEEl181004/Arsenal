@@ -31,6 +31,7 @@ export default function EditToolPage() {
     const [coreModules, setCoreModules] = useState<any[]>([]);
     const [installationSequence, setInstallationSequence] = useState<IInstallationTab[]>([]);
     const [scenarios, setScenarios] = useState<IScenario[]>([]);
+    const [originalScenarios, setOriginalScenarios] = useState<IScenario[]>([]);
     const [troubleshooting, setTroubleshooting] = useState<ITroubleshooting[]>([]);
     const [referencesList, setReferencesList] = useState<IReference[]>([]);
 
@@ -66,6 +67,7 @@ export default function EditToolPage() {
                     ]
                 }));
                 setScenarios(normalizedScenarios);
+                setOriginalScenarios(JSON.parse(JSON.stringify(normalizedScenarios)));
                 setTroubleshooting(data.troubleshooting || []);
                 setReferencesList(data.references_list || []);
             } catch (e) { console.error(e); }
@@ -77,6 +79,18 @@ export default function EditToolPage() {
     const handleSave = async () => {
         setLoading(true);
         try {
+            // Optimize scenarios by omitting unchanged Base64 image payloads
+            const optimizedScenarios = scenarios.map((s, index) => {
+                const orig = originalScenarios[index];
+                if (orig && s.logsImage === orig.logsImage) {
+                    return {
+                        ...s,
+                        logsImage: "__KEEP_EXISTING_IMAGE__"
+                    };
+                }
+                return s;
+            });
+
             const res = await fetch(`/api/tools/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
@@ -84,7 +98,7 @@ export default function EditToolPage() {
                     name, category, developer, tier, bestFor, overview, security,
                     core_modules: coreModules,
                     installation_sequence: installationSequence,
-                    scenarios, troubleshooting, references_list: referencesList
+                    scenarios: optimizedScenarios, troubleshooting, references_list: referencesList
                 }),
             });
             if (res.ok) {
