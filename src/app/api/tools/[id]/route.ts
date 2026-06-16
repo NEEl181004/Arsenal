@@ -24,11 +24,22 @@ export async function PUT(
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    await connectToDatabase();
-    const { id } = await params;
-    const data = await request.json();
-    const tool = await Tool.findByIdAndUpdate(id, data, { new: true });
-    return NextResponse.json(tool);
+    try {
+        await connectToDatabase();
+        const { id } = await params;
+        const data = await request.json();
+        
+        // Basic validation or sanitization can go here.
+        // Update the tool document
+        const tool = await Tool.findByIdAndUpdate(id, data, { new: true, runValidators: true });
+        if (!tool) {
+            return NextResponse.json({ error: "Tool not found" }, { status: 404 });
+        }
+        return NextResponse.json(tool);
+    } catch (error: any) {
+        console.error("PUT /api/tools/[id] error:", error);
+        return NextResponse.json({ error: error.message || "Internal Server Error" }, { status: 500 });
+    }
 }
 
 export async function DELETE(

@@ -87,8 +87,21 @@ export default function EditToolPage() {
                     scenarios, troubleshooting, references_list: referencesList
                 }),
             });
-            if (res.ok) router.push(`/tools/${id}`);
-        } catch (e) { console.error(e); }
+            if (res.ok) {
+                router.push(`/tools/${id}`);
+                router.refresh();
+            } else {
+                try {
+                    const err = await res.json();
+                    alert(`Failed to save: ${err.error || "Unknown server error"}`);
+                } catch {
+                    alert(`Failed to save: HTTP ${res.status}`);
+                }
+            }
+        } catch (e: any) { 
+            console.error(e); 
+            alert(`Error saving: ${e.message || e}`);
+        }
         finally { setLoading(false); }
     };
 
