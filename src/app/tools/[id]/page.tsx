@@ -51,8 +51,8 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
         <div className="w-full pb-20">
             {/* Header / Hero Section */}
             <header className="mb-8 sm:mb-12 pt-0">
-                <div className="flex items-center justify-between mb-8 sm:mb-16">
-                    <Link href="/" className="text-white/20 hover:text-white transition-colors flex items-center gap-2 text-xs font-bold uppercase tracking-widest whitespace-nowrap">
+                <div className="flex items-center justify-between mb-6 sm:mb-12">
+                    <Link href="/" className="text-white/40 hover:text-white transition-colors flex items-center gap-2 text-xs font-bold uppercase tracking-widest whitespace-nowrap">
                         <ArrowLeft className="w-3.5 h-3.5" /> Back to Index
                     </Link>
                     {isAdmin && (
@@ -68,7 +68,7 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                 </div>
 
                 <div className="space-y-4">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white uppercase leading-tight -ml-0.5 md:-ml-1 break-words" dangerouslySetInnerHTML={{ __html: tool.name + "." }} />
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase leading-tight" dangerouslySetInnerHTML={{ __html: tool.name }} />
                     <div className="flex flex-wrap items-center gap-4 sm:gap-12 pt-0">
                         <div className="text-xs font-bold text-white uppercase tracking-widest flex items-center gap-2 sm:gap-4">
                             <span className="text-primary">//</span>
@@ -91,8 +91,8 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
 
             {/* 01. Overview */}
             <section id="overview" className="scroll-mt-24 mb-16">
-                <div className="mt-20 max-w-5xl">
-                    <div className="prose prose-invert prose-p:text-white/50 prose-p:text-lg lg:prose-p:text-xl prose-p:font-light prose-strong:text-primary leading-relaxed" 
+                <div className="max-w-5xl">
+                    <div className="prose prose-invert prose-p:text-white/50 prose-p:text-sm md:prose-p:text-base prose-p:font-normal prose-strong:text-primary leading-relaxed" 
                         dangerouslySetInnerHTML={{ __html: tool.overview || "" }} 
                     />
                 </div>
@@ -100,7 +100,7 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
 
             {/* 02. Core Module */}
             <section id="core" className="scroll-mt-24 mb-16">
-                <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-white uppercase tracking-tight mb-8 sm:mb-12 flex items-center gap-6">
+                <h2 className="text-sm md:text-base font-bold text-white uppercase tracking-wider mb-6 flex items-center gap-4">
                     <span>Core </span><span className="text-primary">Module</span>
                     <span className="h-[1px] flex-1 bg-white/5"></span>
                 </h2>
@@ -110,75 +110,75 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
 
             {/* 03. Environment & Installation */}
             <section id="environment" className="scroll-mt-24 mb-16">
-                <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-white uppercase tracking-tight mb-8 sm:mb-12 flex flex-wrap items-center gap-x-4 sm:gap-x-6 leading-tight">
-                    <span className="whitespace-nowrap">Environment &</span> 
-                    <span className="text-primary whitespace-nowrap">Installation</span>
-                    <span className="h-[1px] flex-1 bg-white/5 min-w-[20px] hidden sm:block"></span>
+                <h2 className="text-sm md:text-base font-bold text-white uppercase tracking-wider mb-6 flex items-center gap-4">
+                    <span>Environment &</span> 
+                    <span className="text-primary">Installation</span>
+                    <span className="h-[1px] flex-1 bg-white/5"></span>
                 </h2>
                 
-                <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-24">
-                    <div className="bg-white/[0.02] border border-white/5 p-6 md:p-10 space-y-10">
-                        <div className="text-sm font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-4 mb-8 whitespace-nowrap">System Support</div>
-                        <div className="space-y-10">
+                <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-16">
+                    <div className="bg-white/[0.02] border border-white/5 p-6 space-y-6">
+                        <div className="text-xs font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-3 mb-4 whitespace-nowrap">System Support</div>
+                        <div className="space-y-6">
                             {[
                                 { os: "Debian/Ubuntu", icon: Terminal, sub: "Kernel 5.x+ Required" },
                                 { os: "Windows 11", icon: Monitor, sub: "WSL2 Subsystem Refined" },
                                 { os: "macOS Silicon", icon: Globe, sub: "ARM64 Native Architecture" }
                             ].map((o, i) => (
-                                <div key={i} className="flex items-center gap-6 group">
-                                    <o.icon className="w-10 h-10 text-primary transition-transform group-hover:scale-110 shrink-0" />
+                                <div key={i} className="flex items-center gap-4 group">
+                                    <o.icon className="w-8 h-8 text-primary transition-transform group-hover:scale-105 shrink-0" />
                                     <div className="min-w-0">
-                                        <div className="text-base font-bold text-white uppercase tracking-wider">{o.os}</div>
-                                        <div className="text-xs text-white/40 mt-1 uppercase font-bold tracking-widest">{o.sub}</div>
+                                        <div className="text-sm font-bold text-white uppercase tracking-wider">{o.os}</div>
+                                        <div className="text-[10px] text-white/40 mt-0.5 uppercase font-bold tracking-widest">{o.sub}</div>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    <div className="bg-white/[0.02] border border-white/5 p-8 md:p-12 space-y-12">
-                        <div className="text-sm font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-4 mb-10 whitespace-nowrap">Minimum Spec</div>
-                        <div className="space-y-4">
+                    <div className="bg-white/[0.02] border border-white/5 p-6 space-y-6">
+                        <div className="text-xs font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-3 mb-4 whitespace-nowrap">Minimum Spec</div>
+                        <div className="space-y-3">
                             {[
                                 { k: "CPU", v: "8 CORES" },
                                 { k: "RAM", v: "16 GB DDR5" },
                                 { k: "STORAGE", v: "5 GB SSD" },
                                 { k: "GPU", v: "SUPPORTED" }
                             ].map((s, i) => (
-                                <div key={i} className="flex items-center justify-between p-4 bg-white/[0.01] border border-white/[0.03] group hover:bg-white/[0.03] transition-all">
-                                    <div className="flex items-center gap-4 shrink-0">
+                                <div key={i} className="flex items-center justify-between p-3 bg-white/[0.01] border border-white/[0.03] group hover:bg-white/[0.03] transition-all">
+                                    <div className="flex items-center gap-3 shrink-0">
                                         <div className="w-1 h-1 bg-primary/40 group-hover:bg-primary transition-colors"></div>
-                                        <span className="text-xs font-bold text-white/30 uppercase tracking-widest whitespace-nowrap">{s.k}</span>
+                                        <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest whitespace-nowrap">{s.k}</span>
                                     </div>
-                                    <span className="text-sm font-bold text-white uppercase tracking-wider text-right">{s.v}</span>
+                                    <span className="text-xs font-bold text-white uppercase tracking-wider text-right">{s.v}</span>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    <div className="bg-white/[0.02] border border-primary/10 p-6 md:p-10 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 -mr-16 -mt-16 rounded-full blur-3xl"></div>
-                        <div className="text-sm font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-4 mb-10 whitespace-nowrap">Optimized Spec</div>
-                        <div className="space-y-4">
+                    <div className="bg-white/[0.02] border border-primary/10 p-6 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 -mr-12 -mt-12 rounded-full blur-3xl"></div>
+                        <div className="text-xs font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-3 mb-4 whitespace-nowrap">Optimized Spec</div>
+                        <div className="space-y-3">
                             {[
                                 { k: "CPU", v: "32 CORES (5.0GHz+)" },
                                 { k: "RAM", v: "64 GB DDR5" },
                                 { k: "STORAGE", v: "25 GB NVMe Gen5" },
                                 { k: "NETWORK", v: "10Gbps+ SYMMETRIC" }
                             ].map((s, i) => (
-                                <div key={i} className="flex items-center justify-between p-4 bg-white/[0.01] border border-white/[0.03] group hover:bg-white/[0.03] transition-all gap-4">
-                                    <div className="flex items-center gap-4 shrink-0">
+                                <div key={i} className="flex items-center justify-between p-3 bg-white/[0.01] border border-white/[0.03] group hover:bg-white/[0.03] transition-all gap-3">
+                                    <div className="flex items-center gap-3 shrink-0">
                                         <div className="w-1 h-1 bg-primary shadow-[0_0_8px_rgba(255,0,60,0.6)]"></div>
-                                        <span className="text-xs font-bold text-white/30 uppercase tracking-widest whitespace-nowrap">{s.k}</span>
+                                        <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest whitespace-nowrap">{s.k}</span>
                                     </div>
-                                    <span className="text-sm font-bold text-primary uppercase tracking-wider text-right">{s.v}</span>
+                                    <span className="text-xs font-bold text-primary uppercase tracking-wider text-right">{s.v}</span>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
 
-                <div className="space-y-12">
+                <div className="space-y-6">
                     <InstallationViewer data={JSON.parse(JSON.stringify(tool.installation_sequence || []))} />
                 </div>
             </section>
@@ -191,12 +191,12 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
 
             {/* 05. Diagnostics */}
             <section id="diagnostics" className="scroll-mt-24 mb-16">
-                <div className="relative h-[300px] overflow-hidden mb-12 group">
+                <div className="relative h-[200px] overflow-hidden mb-8 group">
                     <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover opacity-10 grayscale group-hover:scale-105 transition-transform duration-[2000ms]" alt="Diagnostic" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/80"></div>
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-10">
-                        <h2 className="text-[clamp(1.5rem,5vw,5rem)] font-bold text-white uppercase tracking-tight leading-none mb-6 flex flex-wrap justify-center gap-4">
-                            <span className="whitespace-nowrap">System</span> <span className="text-primary whitespace-nowrap">Diagnostics</span>
+                        <h2 className="text-lg md:text-xl font-bold text-white uppercase tracking-wider mb-2 flex flex-wrap justify-center gap-2">
+                            <span>System</span> <span className="text-primary">Diagnostics</span>
                         </h2>
                     </div>
                 </div>
@@ -205,19 +205,19 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
 
             {/* 06. Records */}
             <section id="references" className="scroll-mt-24 pb-20">
-                <div className="flex flex-wrap items-end justify-between gap-12 mb-12">
-                    <h2 className="text-xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-0 flex items-center gap-6">
+                <div className="flex flex-wrap items-center justify-between gap-6 mb-8">
+                    <h2 className="text-sm md:text-base font-bold text-white uppercase tracking-wider mb-0 flex items-center gap-4">
                         <span>References</span>
                     </h2>
-                    <div className="relative w-full md:w-[500px]">
-                        <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-white/20" />
-                        <input type="text" className="bg-white/[0.03] border border-white/10 pl-16 pr-8 py-5 text-xs font-bold uppercase tracking-widest text-white w-full focus:outline-none focus:border-primary/50 transition-all" placeholder="Search references..." />
+                    <div className="relative w-full md:w-[400px]">
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
+                        <input type="text" className="bg-white/[0.03] border border-white/10 pl-12 pr-4 py-3 text-xs font-bold uppercase tracking-widest text-white w-full focus:outline-none focus:border-primary/50 transition-all" placeholder="Search references..." />
                     </div>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-2">
                     {/* Header - Desktop Only */}
-                    <div className="hidden md:grid grid-cols-12 gap-8 px-10 py-8 border-b border-white/10 text-xs font-bold text-white uppercase tracking-widest items-center">
+                    <div className="hidden md:grid grid-cols-12 gap-8 px-6 py-4 border-b border-white/10 text-[10px] font-bold text-white/40 uppercase tracking-widest items-center">
                         <div className="col-span-1 text-white/20 whitespace-nowrap">ID</div>
                         <div className="col-span-6 whitespace-nowrap">Resource Name</div>
                         <div className="col-span-2 whitespace-nowrap">Category</div>
@@ -226,8 +226,8 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
 
                     {/* Content Rows */}
                     {tool.references_list?.map((ref: any, i: number) => (
-                        <div key={i} className="group bg-white/[0.01] md:bg-transparent border border-white/5 md:border-0 md:border-b md:border-white/[0.03] p-6 md:p-0 hover:bg-white/[0.02] transition-all">
-                            <Link href={ref.url} target="_blank" className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 md:px-10 md:py-6 items-center cursor-pointer">
+                        <div key={i} className="group bg-white/[0.01] md:bg-transparent border border-white/5 md:border-0 md:border-b md:border-white/[0.03] p-4 md:p-0 hover:bg-white/[0.02] transition-all">
+                            <Link href={ref.url} target="_blank" className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:px-6 md:py-4 items-center cursor-pointer">
                                 {/* Mobile Header Info */}
                                 <div className="flex items-center justify-between md:col-span-1">
                                     <span className="text-xs font-bold text-white/10 uppercase tracking-widest">{i < 9 ? `0${i+1}` : i+1}</span>
@@ -236,11 +236,10 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
 
                                 {/* Resource Name */}
                                 <div className="md:col-span-6">
-                                    <div className="text-sm font-bold text-white uppercase tracking-wider group-hover:text-primary transition-colors break-words flex items-center gap-4">
+                                    <div className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider group-hover:text-primary transition-colors break-words flex items-center gap-2">
                                         {ref.name}
                                         <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all text-primary" />
                                     </div>
-                                    <div className="text-xs font-medium text-white/10 uppercase tracking-widest mt-1">Resource Archive // v1.0.4</div>
                                 </div>
 
                                 {/* Desktop Category */}

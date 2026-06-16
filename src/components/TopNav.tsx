@@ -1,23 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { Search, LogOut, Bell, Settings, Menu, ShieldCheck, Activity, User, ChevronUp } from "lucide-react";
+import { Search, LogOut, Menu } from "lucide-react";
 import { useSession, signOut } from "next-auth/react";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function TopNav({ onMenuClick, isCollapsed }: any) {
   const { data: session } = useSession();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState(searchParams?.get("search") || "");
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      router.push(`/?search=${encodeURIComponent(searchQuery.trim())}`);
+  useEffect(() => {
+    setSearchQuery(searchParams?.get("search") || "");
+  }, [searchParams]);
+
+  const handleSearchChange = (val: string) => {
+    setSearchQuery(val);
+    if (val.trim()) {
+      router.push(`/?search=${encodeURIComponent(val.trim())}`);
+    } else {
+      router.push("/");
     }
   };
+
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   return (
     <nav
@@ -28,7 +36,7 @@ export default function TopNav({ onMenuClick, isCollapsed }: any) {
         <div className="flex items-center gap-2 sm:gap-4">
             <button 
                 onClick={onMenuClick} 
-                className="w-10 h-10 flex items-center justify-center bg-white/[0.03] border border-white/[0.05] text-white/40 hover:text-primary hover:border-primary/40 transition-all rounded-sm"
+                className="w-10 h-10 flex items-center justify-center bg-white/[0.03] border border-white/[0.05] text-white/40 hover:text-primary hover:border-primary/40 transition-all rounded-sm cursor-pointer"
             >
                 <Menu className="w-5 h-5" />
             </button>
@@ -55,60 +63,38 @@ export default function TopNav({ onMenuClick, isCollapsed }: any) {
 
       {/* Center Section: Tactical Search */}
       <div className="flex-1 max-w-2xl px-4 sm:px-12 hidden md:block">
-        <form onSubmit={handleSearch} className="relative group">
+        <div className="relative group">
             <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
                 <Search className="w-4 h-4 text-white/20 group-focus-within:text-primary transition-colors" />
             </div>
             <input
                 className="w-full bg-white/[0.02] border border-white/[0.05] group-hover:border-white/[0.1] focus:border-primary/40 focus:bg-white/[0.04] transition-all px-12 py-2.5 text-xs font-black tracking-[0.1em] text-white placeholder:text-white/10 uppercase focus:outline-none"
-                placeholder="SEARCH_MISSION_DATABASE..."
+                placeholder="SEARCH DATABASE..."
                 type="text"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => handleSearchChange(e.target.value)}
             />
             <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none opacity-20 group-focus-within:opacity-100 transition-opacity">
                 <span className="text-[10px] font-mono text-primary">$</span>
             </div>
-        </form>
+        </div>
       </div>
 
-      {/* Right Section: Security Clearance & Status */}
+      {/* Right Section: Profile & Auth */}
       <div className="flex items-center gap-2 sm:gap-6 shrink-0">
-        <div className="hidden xl:flex items-center gap-3">
-            <div className="flex flex-col items-end">
-                <span className="text-xs font-black text-white/20 uppercase tracking-widest leading-none mb-1">SYSTEM STATUS</span>
-                <div className="flex items-center gap-2">
-                    <span className="text-xs font-black text-primary uppercase tracking-tighter">OPERATIONAL</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(255,0,60,0.8)]"></span>
-                </div>
-            </div>
-        </div>
-
-        <div className="hidden sm:block h-8 w-[1px] bg-white/[0.05]" />
-
         <div className="flex items-center gap-2 sm:gap-4">
-          <button className="relative w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-white/[0.03] border border-white/[0.05] text-white/40 hover:text-white transition-all">
-            <Bell className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span className="absolute top-2 right-2 w-1 h-1 bg-primary rounded-full"></span>
-          </button>
-          
-          <div className="hidden sm:block h-10 w-[1px] bg-white/[0.05]" />
-
           {session ? (
             <div className="relative">
                 <button 
                     onClick={() => setIsProfileOpen(!isProfileOpen)}
-                    className="flex items-center gap-2 sm:gap-4 pl-2 sm:pl-4 border-l border-white/10 group/profile"
+                    className="flex items-center gap-2 sm:gap-4 pl-2 sm:pl-4 border-l border-white/10 group/profile cursor-pointer"
                 >
                     <div className="relative group/avatar">
                         <div className="w-9 h-9 sm:w-10 sm:h-10 bg-white/[0.03] border border-white/[0.1] flex items-center justify-center relative overflow-hidden group-hover/avatar:border-primary/50 transition-all font-headline font-black text-white/40 text-sm sm:text-lg group-hover/avatar:text-primary">
-                            {session.user?.name?.[0].toUpperCase() || "A"}
+                            {session.user?.name?.[0].toUpperCase() || "U"}
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/20 to-transparent h-1/2 w-full -translate-y-full group-hover/avatar:animate-[scan_2s_linear_infinite] pointer-events-none opacity-0 group-hover/avatar:opacity-100"></div>
                             <div className="absolute top-0 left-0 w-1 h-1 border-t border-l border-primary/40"></div>
                             <div className="absolute bottom-0 right-0 w-1 h-1 border-b border-r border-primary/40"></div>
-                        </div>
-                        <div className="absolute -bottom-0.5 -right-0.5 w-2 w-2 bg-[#0a0a0a] border border-white/10 rounded-full flex items-center justify-center">
-                            <div className="w-1 w-1 bg-primary rounded-full animate-pulse"></div>
                         </div>
                     </div>
                 </button>
@@ -116,32 +102,23 @@ export default function TopNav({ onMenuClick, isCollapsed }: any) {
                 {isProfileOpen && (
                     <>
                         <div className="fixed inset-0 z-10" onClick={() => setIsProfileOpen(false)} />
-                        <div className="absolute top-full right-0 mt-4 w-64 bg-[#0a0a0a] border border-white/10 shadow-2xl z-20 animate-in fade-in slide-in-from-top-2 duration-300">
-                            <div className="p-6 border-b border-white/5 bg-white/[0.02] flex items-center gap-4">
-                                <div className="w-12 h-12 bg-primary/10 border border-primary/20 flex items-center justify-center font-headline font-black text-primary text-xl">
-                                    {session.user?.name?.[0].toUpperCase() || "A"}
+                        <div className="absolute top-full right-0 mt-4 w-56 bg-[#0c0c0c] border border-white/10 shadow-2xl z-20 rounded-sm overflow-hidden animate-in fade-in slide-in-from-top-2 duration-300">
+                            <div className="p-4 border-b border-white/5 bg-white/[0.01] flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary font-bold text-sm shrink-0">
+                                    {session.user?.name?.[0].toUpperCase() || "U"}
                                 </div>
-                                <div>
-                                    <div className="text-xs font-black text-white/20 uppercase tracking-widest mb-1">OPERATOR LOGGED IN</div>
-                                    <div className="text-xs font-bold text-primary uppercase tracking-widest">CLEARANCE L4</div>
+                                <div className="min-w-0">
+                                    <div className="text-xs font-semibold text-white truncate">{session.user?.name || "User"}</div>
+                                    <div className="text-[10px] text-white/40 truncate">{session.user?.email || ""}</div>
                                 </div>
                             </div>
-                            <div className="p-2">
-                                <button className="w-full flex items-center gap-4 px-4 py-3 text-xs font-black text-white/40 hover:text-white hover:bg-white/[0.03] transition-all uppercase tracking-widest group">
-                                    <Settings className="w-4 h-4 group-hover:rotate-90 transition-transform duration-500" />
-                                    SYSTEM SETTINGS
-                                </button>
-                                <button className="w-full flex items-center gap-4 px-4 py-3 text-xs font-black text-white/40 hover:text-white hover:bg-white/[0.03] transition-all uppercase tracking-widest group">
-                                    <ShieldCheck className="w-4 h-4 text-primary" />
-                                    ACCESS LOGS
-                                </button>
-                                <div className="h-[1px] bg-white/5 my-2 mx-4" />
+                            <div className="p-1.5">
                                 <button 
                                     onClick={() => signOut()}
-                                    className="w-full flex items-center gap-4 px-4 py-4 text-xs font-black text-primary hover:bg-primary hover:text-white transition-all uppercase tracking-widest group"
+                                    className="w-full flex items-center gap-3 px-3 py-2 text-xs font-medium text-white/60 hover:text-white hover:bg-white/[0.05] rounded transition-all text-left cursor-pointer group"
                                 >
-                                    <LogOut className="w-4 h-4" />
-                                    TERMINATE SESSION
+                                    <LogOut className="w-3.5 h-3.5 text-primary group-hover:scale-105 transition-transform" />
+                                    Sign Out
                                 </button>
                             </div>
                         </div>

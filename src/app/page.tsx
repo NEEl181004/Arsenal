@@ -34,16 +34,16 @@ export default async function Home({
 
     return (
         <div className="max-w-7xl mx-auto px-4 pb-32">
-            <header className="mb-20 pb-12 border-b border-white/[0.03]">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-                    <div className="space-y-4">
-                        <div className="classified-label">
+            <header className="mb-12 pb-8 border-b border-white/[0.03]">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div className="space-y-3">
+                        <div className="classified-label text-xs uppercase tracking-widest text-primary flex items-center gap-2">
                             <Activity className="w-3.5 h-3.5" /> Tools Overview
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
                             Arsenal
                         </h1>
-                        <p className="text-white/40 font-medium text-sm uppercase tracking-widest">
+                        <p className="text-white/40 font-medium text-[11px] uppercase tracking-widest">
                             {category ? `Filter: ${category}` : "Offensive Security Index"}
                         </p>
                     </div>
@@ -109,7 +109,7 @@ export default async function Home({
                 )}
             </div>
             
-            <div className="mt-32 pt-12 border-t border-white/[0.03] flex items-center justify-center">
+            <div className="mt-20 pt-8 border-t border-white/[0.03] flex items-center justify-center">
                 <div className="flex items-center gap-3">
                     <span className="w-8 h-[1px] bg-white/10"></span>
                     <span className="text-[10px] font-bold text-white/20 uppercase tracking-[0.4em]">End of Index</span>

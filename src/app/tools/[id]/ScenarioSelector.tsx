@@ -32,9 +32,9 @@ export default function ScenarioSelector({ scenarios }: { scenarios: IScenario[]
             {/* Protocol Select Header */}
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12">
                 <div className="space-y-6">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white uppercase tracking-tighter flex items-center gap-4">
-                        <span className="whitespace-nowrap">TEST</span> <span className="text-primary whitespace-nowrap">SCENARIO</span>
-                        <span className="h-[1px] flex-1 bg-white/5 min-w-[20px]"></span>
+                    <h2 className="text-sm md:text-base font-bold text-white uppercase tracking-wider flex items-center gap-4">
+                        <span>Test</span> <span className="text-primary">Scenario</span>
+                        <span className="h-[1px] flex-1 bg-white/5"></span>
                     </h2>
                     <p className="text-sm text-white/40 font-light max-w-2xl leading-relaxed">
                         Initialize automated offensive modules against target perimeter. Deploying The Crimson Vault authorization tokens for active session state.
@@ -70,9 +70,9 @@ export default function ScenarioSelector({ scenarios }: { scenarios: IScenario[]
             <div className="space-y-16">
                 {/* 1. MISSION OBJECTIVE */}
                 <div className="space-y-8">
-                    <div className="text-sm font-bold text-white uppercase tracking-[0.2em] lg:tracking-[0.4em] border-l-2 border-primary pl-4 whitespace-nowrap">MISSION OBJECTIVE</div>
-                    <div className="space-y-8">
-                        <h3 className="text-lg md:text-xl font-bold text-white uppercase tracking-tight break-words" dangerouslySetInnerHTML={{ __html: active.objective || "AWAITING..." }} />
+                    <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">MISSION OBJECTIVE</div>
+                    <div className="space-y-6">
+                        <h3 className="text-sm md:text-base font-bold text-white uppercase tracking-tight break-words" dangerouslySetInnerHTML={{ __html: active.objective || "AWAITING..." }} />
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {(active.objectiveList || []).map((obj, i) => (
                                 <div key={i} className="flex items-start gap-4 p-5 bg-white/[0.02] border border-white/5">
@@ -88,7 +88,7 @@ export default function ScenarioSelector({ scenarios }: { scenarios: IScenario[]
                 <div className="space-y-6">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div className="flex items-center gap-4">
-                            <div className="text-sm font-bold text-white uppercase tracking-[0.2em] lg:tracking-[0.4em] border-l-2 border-primary pl-4 whitespace-nowrap">EXECUTION SCRIPT</div>
+                            <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">EXECUTION SCRIPT</div>
                             <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-xs font-bold text-primary uppercase tracking-widest animate-pulse whitespace-nowrap">LIVE PROTOCOL</span>
                         </div>
                         <button 
@@ -129,7 +129,7 @@ export default function ScenarioSelector({ scenarios }: { scenarios: IScenario[]
 
                 {/* 3. LIVE EVIDENCE */}
                 <div className="space-y-8">
-                    <div className="text-sm font-bold text-white uppercase tracking-[0.2em] lg:tracking-[0.4em] border-l-2 border-primary pl-4 whitespace-nowrap">LIVE EVIDENCE LOGS</div>
+                    <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">LIVE EVIDENCE LOGS</div>
                     <div className="bg-[#080808] border border-white/5 p-4 relative group overflow-hidden max-h-[400px] flex items-center justify-center shadow-inner">
                         {active.logsImage ? (
                             <img src={active.logsImage} alt="Evidence" className="max-h-[360px] w-auto grayscale group-hover:grayscale-0 transition-all duration-1000 object-contain" />
@@ -145,7 +145,7 @@ export default function ScenarioSelector({ scenarios }: { scenarios: IScenario[]
 
                 {/* 4. MISSION TAKEAWAYS */}
                 <div className="space-y-8">
-                    <div className="text-sm font-bold text-white uppercase tracking-[0.2em] lg:tracking-[0.4em] border-l-2 border-primary pl-4 whitespace-nowrap">MISSION TAKEAWAYS</div>
+                    <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">MISSION TAKEAWAYS</div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {(active.keyTakeaways || []).map((card, i) => (
                             <div key={i} className="bg-white/[0.02] border border-white/5 p-6 md:p-10 space-y-6 group hover:border-primary/40 transition-all relative overflow-hidden">
@@ -159,7 +159,7 @@ export default function ScenarioSelector({ scenarios }: { scenarios: IScenario[]
 
                 {/* 5. ATTACK PLANS */}
                 <div className="space-y-8">
-                    <div className="text-sm font-bold text-white uppercase tracking-[0.2em] lg:tracking-[0.4em] border-l-2 border-primary pl-4 whitespace-nowrap">ATTACK PLANS</div>
+                    <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">ATTACK PLANS</div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {(active.attackPaths || []).map((path, i) => (
                             <div key={i} className="bg-white/[0.02] border border-white/5 p-6 md:p-8 relative overflow-hidden group hover:bg-white/[0.04] transition-all">

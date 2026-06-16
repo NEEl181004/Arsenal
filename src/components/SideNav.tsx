@@ -132,14 +132,6 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
                 md:sticky md:top-14 md:h-[calc(100vh-3.5rem)]
             `}>
                 
-                {/* Collapse Toggle (Desktop) */}
-                <button 
-                    onClick={() => setIsCollapsed(!isCollapsed)}
-                    className="hidden lg:flex absolute -right-3 top-24 w-6 h-6 bg-primary rounded-full items-center justify-center text-white shadow-lg z-50 cursor-pointer hover:scale-110 transition-transform"
-                >
-                    {isCollapsed ? <ChevronRight className="w-3 h-3" /> : <ChevronLeft className="w-3 h-3" />}
-                </button>
-
                 <div className="flex-1 overflow-y-auto no-scrollbar flex flex-col justify-between overflow-x-hidden">
                     <nav className="flex-1 overflow-y-auto no-scrollbar overflow-x-hidden">
                         {!isCollapsed && (
@@ -157,7 +149,7 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
                                     icon={section.icon} 
                                     label={section.label} 
                                     active={activeSection === section.id} 
-                                />
+                                 />
                             ))
                         ) : (
                             <div className="space-y-1">
@@ -168,19 +160,6 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
                             </div>
                         )}
                     </nav>
-
-                    <div className={`p-6 mt-auto border-t border-white/5 ${isCollapsed ? "px-3" : ""}`}>
-                        <button 
-                            onClick={() => signOut()}
-                            className={`w-full bg-primary/10 text-primary font-bold transition-all uppercase border border-primary/20 shadow-lg group flex items-center justify-center hover:bg-primary hover:text-white cursor-pointer ${
-                                isCollapsed ? "py-3 text-[10px]" : "py-3 text-xs tracking-widest gap-3"
-                            }`}
-                            title={isCollapsed ? "Logout" : undefined}
-                        >
-                            <LogOut className={`w-4 h-4 transition-transform ${isCollapsed ? "" : "group-hover:translate-x-1"}`} />
-                            {!isCollapsed && "Logout"}
-                        </button>
-                    </div>
                 </div>
             </aside>
 
@@ -218,16 +197,6 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
                         </div>
                     )}
                 </nav>
-
-                <div className="p-6 mt-auto border-t border-white/5">
-                    <button 
-                        onClick={() => signOut()}
-                        className="w-full bg-primary/10 text-primary font-bold text-xs py-3 tracking-widest flex items-center justify-center gap-3 hover:bg-primary hover:text-white transition-all uppercase border border-primary/20 group cursor-pointer"
-                    >
-                        <LogOut className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        Logout
-                    </button>
-                </div>
             </aside>
         </>
     );
