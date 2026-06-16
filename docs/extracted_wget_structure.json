@@ -1,0 +1,3183 @@
+[
+  {
+    "type": "p",
+    "text": "Wget",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. Tool Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description: Wget is a free, non-interactive utility for retrieving files using HTTP, HTTPS, and FTP protocols. It's designed for robustness over slow or unstable network connections and supports recursive downloads, link conversion, and file mirroring capabilities.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Category: Reconnaissance, Data Retrieval, Web Scraping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Developer/Maintainer: GNU Project",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "License: GNU General Public License v3.0 (GPL-3.0)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Official Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GNU Wget Official Website",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Source Code",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. Installation Guide",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "System Requirements:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Operating Systems: Linux, macOS, Windows, BSD, and most UNIX-like systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Minimal dependencies, runs on most systems with basic libraries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Installation Methods:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Linux (Debian/Ubuntu): bashapt-get update",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "apt-get install wget",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Linux (Red Hat/CentOS/Fedora): bashyum install wget",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# or",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnf install wget",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "macOS (using Homebrew): bashbrew install wget",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Windows:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Download installer from Eternally Bored",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Or via Chocolatey: choco install wget",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Or via Windows Subsystem for Linux (WSL)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "From Source: bashwget https://ftp.gnu.org/gnu/wget/wget-latest.tar.gz",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "tar -xzvf wget-latest.tar.gz",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "cd wget-[version]",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "./configure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "make",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "make install",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verification: bashwget --version",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Basic Configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Initial Setup: No specific initial setup required after installation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configuration Files:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Global: /etc/wgetrc",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User-specific: ~/.wgetrc",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sample configuration entries: # Add a default header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "header = Accept-Language: en-us,en;q=0.5",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Set default timeout",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "timeout = 60",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Always use passive FTP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "passive_ftp = on",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Environment Variables:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http_proxy - HTTP proxy server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https_proxy - HTTPS proxy server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ftp_proxy - FTP proxy server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "no_proxy - Comma-separated list of domains to exclude from proxy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Default Credentials: Not applicable (credentials are supplied in command line or config file)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4. Core Functionality",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Features:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Non-interactive download of files from the Web",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Recursive downloading and directory traversal",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "File mirroring capabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Support for HTTP, HTTPS, and FTP protocols",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Resume interrupted downloads",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Bandwidth throttling",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Support for proxies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv6 compatibility",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie support",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User-agent customization",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Background operation (daemon mode)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Basic Usage: bashwget https://example.com/file.zip",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Structure: wget [options] [URL] Where:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "options are various command-line flags",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "[URL] is the target URL to retrieve",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Common Parameters:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-O - Specify output filename",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-P - Directory prefix",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-r - Recursive download",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-l - Maximum recursion depth",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-np - No parent directory traversal",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-m - Mirror mode (equivalent to -r -N -l inf --no-remove-listing)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-c - Continue/resume download",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-A - Accept list (comma-separated patterns)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-R - Reject list (comma-separated patterns)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-U - User-agent string",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--limit-rate - Limit download rate",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-b - Background mode (daemon)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--no-check-certificate - Skip SSL certificate validation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-q - Quiet mode",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-v - Verbose mode",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--spider - Don't download, just check if file exists",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5. Test Scenarios & Commands",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Gathering: Review Web Metadata",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget -q https://www.google.com/robots.txt -O - | grep -v \"#\" | grep \"/\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget -q https://example.com -O - | grep -i \"<meta\" | sort",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget -q https://developer.mozilla.org -O - | grep -o \"<!--.*-->\" | sort | uniq",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget --server-response --spider https://www.github.com 2>&1 | grep -i \"Server\\|X-\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget -q https://wordpress.org -O - | grep -i \"generator\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget -q https://www.nytimes.com -O - | grep -o \"<script src=\\\".*\\.js\\\"\" | cut -d'\"' -f2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget -q https://www.wikipedia.org -O - | grep -o \"href=\\\"[^\\\"]*.\\\"\" | cut -d'\"' -f2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget -q https://opensource.org -O - | grep -i \"author\\|created\\|copyright\\|owner\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Gathering: Map Application Architecture",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget --server-response --spider https://www.reddit.com 2>&1 | grep -i \"Server\\|X-Powered\\|X-AspNet\\|X-Runtime\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image2.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Command Analysis: Reddit Server Response Headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The command reveals Reddit's server information through HTTP response headers:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server: snooserv",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server: snooserv",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation of Command Parameters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget: A utility for retrieving content from web servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--server-response: Displays the HTTP headers returned by the server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--spider: Makes wget behave like a web spider, not downloading content",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2>&1: Redirects stderr to stdout",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep -i: Filters output for specific case-insensitive patterns:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Server\" - Web server software",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"X-Powered\" - Backend technology",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"X-AspNet\" - ASP.NET information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"X-Runtime\" - Runtime information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server: snooserv",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description: Custom server name used by Reddit",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Details: \"snooserv\" is a customized server name (named after Reddit's mascot \"Snoo\")",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security implications: The server doesn't disclose specific software or versions, which is a good security practice that prevents attackers from targeting known vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing Headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Notably absent are:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No \"X-Powered-By\" header (would reveal backend framework)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No \"X-AspNet\" header (would indicate ASP.NET usage)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No \"X-Runtime\" header (would reveal application runtime information)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Limited Information Disclosure: Reddit follows security best practices by:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using a custom server name that doesn't reveal implementation details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Not exposing backend technologies through common headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Preventing technology fingerprinting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Teaming Implications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Limited attack surface due to minimal information disclosure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Forces attackers to rely on more active probing techniques",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No immediate version-specific vulnerabilities can be identified",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Potential",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Low: With only \"snooserv\" as information, an attacker cannot determine specific server software or versions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Next steps: Additional enumeration would be required:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content fingerprinting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Error message analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Behavioral analysis through specific requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing for common vulnerabilities regardless of platform",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Techniques for Red Team Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header Analysis Extensions:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Try curl -I https://www.reddit.com for more complete header analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use tools like whatweb for broader technology fingerprinting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement wafw00f to detect WAF (Web Application Firewall) presence",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Custom server headers (as Reddit does) help reduce fingerprinting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Remove unnecessary headers that reveal technology stack",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configure web servers to minimize information disclosure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Similar Reconnaissance Techniques:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL/TLS analysis using sslscan or testssl.sh",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS enumeration with dnsrecon or dnsenum",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Port scanning with nmap using service detection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This output demonstrates proper security hardening of Reddit's servers by limiting information disclosure through HTTP headers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget --server-response --spider https://www.cloudflare.com 2>&1 | grep -i \"WAF\\|Cloudflare\\|Imperva\\|Akamai\\|ModSecurity\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image1.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cloudflare Server Response Header Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The command reveals HTTP response headers from Cloudflare's website that indicate the presence of Cloudflare's security infrastructure.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server: cloudflare",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description: Explicitly identifies Cloudflare as the serving platform",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Details: Indicates the site is behind Cloudflare's infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security implications: Confirms the site leverages Cloudflare's CDN and security services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Set-Cookie Headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "cf_bm: Cloudflare Bot Management cookie",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Used to distinguish between humans and bots",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Format: __cf_bm=7LyMhg4ObMkmQiOwfAdFSEyHzrIDCLqR3VZvFW9xJ7U=1746269316-1.0.1.1-UkZegiZCVrPNNH9EnMDbBeydsXNTH_OFYnQ_UXOPASpNqguCQ1GAtb5o.UDYU7MDfmgI1g6v8IZX5Mn.pd7clr3PxHW1kddIr8DFZH5iin5OJ5X_m_J_bGh0Pj91aC",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security role: Part of Cloudflare's bot detection and mitigation system",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Other Cookies:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HttpOnly flag: Enhances security by preventing JavaScript access to cookies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Secure flag: Ensures cookies are only sent over HTTPS connections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SameSite=None: Allows cookies to be sent in cross-site requests (with Secure flag)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Report-To Header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description: Part of the Reporting API framework",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Details: Contains endpoints for reporting specific issues to Cloudflare",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security implications: Allows browsers to send reports about potential security issues, errors, or performance problems back to Cloudflare",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Confirmed Cloudflare Protection:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple Cloudflare-specific headers indicate the site uses Cloudflare's security stack",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The presence of bot management cookies suggests active traffic filtering",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Connection details show traffic routing through Cloudflare IPs (104.16.123.96, 104.16.124.96)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WAF Implementation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "While not explicitly labeled as \"WAF\" in headers, Cloudflare's presence implies their WAF is active",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Bot management system indicated by cf_bm cookie is part of Cloudflare's layered security approach",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Teaming Implications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Bypassing Cloudflare protection requires specialized techniques",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Standard vulnerability scanning may trigger rate limiting or blocking",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Direct IP attacks would be mitigated by Cloudflare's proxy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Challenges",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "High: Cloudflare presents several challenges for attackers:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DDoS protection mechanisms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Bot detection and prevention",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Rate limiting and challenge pages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP reputation filtering",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Considerations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Origin server discovery may be necessary (finding the actual server behind Cloudflare)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing will likely require approaches that don't trigger Cloudflare's security mechanisms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tools like Burp Suite may need special configurations to work effectively",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Techniques for Red Team Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cloudflare Bypass Techniques:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Origin server identification (using historical DNS data, SSL certificate information)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain enumeration to find resources not behind Cloudflare",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using residential proxies to avoid IP reputation blocks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WAF Testing Methodology:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Gradual, low-volume scanning to avoid rate limiting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing for specific WAF bypass techniques",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using tools like wafw00f for WAF fingerprinting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Enable Cloudflare's strictest security settings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configure proper Page Rules for sensitive areas",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement additional security headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider using Cloudflare Workers for custom security logic",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This output demonstrates that the target site implements Cloudflare's security stack, which provides multiple layers of protection against common web attacks and unauthorized access attempts.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget --server-response --spider https://www.twitter.com 2>&1 | grep -i \"Balance\\|proxy\\|nginx\\|haproxy\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image4.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Wikipedia Server Response Header Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The command reveals that Wikipedia's web infrastructure uses NGINX version 1.22.1 as its web server.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server: nginx/1.22.1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description: Explicitly identifies NGINX as the web server software with version 1.22.1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Details: NGINX is a popular high-performance web server and reverse proxy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security implications: Exposes specific version information that could potentially be targeted for version-specific vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Disclosure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The header exposes the exact NGINX version (1.22.1)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This provides attackers with specific targeting information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Best practice would be to hide version information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Insights:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wikipedia uses NGINX, likely as a reverse proxy or load balancer",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No explicit mention of other load balancers like HAProxy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The version (1.22.1) was released on August 2022, indicating regular but not cutting-edge updates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Teaming Implications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Version information allows for targeted vulnerability research",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attacker could look for CVEs specific to NGINX 1.22.1 or lower",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wikipedia's large-scale infrastructure likely includes additional layers not visible in headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Potential",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Medium: While version information is disclosed, NGINX 1.22.1 is relatively recent and major vulnerabilities would likely be patched",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Considerations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attackers could research CVEs specific to this NGINX version",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configuration vulnerabilities are more likely than software vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Large organizations like Wikipedia typically have multiple security layers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Techniques for Red Team Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web Server Fingerprinting:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use tools like Wappalyzer or Nikto for broader technology stack identification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for common NGINX misconfigurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attempt path traversal or unauthorized directory access",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "NGINX-Specific Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for accessible configuration files (nginx.conf)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for SSI (Server Side Includes) injection if enabled",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Look for custom error pages that might leak information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Remove or obscure server version information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configure proper security headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Ensure regular patching of web server software",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use WAF rules to protect against common NGINX attack vectors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Reconnaissance:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TLS/SSL configuration testing with tools like testssl.sh",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP method enumeration to check for non-standard methods",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing for proxy configurations that might leak internal information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This output demonstrates that Wikipedia runs on NGINX 1.22.1, providing attackers with specific version information that could be used in targeted attacks, though as a major organization, Wikipedia likely has multiple security layers in place.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget -q https://www.mysql.com -O - | grep -i \"sql\\|oracle\\|mysql\\|postgres\\|mongodb\\|database error\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image7.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image8.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "MySQL Website Source Code Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The command retrieves and analyzes the source code of MySQL.com, revealing relationships between MySQL and Oracle, as well as various web technologies used on the site.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Source Code Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Oracle Ownership References",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple references to Oracle in the code confirm that MySQL is owned by Oracle Corporation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Oracle copyright notice: &copy; 2025 Oracle",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Several Oracle legal links including privacy policy, terms of use, and trademark policy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Oracle JavaScript APIs used for consent management: oracle.truste.api.getGdprConsentDecision()",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "MySQL Infrastructure Elements",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CSS Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Main CSS files loaded from labs.mysql.com domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Theme references suggest a design system called \"sakila\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Localization Support:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple language options available including:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Deutsch (German)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Français (French)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Italiano (Italian)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "日本語 (Japanese)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "中文 (Chinese)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "JavaScript Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analytics tracking: ora_mysql.js",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ODC (Oracle Developer Community) integration: odc.js?_ora_context=analytics:production",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Chat functionality: oracle-chat.js with MySQL-specific configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Branding Elements:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Banner images specific to MySQL Summit 2025",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "RSS feed availability at mysql.rss",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Favicon and other brand assets hosted on labs.mysql.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Relationships",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Clear integration between Oracle and MySQL platforms through:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Shared consent management system",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cross-domain resource loading",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Oracle branding alongside MySQL branding",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Disclosure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Source code reveals underlying technologies and relationships",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple domains in use (www.mysql.com, labs.mysql.com, oracle.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Third-party services like consent.truste.com for GDPR compliance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Teaming Implications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple domains provide expanded attack surface",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "JavaScript dependencies could be potential attack vectors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cross-domain resource loading might have CORS or CSP implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Notable Observations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No database error messages found (good security practice)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No direct references to database technologies beyond MySQL",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Oracle's ownership is prominently displayed throughout the codebase",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Techniques for Red Team Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Advanced Source Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Full JavaScript analysis for potential client-side vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Review of CSS for information leakage in selectors or comments",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analysis of third-party service integrations (consent.truste.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Relationship Mapping:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Further investigation of labs.mysql.com infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cross-domain policy analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content Security Policy evaluation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement subresource integrity checks for cross-domain resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Review necessity of exposed organizational relationships in source code",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider consolidating resources to reduce cross-domain dependencies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This analysis reveals that MySQL.com is owned by Oracle and uses various resources from both MySQL and Oracle domains. The site appears well-maintained with modern web technologies and strong integration between the MySQL brand and Oracle's infrastructure.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget -q https://www.google.com/favicon.ico",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image5.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Google Favicon Retrieval Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The command successfully downloaded Google's favicon.ico file, as confirmed by the subsequent ls command showing the file in the current directory.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget: Utility for non-interactive downloading of files",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-q (quiet): Suppresses wget's output, leaving no visual confirmation of success or failure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target: Google's favicon (site icon) located at https://www.google.com/favicon.ico",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The second command (ls) confirms successful download by showing \"favicon.ico\" file in the current directory.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Insights",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Favicon Functionality:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Favicons are small icon files (typically 16×16 or 32×32 pixels) associated with websites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "They appear in browser tabs, bookmarks, and history entries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Standard location is /favicon.ico in the website's root directory",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Gathering Value:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Confirms the target website is operational",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Validates that standard web paths are accessible",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Can be used as a non-intrusive way to test connectivity",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Provides insight into brand identity and site ownership",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Teaming Implications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Low-noise reconnaissance technique (less likely to trigger alerts than aggressive scanning)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Can be used to verify target is operational without sending excessive requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Part of passive footprinting methodology",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attack Surface Discovery:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Demonstrates successful connection to target server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Confirms standard web paths are available",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Shows server responds to direct file requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Operational Security:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using -q reduces detection likelihood by minimizing network traffic",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Simple file retrieval unlikely to trigger security alerts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Good preliminary step before more intrusive scanning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Considerations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Some web servers may log direct requests to favicon.ico",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Custom logging configurations might still detect this activity",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Favicon fingerprinting can sometimes identify web server or CMS types",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Techniques for Red Team Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expanded Resource Collection:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Retrieve robots.txt for directory insights",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Download sitemap.xml for site structure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check security.txt for security contact information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Review humans.txt for technology stack details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "File Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extract metadata from favicon using ExifTool",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Compare favicon hash against known CMS/framework fingerprints",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use tools like Shodan's favicon hash search for similar deployments",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Operational Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Bundle multiple file acquisitions in single sessions to reduce footprint",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use proxies or Tor for sensitive reconnaissance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider user-agent rotation to appear more like regular browser traffic",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This simple favicon retrieval demonstrates basic, low-noise reconnaissance against Google's web infrastructure, confirming server accessibility and standard file path conventions.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget --server-response --save-cookies cookies.txt --keep-session-cookies https://www.wikipedia.com 2>&1 | grep -i \"Set-Cookie\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image6.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Wikipedia Cookie Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The command retrieves HTTP response headers from Wikipedia.com, specifically examining and saving the cookies set by the server.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Executed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "bash",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget --server-response --save-cookies cookies.txt --keep-session-cookies https://www.wikipedia.com 2>&1 | grep -i \"Set-Cookie\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget: Web content retrieval utility",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--server-response: Display HTTP headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--save-cookies cookies.txt: Save cookies to specified file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--keep-session-cookies: Retain session cookies that would typically be discarded",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "grep -i \"Set-Cookie\": Filter results to only show cookie-setting headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WMF-Last-Access=09-May-2025",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Tracks user's last visit to Wikipedia",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attributes:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Path=/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HttpOnly (not accessible via JavaScript)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Secure (only sent over HTTPS)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expires=Tue, 10 Jun 2025 (32-day expiration)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security implications: Used for analytics and user experience, minimal security risk",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WMF-Last-Access-Global=09-May-2025",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Tracks user's last visit across all Wikimedia Foundation sites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attributes:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Path=/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain=.wikipedia.org (applies to all subdomains)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HttpOnly",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Secure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expires=Tue, 10 Jun 2025 (32-day expiration)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security implications: Cross-domain tracking, broader scope than the first cookie",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GeoIP=IN::22.00:79.00",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Geolocation information storage",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Country code (IN for India)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Approximate coordinates (22.00:79.00)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP protocol version (v4)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attributes:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Path=/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Secure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain=.wikipedia.org",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security implications: Stores user's approximate location, potential privacy concern",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "NetworkProbeLimit=0.001",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose: Likely related to rate limiting or network capability testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attributes:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Path=/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Secure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SameSite=None (allows cross-site requests)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Max-Age=3600 (1-hour expiration)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security implications: Configuration for anti-abuse mechanisms or performance optimization",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie Security Features:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All cookies use the Secure flag (HTTPS only)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Most use HttpOnly where appropriate",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reasonable expiration periods (32 days for tracking, 1 hour for network probing)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain scoping appropriately set",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Disclosure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GeoIP cookie reveals approximate user location",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No sensitive identifiers or authentication tokens visible in these cookies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network probe configuration settings exposed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Teaming Implications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie analysis reveals Wikimedia's user tracking mechanisms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Geolocation implementation details visible",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network security countermeasures partially revealed through configuration values",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Techniques for Red Team Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie Manipulation Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for insecure cookie handling (e.g., missing flags)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attempt session fixation by manipulating cookies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for cross-site scripting vulnerabilities in cookie processing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Geolocation Bypass Assessment:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test impact of manipulating GeoIP cookie values",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Determine if geo-restricted content can be accessed by cookie modification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Investigate relationship between actual IP and cookie-stored location",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Insights:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"WMF\" prefix indicates Wikimedia Foundation infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "NetworkProbeLimit suggests anti-DoS or rate-limiting mechanisms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie structure reveals aspects of backend architecture",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider implementing SameSite=Strict for non-cross-site cookies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Review necessity of storing precise geolocation in cookies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Evaluate risks of exposing network security parameters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This analysis reveals that Wikipedia implements reasonably secure cookie practices with appropriate security flags, while providing insight into their tracking, geolocation, and network security mechanisms.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget -q $(wget -q https://jquery.com -O - | grep -o \"<script src=\\\".*\\.js\\\"\" | cut -d'\"' -f2) -O - | grep -i \"api\\|endpoint\\|config\\|server\\|database\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image3.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "jQuery JavaScript Source Code Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The command chain retrieves jQuery's JavaScript source code and searches for specific terms related to APIs, endpoints, configurations, server connections, and database references.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This multi-stage command:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Retrieves the jQuery homepage HTML (wget -q https://jquery.com -O -)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extracts JavaScript file URLs (grep -o \"<script src=\\\".*\\.js\\\"\" | cut -d'\"' -f2)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Downloads the identified JavaScript file(s)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Searches the JavaScript for specified keywords",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Source Code Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The output shows a snippet of jQuery's minified source code containing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "javascript",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "!function(e,t){\"use strict\";\"object\"==typeof module&&\"object\"==typeof module.exports?module.exports=e.document?(t(e,!0):function(e){if(!e.document)throw new Error(\"jQuery requires a window with a document\");return t(e)}):t(e)}(\"undefined\"!=typeof window?window:this,function(e,t){\"use strict\";var oe=[],r=Object.getPrototypeOf,ae=oe.slice,g=oe.flat?function(e){return oe.flat.call(e)}:function(e){return oe.concat.apply([],e)},s=oe.push,i=oe.indexOf,n={},o=n.toString,y=n.hasOwnProperty,a=y.toString,u=a.call(Object),v={},m=function(e){return\"function\"==typeof e&&\"number\"!=typeof e.nodeType&&\"function\"!=typeof e.item},x=function(e){return null!=e&&e===e.window},E=e.document,c={type:!0,src:!0,nonce:!0,noModule:!0},function m(e,t,n){var r,i,o=(n=n||E).createElement(\"script\");if(o.text=e,t)for(r in c)(i=t[r])&&(o.setAttribute(r,i));n.head.appendChild(o).parentNode.removeChild(o)}function x(e){return null==e?e+\"\":\"object\"==typeof e||\"function\"==typeof e?n[i.call(e)]||\"object\":typeof e}var t=\"3.7.1\",i=/HTML$/i,ce=function(e,t){return new ce.fn.init(e,t)};function ae(){...",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "API References:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The grep search found \"api\" within various JavaScript functions and method names",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No explicit API endpoint URLs or configuration settings appear in this snippet",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The term appears as part of function names and internal method references",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "JavaScript Framework Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Code shows jQuery version 3.7.1 (var t=\"3.7.1\")",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implementation uses an IIFE (Immediately Invoked Function Expression) pattern",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Contains module loading logic for different environments (browser vs. Node.js)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Error handling for cases where a DOM document isn't available",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Insights:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Script handling includes security attributes like \"nonce\" (for CSP)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The code handles \"noModule\" attribute (modern browser feature detection)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Script creation functionality could be relevant for XSS vulnerability research",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing Elements:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No database connection strings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No server endpoints or URLs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No configuration objects with sensitive data",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No API keys or authentication tokens",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Client-Side Only:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "jQuery is a client-side library with no direct server connections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No evidence of backend communication in the examined code",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Primarily focused on DOM manipulation and JavaScript utilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Teaming Implications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "jQuery version information could be used to check for known vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Script injection capabilities might be leveraged if website implementation is flawed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No direct security vulnerabilities in the library code itself from this analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Disclosure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Version information revealed (3.7.1)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Script loading mechanics exposed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No sensitive information disclosed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Techniques for Red Team Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "JavaScript Library Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for outdated jQuery versions with known vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify jQuery plugins that may have security issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analyze how the website uses jQuery (especially dynamic content creation)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Follow-up Investigation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Examine how the application uses jQuery for AJAX requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Look for custom jQuery extensions or plugins",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analyze event handlers for potential security issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Keep jQuery updated to latest version",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement proper Content Security Policy (CSP)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use Subresource Integrity (SRI) for script loading",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Validate all user input before processing with jQuery methods",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This analysis shows that jQuery's core code does not contain hardcoded API endpoints, server configurations, or database connections, which aligns with its purpose as a client-side JavaScript library.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6. Troubleshooting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Common Errors:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL Certificate Errors:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issue: Certificate validation fails",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Solution: Use --no-check-certificate (security risk!) or update your CA certificates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Connection Timeouts:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issue: Connection timeouts on slow connections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Solution: Increase timeout with --timeout=SECONDS or use --dns-timeout, --connect-timeout, and --read-timeout",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Permission Denied:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issue: No write permission for output file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Solution: Check directory permissions or use -P to specify a different output directory",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Incomplete Downloads:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issue: Downloads incomplete or corrupted",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Solution: Use -c to resume downloads or --tries=NUMBER to increase retry attempts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Debugging:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use -d or --debug for verbose debugging output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use -v for verbose (less than debug) output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check the server response with --server-response",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use --save-headers to examine HTTP headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Support Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GNU Bug Tracker",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mailing Lists",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wget Manual",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7. Security Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OPSEC Concerns:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Default User-Agent string identifies as Wget",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Recursive downloads can be noisy and leave obvious patterns in logs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP Basic Auth credentials in URLs can be logged on server side",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detection Methods:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User-Agent identification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sequential request patterns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consistent timing between requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Requests for non-linked resources in recursive mode",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Direct requests for robots.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mitigation Techniques:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use custom User-Agent with -U or --user-agent",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use --wait=SECONDS to introduce random delays",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use --random-wait for variable timing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use proxies with --proxy-user and --proxy-password",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use Tor for anonymous connections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use --limit-rate to avoid bandwidth spikes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Set robots=off in wgetrc to avoid fetching robots.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8. References and Additional Resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cheat Sheet:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Download file: wget https://example.com/file.zip",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Download with different filename: wget -O output.zip https://example.com/file.zip",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Resume interrupted download: wget -c https://example.com/large-file.iso",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mirror a website: wget -m -p -np -k https://example.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Download recursively with depth: wget -r -l 2 https://example.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Spider mode (no download): wget --spider -r https://example.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Download with authentication: wget --user=username --password=password https://example.com/private/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Tools:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Curl - Command line tool for transferring data with URLs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTrack - Website copier and offline browser",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Aria2 - Lightweight multi-protocol download utility",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Scrapy - Web scraping framework",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WinHTTrack - Windows version of HTTrack",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Further Reading:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GNU Wget Manual",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wget examples on LinuxHint",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Advanced Wget Usage",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web Scraping with Wget",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Community Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget examples on Unix & Linux Stack Exchange",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget on GitHub (mirror)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "wget usage patterns on CommandLineFu",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  }
+]

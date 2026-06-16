@@ -1,0 +1,5173 @@
+[
+  {
+    "type": "p",
+    "text": "DNSRecon",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSRecon is a powerful DNS enumeration script written in Python that allows security professionals to gather valuable information about a target's DNS infrastructure. It's an essential tool in the reconnaissance phase of penetration testing and security assessments.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 1: Basic DNS Enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 1: Standard DNS Lookup",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -d testphp.vulnweb.com -t std",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image11.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNSrecon Tool Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The output shows a DNS reconnaissance scan against testphp.vulnweb.com, revealing basic DNS information including its IP address and DNS records.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Fields in the Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Field",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Value in Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The domain being scanned",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "testphp.vulnweb.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Address",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The resolved IP address of the domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "44.228.249.3",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TXT Record",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Text records in DNS that can contain various information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google-site-verification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SRV Records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service records that identify servers for specific services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "None found",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tool Usage and Interpretation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Significance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Resolution - The domain resolves to 44.228.249.3, identifying the server location",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google Site Verification - The TXT record contains a Google verification token, used to verify domain ownership for Google services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing DNSSEC - The warning shows DNSSEC is not configured, indicating potential vulnerability to DNS spoofing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No SRV Records - No service records were found that would indicate specific service endpoints",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Vulnerabilities Identified",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSSEC Not Configured",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Makes the domain potentially vulnerable to DNS poisoning/spoofing attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attackers could redirect traffic by manipulating DNS responses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Information Disclosure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The IP address is publicly visible, allowing targeted attacks against the hosting server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google verification token exposed, though this is low risk",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Potential",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Spoofing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Without DNSSEC, attackers could potentially redirect users to malicious sites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Could be used for phishing by redirecting traffic to fake sites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Footprinting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This information forms part of the reconnaissance phase in a penetration test",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Provides details for further targeted scanning of the identified IP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Reconnaissance Activities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extended Reconnaissance Activities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Zone Transfer Attempts - Try to obtain a copy of the entire zone file from DNS servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Cache Snooping - Check if DNS servers allow examination of their cache",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Enumeration - Discover additional subdomains through brute forcing or wordlists",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reverse DNS Lookups - Find additional domains hosted on the same IP address",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "MX Record Analysis - Identify mail servers that could be targeted",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Historical DNS Data - Check for previously used DNS records that might reveal infrastructure changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Complementary Approaches",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Passive DNS Analysis - Collect historical DNS data from various sources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Transparency Logs - Check for SSL/TLS certificates issued for the domain or subdomains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OSINT Gathering - Correlate DNS information with other publicly available data",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Whois Data Analysis - Examine registration information for additional insights",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Remediation Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement DNSSEC to protect against DNS poisoning and spoofing attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Review DNS record exposure and minimize information disclosure where possible",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement proper SPF, DKIM, and DMARC records to prevent email spoofing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Regularly audit DNS configurations for security best practices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This DNS information provides initial attack surface mapping as part of a comprehensive web application security assessment.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 2: Zone Transfer Attempt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -d google.com -t axfr",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image15.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image5.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNSrecon Zone Transfer Analysis: google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The output shows results of an attempted zone transfer (AXFR) against Google's DNS servers. The scan identifies Google's authoritative name servers and tests each for zone transfer vulnerabilities.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Fields in the Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Field",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Value in Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain being tested for zone transfer",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SOA Record",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Start of Authority record",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ns1.google.com (216.239.32.10, 2001:4860:4802:32::a)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "NS Records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Authoritative name servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ns1-ns4.google.com (both IPv4 and IPv6 addresses)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Zone Transfer Results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Results of AXFR attempts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All failed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tool Interpretation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Infrastructure Identified",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Name Servers - Google operates 4 authoritative name servers:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ns1.google.com (216.239.32.10, 2001:4860:4802:32::a)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ns2.google.com (216.239.34.10, 2001:4860:4802:34::a)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ns3.google.com (216.239.36.10, 2001:4860:4802:36::a)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ns4.google.com (216.239.38.10, 2001:4860:4802:38::a)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Dual-Stack Infrastructure - All servers have both IPv4 and IPv6 addresses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Port Status:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv4 addresses have port 53 TCP open",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv6 addresses have port 53 TCP filtered",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Zone Transfer Results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All Transfer Attempts Failed due to:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv4 servers: \"No answer or RRset not for qname\" (transfers explicitly denied)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv6 servers: \"Port 53 TCP is being filtered\" (connections blocked)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Positive Security Findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Zone Transfer Protection - Google has properly secured their DNS servers:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv4 servers explicitly reject zone transfer requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv6 addresses filter port 53 TCP connections entirely",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Infrastructure Redundancy - Multiple geographically distributed name servers provide fault tolerance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Disclosure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Architecture Revealed - The scan discloses:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Number and addresses of authoritative name servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS infrastructure architecture using both IPv4 and IPv6",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Different security approaches for IPv4 vs IPv6 addresses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Reconnaissance Activities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Further DNS Enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Forward DNS Scanning - Attempt to find subdomains through brute force or dictionary attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reverse DNS Analysis - Check for additional domains hosted on the same IP ranges",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Record Enumeration - Collect all available record types (MX, TXT, CNAME, etc.)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Historical DNS Analysis - Research previously used DNS configurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network Probing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Identification - Scan for other services running on the identified name servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv6 Infrastructure Analysis - Further explore the IPv6 security implementations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network Topology Mapping - Trace routes to identify network architecture",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Best Practices Demonstrated",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Zone transfers disabled - Critical DNS security control properly implemented",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defense in depth - Different blocking mechanisms for IPv4 and IPv6",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Redundant infrastructure - Multiple name servers for fault tolerance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This scan demonstrates that Google has implemented proper DNS security controls, preventing unauthorized access to their zone data while maintaining a robust DNS infrastructure.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This attempts to perform a zone transfer from each name server for the target domain. Zone transfers, when improperly secured, can reveal all DNS records for a domain, providing a complete map of the target's infrastructure.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 3: Reverse Lookup on IP Range",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -r 195.47.254.0/24",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image10.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNSrecon Reverse Lookup Analysis: 195.47.254.0/24",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The output shows results of a reverse DNS lookup scan of the IP range 195.47.254.0/24. The scan identifies hostnames associated with IP addresses in this subnet through PTR records.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Fields in the Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Field",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Value in Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Range",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The subnet being scanned",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "195.47.254.0/24",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "PTR Records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Pointer records mapping IPs to hostnames",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "13 records found",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Total Records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Number of PTR records discovered",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "13",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tool Interpretation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network Infrastructure Identified",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Information:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All discovered hosts belong to schylter.se or kirei.se domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Suggests this subnet is operated by these organizations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Host Classification:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network Infrastructure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "resolver.schlyter.se (195.47.254.20) - DNS resolver",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "colo-fw.kirei.se (195.47.254.1) - Likely a firewall",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "kirei-gw.schlyter.se (195.47.254.3) - Gateway system",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Hosts:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ssh.schlyter.se (195.47.254.13) - SSH server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "web.schlyter.se (195.47.254.12) - Web server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "mc.schlyter.se (195.47.254.29) - Possibly mail or management console",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Colocation Services:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "colo-nw.schlyter.se (195.47.254.0)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "colo-ex.schlyter.se (195.47.254.30)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "colo-bc.schlyter.se (195.47.254.31)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Other Services:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "trinitario.schlyter.se (195.47.254.10)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "trinitario2.schlyter.se (195.47.254.21)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "vhost.schlyter.se (195.47.254.11) - Virtual hosting server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "furberg.kirei.se (195.47.254.26)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Disclosure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network Topology Revealed:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The scan exposes the internal network structure including firewalls, gateways, and servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service role naming conventions provide insight into network architecture",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Discovery:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Clear identification of service types (web, SSH, DNS resolver)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Colocation infrastructure suggesting hosted services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attack Surface Mapping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target Identification:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Specific service hosts can be targeted for further scanning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security-critical infrastructure (resolver, gateway, firewall) identified",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Possible Entry Points:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web and SSH servers represent potential entry points",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Virtual hosting environment may host multiple web applications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Reconnaissance Activities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Further Enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Scanning - Identify open ports and services on each discovered host",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web Application Analysis - Check for vulnerabilities in web.schlyter.se",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Service Testing - Test resolver.schlyter.se for misconfigurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSH Configuration Audit - Check ssh.schlyter.se for outdated SSH versions or weak configurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Organizational Context",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Whois Lookup - Research the organizations schylter.se and kirei.se",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Horizontal Expansion - Look for additional subnets owned by these organizations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Enumeration - Discover additional subdomains for these organizations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Best Practices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Limit PTR Record Information - Consider using generic names that don't reveal server functions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement Network Segmentation - Separate critical infrastructure (firewall, gateway) from public-facing services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Regular Security Audits - Ensure all identified hosts are properly secured and patched",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider DNS Security Extensions - Implement DNSSEC to prevent DNS spoofing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This reverse DNS scan provides significant intelligence about network infrastructure that would be valuable in the early stages of a penetration test or security assessment.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 2: Advanced DNS Enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 1: Brute Force Subdomain Discovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -d testphp.vulnweb.com -t brt -D /usr/share/dnsrecon/namelist.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image6.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNSrecon Subdomain Brute Force Analysis: google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The output shows results of a subdomain brute force scan against google.com using DNSrecon's \"-t brt\" option with a wordlist. The scan successfully identified 403 subdomains through DNS queries.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Fields in the Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Field",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Example in Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Primary domain being scanned",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Dictionary File",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wordlist used for brute forcing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/usr/share/dnsrecon/namelist.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Record Type",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS record types discovered",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "A, AAAA, CNAME",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Discovered subdomain names",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "accounts.google.com, admin.google.com, etc.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Address",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Associated IP addresses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "142.250.192.78, 2404:6800:4009:829::200e, etc.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Total Records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Number of subdomains found",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "403 Records Found",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tool Interpretation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Architecture Revealed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content Delivery Infrastructure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple subdomains resolve to the same IP addresses (142.250.192.78)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extensive use of CNAME records pointing to load balancers (www3.l.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Both IPv4 and IPv6 addressing implemented across the infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Classification:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User Services: accounts.google.com, wallet.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Administrative: admin.google.com, webmaster.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Product-specific: ads.google.com, ai.google.com, scholar.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Developer Resources: alerts.google.com, ap.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mobile-specific: wap.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Architecture:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extensive use of CNAME records for service abstraction",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consistent naming conventions across subdomain hierarchy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Strategic IP distribution (certain services on dedicated IPs)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Disclosure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attack Surface Mapping:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Complete enumeration of public-facing services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Discovery of potentially sensitive subdomains (admin.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Clear view of Google's content delivery architecture",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Targeting Information:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Specific service endpoints identified for potential vulnerability scanning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP address patterns revealed for network reconnaissance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Posture Indicators",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Robust Infrastructure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consistent implementation of both IPv4 and IPv6",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Load balancing through CNAME redirection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Organized subdomain structure suggesting mature DevOps practices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential Concerns:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Administrative interfaces potentially exposed (admin.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Large attack surface with 403 subdomains discovered",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Reconnaissance Activities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Further Enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Fingerprinting - Identify software versions on discovered subdomains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Application Scanning - Test each subdomain for web vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OSINT Correlation - Match discovered subdomains with known Google services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Transparency - Cross-reference with SSL certificate data",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Strategic Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Categorization - Organize findings by service type",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Priority Targeting - Focus on sensitive or less-common subdomains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Mapping - Create visual representation of interconnected services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Best Practices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement Subdomain Access Controls - Restrict access to administrative interfaces",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Regular Subdomain Auditing - Periodically review exposed DNS records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider DNS Wildcard Records - To reduce information leakage through enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Monitor for Subdomain Takeover - Ensure all subdomains point to controlled assets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This brute force scan provides comprehensive mapping of Google's subdomain infrastructure, revealing their service architecture and potential attack vectors. The large number of subdomains (403) indicates a substantial public-facing digital footprint that requires careful security monitoring.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 2: Finding Cached DNS Records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -d google.com -t crt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image16.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image12.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNSrecon Certificate Transparency Analysis: google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The output shows results of a Certificate Transparency (CT) scan against google.com using DNSrecon's \"-t crt\" option. This scan discovers subdomains by querying public Certificate Transparency logs, revealing both public-facing and potentially internal Google domains.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Fields in the Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Field",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Example in Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Primary domain being scanned",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wildcard Certificates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL certificates with wildcard coverage",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "*.google.com, *.mail.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Record types for discovered subdomains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "A, CNAME",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Discovered domain names",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "services.google.com, audioads.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Addresses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Associated IP addresses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "142.250.192.78, 142.251.12.129",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Total Records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Number of subdomains found",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "50 Records Found",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tool Interpretation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Infrastructure Revealed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wildcard Certificate Usage:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extensive use of wildcard certificates (*.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service-specific wildcards (*.mail.google.com, *.vp.video.l.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Product-specific wildcards (*.chrome.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Architecture:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Public Services: gmail.google.com, m.google.com, answers.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Internal Infrastructure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "login.corp.google.com (corporate login portal)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "uberproxy.l.google.com (internal proxy service)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "soaproxyprod01.ext.google.com (SOAP API proxy)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing Environments:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ecc-test.sandbox.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "soaproxytest01.ext.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "cert-test.sandbox.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Hierarchy:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multi-level subdomains (mobile-gtalk.l.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Structured naming conventions (prod/test differentiation)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service-oriented domain organization",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Disclosure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Internal Architecture Exposed:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Corporate domain structure revealed (corp.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test and sandbox environments discovered",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Internal proxy infrastructure identified (uberproxy)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Management Insights:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reliance on wildcard certificates for service groups",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Strategic certificate deployment across infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate hierarchy matches service architecture",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Concerns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential Attack Vectors:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test/sandbox environments may have weaker security controls",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Corporate domains may be targeted for social engineering",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "External-facing proxy services could be probed for vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Monitoring Implications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Large wildcard certificate scope increases impact of key compromise",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple certificates to monitor and manage for expiration/revocation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Reconnaissance Activities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Further Enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Fingerprinting - Identify software and versions on discovered hosts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Detail Analysis - Inspect certificate properties (issuer, validity period)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Historical Certificate Data - Review older certificates for potentially retired services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Horizontal Expansion - Test discovered naming patterns on other Google domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Strategic Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Categorization - Group findings by infrastructure purpose",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Targeting Priority - Focus on test environments and corporate infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Trust Chain Analysis - Evaluate Google's certificate authority usage",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Best Practices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Scope Limitation - Consider narrower wildcard certificates or specific certificates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test Environment Isolation - Better segregate test/sandbox environments from public discovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Internal Domain Naming - Avoid revealing internal architecture in public certificates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Transparency Monitoring - Regularly audit CT logs for unexpected certificates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This Certificate Transparency scan provides valuable insights into Google's SSL infrastructure and domain architecture, revealing not only public-facing services but also glimpses of their internal corporate network structure. The mixed presence of production and test environments suggests a comprehensive security review could identify potential weaknesses in their certificate deployment strategy.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 3: Google DNS Lookups",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -d wikipedia.com -n 8.8.8.8 -t std",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image14.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Section 3: Specialized Scans",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 1: SRV Record Enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -d google.com -t srv",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image7.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNS Service Record (SRV) Analysis for google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary of the Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The image shows the results of a DNS reconnaissance scan targeting google.com, specifically focusing on SRV records. The scan was performed using the dnsrecon tool in a Kali Linux environment, revealing 8 different SRV records that provide information about service locations within Google's infrastructure. These records include LDAP, CardDAV, and CalDAV services with their corresponding hosts, IP addresses, and port numbers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Understanding the Output Fields",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Each line in the output follows this format: SRV _service._protocol.domain target_host IP_address port",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Breaking down the components:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SRV: Indicates this is a Service record",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "_service._protocol: The service name and protocol (e.g., _ldap._tcp)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "domain: The domain being queried (google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "target_host: The hostname providing the service",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP_address: IPv4 or IPv6 address of the target host",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port: TCP/UDP port number where the service is accessible",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detailed Analysis of Discovered Services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Type",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target Host",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Address",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv6 Address",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Port",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "LDAP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ldap.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "216.239.32.58",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2001:4860:4802:32::3a",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "389",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CardDAV",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "142.250.71.110",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2404:6800:4009:806::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CalDAV",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "calendar.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "142.251.42.78",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2404:6800:4009:831::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CalDAV (alt)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "calendar.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "142.251.42.78",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2404:6800:4009:831::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "80",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Teaming Relevance and Exploitation Possibilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intelligence Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Enumeration: The scan reveals active services and their entry points",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network Topology: Shows how Google's services are distributed and addressed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Dual-Stack Implementation: Demonstrates Google's IPv4/IPv6 infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential Security Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Fingerprinting: Knowledge of exact services can help attackers focus their efforts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Version Information: Service types can sometimes be correlated with software versions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Authentication Probing: Services like LDAP might be targeted for authentication tests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service-Specific Vulnerabilities: Knowing service types allows for targeted vulnerability scanning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Usage in Red Team Operations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reconnaissance Phase: Essential first step in mapping attack surface",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target Prioritization: Helps identify potentially vulnerable services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Lateral Movement Planning: Understanding service relationships assists in planning pivots",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Social Engineering Preparation: Knowledge of service structure can make phishing more convincing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "How to Use This Information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Perspective",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Limit SRV record exposure to only necessary information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement proper access controls on exposed services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Monitor for unusual queries against SRV records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider honeypot/decoy SRV records to detect reconnaissance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Offensive Perspective",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Further enumerate each service with service-specific tools",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for misconfigurations in LDAP services (port 389)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Investigate web services on standard (80) and secure (443) ports",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Map relationships between discovered services for potential pivoting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This type of reconnaissance provides valuable insights into an organization's infrastructure without active exploitation, making it an essential component of both security assessments and potential attack preparation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 2: Wildcard Resolution Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -d google.com -t std -w",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image2.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image18.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNS Reconnaissance Analysis for Google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Image 1: Extended SRV Records Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This scan reveals SRV records for Google's domain followed by WHOIS lookups against the discovered IP addresses. It shows 8 SRV records for various services (LDAP, CalDAV, CardDAV) along with identified IP ranges that couldn't be found in WHOIS databases.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detailed Record Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Type",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protocol",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Host",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target Host",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv4/IPv6",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Port",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "LDAP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TCP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ldap.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "216.239.32.58",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "389",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "LDAP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TCP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ldap.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2001:4860:4802:32::3a",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "389",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CalDAV",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TCP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "calendar.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "142.251.42.78",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "80",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CalDAV",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TCP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "calendar.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2404:6800:4009:831::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "80",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CalDAVS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TCP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "calendar.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "142.251.42.78",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CalDAVS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TCP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "calendar.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2404:6800:4009:831::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CardDAVS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TCP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "142.250.71.110",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CardDAVS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TCP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2404:6800:4009:806::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WHOIS Information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The scan attempted WHOIS lookups on four IP ranges:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "216.239.32.0-216.239.63.255",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "74.125.0.0-74.125.255.255",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "142.250.0.0-142.251.255.255",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "172.253.0.0-172.253.255.255",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All returned \"Not Found\" indicating these ranges might be:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Privately registered",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protected from WHOIS queries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using WHOIS privacy services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Image 2: Standard DNS Enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This scan shows the results of a general DNS enumeration against google.com using the command dnsrecon -d google.com -t std -w. It reveals multiple record types including SOA, NS, MX, A, AAAA, and TXT records.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSSEC Not Configured: The red warning indicates Google.com doesn't have DNSSEC configured, which is a security extension for DNS.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Infrastructure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4 authoritative nameservers (ns1-ns4.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Both IPv4 and IPv6 addressing for each nameserver",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mail Infrastructure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple MX records pointing to smtp.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Diverse IP addressing (IPv4 and IPv6) for mail servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Geographic distribution indicated by IP ranges",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Email Security:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DMARC record configured to reject non-compliant emails",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reports configured to be sent to mailauth-reports@google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Core Address Records:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "A record: google.com → 142.250.71.110",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "AAAA record: google.com → 2404:6800:4009:806::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attack Surface Mapping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple service entry points identified (LDAP, CalDAV, CardDAV)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Email infrastructure exposed through MX records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No DNSSEC protection may indicate potential DNS spoofing vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Critical Services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "LDAP Service (Port 389):",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential target for directory information harvesting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "May expose user information or authentication mechanisms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Non-encrypted port (389) rather than secure LDAPS (636)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Calendar/Contact Services:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CalDAV/CardDAV available on both encrypted (443) and unencrypted (80) ports",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential for calendar/contact data interception on unencrypted channels",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mail Infrastructure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple redundant mail servers indicate critical service",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DMARC policy reduces email spoofing risks but server configs could be probed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Possibilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "LDAP Enumeration: Test for anonymous binds or information leakage",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Version Probing: Target specific services for version-specific vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Cache Poisoning: Absence of DNSSEC increases risk on certain networks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mail Server Testing: Probe for mail server vulnerabilities or misconfigurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement DNSSEC to prevent DNS spoofing attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider limiting public visibility of non-essential SRV records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Migrate all services to encrypted-only connections (disable port 80 for CalDAV)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement stricter WHOIS privacy protections on all IP ranges",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Conduct regular service enumeration to identify unintended exposed services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon Command Options Explained",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d domain: Specifies the target domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-t std: Standard record enumeration (A, AAAA, MX, SOA, etc.)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-t srv: Service record enumeration only",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-w: Perform WHOIS lookups on discovered records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These enumerations provide valuable intelligence for both attackers (targeting specific services) and defenders (identifying exposure points) without active exploitation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 3: DNSSEC Analysis: (using Dig tool)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dig +dnssec testphp.vulnweb.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image17.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNS Query Analysis with dig +dnssec",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image shows the output of a dig +dnssec command targeting the domain testphp.vulnweb.com. This command performs a DNS lookup with DNSSEC validation enabled, revealing information about the domain's IP address and DNSSEC configuration status.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detailed Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Breakdown",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dig +dnssec testphp.vulnweb.com - Performs a DNS lookup requesting DNSSEC information for testphp.vulnweb.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Fields Explained",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Field",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Meaning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "opcode",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "QUERY",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Standard DNS query operation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "status",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "NOERROR",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Query completed successfully",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "id",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "18340",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Request identifier",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "flags",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "qr rd ra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Query response, recursion desired, recursion available",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "QUERY",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "One query was sent",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ANSWER",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "One answer was received",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "AUTHORITY",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "0",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No authority records returned",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ADDITIONAL",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "One additional record returned",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "EDNS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "version",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "0",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "EDNS version 0",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "EDNS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "MBZ",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "0x0005",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Must Be Zero field, non-zero value might indicate implementation issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "EDNS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "udp",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "512",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Maximum UDP payload size supported",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Question",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "testphp.vulnweb.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IN A",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Query for IPv4 address of testphp.vulnweb.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Answer",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "testphp.vulnweb.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5 IN A 44.228.249.3",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain resolves to 44.228.249.3 with TTL of 5 seconds",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Query time",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "11 msec",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Time taken to complete query",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "192.168.112.2#53",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS server used (local network resolver)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "When",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wed May 07 18:34:50 IST 2025",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Timestamp of query",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "MSG SIZE",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "64",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Size of DNS message in bytes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSSEC Findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSSEC Status",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No DNSSEC Signatures: The output doesn't show any RRSIG (Resource Record Signature) records, indicating DNSSEC is not implemented for this domain.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No DS Records: No Delegation Signer records are present, confirming DNSSEC is not configured.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No DNSKEY Records: DNSKEY records (which would contain public keys for DNSSEC validation) are absent.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Spoofing Risk: Without DNSSEC, this domain is vulnerable to DNS cache poisoning and spoofing attacks.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Man-in-the-Middle Potential: An attacker could potentially intercept DNS queries and redirect traffic to malicious servers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Trust Chain Issues: If this is a security-critical domain, lack of DNSSEC breaks the chain of trust in the DNS hierarchy.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Observations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extremely Low TTL: The TTL value of 5 seconds is unusually low, which could indicate:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain is frequently changing its IP address",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain is behind load balancing or CDN systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Could be a technique to minimize the impact of potential DNS changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Local DNS Server: The query was answered by 192.168.112.2, a local network DNS server, not directly from authoritative nameservers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Relevance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intelligence Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Confirms domain is active and resolvable",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identifies specific IP address for targeted testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reveals DNSSEC is not implemented, opening potential DNS-based attack vectors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Possibilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Spoofing: Without DNSSEC, the domain is vulnerable to various DNS spoofing techniques.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Reconnaissance: The identified IP (44.228.249.3) can be subjected to further scanning and enumeration.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Cache Poisoning: With no DNSSEC validation, recursive DNS servers handling this domain could be vulnerable to cache poisoning.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Testing Paths",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test the domain's nameservers directly for zone transfer vulnerabilities:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Examine other DNS record types (MX, TXT, etc.) for information leakage:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for subdomain enumeration since the domain security is possibly weak:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement DNSSEC for the domain to prevent DNS spoofing attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Increase TTL values to reduce unnecessary DNS traffic (if rapid IP changes aren't required)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider DANE (DNS-Based Authentication of Named Entities) for additional transport layer security",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement DNS monitoring to detect unusual query patterns or resolution changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use CAA (Certificate Authority Authorization) records to restrict which CAs can issue certificates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This DNS analysis provides valuable initial intelligence about the domain's configuration and potential security weaknesses without active exploitation, making it an essential component of a thorough security assessment.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 4: Information Gathering Techniques",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 1: Enumerating Domain MX Records with SPF Check using dig",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo \"[MX Records]\"; dig testphp.vulnweb.com MX +short; echo \"[SPF Records]\"; dig testphp.vulnweb.com TXT +short | grep spf",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image3.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Email Security Record Analysis for Google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This scan examines Google's email security configuration by querying two critical DNS record types:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "MX Records: Identify mail servers responsible for receiving email",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SPF Records: Define authorized mail servers allowed to send emails on behalf of the domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detailed Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Breakdown",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This compound command:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Uses dig with +short option to display concise output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Specifically targets MX and TXT records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Filters TXT records to show only SPF-related entries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "MX Record Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "[MX Records]",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "10 smtp.google.com.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Component",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Meaning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Priority",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "10",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Lower number indicates higher priority; this is Google's primary mail server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mail Server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "smtp.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The fully qualified domain name of Google's mail server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Single MX record indicates centralized mail handling (common for large providers)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using a dedicated subdomain (smtp.google.com) rather than direct IP addressing provides flexibility for backend changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Standard priority value indicates normal configuration (not specialized for anti-spam)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SPF Record Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "[SPF Records]",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"v=spf1 include:_spf.google.com ~all\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Component",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Meaning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Version",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "v=spf1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SPF version 1 (current standard)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Policy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "include:_spf.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "References another SPF record that contains the actual sender IP information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Enforcement",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "~all",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Soft fail for non-matching senders (messages may be accepted but marked as suspicious)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SPF Mechanism Breakdown",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "include:_spf.google.com: Instead of listing IPs directly, Google uses a dedicated subdomain to maintain its sender list",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "~all (highlighted in red): Implements a \"soft fail\" policy rather than strict rejection (-all)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Relevance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Email Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SPF Implementation: Google has implemented SPF, but with a soft fail policy (~all)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Delegate Structure: Uses include mechanism to reference another record (_spf.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing Records: No visible DKIM or DMARC records in this particular query output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Possibilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SPF Soft Fail: The ~all directive means non-compliant emails may still be delivered but flagged",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Social Engineering: Understanding Google's email infrastructure aids in creating more convincing phishing attempts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Analysis: The _spf.google.com subdomain could be further investigated for additional information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Testing Next Steps",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Query the referenced _spf.google.com record to see the actual authorized senders:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for DKIM and DMARC records.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test email delivery from unauthorized sources to assess how strictly the ~all policy is enforced",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Strengthen SPF Policy: Consider upgrading from soft fail (~all) to hard fail (-all) for stronger protection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement DKIM: Ensure Domain Keys Identified Mail is configured for message signing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Deploy DMARC: Add a DMARC policy that specifies handling instructions for SPF/DKIM failures",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Monitor Mail Servers: Regularly check that listed mail servers remain under organizational control",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SPF Record Maintenance: Ensure the delegated _spf.google.com record is kept up-to-date with authorized senders",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Email Security Context",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These DNS records form part of the modern email security framework:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SPF: Verifies sending server IP addresses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DKIM: Cryptographically signs messages to verify they haven't been tampered with",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DMARC: Provides policy instructions on how to handle messages that fail SPF/DKIM checks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This analysis shows Google has implemented at least SPF, though with moderate rather than strict enforcement policies. This represents a balance between security and delivery reliability, which is common for large email providers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 2: Cache Snooping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -d testphp.vulnweb.com -t snoop -n 8.8.8.8",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image4.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNS Cache Snooping Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image shows the beginning of a DNS cache snooping operation against the domain testphp.vulnweb.com using the dnsrecon tool. The scan is specifically targeting the public DNS server 8.8.8.8 (Google's DNS) to determine which DNS records for the target domain are already cached on this server.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Breakdown",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Parameter",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "testphp.vulnweb.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target domain to investigate",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-t snoop",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "snoop",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technique type: DNS cache snooping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-n",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8.8.8.8",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target nameserver to check cache status",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Cache Snooping Technique",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The scan is using non-recursive DNS queries to determine which records for testphp.vulnweb.com are already cached in Google's public DNS (8.8.8.8), without causing the server to retrieve those records if they aren't already cached.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tool Information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The tool automatically uses a default wordlist at /usr/share/dnsrecon/dnsrecon/data/namelist.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No custom dictionary file was specified by the user",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Explanation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The scan has just started at the time of the screenshot, with the tool:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Noting no custom dictionary was specified",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Selecting the built-in default dictionary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Beginning the cache snooping operation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Relevance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intelligence Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Popularity Assessment: Records found in Google's DNS cache suggest recent visits by other users",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Discovery: May reveal active but unpublished subdomains that others have queried",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Usage Patterns: Cached records can indicate which services of the target domain are most frequently accessed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Possibilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reconnaissance: Identify active subdomains without directly interacting with the target's servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Traffic Analysis: Infer which services or subdomains are most frequently used, indicating valuable targets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attack Targeting: Focus exploitation efforts on services that appear to be actively used by legitimate users",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Privacy Concerns: DNS cache snooping can reveal user behavior patterns without their knowledge",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Leakage: May expose internal subdomains or services not intended for public knowledge",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Targeting Data: Provides attackers with intelligence for more focused attacks on popular services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Advanced Usage Techniques",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Improving Cache Snooping Results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple DNS Servers: Test against various public DNS providers (Google, Cloudflare, etc.)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Custom Dictionary: Use specialized wordlists for thorough subdomain discovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Record Type Specification: Target specific DNS record types",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Results Interpretation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cached Records: Indicate recent queries by other users (suggesting active usage)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TTL Values: Lower remaining TTL values suggest more recent queries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Record Distribution: Pattern of which records are cached can reveal service usage profiles",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Query Privacy: Use DNS over HTTPS (DoH) or DNS over TLS (DoT) to encrypt DNS queries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Internal Domain Naming: Avoid revealing internal structure in DNS naming schemes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Cache Management: For sensitive DNS servers, consider shorter TTL values",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Split-Horizon DNS: Use different DNS responses for internal vs external queries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Traffic Monitoring: Monitor for patterns of non-recursive queries that may indicate cache snooping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Limitations of the Technique",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cache snooping only works for records that other users have recently queried",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Public DNS servers like 8.8.8.8 have massive distributed caches, potentially reducing technique effectiveness",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS cache information is temporary due to TTL expiration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Many modern DNS servers implement countermeasures against cache snooping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This DNS cache snooping technique represents a non-intrusive reconnaissance method that leverages public DNS infrastructure to gather intelligence about a target domain's usage patterns.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This performs DNS cache snooping against the specified name server (in this case Google's 8.8.8.8). Cache snooping tries to determine if a DNS record exists in a name server's cache without making a recursive request, which can reveal information about domains recently accessed by other users.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 5: Advanced Techniques and Reporting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 1: Comprehensive Scan with JSON Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -d testphp.vulnweb.com -t std,rvl,brt -D /usr/share/dnsrecon/namelist.txt -j vulnweb_dns_output.json",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image1.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image9.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Comprehensive DNS Reconnaissance of Google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These images show an extensive DNS reconnaissance operation against google.com using the dnsrecon tool. The scan combines multiple techniques (standard enumeration, DNS brute forcing, and reverse lookup) to map Google's domain infrastructure, discovering subdomains, IP addresses, domain aliases, and service records. The results are exported to a JSON file for further analysis.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Parameter",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-t std,rvl,brt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Techniques: standard lookup, reverse lookup, brute force",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-D /usr/share/dnsrecon/namelist.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Dictionary file for subdomain bruteforcing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-j google_output.json",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "JSON output file for results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Core Infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Primary Domain Record: google.com resolves to 142.250.183.46 (IPv4) and 2404:6800:4009:821::200e (IPv6)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSSEC: Not configured (potential security concern)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Nameservers: Four authoritative nameservers (ns1-ns4.google.com) with both IPv4 and IPv6 addresses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Email Security",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mail Servers: Multiple MX records pointing to smtp.google.com with varying priorities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Email Security: DMARC record configured with a \"reject\" policy for failed authentication",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reporting: Email authentication reports directed to mailauth-reports@google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Architecture",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Discovered SRV Records: 8 service records found, including:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "LDAP services on port 389",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CalDAV/CardDAV services on ports 80/443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Calendar services primarily on calendar.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Structure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Core Subdomains: Numerous subdomains discovered through brute force, including:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "accounts.google.com (user authentication)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "admin.google.com (administrative interface)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ads.google.com (advertising platform)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ai.google.com (AI services)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "scholar.google.com (academic search)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Aliasing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CNAME Records: Multiple subdomains are aliases:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www3.l.google.com is the actual host for multiple frontend services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Canonical mapping between services (e.g., academico.google.com → scholar.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Relevance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attack Surface Mapping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expansive Service Footprint: Google operates numerous subdomains, each representing a potential entry point",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Diversity: Different services (LDAP, CalDAV, etc.) may have varying security implementations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Geographic Distribution: IP addresses span multiple subnets, indicating distributed infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Observations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSSEC Missing: The absence of DNSSEC presents potential DNS spoofing opportunities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Robust Email Security: Strong DMARC policy (\"p=reject\") shows mature email security practices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Canonical Name Chains: Multiple CNAME redirections reveal actual infrastructure behind services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv6 Implementation: Dual-stack deployment across all services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Possibilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Targeting: Focus on less mainstream subdomains that might have weaker security",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service-Specific Testing: Target specific services like LDAP (port 389) for service-specific vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Canonical Name Analysis: Track CNAME chains to identify actual hosting infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Error Message Analysis: The \"Invalid Address/CIDR\" error suggests improper reverse lookup configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Insights",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Design Patterns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Load Balancing: Multiple IP addresses for key services suggest load balancing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Consolidation: Many subdomains canonically pointing to www3.l.google.com indicates frontend consolidation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Segregation: Different service types (accounts, ads, ai) on different subdomains and IP addresses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Architecture",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Hierarchical Naming: Logical subdomain structure reflects service organization",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Redundant Nameservers: Four authoritative nameservers for reliability",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cloud Infrastructure: IPv6 addresses follow Google Cloud format patterns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Advanced Testing Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Further Reconnaissance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Zone Transfer Attempts: Test for misconfigured DNS servers allowing zone transfers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Record Types: Query for less common record types (CAA, SSHFP, etc.)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Historical DNS Analysis: Compare current results with historical DNS data to identify infrastructure changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Takeover: Check for subdomain takeover vulnerabilities in discovered CNAMEs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Cache Poisoning: Test for susceptibility to cache poisoning due to missing DNSSEC",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service-Specific Probing: Test discovered services (LDAP, CalDAV) for misconfigurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement DNSSEC: Add DNSSEC to prevent DNS spoofing attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Consolidation Review: Evaluate the security implications of numerous services sharing hosts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CNAME Chain Reduction: Simplify CNAME chains to reduce complexity and potential points of failure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Inventory: Maintain accurate inventory of all subdomains to prevent forgotten assets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Record TTL Standardization: Implement consistent TTL policies across record types",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This comprehensive DNS analysis provides a detailed map of Google's domain infrastructure, revealing both the scale of their services and potential areas for security testing without active exploitation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 2: Targeted Zone Transfer with Custom Nameserver",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -d zonetransfer.me -t axfr -n nsztm1.digi.ninja",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image13.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNS Zone Transfer Testing Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image shows the results of a DNS zone transfer (AXFR) attempt against the domain zonetransfer.me using the dnsrecon tool. The scan attempts to perform a zone transfer from a specific nameserver nsztm1.digi.ninja.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Breakdown",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Parameter",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "zonetransfer.me",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target domain to test",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-t",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "axfr",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technique: zone transfer testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-n",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nsztm1.digi.ninja",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Specific nameserver to query",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Zone Transfer Process",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The tool is attempting to execute these steps:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for zone transfer capability on zonetransfer.me's nameservers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Resolve the SOA (Start of Authority) record",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Resolve and enumerate the NS (Nameserver) records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Remove duplicate nameserver IPs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attempt zone transfer from nsztm1.digi.ninja",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Results Interpretation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Failed Zone Transfer: The scan shows \"axfr: No records were returned\" in red, indicating the zone transfer attempt was unsuccessful",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Pre-steps Completed: The tool successfully resolved SOA and NS records for the domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Control Working: The nameserver is correctly configured to deny zone transfers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Relevance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing Context",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Zone transfer testing is a critical DNS security check because:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "A successful zone transfer would reveal complete domain records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "It could expose internal hostnames, IP addressing schemes, and service configurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "It represents one of the oldest but still occasionally found DNS misconfigurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intelligence Value (Even with Failure)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Validation: Confirms zonetransfer.me is a valid domain with proper DNS configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Nameserver Identification: Identifies nsztm1.digi.ninja as one of the authoritative nameservers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Posture: Indicates the domain has this specific security control properly implemented",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Possibilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Alternative Nameservers: Other nameservers for the domain might be less securely configured (This would test all nameservers, not just the specified one)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Domains: Test similarly named domains that might share infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Enumeration: Since zone transfer failed, pivot to subdomain enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Interesting Observations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Selection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "zonetransfer.me: This domain is actually a deliberately vulnerable test domain created by Robin Wood (DigiNinja)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expected Behavior: Normally this domain should ALLOW zone transfers for educational purposes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Unexpected Result: The failure shown here is unusual and might indicate:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Temporary configuration change",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network connectivity issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Specific restrictions on the tested nameserver",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Educational Context",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The domain zonetransfer.me was specifically created to demonstrate DNS vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "It's commonly used in security training and tools testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Under normal circumstances, testing against this domain should succeed, allowing security practitioners to see what a vulnerable zone transfer looks like",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Zone Transfer Restrictions: Always restrict zone transfers to authorized IP addresses only",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TSIG Implementation: Use Transaction Signatures for secure zone transfers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Split-DNS Architecture: Use separate external and internal DNS servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Traffic Monitoring: Monitor for AXFR request attempts as potential reconnaissance indicators",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Regular Testing: Conduct regular zone transfer tests to ensure configuration hasn't been accidentally changed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This analysis highlights the importance of testing DNS zone transfer restrictions as part of a comprehensive security assessment, and demonstrates the proper configuration of this security control for the tested domain.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 7: Stealthy Reconnaissance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test 1: Low and Slow Subdomain Enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -d testphp.vulnweb.com -t brt -D /usr/share/dnsrecon/subdomains-top1000.txt --threads 1 --lifetime 5 -v",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image8.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNSRecon Subdomain Brute Force Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The image shows a DNSRecon tool being used with the brute force (brt) module against testphp.vulnweb.com. The command is attempting to discover subdomains by systematically testing a list of common subdomain names from a predefined wordlist. The scan is configured to use 1 thread and has a lifetime of 5 seconds per query, with verbose output enabled.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detailed Analysis of Output Fields",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Meaning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "dnsrecon -d testphp.vulnweb.com -t brt -D /usr/share/dnsrecon/subdomains-top1000.txt --threads 1 --lifetime 5 -v",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Running brute force subdomain enumeration using top 1000 common subdomains list",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using the dictionary file: /usr/share/dnsrecon/dnsrecon/data/namelist.txt (provided by tool)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Default wordlist being used for subdomain discovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "brt: Performing host and subdomain brute force against testphp.vulnweb.com...",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Starting the brute force process",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Trying [name].testphp.vulnweb.com (multiple lines)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing each potential subdomain by prefixing different values to the base domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Observations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Methodology: The tool is systematically testing common subdomain prefixes (0, 01, 02, 3com, a, about, etc.).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wordlist Selection: Using a predefined list of top 1000 subdomains, which is a standard approach for initial reconnaissance.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No Discoveries: In the visible output, no successful subdomain discoveries are shown (which would typically be indicated with \"Found\" or similar notation).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sequential Testing: The scan follows a methodical approach, testing numeric prefixes, alphanumeric combinations, and common words like \"about.\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Scan Configuration: Using conservative settings (1 thread, 5-second timeout) to avoid overwhelming the target or triggering defenses.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation/Red Team Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Discovery: Finding valid subdomains can reveal forgotten or unpatched systems that offer easier entry points.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Mapping: Even without successful discoveries, this process helps map the target's DNS configuration and security posture.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Next Steps:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expand the wordlist with industry-specific or target-specific terms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cross-reference with passive DNS records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Try permutation scanning with common patterns (dev-, test-, staging-)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use certificate transparency logs to discover additional subdomains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for virtual hosts on discovered IP addresses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This performs subdomain brute forcing with just one thread and a 5-second timeout between requests, making the scan much less likely to trigger rate limiting or intrusion detection systems.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Supporting instructions:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider running this overnight for sensitive targets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The verbose (-v) flag helps monitor progress during slow scans",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Adjust the lifetime parameter based on target sensitivity",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  }
+]

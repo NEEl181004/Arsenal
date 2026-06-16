@@ -1,0 +1,1362 @@
+[
+  {
+    "type": "p",
+    "text": "Auditd Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. Tool Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Auditd (Audit Daemon) is a Linux-based auditing tool used to monitor and log system activity. It is a key component of the Linux Auditing System and helps security professionals, system administrators, and forensic analysts track events such as unauthorized access, policy violations, and system modifications. Auditd provides real-time monitoring of files, users, and processes to ensure compliance with security policies and regulatory requirements.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Auditd can be configured to log specific activities, generate alerts for suspicious behavior, and integrate with SIEM (Security Information and Event Management) solutions. Its flexibility and detailed logging capabilities make it an essential tool for system hardening and incident response.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Category",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Auditd is useful in multiple security phases:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Category",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Role",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "System Monitoring",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Logging user and system activities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intrusion Detection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detecting unauthorized access and policy breaches",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Compliance Auditing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Ensuring adherence to security policies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Forensics",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Investigating security incidents",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Developer/Maintainer",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Auditd is developed and maintained by the Linux community, with contributions from Red Hat and other organizations. It is included in most Linux distributions as a core security tool.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "License",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Auditd is open-source and distributed under the GNU General Public License (GPL), allowing free use, modification, and distribution.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Official Resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Official Documentation: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GitHub Repository: https://github.com/linux-audit/audit-userspace",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Man Page: https://man7.org/linux/man-pages/man8/auditd.8.html",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. Installation Guide",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "System Requirements",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Auditd is compatible with most Linux distributions, including:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Ubuntu/Debian",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Hat Enterprise Linux (RHEL)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CentOS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Fedora",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Arch Linux",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Hardware Requirements:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Minimum 1 GHz processor",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "512 MB RAM (recommended 2 GB for high-traffic servers)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "At least 50 MB of disk space (more for extensive logs)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Installation Methods",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Ubuntu/Debian:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt update",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt install auditd audispd-plugins",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "RHEL/CentOS/Fedora:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo yum install audit audit-libs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Arch Linux:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo pacman -S audit",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "To confirm Auditd is installed correctly, run:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -v",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Basic Configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Initial Setup",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Auditd runs as a background service and starts automatically upon installation. It uses rule-based configuration to define which activities should be monitored.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configuration Files",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Main Configuration: /etc/audit/auditd.conf",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Rules Configuration: /etc/audit/rules.d/audit.rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Common Configuration Options",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "To set the maximum log file size, edit /etc/audit/auditd.conf:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "log_file = /var/log/audit/audit.log",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "max_log_file = 10",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "max_log_file_action = ROTATE",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "To apply configuration changes, restart the service:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo systemctl restart auditd",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defining Audit Rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "To monitor a specific file or directory:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -w /etc/passwd -p wa -k passwd_changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-w /etc/passwd → Watch file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-p wa → Monitor write and attribute changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-k passwd_changes → Tag rule with a key",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "To make rules persistent, add them to /etc/audit/rules.d/audit.rules.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4. Core Functionality",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Features",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Process Monitoring – Track commands executed by users.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "File Access Auditing – Monitor access to sensitive files.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User Activity Logging – Record login attempts and privilege escalations.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network Connection Auditing – Log network-related system calls.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Policy Compliance – Ensure adherence to security regulations.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SIEM Integration – Send logs to external monitoring tools.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Structure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl [options] <rule>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Common Commands",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "View active rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -l",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Lists current audit rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Monitor a file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -w /etc/shadow -p wa -k auth",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Watches for write and attribute changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Monitor user login",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -a always,exit -F arch=b64 -S execve -k user_login",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Logs executed commands",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "View audit logs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ausearch -k auth",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Searches logs for the \"auth\" key",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Generate audit report",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "aureport -l",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Displays a summary of login-related events",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Remove all rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -D",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Deletes all active audit rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Example: Monitoring Unauthorized File Access",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Add a rule to watch /etc/passwd: auditctl -w /etc/passwd -p wa -k passwd_changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check if the rule is active: auditctl -l",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Review logs for modifications: ausearch -k passwd_changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use cases:-1.1 User Activity Monitoringaim:-Monitor account activity, session logging for anomaliesExpected output:-Real-time activity monitoring.Tool:- auditd",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-1 Install & Start auditd",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt update && sudo apt install auditd -y",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo systemctl enable --now auditd",
+    "images": [
+      "image2.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step -2 Set Audit Rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -w /var/log/auth.log -p wa -k user_logins",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -a always,exit -F arch=b64 -S execve -k command_execution",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -w /etc/sudoers -p wa -k privilege_escalation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -w /etc/passwd -p wa -k user_modifications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image10.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Step-3 Make Rules Persistent",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo nano /etc/audit/rules.d/user_activity.rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo augenrules --load && sudo systemctl restart auditd",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image7.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Step-4 View Logs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ausearch -k user_logins",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ausearch -k command_execution --interpret",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "tail -f /var/log/audit/audit.log",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image3.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Step-5 analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "I'll analyze this auditd log for account activity and session logging anomalies.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Looking at the logs, I can see several key activities:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Initial User Activity Monitoring:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "A rule for monitoring user logins was added at 12:02:36",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command: auditctl -a always,exit -F arch_b64 -S execve -k command_execution",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This sets up auditing for command execution",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User Activity Rules:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "At 12:02:36: Added a rule to monitor command execution",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "At 12:02:53: Removed a rule related to \"user_logins\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The user (kali) is performing privilege escalation with sudo",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Anomalies/Issues:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Error opening config file (Permission denied)\" appears twice",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using built-in logs at /var/log/audit/audit.log instead of a custom config",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using built-in end_of_event_timeout: 2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Privilege Escalation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User \"kali\" executed sudo auditctl -w /etc/sudoers -p wa -k privilege_escalation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This is setting up monitoring of changes to the sudoers file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The command was run from /home/kali directory",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "System Information:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User is running as UID 1000 (likely regular user)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Running on a Linux x86_64 system",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Audit records show successful command executions (success=yes)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These logs show the user is setting up auditd to monitor both command execution and potential privilege escalation through changes to the sudoers file. The permission denied errors might indicate the user doesn't have proper permissions to modify the audit configuration directly.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No obvious unauthorized access attempts are visible in this segment, but the user is actively configuring audit rules that would help detect such attempts in the future.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1.2 Privilege Auditing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "aim:-Audit user/service account privileges against least privilegeExpected output :- Access and privilege audit results.Tool:-auditd",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Privilege Auditing with auditd",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Install & Start auditd",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt update && sudo apt install auditd -y",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo systemctl enable --now auditd",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image5.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Set Audit Rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -w /etc/sudoers -p wa -k privilege_audit",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -a always,exit -F arch=b64 -S execve -C uid!=euid -k privilege_escalation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -w /etc/passwd -p wa -k user_changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "auditctl -w /etc/group -p wa -k group_changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image6.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Make Rules Persistent",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo nano /etc/audit/rules.d/privilege_audit.rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo augenrules --load && sudo systemctl restart auditd",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image1.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "View Audit Logs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ausearch -k privilege_audit",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ausearch -k privilege_escalation --interpret",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "tail -f /var/log/audit/audit.log",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image9.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image4.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image8.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Audit Analysis: User/Service Account Privileges",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Comprehensive Audit Rule Setup",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The user \"kali\" is systematically configuring auditd to monitor privilege escalation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple critical files are being monitored for privilege-related changes:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/etc/sudoers (sudo configuration)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/etc/passwd (user accounts)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/etc/group (group memberships)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Created custom rules in /etc/audit/rules.d/privilege_audit.rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Rule Management Activities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Added monitoring for command execution with auditctl -a always,exit -F arch_b64 -S execve",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Created specific monitoring for UID/EUID changes with -k privilege_escalation tag",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Used augenrules --load to implement persistence of rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Several rules were added and some were later removed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Session Information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All activities performed by user \"kali\" (UID 1000)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User \"kali\" performs all actions using sudo to gain root privileges",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All command executions originated from /home/kali directory",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "System Events",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Audit daemon restarted during the session (DAEMON_END/DAEMON_START events)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Version information: auditd 4.0.2, kernel 6.11.2-amd64",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple permission denied errors occurred when trying to open config files",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analysis Against Least Privilege Principle",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The logs demonstrate that the user is implementing proper security practices by:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Setting up monitoring for privilege escalation attempts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All critical system files that could be used for privilege escalation are being monitored",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Write and attribute changes to these files are specifically tracked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Creating targeted audit categories",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using specific keys (like \"privilege_audit\" and \"privilege_escalation\") for easy search/filtering",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Focused monitoring on executable actions and privilege changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Properly implementing persistence",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using both runtime rules and persistent rules via rules.d directory",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Loading rules properly with augenrules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issues Identified",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Permission Problems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple \"Error opening config file (Permission denied)\" messages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using built-in defaults instead of custom configurations in some cases",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Possible indication that the audit configuration is not properly owned/permissioned",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Session Management",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All activities required sudo, indicating potentially excessive privilege use",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No evidence of sudo privilege limitations or constraints",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Based on the audit results, I would recommend:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Fix permission issues on audit configuration files",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement more granular sudo permissions rather than full root access",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Continue monitoring sensitive files for changes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider adding process execution auditing for key binaries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement user session auditing for login/logout events",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The user appears to be setting up a solid foundation for privilege auditing, but needs to address permission issues and consider implementing more restrictive sudo policies.",
+    "images": []
+  }
+]

@@ -1,0 +1,2655 @@
+[
+  {
+    "type": "p",
+    "text": "Nuclei Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. Tool Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description: Nuclei is a fast, template-based vulnerability scanner designed to probe applications for security issues. It uses YAML-based templates to define detection logic for various vulnerabilities, enabling efficient and customizable security assessments.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Category: Vulnerability Assessment, Reconnaissance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Developer/Maintainer: ProjectDiscovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "License: MIT License (Open Source)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Official Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Official Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GitHub Repository",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ProjectDiscovery Website",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. Installation Guide",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "System Requirements",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OS Compatibility: Linux, macOS, Windows",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Go version 1.20 or later (if installing from source)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sufficient disk space for templates (~500MB with all templates)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Installation Methods",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using Go",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using Homebrew (macOS)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "brew install nuclei",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using Docker",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "docker pull projectdiscovery/nuclei:latest",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "docker run -it projectdiscovery/nuclei:latest",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using Binary Releases",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Download the latest release from GitHub Releases",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extract the archive: tar -xzvf nuclei-linux-amd64.tar.gz",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Move the binary to your PATH: sudo mv nuclei /usr/local/bin/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Make it executable: chmod +x /usr/local/bin/nuclei",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify installation by running:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -version",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Basic Configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Initial Setup",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "After installing Nuclei, update the templates:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -update-templates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configuration Files",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Main configuration: ~/.config/nuclei/config.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Templates directory: ~/.config/nuclei/templates/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Custom templates: Create in any directory, specify with -t flag",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Environment Variables",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "NUCLEI_TEMPLATES: Path to templates directory",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "NUCLEI_CONFIG: Path to configuration file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "NUCLEI_CACHE_DIR: Directory to store cached data",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP_PROXY/HTTPS_PROXY: For proxy configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Default Credentials",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Not applicable - Nuclei doesn't require authentication to run.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4. Core Functionality",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Features",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Fast template-based scanning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extensive library of vulnerability templates (2000+)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Support for multiple protocols (HTTP, DNS, TCP, etc.)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Customizable detection logic",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Rate limiting and automatic request throttling",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple output formats (JSON, SARIF, etc.)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Integration with other security tools",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Structure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "General syntax:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei [options] -target <target>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Common Parameters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-u, -target: Target URL, IP, or CIDR range",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-l, -list: File containing list of targets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-t, -templates: Templates or template directories to use",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-severity: Filter by template severity (info, low, medium, high, critical)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-o, -output: File to write output results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-j, -json: Write output in JSON format",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-rate-limit: Maximum number of requests per second",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-c, -concurrency: Number of concurrent requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-timeout: Timeout in seconds for each template execution",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5. Test Scenarios & Commands",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 1: Basic Usage & Reconnaissance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target Specification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan a single URL",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Scans a single URL using the default template set. Useful for quick reconnaissance and initial vulnerability discovery. Best used as a baseline scan before narrowing scope.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image29.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Scan multiple URLs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -list urls.txt  # File containing targets like testphp.vulnweb.com, juice-shop.herokuapp.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reads multiple targets from a file and scans them sequentially. Ideal for bug bounty programs and enterprise-wide assessments. Ensures consistent testing across a large asset list.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image34.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan with automatic URL formatting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -automatic-scan",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Automatically selects relevant templates based on detected technologies. Reduces noise and unnecessary requests. Recommended for safe, fast reconnaissance scans.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image8.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Template Selection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan with all templates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Runs the complete template library against the target. Provides maximum coverage but increases scan time and noise. Should be rate-limited for public or production systems.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image26.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan with specific template",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/cves/2021/CVE-2021-21972.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Executes a single CVE template. Used for targeted validation of known vulnerabilities.  Ideal during patch verification or incident response.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image12.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan with multiple templates - good for testphp.vulnweb.com which has many vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/cves/,~/.local/nuclei-templates/vulnerabilities/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Combines CVE detection with generic vulnerability templates. Useful for intentionally vulnerable environments like VulnWeb.Balances coverage and performance.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image23.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Exclude templates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/ -exclude-templates ~/.local/nuclei-templates/fuzzing/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Excludes aggressive or noisy templates. Prevents accidental denial-of-service conditions. Recommended for scoped or sensitive environments.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image22.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan with templates by severity - testphp.vulnweb.com has many high severity issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/ -severity critical,high",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Runs only high-impact vulnerability checks. Efficient for time-limited engagements.  Prioritizes findings with the greatest business risk.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image24.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan with templates by tags - testphp.vulnweb.com has SQL injection vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/ -tags sqli,xss,lfi",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Executes only templates matching specified vulnerability classes. Useful for focused testing based on threat models. Reduces scan duration and false positives.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image20.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Template Workflows",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Use pre-defined workflows",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://wordpress.ob-sec.com -workflows workflows/wordpress-workflow.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Executes a chained workflow tailored for WordPress targets. Automatically detects technology before running relevant exploits. Provides structured, intelligent scanning.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image15.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create wordpress-workflow.yaml:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "workflows:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- template: technologies/tech-detect.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "subtemplates:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- tags: wordpress",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- template: exposures/configs/wordpress-config.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- template: vulnerabilities/wordpress/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- template: cves/2021/CVE-2021-24583.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Combine workflows with templates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://wordpress.ob-sec.com -workflows workflows/wordpress-workflow.yaml -templates ~/.local/nuclei-templates/vulnerabilities/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extends workflow logic with additional vulnerability templates. Enhances detection coverage beyond default workflow steps. Useful for deeper CMS assessments.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image27.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Multiple workflows - works well on sites with multiple technologies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://vulnweb.com -workflows workflows/php-workflow.yaml,workflows/general-workflow.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Runs multiple workflows sequentially. Ideal for complex targets using multiple technologies. Ensures layered detection without manual intervention.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image14.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create php-workflow.yaml:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "workflows:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- template: technologies/tech-detect.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "subtemplates:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- tags: php",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- template: exposures/configs/php-info.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- template: vulnerabilities/php/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- template: cves/2021/CVE-2021-21702.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create general-workflow.yaml:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "workflows:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- template: technologies/tech-detect.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- template: security-misconfiguration/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- template: vulnerabilities/generic/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 2: Vulnerability Detection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web Application Scanning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan for common web vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/vulnerabilities/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detects misconfigurations, injections, and logic flaws. Forms the core of most web application security tests. Best combined with manual validation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image4.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Specifically scan for XSS vulnerabilities - testphp.vulnweb.com has XSS in search functionality",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com/search.php -templates ~/.local/nuclei-templates/vulnerabilities/generic/xss/ -v",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Focuses specifically on cross-site scripting detection. Verbose mode shows payloads and responses. Useful for identifying reflected and stored XSS vectors.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image18.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan for Local File Inclusion - scanme.sh has LFI vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target https://scanme.sh -templates ~/.local/nuclei-templates/vulnerabilities/lfi/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tests for unauthorized file access via path traversal. Detects both Linux and Windows file disclosure patterns. Critical for backend data exposure risks.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image17.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan for Remote Code Execution",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://vulnweb.com -templates ~/.local/nuclei-templates/vulnerabilities/generic/rce/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Checks for command injection and RCE conditions. High-risk vulnerability class with severe impact. Findings must be manually validated.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image10.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan for SSRF vulnerabilities - public SSRF lab",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target https://ssrf-lab.herokuapp.com -templates ~/.local/nuclei-templates/vulnerabilities/generic/ssrf/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detects server-side request forgery vulnerabilities. Useful against cloud and internal network exposures. Often chained with metadata service exploitation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image2.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CVE Detection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan for all CVEs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://cve.vulnweb.com -templates ~/.local/nuclei-templates/cves/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Runs all known CVE templates against the target. Provides wide historical vulnerability coverage. Should be scoped carefully to avoid excessive requests.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image7.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan for specific year CVEs - good for older frameworks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://wordpress.com.testfire.net -templates ~/.local/nuclei-templates/cves/2021/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Limits scanning to vulnerabilities disclosed in a specific year. Useful for legacy systems. Reduces scan overhead.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image11.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Scan for specific CVE - Log4j on public test instance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target https://log4j-vm.lab.secbot.io -templates ~/.local/nuclei-templates/cves/2021/CVE-2021-44228.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Checks for Log4j JNDI injection vulnerability. Critical RCE vulnerability affecting Java ecosystems. Often used for compliance verification.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image28.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Scan for Spring4Shell vulnerability on test instance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target https://spring4shell-scan.lab.secbot.io -templates ~/.local/nuclei-templates/cves/2022/CVE-2022-22965.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tests Spring Framework RCE conditions. Requires precise environment validation. False positives are possible without manual checks.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image1.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Prioritize recent CVEs on public test site",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/cves/ -severity critical,high -new-templates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Runs only recently added high-severity templates. Ideal for continuous security monitoring. Ensures coverage of emerging threats.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image9.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Technology Detection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Fingerprint technologies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/technologies/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identifies frameworks, servers, and CMS platforms. Used for attack surface mapping. Often precedes targeted exploitation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image33.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Detect specific technologies - WordPress detection on WP test site",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://wordpress.ob-sec.com -templates ~/.local/nuclei-templates/technologies/wordpress-detect.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Confirms WordPress presence and version hints. Triggers WordPress-specific attack workflows. Useful during CMS audits.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image30.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Detect Joomla on public test site",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target https://joomla-test.vulnweb.com -templates ~/.local/nuclei-templates/technologies/joomla-detect.yaml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identifies Joomla installations. Allows targeted CVE scanning. Reduces unnecessary template execution.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image6.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 3: Advanced Scanning Features",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Authentication & Sessions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Scan with request header authentication - JWT test site",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target https://jwt-test.vulnweb.com/api/ -templates ~/.local/nuclei-templates/ -header \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3QgVXNlciIsImlhdCI6MTUxNjIzOTAyMn0.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Adds Authorization header to all requests. Used for authenticated API testing. Essential for testing protected endpoints.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image21.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Scan with cookie authentication - demo cookie-based auth site",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com/userinfo.php -templates ~/.local/nuclei-templates/ -header \"Cookie: login=test%2Ftest\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Maintains authenticated session using cookies. Allows vulnerability detection behind login. Common in web app assessments.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image5.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Rate Limiting & Optimization",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Control number of templates executed in parallel",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/ -concurrency 25",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Limits parallel template execution. Prevents overwhelming target servers. Improves stability.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image31.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Define rate limit for HTTP requests - important for public test sites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/ -rate-limit 100",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Caps HTTP requests per second. Reduces detection risk and WAF blocking. Critical for OPSEC.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image13.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Define max number of HTTP requests per template - reduces load on test sites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/ -bulk-size 25",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Limits number of requests per template. Minimizes backend load. Useful for unstable targets.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image3.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Control scanning timeout - useful for slow-responding test sites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/ -timeout 5",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sets request execution timeout. Avoids hanging scans. Improves scan efficiency.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image16.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Proxy & Request Modification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Add custom headers to all requests - useful for user-agent detection tests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://testphp.vulnweb.com -templates ~/.local/nuclei-templates/ -header \"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Masks Nuclei’s default fingerprint. Helps evade basic detection mechanisms. Important for OPSEC.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image25.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Follow redirects - test site with redirection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://redirect.vulnweb.com -templates ~/.local/nuclei-templates/ -follow-redirects",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Follows HTTP 3xx redirects automatically. Ensures accurate vulnerability detection. Useful for modern web apps.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image19.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "# Follow host redirects - domain with multiple redirect chains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "nuclei -target http://redirection-test.vulnweb.com -templates ~/.local/nuclei-templates/ -follow-host-redirects",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Allows redirection across hostnames. Useful for CDN and SSO-heavy environments. Expands scan coverage.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image32.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Supporting Instructions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Setting Up Nuclei",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Install Nuclei: go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify installation: nuclei -version",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Update templates: nuclei -update-templates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Alternative installation methods:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Docker: docker pull projectdiscovery/nuclei:latest",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Binary: Download from GitHub Releases",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Best Practices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target Selection: Start with a well-defined scope",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Template Selection: Use appropriate templates for your target",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Rate Limiting: Control scan speed to avoid overwhelming targets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Management: Save and organize results for analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Validation: Always validate findings to remove false positives",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Updates: Keep nuclei and templates updated for the latest vulnerability checks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Creating Custom Templates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Creating effective custom templates requires:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Understanding target application structure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identifying potential vulnerable parameters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Creating appropriate payloads",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defining accurate matchers for vulnerability detection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Template structure example:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "id: custom-vulnerability-check",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "info:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "name: Custom Vulnerability Check",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "author: yourname",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "severity: medium",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "description: Detects a custom vulnerability in target application",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "tags: custom,vuln",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "requests:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- method: GET",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "path:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- \"{{BaseURL}}/vulnerable-path\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "matchers:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- type: word",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "words:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- \"vulnerability indicator\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "part: body",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "extractors:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- type: regex",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "part: body",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "group: 1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "regex:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "- \"sensitive-(.*?)-data\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Public Vulnerable Target Resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "For testing purposes, use these publicly accessible vulnerable applications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Vulnweb Test Sites:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "PHP Application: http://testphp.vulnweb.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ASP Application: http://testasp.vulnweb.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "JSP Application: http://testjsp.vulnweb.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OWASP Public Test Sites:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Juice Shop: https://juice-shop.herokuapp.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WebGoat: https://webgoat.herokuapp.com/WebGoat/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Specialized Vulnerability Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "XSS Testing: https://xss-game.appspot.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SQL Injection: http://sqlzoo.net/hack/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "API Testing: http://httpbin.org/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service-Specific Test Sites:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WordPress Test: http://wordpress.ob-sec.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "JWT Testing: https://jwt.io/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL Testing: https://badssl.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "General Security Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Scanme: http://scanme.nmap.org/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SANS Security Test: https://www.sans.org/security-resources/sec560/misc_tools_sheet_v1.pdf",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Common Template Types",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reconnaissance: Discover information about targets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Vulnerability: Detect specific vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technology: Identify technologies in use",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Miscellaneous: Special purpose templates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Workflows: Chain multiple templates together",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "When analyzing results, focus on:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Critical and high severity findings first",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Confirmation of exploitability",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Business impact assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Documentation for reporting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Remediation recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Always validate findings manually to confirm actual vulnerabilities and avoid false positives.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6. Troubleshooting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Common Errors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Template Syntax Error",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Error: Error parsing template file: yaml: line X: ... Solution:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check the template syntax in the mentioned file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify template format against the Nuclei template guide",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use template validator: nuclei -validate",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Connection Issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Error: could not connect to host Solution:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify target accessibility with curl or ping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check network connectivity and firewalls",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Try with increased timeout: nuclei -u https://example.com -timeout 10",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Rate Limiting Detection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Error: Too many requests, rate limiting enabled Solution:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Decrease scan speed: nuclei -rate-limit 10",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use -rl-per-host to set per-host rate limits",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Debugging",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Enable verbose mode: nuclei -u https://example.com -v",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Enable debug mode: nuclei -u https://example.com -debug",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check template execution details: nuclei -u https://example.com -debug-req",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Support Resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GitHub Issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Discord Community",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Twitter/X: @pdnuclei",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7. Security Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OPSEC Concerns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Scanner activity is easily identifiable in target logs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Default User-Agent is distinctive (\"Nuclei\")",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Traffic patterns may trigger WAF/IDS alerts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extensive scanning can cause DoS-like effects",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detection Methods",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web server logs showing Nuclei's default User-Agent",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Pattern recognition of template-based requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "High volume of similar requests to uncommon endpoints",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Traffic spikes with predictable scanning patterns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mitigation Techniques",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use custom User-Agent: nuclei -u https://example.com -header \"User-Agent: Mozilla/5.0...\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Lower scan rates: nuclei -rate-limit 10 -c 5",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use random delays: -delay-jitter",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target selection to avoid scanning critical infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use proxy chains: -proxy http://proxy:port",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Template filtering to use only necessary templates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8. References and Additional Resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cheat Sheet",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Basic scan:        nuclei -u https://example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "List scan:         nuclei -l hosts.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Template select:   nuclei -t cves/ -u https://example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output:            nuclei -u https://example.com -o results.txt -json",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Rate limiting:     nuclei -u https://example.com -rate-limit 100",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Update templates:  nuclei -update-templates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Tools",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "httpx: Fast HTTP probing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "subfinder: Subdomain discovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "naabu: Port scanning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Burp Suite: Web application security testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Nessus: Vulnerability scanner",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Further Reading",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ProjectDiscovery Blog",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Building Nuclei Templates Guide",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Nuclei Template Creation Tutorial",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OWASP Vulnerability Scanning Tools",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Community Resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Nuclei Templates Repository",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Community Templates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HackerOne Reports with Nuclei",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Template Creation Tutorials",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  }
+]

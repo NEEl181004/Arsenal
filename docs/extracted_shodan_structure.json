@@ -1,0 +1,3652 @@
+[
+  {
+    "type": "p",
+    "text": "Shodan - Comprehensive Testing Guide for Red Teaming, VAPT, and Reconnaissance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Shodan is a powerful search engine that lets you find specific devices connected to the internet, discover which of your devices are publicly accessible, and identify vulnerabilities in your infrastructure. Unlike traditional search engines that crawl websites, Shodan scans internet-connected devices and services.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image57.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 1: Basic Shodan Reconnaissance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Device and Service Discovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Basic Search Techniques",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific services (e.g., Apache servers)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Apache",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image1.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image33.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image16.png",
+      "image47.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific products (e.g., nginx)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "product:nginx",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image13.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image42.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image55.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific operating systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "os:\"Windows Server 2008 R2\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image12.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image34.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image11.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image39.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific devices (e.g., webcams)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "webcamXP 5",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image63.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image23.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific IoT devices (e.g., Raspberry Pi)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Raspberry Pi\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image41.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find VoIP devices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"VoIP\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image30.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Geographic Targeting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Target specific countries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "country:US",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image28.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Target specific cities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "city:\"San Francisco\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image62.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Target specific geographic coordinates within range (in km)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "geo:37.773,-122.413,10",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image18.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Combining geographic filters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "country:JP city:Tokyo",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image38.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Organization Targeting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Target specific organizations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "org:\"Microsoft\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image20.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Target specific ASNs (Autonomous System Numbers)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "asn:AS8075",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image52.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image15.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Target specific ISPs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "isp:\"Comcast\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image24.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Target specific hostnames or domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hostname:example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image54.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network Targeting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Target specific IPs (specific IP or CIDR notation)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8.8.8.8",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image68.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Target specific ports",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:22",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image10.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Target multiple ports",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:22,80,443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image19.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Vulnerability Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify Common Vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find vulnerable services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "vuln:CVE-2014-0160 (Heartbleed)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image27.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image29.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find services with specific vulnerability tags",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"default password\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image67.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL/TLS Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find servers with SSL issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ssl.cert.expired:true",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image6.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find servers with self-signed certificates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ssl.cert.issuer.cn:example",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image25.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific SSL versions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ssl.version:\"TLSv1\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image9.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 2: Advanced Shodan Reconnaissance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service-Specific Searches",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Industrial Control Systems (ICS/SCADA)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific ICS protocols",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:502 modbus",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image4.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:44818 ethernet/ip",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image46.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:20000 dnp3",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image56.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:1911 fox",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image59.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific ICS vendors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Schneider Electric\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image45.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Siemens\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image64.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Allen-Bradley\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image2.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Honeywell\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image37.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific ICS devices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"PLC\" \"Version\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image50.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Internet of Things (IoT)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find IoT devices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "has_screenshot:true device",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image26.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"IoT\" \"login\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image58.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find smart TVs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"smart TV\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image21.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find home automation systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"home automation\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image61.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific IoT platforms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Samsung Smart\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image8.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Philips Hue\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image49.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Database Systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find exposed databases",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:27017 MongoDB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image22.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:9200 Elasticsearch",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image35.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:3306 MySQL",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image40.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:5432 PostgreSQL",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image17.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:6379 Redis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image66.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find databases without authentication",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"authentication disabled\" port:27017",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image43.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"redis_version\" port:6379",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image53.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "File Storage and NAS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find NAS devices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"NAS\" \"login\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image32.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific NAS brands",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Synology\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image7.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"QNAP\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image14.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find FTP servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:21 \"230 Login successful\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image48.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find anonymous FTP access",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"220\" \"Anonymous access allowed\" port:21",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image51.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Cloud Infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find AWS instances",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "org:\"Amazon.com\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image3.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find Azure resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "org:\"Microsoft Azure\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image60.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find cloud storage buckets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Index of /\" \"Size\" \"Last modified\" cloud",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image5.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find Kubernetes dashboards",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"kubernetes\" port:8443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image36.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Network Device Discovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Routers and Firewalls",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find routers with common web interfaces",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "title:\"Router\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image65.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific router brands",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Cisco Router\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image44.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Juniper\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image31.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"MikroTik RouterOS\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Ubiquiti\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find VPN endpoints",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"VPN\" port:443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cameras and Surveillance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find IP cameras",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"camera\" has_screenshot:true",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific camera brands",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Hikvision\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Dahua\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Axis\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find digital video recorders (DVRs)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"DVR\" port:80,8080",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find video management systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"VMS\" \"login\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 3: Targeted Reconnaissance for Red Teaming",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Organization Footprinting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain and Subdomain Enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find all systems in a domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hostname:example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find systems with specific domain patterns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hostname:*test*.example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find development environments",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hostname:*dev*.*",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exposed Services and Infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find mail servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:25,465,587 hostname:example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find web servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:80,443 hostname:example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find VPN endpoints",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"VPN\" hostname:example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Developer and Source Code Exposure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find exposed Git repositories",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.title:\"Index of /\" http.html:\"/.git\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find Jenkins installations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Dashboard [Jenkins]\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find exposed code repositories",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Index of /\" filetype:sql,php,asp,aspx,jsp",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find development APIs and documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Swagger UI\" \"API Documentation\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sensitive Information Exposure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Default Credentials and Authentication",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find login pages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.title:\"Login\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find systems with default credentials",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "default password",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find systems with authentication bypass",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"authentication bypass\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find systems with exposed admin panels",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "admin panel",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Config and Backup Files",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find configuration files",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "filetype:conf,cfg,config",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find backup files",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "extension:bak,backup,old,tmp",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find database dumps",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "filetype:sql \"INSERT INTO\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find exposed environment files",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "filename:.env OR filename:wp-config.php",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "API and Token Exposure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find API keys",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"api_key\" OR \"apikey\" OR \"key=\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find exposed tokens",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"access_token\" OR \"auth_token\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find AWS keys",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"AKIA\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find API endpoints",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"/api/\" \"v1\" OR \"v2\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 4: Vulnerability Assessment and Penetration Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web Application Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web Server Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific web servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.component:Apache",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.component:nginx",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.component:IIS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific web technologies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.component:jQuery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.component:WordPress",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.component:Bootstrap",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find web servers with specific headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.headers.server:Apache",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find web applications with specific cookies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.cookies:PHPSESSID",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Misconfiguration Discovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find directory listings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.title:\"Index of /\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find debug interfaces",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.title:\"phpinfo()\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find admin interfaces",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.title:\"admin\" OR http.title:\"dashboard\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find test/staging environments",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.title:\"test\" OR http.title:\"staging\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find exposed error messages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.html:\"error\" \"stack trace\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Framework Vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find WordPress installations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.component:WordPress",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find outdated frameworks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.component:\"jQuery 1.\" OR http.component:\"jQuery 2.\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific CMS versions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Drupal 7\" -\"Drupal 8\" -\"Drupal 9\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find vulnerable plugins",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"plugin\" vuln",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Remote Access Points",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find RDP servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:3389",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find SSH servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:22 \"SSH\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find Telnet access",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:23 \"login:\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find VNC servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:5900 \"RFB\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Misconfigurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find misconfigured DNS servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:53 \"dnsmasq\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find NTP servers (potential DDoS amplifiers)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:123 \"NTP\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find SNMP servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:161 \"public\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find memcached instances",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:11211 product:memcached",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 5: Advanced Tactics for Shodan",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Custom Filters and Dorks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Time-Based Filtering",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find recently added devices (last 24h)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "after:01/01/2023",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find devices added before a specific date",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "before:01/01/2023",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find devices with specific update patterns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ssl.cert.issued:>2023-01-01",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Port Combination Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find systems with specific port combinations (e.g., web + SSH)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:80,443,22",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find systems with unusual port combinations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:21,22,23,25,80,443,3389",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find systems with high port numbers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:>10000 http.title:\"Admin\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content and Screenshot Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find servers with interesting screenshots",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "has_screenshot:true \"login\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find systems with specific text content",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.html:\"internal use only\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find dashboards and monitoring systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "title:\"Dashboard\" OR title:\"Monitoring\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific file types",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.html:\".pdf\" OR http.html:\".xls\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Custom Search Combinations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Finding Vulnerable Instances",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find EternalBlue vulnerable machines",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "vuln:ms17-010",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find Log4Shell vulnerable systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"log4j\" vuln:CVE-2021-44228",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find ProxyShell vulnerable systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Microsoft Exchange Server\" vuln:CVE-2021-34473",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find specific server versions with vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "product:\"nginx 1.12\" vuln",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Advanced Boolean Logic",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Complex organizational targeting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "org:\"Target Company\" -hostname:*internal* country:US",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Finding specific technology stacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.component:nginx AND http.component:php AND http.component:MySQL",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Excluding false positives",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"admin login\" -\"please log in\" -html:\"invalid\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 6: Red Team Techniques",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Initial Access Vectors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Email Infrastructure Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find mail servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "port:25,465,587",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find exposed webmail interfaces",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.title:\"webmail\" OR http.title:\"roundcube\" OR http.title:\"outlook web\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find misconfigured SPF records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"v=spf1\" \"all\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find email security appliances",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Email Security Gateway\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "External Remote Services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find Citrix instances",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Citrix\" port:1494",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find VPN concentrators",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"VPN\" port:443,8443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find RDP gateways",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Windows Remote Desktop Gateway\" port:443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find VDI solutions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"VMware Horizon\" OR \"Citrix Receiver\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Public-Facing Applications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find CRM systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"salesforce\" OR \"zoho\" OR \"dynamics\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find HR systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Workday\" OR \"ADP\" OR \"BambooHR\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find customer portals",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"customer portal\" OR \"client login\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find supplier/vendor portals",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"supplier portal\" OR \"vendor login\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Tactics",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Finding Legacy Systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find Windows XP/Server 2003",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "os:\"Windows XP\" OR os:\"Windows Server 2003\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find unsupported Linux distributions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "os:\"Ubuntu 12.04\" OR os:\"Debian 7\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find old networking equipment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Cisco IOS 12\" -\"IOS 15\" -\"IOS 16\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find obsolete control systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Rockwell\" \"version 5\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Targeting Development Infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find Jenkins servers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.title:\"Dashboard [Jenkins]\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find GitLab instances",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.title:\"GitLab\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find JIRA installations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http.title:\"JIRA\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find Docker registries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"Docker Registry\" port:5000",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Supply Chain Targets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find supplier networks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "org:\"Supplier Name\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find third-party services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hostname:thirdparty.*",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find vendor access points",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"vendor access\" OR \"partner portal\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "# Find contractor systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "org:\"Contractor Name\" hostname:*client*",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 7: Practical Shodan Web UI Workflows",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Creating an Effective Search Strategy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 1: Initial Target Identification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Start with basic organizational information (name, domains, IP ranges)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Search for the organization name: org:\"Target Organization\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Search for known domains: hostname:*.targetdomain.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Note down discovered IP ranges, domains, and technologies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 2: Service Enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify web services: hostname:*.targetdomain.com port:80,443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify email infrastructure: hostname:*.targetdomain.com port:25,465,587",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify remote access: hostname:*.targetdomain.com port:22,3389,5900",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use \"Details\" view to examine banner information for version data",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 3: Vulnerability Mapping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Search for known CVEs affecting discovered services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use the vuln: filter with specific CVE identifiers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Look for common misconfigurations in the discovered services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use banner information to identify outdated software versions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Saving and Organizing Results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using Shodan Collections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Log in to your Shodan account",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Click on \"Collections\" in the top navigation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create a new collection for your target organization",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Add relevant search queries to your collection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Review and export collection data as needed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Setting Up Alerts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Navigate to the \"Alerts\" section",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create alerts for your target organization's assets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Set notification preferences (email, API)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configure alert triggers (new vulnerabilities, new services)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Advanced Shodan Web Features",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using Shodan Maps",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Add geographic filters to your search",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Click on the \"Maps\" view to visualize results geographically",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify geographic clusters of target infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use the map to refine location-based searches",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using Shodan Images",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Add has_screenshot:true to your search",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Click on the \"Images\" view to see visual captures",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify interesting interfaces and dashboards",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Look for login pages, admin panels, and monitoring interfaces",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 8: Reporting and Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Asset Inventory Creation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 1: Export Comprehensive Data",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Perform broad organization search: org:\"Target Organization\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use the \"Download\" button to export results (requires premium account)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Choose appropriate format (JSON, CSV)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Save raw data for processing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 2: Data Processing and Categorization",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Group assets by service type (web, mail, database, etc.)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Group assets by location/network",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify critical vs. non-critical assets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create tables of exposed services and versions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 3: Risk Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Map discovered vulnerabilities to assets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Prioritize findings based on exposure and criticality",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Document unusual or unexpected findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Note potential false positives for verification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Continuous Monitoring Setup",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 1: Define Baseline Queries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create specific queries for each asset category",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Include version information in queries where possible",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Document normal/expected results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 2: Configure Alerts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Set up alerts for new assets appearing in searches",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Set up alerts for new vulnerabilities in existing assets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configure notification channels and frequency",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test alert system by creating a controlled change",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 3: Regular Review Process",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Schedule weekly/monthly reviews of Shodan data",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Compare current state with baseline",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Document changes and investigate anomalies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Update queries as the target environment evolves",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section 9: Best Practices and Ethics",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Responsible Use Guidelines",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Legal and Ethical Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Only scan targets within authorized scope",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Respect terms of service for Shodan and target systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Do not attempt to exploit vulnerabilities without permission",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Report critical findings to affected organizations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Avoiding Detection and Blocking",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use Shodan's passive scanning capabilities instead of active scanning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Distribute queries over time to avoid rate-limiting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use premium API access for more discreet data collection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Avoid downloading large datasets in short timeframes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Search Optimization Techniques",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Filter Combination Strategies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Start broad, then narrow with specific filters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use negative filters to exclude false positives",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Combine technical and organizational filters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use quotes for exact matching on critical terms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Advanced Syntax Tips",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use parentheses for complex logical operations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Limit results with country and organization filters first",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use regex where supported for pattern matching",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Save effective search patterns as named queries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Supporting Instructions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Setting Up Shodan Account",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create a free account at https://shodan.io",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider upgrading to a premium account for:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "More search results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Export capabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "API access",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Monitor and alert features",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configure your profile settings and API key",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Browser Search Tips",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use the filters dropdown menu to add common filters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use the \"Explore\" section to discover trending searches",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use browser bookmarks to save effective search queries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Enable HTTPS for all Shodan interactions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Recommended Companion Tools",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Tools: Use with Shodan to expand target scope",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sublist3r",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Amass",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subfinder",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Vulnerability Databases: Reference for discovered versions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "NVD",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CVE Details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ExploitDB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Documentation Tools: Organize findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Notion",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Joplin",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Obsidian",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Example Workflow for Target Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Day 1: Initial Reconnaissance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify organization name, domains, IP ranges",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create initial search queries in Shodan",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Document found assets in tracking system",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create collections for the target",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Day 2: Vulnerability Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analyze service versions found",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for known vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify misconfigurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Document findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Day 3: Targeted Research",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Focus on high-value targets identified",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Research specific technologies in use",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Look for unusual or unique services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Update asset inventory",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Day 4: Report Generation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Compile findings into structured report",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create visualizations of discovered infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Prioritize issues by risk level",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Develop remediation recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tips for Effective Shodan Usage",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Regular Updates: Infrastructure changes frequently; regularly refresh searches",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Context Matters: Understand what you're looking at before drawing conclusions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verification: Always verify findings with additional tools/methods",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Documentation: Keep detailed notes of search queries and results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Continuous Learning: Stay updated on new Shodan features and search techniques",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  }
+]

@@ -1,0 +1,5130 @@
+[
+  {
+    "type": "p",
+    "text": "urlscan.io Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. Tool Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Description: urlscan.io is a web-based service that scans and analyzes websites, providing detailed information about their behavior, content, and potential security threats. It captures screenshots, analyzes HTTP requests, JavaScript execution, and identifies potentially malicious behaviors.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Category: Reconnaissance, OSINT (Open Source Intelligence), Threat Intelligence",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Developer/Maintainer: urlscan.io Ltd (founded by Johannes Gilger)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       License: Free for basic use; premium subscriptions available for advanced features",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Official Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Website: https://urlscan.io",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       API Documentation: https://urlscan.io/docs/api/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Twitter/X: https://twitter.com/urlscan_io",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. Installation Guide",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "As urlscan.io is a web-based service, no traditional installation is required.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Access Methods:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Web Interface: Simply visit https://urlscan.io in any modern web browser",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       API: Use the REST API for automated scanning and integration with other tools",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Browser Extension: Available for Chrome and Firefox to quickly scan URLs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Account Creation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Create a free account to access additional features and track your scans",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Register at https://urlscan.io/user/signup",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Basic Configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       API Key Setup:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       After creating an account, generate API keys from your account settings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       API keys are required for programmatic access and to submit private scans",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Store API keys securely and never share them publicly",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Rate Limits:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Free accounts: Limited number of scans per day",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Premium plans: Higher scan quotas and priority processing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Scan Visibility Options:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Public: Results available to all users",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Unlisted: Results only accessible via direct URL",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Private: Results only visible to your account (requires API key)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4. Core Functionality",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Key Features:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Website screenshots and DOM snapshot",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       HTTP request/response tracking",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       JavaScript behavior analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       IP/domain relationship mapping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Resource collection and categorization",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Detection of malicious indicators",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Integration with threat intelligence platforms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Basic Usage:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Enter a URL in the search bar and click \"Scan\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Review the generated report with screenshots and detailed information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Search for existing scans by URL, IP, domain, or other indicators",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Analysis Components:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Summary: Overview of the scan with key findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       HTTP: All HTTP requests made during the visit",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Console: JavaScript console logs and errors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       DOM: Document Object Model structure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Screenshot: Visual capture of the rendered page",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Indicators: IPs, domains, and other extracted entities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Behaviour: Actions performed by the site's JavaScript",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5. Test Scenarios & Commands",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web Interface",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Basic URL Scanning:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Visit https://urlscan.io",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Enter a URL in the search box",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Click \"Scan\" button",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Wait for scan completion and review results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Here’s how the output results look:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image13.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image8.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Advanced Search:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image5.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "○       Search by domain: domain:example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Search by IP: ip:1.2.3.4",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Search by country: country:\"United States\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "API Usage",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Submit a URL for Scanning:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "bash",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl -H \"Content-Type: application/json\" -H \"API-Key: YOUR_API_KEY\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-d '{\"url\": \"https://example.com\", \"visibility\": \"public\"}' \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://urlscan.io/api/v1/scan/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Retrieve Scan Results:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "bash",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl https://urlscan.io/api/v1/result/SCAN_UUID/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Search for Existing Scans:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "bash",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "curl \"https://urlscan.io/api/v1/search/?q=domain:example.com&size=10\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section wise Summary:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "General Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image14.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summar",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network Activity Summary:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Website contacted 7 IPs across 1 country",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Connections span 2 domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Performed 37 HTTP transactions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Main IP: 2a00:1450:4001:828::2004 (Frankfurt am Main, Germany)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP belongs to GOOGLE, US",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Information:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Main domain: www.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cisco Umbrella rank: 3 (indicating extremely high traffic/popularity)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain created: September 15th 1997, 12:30:00 (UTC)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain registrar: MarkMonitor, Inc.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Information:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TLS certificate: Issued by WE2 on March 31st 2025",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate validity: 3 months",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google Safe Browsing: No classification for www.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "URLscan.io Verdict: No classification (clean)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Information:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Current DNS A record: 216.58.212.132 (AS15169 - GOOGLE, US)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Historical Data:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com scanned 10000+ times on urlscan.io",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.google.com scanned 10000+ times on urlscan.io",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Significance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This URLscan.io report indicates:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The site is hosted on Google's infrastructure with IPv6 addressing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The domain has exceptional legitimacy (Cisco Umbrella rank of 3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security protocols are properly implemented with valid TLS certification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No malicious classifications from security services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The domain has extensive history (created in 1997) and has been frequently scanned on the platform",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The scan confirms this is a legitimate Google website with proper security implementations and no detected threats.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2) Page History & Statistics",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image6.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "URLscan.io Page Details Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Page Information Section",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This section of the URLscan.io report provides detailed information about the scanned web page and its technical characteristics.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Page Identification:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Page Title: Google",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target URL: https://www.google.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "URL History Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The URL history section shows the redirect chain and HTTP status codes:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Redirect Chain:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http://google.com/ (HTTP 307 Temporary Redirect)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://google.com/ (HTTP 301 Permanent Redirect)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://www.google.com/ (Final destination - Page URL)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This indicates a standard redirect pattern that first enforces HTTPS encryption, then standardizes to the www subdomain.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Page Technical Statistics",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The page statistics section provides quantitative metrics about the page load and resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Request Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Requests: 37 (Total HTTP requests made)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTPS: 100% (All connections use secure HTTPS protocol)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv6: 100% (All connections use IPv6 addressing)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domains: 2 (Content loaded from 2 different domains)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomains: 7 (Content distributed across 7 subdomains)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Connection Information:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPs: 7 (Connected to 7 unique IP addresses)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Countries: 1 (All connections from a single country)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Data Transfer:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Transfer: 773 kB (Data transferred during page loading)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Size: 2309 kB (Total size of resources)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookies: 2 (Number of cookies set by the website)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Significance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This data reveals:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The site properly implements security best practices with full HTTPS and IPv6 support",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content delivery is distributed across multiple subdomains for performance optimization",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The site uses a standard and secure redirect chain to ensure all users access the canonical www.google.com domain over HTTPS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The page is relatively lightweight with modest transfer and cookie usage",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Resources are consolidated, loading from only 2 domains which helps limit security exposure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The redirect chain and technical configurations align with security best practices for a high-profile website.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3) Domain & IP Information - IP/ASNs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image18.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain & IP Information Section",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This section of the URLscan.io report provides detailed analysis of the network infrastructure supporting the scanned website, focusing on IP addresses, their geographic locations, and associated network entities.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Address Distribution",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The table shows the distribution of HTTP requests across Google's IPv6 infrastructure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Address",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Location",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "AS Number & Owner",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1 → 1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:810::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "15169 (GOOGLE)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "28",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:828::2004",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "15169 (GOOGLE)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:829::2003",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "15169 (GOOGLE)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:82a::2003",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "15169 (GOOGLE)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:80f::200a",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "15169 (GOOGLE)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:82f::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "15169 (GOOGLE)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:828::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "15169 (GOOGLE)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary Statistics:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Total Requests: 37",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Unique IP Addresses: 7",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All IPs belong to: AS15169 (GOOGLE)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All IPs are located in: Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All IPs use IPv6 addressing (2a00:1450:4001:xxx::xxxx format)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Significance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This IP information reveals:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Load Distribution: The website distributes traffic across multiple IP addresses, with one address (2a00:1450:4001:828::2004) handling the majority (28 of 37) of requests. This suggests a primary server with backup or specialized servers handling specific content.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Consistency: All connections route through Google's autonomous system (AS15169), indicating complete ownership and control of the infrastructure by Google.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Modern Networking: The site uses IPv6 addressing exclusively, demonstrating adoption of modern internet protocols.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Geographic Centralization: All traffic is served from infrastructure located in Germany, likely from a single data center or region, which may be strategically located to serve European users with low latency.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network Architecture: The IP addressing scheme (all beginning with 2a00:1450:4001) suggests these addresses are part of a contiguous block assigned to Google's European infrastructure.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This pattern is typical for large, sophisticated web services that leverage distributed infrastructure while maintaining centralized control for security and performance optimization.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4) Domain & IP Information - IP Detail",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image7.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "URLscan.io IP Detail & Domain Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Detail & Domain Mapping Section",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This section of the URLscan.io report provides an expanded view of the network infrastructure, mapping specific IP addresses to their associated domains and showing the distribution of requests across Google's content delivery network.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP to Domain Mapping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Address",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Location",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "AS Information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:810::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frankfurt am Main, Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ASN15169 (GOOGLE, US)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "28",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:828::2004",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frankfurt am Main, Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ASN15169 (GOOGLE, US)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:829::2003",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frankfurt am Main, Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "fonts.gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ASN15169 (GOOGLE, US)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:82a::2003",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frankfurt am Main, Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ASN15169 (GOOGLE, US)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:80f::200a",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frankfurt am Main, Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ogads-pa.clients6.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ASN15169 (GOOGLE, US)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:82f::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frankfurt am Main, Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "apis.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ASN15169 (GOOGLE, US)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:828::200e",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frankfurt am Main, Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "play.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ASN15169 (GOOGLE, US)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "First IP shows \"1 redirects\" indicating it's part of the redirect chain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All IP addresses are located specifically in Frankfurt am Main, Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All domains are hosted on Google's infrastructure (ASN15169)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Significance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This expanded view reveals:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Architecture: The main website (www.google.com) handles most requests (28), while supporting resources are distributed across specialized domains:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Static content domains (fonts.gstatic.com, www.gstatic.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "API endpoints (apis.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Advertising infrastructure (ogads-pa.clients6.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional service domains (play.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Segmentation Strategy: Google separates different types of content across specialized subdomains for:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security isolation (domain boundaries create security barriers)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Performance optimization (allows parallel downloads)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service separation (isolates functionality components)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Centralized Geographic Infrastructure: All domains resolve to IP addresses in the same location (Frankfurt am Main), suggesting a regional data center serving multiple Google services.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain-Specific IP Addressing: Each domain or service type appears to have dedicated IP addresses, indicating sophisticated network segmentation within Google's infrastructure.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Redirect Handling: The initial request to google.com (non-www) redirects to the canonical www.google.com domain, following web best practices.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This detailed mapping demonstrates Google's sophisticated domain architecture that balances centralized infrastructure management with logical separation of services.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5) Domain & IP Information - Domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image16.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "URLscan.io Domain & IP Information Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This section of the URLscan.io report provides a domain-level view of web traffic, including apex domains, their subdomains, request counts, Cisco Umbrella ranking, and total data transfer. It helps map the communication structure of the scanned website and the associated services or third-party calls.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Breakdown",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Requests: 34",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Data Transfer: 653 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Redirects: 1 redirect (from google.com to www.google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomains Accessed:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com — Cisco Umbrella Rank: 1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.google.com — Cisco Umbrella Rank: 3",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ogads-pa.clients6.google.com — Cisco Umbrella Rank: 62",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "apis.google.com — Cisco Umbrella Rank: 115",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "play.google.com — Cisco Umbrella Rank: 18",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These subdomains reflect a distribution of functionality:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ogads-pa.clients6.google.com suggests advertisement-related services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "apis.google.com relates to API calls or service integration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "play.google.com connects to Google Play services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Requests: 4",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Data Transfer: 120 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomains Accessed:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "fonts.gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These are typically used for serving static resources like fonts, JavaScript, and cached assets, supporting faster load times and performance optimization.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Uncategorized Domain (Labelled \"2\")",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Requests: 37",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The entry \"2\" lacks specific domain information in this image, potentially due to rendering issues or grouping behavior in the tool. It may represent aggregated requests not classified under the above apex domains.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Significance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Architecture: The traffic distribution illustrates how Google's ecosystem segregates different services by domain:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content delivery: gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Core services: google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Specialized APIs and ad services: subdomains like clients6.google.com and apis.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Redirect Chain: The presence of a redirect from google.com to www.google.com reflects standard practice in domain canonicalization to ensure consistency and improve SEO.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security and Optimization Strategy: Google follows a clear domain segmentation strategy:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Isolation: Subdomains are used to enforce browser security boundaries (e.g., Same-Origin Policy).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Performance Optimization: Separating static and dynamic content across domains improves caching and parallel downloads.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Separation: Functionality is modularized, reducing interdependency between services.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6) Domain & IP Information - Domain Tree",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image3.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "URLscan.io Domain Tree Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This section represents the request flow of domains accessed during the scan, showing how each domain was reached and what other domains it triggered. It helps to trace the dependency and origin of third-party requests on the scanned webpage.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Request Chain Breakdown",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Requested By",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "28",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "play.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ogads-pa.clients6.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "fonts.gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "apis.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "— (redirected once)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Observations and Technical Insight",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. Initiating Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The scan shows that google.com initiated a request which was redirected once to www.google.com. This is a common redirection for canonicalization and aligns with best practices to unify domain access.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. Main Request Driver: www.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "With 28 requests, it is the dominant origin of activity and also triggered other domains:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "It called www.gstatic.com and fonts.gstatic.com, likely for loading static assets (CSS, fonts, or JavaScript libraries).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This points to www.google.com being the main page or frame loaded.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Static Content Hosting: gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.gstatic.com initiated requests to:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "play.google.com – may indicate dynamic links to Google Play or related app content.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ogads-pa.clients6.google.com – likely for ad-serving or telemetry.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "apis.google.com – used for script or token-based authentication APIs or SDKs.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This indicates that www.gstatic.com is serving both UI and functional dependencies from related domains.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4. Redirect Path",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com → www.google.com — This confirms that the base domain redirects users to its 'www' variant for content delivery.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Tree Flow Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The domain tree follows a structured flow typical of Google-owned service chains:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "scss",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CopyEdit",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com (redirects) → www.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.google.com → [www.gstatic.com, fonts.gstatic.com]",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.gstatic.com → [play.google.com, ogads-pa.clients6.google.com, apis.google.com]",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This structure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Ensures modularity by separating static content (gstatic) from dynamic application logic (google.com).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Improves security by sandboxing functionalities via subdomains.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Optimizes performance with content delivery through gstatic.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7) Domain & IP Information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image15.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "URLscan.io Links Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The Links tab outlines external domains that the scanned webpage links to, either through embedded anchors (<a> tags), JavaScript redirections, or references within the HTML source. This helps in understanding the external navigation or dependencies offered on the page.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "List of Linked Domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Linked Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "about.google",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Corporate information and company overview.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "store.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Official Google Store – hardware and product sales.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "mail.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Gmail web client – used for email access.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.google.dk",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google Denmark – localized search engine for Denmark.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "accounts.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google Account services – authentication and user management.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Primary domain – likely a fallback or homepage link.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sustainability.google",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google’s sustainability and environmental initiatives.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "policies.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Legal documents, privacy policies, and terms of service.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "consent.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consent management and cookie handling service.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "support.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Help center for user assistance across all Google products.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Observations and Technical Insight",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. All Links are Internal to Google Ecosystem",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All referenced domains belong to Google and serve various functions:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Functional Links: accounts.google.com, mail.google.com, support.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Informational Links: about.google, sustainability.google, policies.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Portals: store.google.com, consent.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This indicates the scanned page is either a core Google service or a tightly controlled landing page with no third-party links.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. Privacy and Consent Mechanisms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The presence of consent.google.com and policies.google.com suggests that the page includes elements related to:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GDPR or other regulatory compliance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User awareness regarding tracking, privacy settings, and data use",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Localization and International Support",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.google.dk suggests redirection or service availability based on regional domains, pointing toward international user targeting or global service distribution.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8) Domain & IP Information - Certs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image2.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "URLscan.io Certificates (Certs) Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The Certs tab displays TLS/SSL certificates used by domains that were contacted or embedded during the page load. These certificates are essential for encrypted communication and domain validation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subject Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issuer",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Validity Period",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Valid Duration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CRT.sh Lookup",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "*.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WE2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2025-03-31 to 2025-06-23",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3 months",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Available",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "*.gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WE2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2025-03-31 to 2025-06-23",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3 months",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Available",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "*.googleapis.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WE2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2025-03-24 to 2025-06-16",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3 months",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Available",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "*.apis.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WE2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2025-03-31 to 2025-06-23",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3 months",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Available",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Observations and Technical Insights",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. Wildcard Certificates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Each certificate listed uses a wildcard format (*.), indicating that the certificate is valid for any subdomain under the primary domain (e.g., mail.google.com, play.google.com under *.google.com).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This is common in large organizations to simplify certificate management and secure multiple subdomains with a single certificate.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. Issuer: WE2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The \"WE2\" is likely an internal identifier used by URLscan.io or the certificate authority to label the issuing certificate. Typically, Google certificates are issued by their own Certificate Authority (Google Trust Services) or Let's Encrypt for automation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Short Validity (3 Months)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All certificates are valid for 3 months, aligning with industry best practices for enhanced security:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frequent rotation reduces the impact of compromised certificates.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Automates certificate lifecycle via ACME protocol (often using Let's Encrypt).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4. CRT.sh Integration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Each certificate includes a reference to crt.sh, a certificate transparency log viewer, allowing users to verify issuance and public availability for auditing or investigation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "9) Domain & IP Information - Frames",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image11.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "URLscan.io Frames Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The Frames tab displays embedded HTML <iframe> elements or frame-based content detected during page load. These frames may host third-party content, advertising, trackers, or embedded services, and are important from both a security and content analysis standpoint.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frame Details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attribute",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Primary Page",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://www.google.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frame ID",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "F9BF0AE1869C6FA6AA3E1132ECE8B322",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP Requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "42 HTTP requests in this frame",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Observations and Technical Insights",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. Single Frame Detected",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The scan detected only one iframe or top-level frame, corresponding directly to the main page: https://www.google.com/.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This suggests that the page is largely self-contained and not embedding third-party or external services as iframes.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. 42 HTTP Requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The single frame made 42 HTTP requests, indicating a moderately complex page load with multiple resources such as:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Scripts (JavaScript)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Stylesheets (CSS)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Images or fonts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Possibly API calls (e.g., via xhr or fetch)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Frame ID",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The Frame ID (F9BF0AE1869C6FA6AA3E1132ECE8B322) is a unique identifier used by URLscan.io to track and reference this frame internally or across reports.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL/TLS Certificates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Validity",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Duration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issuer",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "*.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2025-03-31 → 2025-06-23",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3 months",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WE2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "*.gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2025-03-31 → 2025-06-23",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3 months",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WE2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "*.googleapis.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2025-03-24 → 2025-06-16",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3 months",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WE2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "*.apis.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2025-03-31 → 2025-06-23",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3 months",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WE2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frame Details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Primary Page: https://www.google.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frame ID: F9BF0AE1869C6FA6AA3E1132ECE8B322",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Total HTTP Requests in this Frame: 42",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "10) HTTP Transactions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image1.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image12.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "HTTP Transactions (Key Summary from 37 Transactions)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "#",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Method",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Resource",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Type",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Size",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Address (Country)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Notes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GET (H3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www.google.com/ (Primary Request)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Document",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "260 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:828::2004 (Germany)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Includes full redirect chain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GET (H3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "fonts.gstatic.com/s/googlesans/...woff2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Font",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "39 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:829::2003",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web font",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GET (H3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "JS and CSS from www.google.com/xjs/_/js/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Stylesheet",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:828::2004",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CSS file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GET (H3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "JS from www.google.com/xjs/_/js/...",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Script",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "997 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:828::2004",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Heavy script",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GET (H3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "tia.png",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Image (PNG)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "258 B",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:828::2004",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Static asset",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GET (H3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "24px.svg",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Image (SVG)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "742 B",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:829::2003",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Logo SVG",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GET (H3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "desktop_searchbox_sprites318_hr.webp",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Image (WEBP)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "660 B",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:828::2004",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Search box icon",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GET (H3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hpba",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "XHR",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "102 B",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:828::2004",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Possibly async behavior tracking",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "9",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "POST (H3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "gen_204",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Ping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "0 B",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2a00:1450:4001:828::2004",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Common Google tracking endpoint",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "10-15",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GET (H3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/truncated",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Images (SVG)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "197 B - 775 B",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Unknown",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Minimal static icons",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Technical Notes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protocol Used: HTTP/3 (H3) — Google's infrastructure is using QUIC for faster communication.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Latency Range: ~65ms to 214ms — Indicates optimized CDN delivery.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Redirection Chain: HTTP → HTTPS → www.google.com — Ensures encrypted communication.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Location (All): Germany — Hosted via Google servers in the EU region.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Performance and Timing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Latency Range: 64ms to 138ms across requests.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Total Data Transferred: Significant given script and document payload sizes (document: 260 KB, script: ~997 KB).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security and Behavior",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All connections are encrypted (HTTPS via HTTP/3), ensuring secure data transfer.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Resource types cover essential web assets: document, styles, fonts, and JavaScript.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No anomalies or suspicious indicators in behavior or verdict sections; all traffic is consistent with standard Google page loading.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "11) Domain Behavior",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image9.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Breakdown",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. google.com Requests: Not explicitly shown, but multiple references imply active data handling Cookies:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "AEC and __Secure-ENID cookies are set, indicating authentication or tracking mechanisms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie expiry dates are set incorrectly to 1970-01-21, which might suggest either expired cookies or a placeholder used during testing or scraping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Console Messages:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Message: \"Autofocus processing was blocked because a document already has a focused element.\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This indicates a benign browser-side rendering behavior due to DOM handling, not a security issue",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "JavaScript Global Variables:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "34 non-standard global variables identified on the window object",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These include functions and objects such as gws_wizbind, WIZ_global_data, googleapis, closure_lm_697634, etc.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Suggests the use of custom JS frameworks and Google's internal libraries for front-end rendering and telemetry",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Headers:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Strict-Transport-Security: max-age=31536000 — forces HTTPS for 1 year",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "X-Frame-Options: SAMEORIGIN — prevents clickjacking by disallowing framing from different origins",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "X-XSS-Protection: 0 — XSS protection is disabled, likely due to reliance on modern CSPs or browser security updates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Significance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Architecture:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use of Google-owned cookies and global variables confirms interaction with core Google services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "JavaScript objects reveal a modular and internal framework for data handling, telemetry, UI behavior, and session control",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implementation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security headers indicate industry-standard HTTPS enforcement and framing protection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "XSS protection disabled, which is increasingly common among high-profile platforms that rely on more modern mechanisms like Content Security Policy (CSP)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Performance and Isolation Strategy:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google splits logic-heavy client-side scripts and telemetry data across different global variables for modular control",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain segmentation and cookie scoping contribute to clear isolation boundaries for authentication, APIs, and static content",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "12) Links",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image19.jpg"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image10.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Total Outgoing Links: 14",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These are all external links redirecting to Google-owned domains. Each link is paired with a title and belongs to common Google services or informational resources.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detailed List of Outgoing Links",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "#",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "URL (Domain)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Title (Page Purpose)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://about.google/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Om (About Google)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://store.google.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google Store",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://mail.google.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Gmail",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://www.google.dk/.../products",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://accounts.google.com/ServiceLogin",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Log ind (Login)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://google.com/search/howsearchworks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sådan fungerer Søgning (How Search Works)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://sustainability.google/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CO2-free future message",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://policies.google.com/privacy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Privatliv (Privacy)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "9",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://policies.google.com/terms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Vilkår (Terms)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "10",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://consent.google.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookies and consent",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "11",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://support.google.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Søg i Hjælp (Search Help)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "12",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://policies.google.com/...cookies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "cookies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "13",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://policies.google.com/privacy?source=ucbs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Privatliv (Privacy - UCSB)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "14",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://policies.google.com/terms?source=ucbs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Vilkår (Terms - UCSB)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Observations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All links are legitimate and part of Google’s ecosystem (no red flags or malicious redirections).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Localized Content: Many URLs contain Danish language parameters (hl=da), indicating the scanned site is tailored for Danish users.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Secure (HTTPS): All links use HTTPS protocol.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "UTM Tracking: Several URLs include UTM parameters, suggesting marketing or tracking purposes (e.g., utm_source, utm_campaign).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content Types: Links span across:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "About/Help pages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Policy/legal pages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Services (Search, Gmail, Store)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sustainability and promotional content",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security/Privacy Implication",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These links do not pose any direct risk, but:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The presence of multiple tracking parameters (UTM) implies user behavior may be monitored for analytics.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "A thorough scan should still validate the integrity of link destinations in case of URL spoofing on non-Google pages that mimic these",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "13) Similar Hits",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image4.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Structurally Similar Hits Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The report is divided into four key sections based on structural similarity, IP matching, and domain characteristics.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. 10,000+ Hits for the Same Domain (google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "A large volume of requests has been recorded for structurally similar URLs under the www.google.com domain. Key details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "URL Path",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Size",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Countries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "782 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "36",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/404",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "137 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "14",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "144 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "28",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "53 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "11",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "778 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "36",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1 MB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "47",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "780 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "36",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/?q=m",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1008 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "9",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1 MB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "52",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/webhp",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "227 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "21",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Observation: Multiple repetitive hits across the root and minimal paths suggest crawler activity or automated probes on Google's landing and error pages.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. 10,000+ Hits for Same ASN but Different Domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These are URLs hosted under the same ASN (Autonomous System Number) but not google.com. Many are blogspot.com and forms/docs subdomains:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "URL",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Size",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Countries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "comologarascoisaspresesoasronoboca.blogspot.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "251 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "17",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "10",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "accounts.google.com/.../identifier?...",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "685 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "www-nngs-global.com/...",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4 MB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "27",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "google.co.id/url?q=http...",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "beritavirnemeee.blogspot.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "38 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "kerenabi01.blogspot.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "37 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "beritaviralmeme.blogspot.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "37 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "docs.google.com/forms/d/...",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4 MB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "97",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "youtube.com/channel/...",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3 MB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "159",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "13",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "bgmiluckyspin09.blogspot.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "252 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "17",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "9",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Observation: Heavy interaction with Google services (Docs, YouTube, Accounts) and blogspot blogs, some of which may be spam or content-farming domains. URLs such as bgmiluckyspin09.blogspot.com suggest gambling or promotional campaigns.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. 66 Hits for the Same IP but Different Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These hits originate from shared IPs but target non-Google domains:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Size",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Country",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "partnerpage.google.com/...",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "13 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "googleapis.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "43 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "t0.gstatic.com (multiple image queries)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2–4 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1–2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "t1.gstatic.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2 KB",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Germany",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Observation: Static asset delivery domains (gstatic.com) and a partner page under google.com. This section indicates shared infrastructure or CDN usage, mostly hosted in Germany.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4. 0 Hits for the Exact Same Submitted URL",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No identical matches were found for the specific submitted URL. This means while many structurally similar pages exist, this exact URL has not been previously indexed or scanned.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security & Threat Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No direct malicious behavior detected in the links, but some blogspot and third-party domains warrant further validation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Repeated paths to Google services could indicate automated scanning or bot traffic.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use of static content (gstatic.com) is normal, but monitoring is advisable when paired with blogspot domains—often used in phishing and scam campaigns.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Same ASN but suspicious TLDs (e.g., blogspot.com spam clusters) should be flagged for deeper inspection.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image17.gif"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "1. DOM (Document Object Model)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Displays the rendered structure of the HTML page as seen by a browser.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Helps detect malicious scripts, hidden elements, or dynamic modifications injected via JavaScript.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Useful for analyzing client-side behaviors (e.g., script injections, iframe insertions, clickjacking).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. Content",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Shows the raw HTML, JavaScript, and media delivered by the server.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Focuses on static resources and original payloads.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Good for identifying hardcoded malicious links, obfuscated code, and suspicious file inclusions.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. API",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Details the API requests and responses made by the page.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Includes AJAX/XHR traffic, RESTful endpoints, and sometimes GraphQL queries.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Critical for analyzing data exfiltration, command & control (C2) traffic, and backend interaction patterns.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6. Troubleshooting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Common Errors:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Rate Limiting: \"Too many requests\" message",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "■       Solution: Wait for rate limit to reset or upgrade to a premium account",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Scan Taking Too Long:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "■       Solution: Large or complex sites may take longer to scan; be patient or try scanning specific pages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Failed Scans:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "■       Solution: Check if the site blocks automated scanners or requires authentication",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       API Key Issues:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "■       Solution: Verify your API key is valid and has sufficient permissions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Support Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Twitter/X: @urlscan_io",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Email: support@urlscan.io",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7. Security Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       OPSEC Concerns:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Public scans are visible to everyone, including potential targets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Your IP address is visible to urlscan.io when submitting scans",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Submitted URLs become part of the urlscan.io database",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Usage Cautions:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Avoid scanning sensitive internal websites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Use private scan mode for sensitive investigations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Be aware that site owners may be able to see that their site was scanned",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Do not use urlscan.io for unauthorized security testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8. References and Additional Resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Cheat Sheet:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Basic scan: Enter URL and click \"Scan\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Quick search: domain:example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Date filter: date:>2023-01-01",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Combined search: domain:example.com page.title:\"Login\" country:\"Germany\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Related Tools:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Webcheck.xyz: Similar website analysis tool with different visualization focus",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       VirusTotal: Scans URLs for malware and malicious content",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Shodan: Search engine for Internet-connected devices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Censys: Internet-wide scanner focused on security and certificates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       PhishTank: Database of reported phishing URLs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       RiskIQ PassiveTotal: Domain and IP intelligence platform",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Further Reading:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Blog: https://blog.urlscan.io/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       API Integration Examples: https://urlscan.io/docs/integration/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       DFIR (Digital Forensics and Incident Response) use cases for urlscan.io",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "●       Community Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       GitHub Projects integrating with urlscan.io API",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       OSINT frameworks incorporating urlscan.io data",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "○       Security automation playbooks using urlscan.io for threat analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  }
+]

@@ -1,0 +1,5907 @@
+[
+  {
+    "type": "p",
+    "text": "web-check.xyz Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. Tool Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description: web-check.xyz is a free and open-source website scanner that performs comprehensive technical analysis of websites. It provides detailed insights on security configurations, DNS records, SSL certificates, server information, performance metrics, and more, all through an easy-to-use web interface.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Category: Reconnaissance, Web Security Assessment, OSINT, Technical SEO",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Developer/Maintainer: Alicia Sykes (Lissy93)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "License: Open Source (MIT License)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Official Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Website: https://web-check.xyz",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GitHub Repository: https://github.com/Lissy93/web-check",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Documentation: https://github.com/Lissy93/web-check/blob/master/README.md",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. Installation Guide",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "As web-check.xyz is available as a hosted service, no installation is required for basic use.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Basic Configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "For hosted service at web-check.xyz, no configuration is required.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Self-Hosted Configuration:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Environment Variables:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Set in .env file in project root",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key variables include API keys for optional third-party services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "API Integrations (optional):",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WhoIs data providers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS lookup services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security scanning tools",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Custom Endpoints:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Can be configured in the server configuration files",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4. Core Functionality",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Features:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS record analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL certificate validation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP headers security assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server technology fingerprinting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain and WHOIS information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP address and geolocation data",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Open ports scanning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS security check (DMARC, SPF, DNSSEC)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Carbon footprint estimation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Robots.txt and sitemap analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Redirects tracing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Performance metrics",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Basic Usage:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Enter a domain name in the search bar and click \"Analyze\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Review comprehensive results organized by categories",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "View detailed explanations of each check",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Data Presentation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expandable sections for each analysis category",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Visual indicators for security status (pass/fail/warning)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detailed technical explanations for each finding",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5. Test Scenarios & Commands",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web Interface",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Basic Domain Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Visit https://web-check.xyz",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Enter a domain name (e.g., \"example.com\") in the search field",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Click \"Analyze\" button",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "View comprehensive results across all check categories",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Specific Feature Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Click individual category tabs to focus on specific aspects:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL Information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server Details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Carbon Footprint",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technologies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image14.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image4.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This is how a general scan of Web-check looks like.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "API Usage (Self-Hosted Only)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Endpoint Structure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Base: http://[your-instance]/api",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain scan: GET /api/domain?domain=example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Individual Checks:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS records: GET /api/dns-records?domain=example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL info: GET /api/ssl-info?domain=example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Headers: GET /api/headers?domain=example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Section wise Explanation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image7.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Server Location Analysis Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image shows a server location report for Google.com from web-check.xyz. The analysis displays geographical and technical information about the server hosting Google.com.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server Location Details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "City: EC1A, London, England",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Country: United Kingdom 🇬🇧",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Timezone: Europe/London",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Languages: en-GB, cy-GB, gd (English-Great Britain, Welsh-Great Britain, Scottish Gaelic)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Currency: Pound (GBP)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server Provider: GOOGLE (as indicated in parentheses)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Geographic Coordinates: Latitude: 51.5085, Longitude: -0.1257",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image1.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "SSL Certificate Analysis Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image displays SSL certificate information for www.google.com from web-check.xyz, showing the security certificate details that establish an encrypted HTTPS connection.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subject: www.google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issuer: Google Trust Services (truncated in display)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ASN1 Curve: prime256v1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "NIST Curve: P-256",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expires: 23 June 2025",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Renewed: 31 March 2025",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Serial Number: 3FAF85F6FCC85CEA0A... (truncated)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Fingerprint: FD:1E:8C:23:6E:3E... (truncated)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extended Key Usage: TLS Web Server Authentication",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Documentation Pointers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Assessment Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Validity: The certificate is valid until June 2025, indicating proper maintenance. In red teaming, expired certificates would be a security concern to highlight.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cryptographic Strength: Uses P-256 curve (NIST) which is currently considered secure. Red teamers should verify appropriate cryptographic standards are in use.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issuer Verification: Certificate issued by Google Trust Services - a legitimate Certificate Authority. Red teams should verify issuers match expected organizations to detect potential SSL spoofing.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extended Key Usage: Properly limited to \"TLS Web Server Authentication\" - more permissive settings could represent unnecessary security exposure.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Recent Renewal: Recently renewed in March 2025, showing active certificate management, which is a positive security practice.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Testing Applications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Transparency: Verify the certificate appears in public CT logs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Validation: Check if certificate covers all relevant subdomains and alternate names",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Chain: Validate the complete trust chain back to a trusted root",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Strength Analysis: Assess if cryptographic parameters meet current standards",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential Vulnerabilities: Look for weaknesses like SHA-1 signatures or weak ciphers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Misconfigurations: Check for missing constraints or overly permissive settings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image11.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Domain WHOIS Information Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image shows WHOIS information for GOOGLE.COM from web-check.xyz, displaying registration details of the domain.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Field Explanations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Registered Domain: The domain name being queried (GOOGLE.COM)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Creation Date: When the domain was first registered (15 September 1997)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Updated Date: When the domain information was last modified (9 September 2019)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Registry Expiry Date: When the domain registration will expire if not renewed (14 September 2028)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Registry Domain ID: Unique identifier for the domain in the registry database (2138514_DOMAIN_COM-VRSN)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Registrar WHOIS Server: Server that provides detailed WHOIS information (whois.markmonitor.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Registrar: Company through which the domain is registered (MarkMonitor Inc.)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Registrar IANA ID: Internet Assigned Numbers Authority identifier for the registrar (292)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Usage in Security Assessments & Red Teaming",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intelligence Gathering Applications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Age Assessment: The creation date (1997) indicates this is a well-established domain, reducing likelihood it's a malicious clone.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expiration Monitoring: Domains nearing expiration (this one is valid until 2028) could be targeted for domain hijacking if renewal is missed.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Registrar Security: MarkMonitor is an enterprise-grade registrar specializing in brand protection, indicating good security practices.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Historical Analysis: The last update date (2019) might indicate when ownership or important details changed.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential Security Applications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Social Engineering Preparation: Understanding domain ownership helps craft believable pretexts for social engineering attacks.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Typosquatting: Identifying older domains helps attackers register similar-looking domains for phishing (e.g., g00gle.com).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target Validation: During penetration testing, confirming genuine domain ownership prevents testing unauthorized targets.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Corporate Structure Mapping: Domain registration details can reveal parent companies and organizational relationships.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Expiration Attacks: Though not applicable here (expires 2028), domains nearing expiration could be monitored for hijacking opportunities.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OSINT Starting Point: Registrar information can lead to additional records that may reveal technical contacts or infrastructure details.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Measures: Organizations should regularly audit their domain registrations, use privacy protection services when appropriate, and ensure domains are registered with reputable registrars using secure authentication.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image6.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "HTTP Security & Firewall Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image shows the HTTP security headers and firewall detection results for a website (likely Google.com based on previous images) from web-check.xyz.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP Security Headers Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The scan reveals mixed implementation of security headers:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content Security Policy: ❌ No - Missing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Strict Transport Policy: ❌ No - Missing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "X-Content-Type-Options: ❌ No - Missing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "X-Frame-Options: ✅ Yes - Implemented",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "X-XSS-Protection: ✅ Yes - Implemented",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Firewall Detection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Firewall: ❌ No* - Not detected",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Note: \"*The domain may be protected with a proprietary or custom WAF which we were unable to identify automatically\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Assessment & Red Team Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Header Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing Content Security Policy (CSP):",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Without CSP, the site has no browser-enforced restrictions on sources of executable scripts, styles, and other resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential exploitation: Could allow script injection attacks if other vulnerabilities exist",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Cross-site scripting attacks might be more viable without this protection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing Strict Transport Security (HSTS):",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Without HSTS, the site doesn't force browsers to always use HTTPS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential exploitation: SSL stripping attacks could be possible",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Man-in-the-middle attacks to downgrade connections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing X-Content-Type-Options:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Without this header, browsers might MIME-sniff content types",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential exploitation: Could lead to MIME confusion attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Uploading files that bypass content type restrictions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implemented X-Frame-Options:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protects against clickjacking by controlling iframe embedding",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reduces risk of UI redressing attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implemented X-XSS-Protection:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Enables browser's built-in XSS filtering capabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Provides some (limited) defense against cross-site scripting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Firewall Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The note about a possible proprietary WAF is significant:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Large organizations often use custom security solutions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Standard fingerprinting techniques may fail to detect these",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red teams should use progressive probing techniques to identify protection mechanisms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Absence of detected WAF doesn't mean absence of protection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Testing Approach",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header-Based Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Focus on missing headers (CSP, HSTS, X-Content-Type-Options)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test content injection where CSP would normally prevent execution",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Try protocol downgrade attacks in absence of HSTS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WAF Evasion:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use incremental, low-noise probing to identify WAF patterns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test with different user agents and request patterns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider time-delayed attacks to bypass rate limiting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content Injection:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for XSS vulnerabilities despite X-XSS-Protection (as this header is deprecated in modern browsers)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Look for upload functionality that might allow MIME-type confusion",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Documentation Focus:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Clearly report missing headers as security findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Recommend implementation of missing protective headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Note that modern best practices favor CSP over older headers like X-XSS-Protection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image8.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "HTTP Headers Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image displays HTTP response headers from a website (presumably Google.com based on previous images) obtained via web-check.xyz.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header Breakdown & Security Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "date: 6 May 2025 - Current server date",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "expires: 1 January 2001 - Deliberately set in the past to prevent caching",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "cache-control: 1 January 2000 - Unusual format (should contain directives, not dates)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "content-type: text/html; charset=ISO-88... (truncated) - Defines content as HTML with ISO-8859-1 character encoding",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "content-security-policy-report-only: object-src 'none';base-uri... (truncated) - Policy in \"report-only\" mode (violations reported but not enforced)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "accept-ch: Sec-CH-Prefers-Color-Scheme... (truncated) - Client Hints requesting browser preferences",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "p3p: CP=\"This is not a P3P pol... (truncated) - Legacy Privacy Policy header, seemingly using non-standard value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "server: gws - Google Web Server identifier",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "x-xss-protection: 1 January 2000 - Malformed (should be \"0\" or \"1; mode=block\"), appears to be a date instead",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "x-frame-options: SAMEORIGIN - Restricts iframe embedding to same origin only",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "set-cookie: SOCS=CAAaBgiAouXABg; expi... (truncated) - Setting a cookie with various attributes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "alt-svc: h3=\":443\"; ma=2592000,h3-... (truncated) - Alternative services header, advertising HTTP/3 support",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "transfer-encoding: chunked - Indicates response is sent in chunks rather than all at once",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Unusual Header Patterns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Date-formatted values in unexpected headers: Several headers (cache-control, x-xss-protection) contain dates instead of standard directives, suggesting:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential custom header implementation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Possible obfuscation technique",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Might be a fingerprinting opportunity to identify backend systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Header Anomalies:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CSP in \"report-only\" mode means policies aren't enforced",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "x-xss-protection value is non-standard and ineffective",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Absence of Strict-Transport-Security header (HSTS)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Opportunities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CSP Bypass: With report-only mode, CSP violations are monitored but not blocked, potentially allowing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "XSS if other vulnerabilities exist",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Data exfiltration through unapproved sources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Script injection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Caching Inconsistencies: Multiple conflicting cache headers:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Could lead to browser-specific caching behaviors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Might be leveraged for cache poisoning attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie Analysis: The set-cookie header warrants further inspection for:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing security flags (HttpOnly, Secure, SameSite)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Session management vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie bombing opportunities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Disclosure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server fingerprinting is possible via \"gws\" identifier",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Alt-svc reveals HTTP/3 support and port information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Testing Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Header Manipulation Tests:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test server responses to modified header values",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Probe for header injection vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check if malformed headers trigger unexpected behaviors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content Security Policy Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Since CSP is in report-only mode, test what violations would be allowed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify if report endpoints are properly secured",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Framing Attacks:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test effectiveness of SAMEORIGIN restriction",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Look for nested-iframe bypasses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protocol Downgrade:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Without HSTS, test for SSL stripping vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attempt HTTP downgrade attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image2.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNS Records & Server Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image shows DNS-related information for a domain (likely Google.com based on previous images) from web-check.xyz, displaying both DNS records and DNS server details.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Records Section",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "A Record: 172.217.169.36",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Maps the domain name to this IPv4 address",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "AAAA Record: 172.217.169.36",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Should normally map to an IPv6 address, but shows an IPv4 address instead (potentially unusual configuration)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "MX Record: 2a00:1450:4009:827::2004",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mail exchanger record pointing to what appears to be an IPv6 address",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This format is unusual for an MX record, which typically points to a domain name",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Server Section",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Address: 172.217.169.36",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Address of the responding DNS server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Hostname: lhr48s08-in-f4.1e100.net",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reverse DNS name for the IP address",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The 1e100.net domain is owned by Google (1e100 = scientific notation for \"googol\")",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DoH Support: ❌ No*",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS over HTTPS is not supported",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Note indicates this might be a false negative",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intelligence Gathering Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Mapping:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The hostname pattern (lhr48s08-in-f4.1e100.net) reveals:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Geographic location (lhr = London Heathrow)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server identifier (48s08)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network infrastructure naming conventions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Useful for understanding target network topology",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Configuration Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Unusual AAAA record (containing IPv4) suggests non-standard DNS configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "MX record in unusual format may indicate custom mail infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications & Attack Vectors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS-Based Attacks:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No DoH (DNS over HTTPS) support means DNS queries are potentially:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Vulnerable to eavesdropping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subject to DNS poisoning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Susceptible to man-in-the-middle modification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Enumeration:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The hostname pattern reveals naming convention",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Could be used to predict and discover additional infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Network Segmentation Insights:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP address can be used to identify network blocks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Helpful for determining logical network boundaries",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mail Server Targeting:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "MX record reveals mail infrastructure details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Could be targeted for email-based attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Testing Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Exfiltration Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test if DNS tunneling is detected/blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for DNS request monitoring",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Zone Transfer Attempts:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check if DNS servers allow zone transfers (AXFR)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Could reveal additional subdomains and records",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Cache Poisoning:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test susceptibility to DNS spoofing attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Particularly relevant without DoH/DoT security",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mail Server Probing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify mail server security based on MX record",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for common mail server vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Geolocation Verification:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cross-reference IP location with hostname indication (lhr)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "May reveal CDN or load balancing infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image20.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "TLS Cipher Suites Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image displays the TLS cipher suites supported by a webserver (likely Google.com based on previous images) from a web-check.xyz scan.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Supported Cipher Suites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The server supports the following cipher suites:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "▶ ECDHE-RSA-AES128-GCM-SHA256",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "▶ ECDHE-RSA-AES256-GCM-SHA384",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "▶ ECDHE-RSA-AES128-SHA",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "▶ ECDHE-RSA-AES256-SHA",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "▶ AES128-GCM-SHA256",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "▶ AES256-GCM-SHA384",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "▶ AES128-SHA",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "▶ AES256-SHA",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "▶ DES-CBC3-SHA",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Assessment & Red Team Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cipher Components Explained",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Exchange Mechanisms:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ECDHE: Elliptic Curve Diffie-Hellman Ephemeral - Provides forward secrecy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Some ciphers lack ECDHE, meaning no forward secrecy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Authentication Mechanisms:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "RSA: Used in the first four ciphers for authentication",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Encryption Algorithms:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "AES128/256: Advanced Encryption Standard with 128/256-bit keys",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GCM: Galois/Counter Mode (authenticated encryption)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DES-CBC3: Triple DES in Cipher Block Chaining mode (legacy)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Hash Functions:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SHA/SHA256/SHA384: Secure Hash Algorithms for integrity verification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Vulnerabilities & Concerns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Legacy Cipher Support:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DES-CBC3-SHA (3DES) is notably outdated and considered weak by modern standards",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Vulnerable to Sweet32 attack when large amounts of data are transmitted",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Test for downgrade attacks forcing use of this weaker cipher",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Non-AEAD Ciphers:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Several ciphers lack authenticated encryption (non-GCM variants)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "More susceptible to padding oracle and related attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Test for CBC padding oracle vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Forward Secrecy Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Non-ECDHE ciphers don't provide forward secrecy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "If server private key is compromised, past communications could be decrypted",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Document as security finding",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Testing Methodology",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Downgrade Attack Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Force connection with only weak ciphers (especially DES-CBC3-SHA)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Document if server accepts downgraded connections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protocol Version Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for TLS 1.0/1.1 support alongside these ciphers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Older TLS versions + weak ciphers compound security issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cipher Preference Order:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify if server prioritizes stronger ciphers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attempt to negotiate less secure options",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Compliance Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check against standards like PCI DSS (which prohibits 3DES)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Document regulatory compliance issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "BEAST/POODLE/ROBOT Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for known TLS vulnerabilities, particularly with CBC mode ciphers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Disable the obsolete DES-CBC3-SHA cipher suite",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Prioritize AEAD cipher suites (GCM variants)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Ensure only ciphers with forward secrecy (ECDHE) are preferred",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement a modern cipher suite order that favors strongest options first",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider implementing additional TLS hardening like HSTS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image9.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie Analysis for Web Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image displays cookie information for Google.com from web-check.xyz, showing three cookies set by the website with their respective attributes and security settings.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie Details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. SOCS Cookie",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Value: CAAaBgiAouXABg",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expires: 5 June 2026",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Path: /",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain: .google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Attributes:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Secure: ✓ (Present)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SameSite: Lax",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HttpOnly: ✗ (Not set)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. AEC Cookie",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Value: AVcja2fVmuk414CYdWyxkLyfT... (truncated)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expires: 2 November 2025",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Path: /",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain: .google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Attributes:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Secure: ✓ (Present)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HttpOnly: ✓ (Present)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SameSite: Lax",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. __Secure-ENID Cookie",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Value: 27.SE",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expires: 6 June 2026",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Path: /",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain: .google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Attributes:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Secure: ✓ (Present)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HttpOnly: ✓ (Present)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SameSite: Lax",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Assessment & Red Team Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie Security Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Scope:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All cookies use \".google.com\" (with leading dot)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This means cookies are sent to all subdomains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Cross-subdomain cookie attacks if vulnerable subdomains exist",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Flags Assessment:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SOCS Cookie Vulnerabilities:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing HttpOnly flag allows JavaScript access",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Could be exposed in XSS attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Target for cookie theft via XSS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "AEC & __Secure-ENID:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Properly implement both Secure and HttpOnly flags",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Better protected against common cookie attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SameSite Policy:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All cookies set to \"Lax\" (not \"Strict\")",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Allows cookies to be sent on top-level navigations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Test for CSRF in specific contexts where Lax doesn't protect",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookie Prefixes:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"__Secure-\" prefix on ENID cookie enforces HTTPS",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Follows security best practice",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Browsers will only accept this cookie over secure connections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expiration Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Long-lived cookies (1+ year expiration)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extends potential exploit window if compromised",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Long-term session persistence if stolen",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Testing Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cross-Site Scripting (XSS) Targeting:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Focus on the SOCS cookie which lacks HttpOnly protection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Craft proof-of-concept exploits that extract cookie values",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cross-Site Request Forgery (CSRF):",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test edge cases where SameSite=Lax doesn't protect",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Focus on non-GET requests that might still be vulnerable",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Session Management Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Determine cookie purposes through behavior analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify which cookies are essential for authentication",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test session handling when cookies are modified or partially presented",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify less-secure Google subdomains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test if compromising a subdomain allows access to these cookies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Man-in-the-Middle Scenarios:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All cookies have the Secure flag, but test edge cases",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for scenarios where cookies might be sent over HTTP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Documentation Focus Points:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Note the missing HttpOnly flag on SOCS as a finding",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Suggest upgrading SameSite=Lax to Strict where applicable",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Recommend shorter expiration times as a best practice",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image12.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Security.Txt & HSTS Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image shows security.txt file information and HSTS status for a website (Google.com based on previous images) from web-check.xyz.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security.txt Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security.txt is a proposed standard (RFC 9116) that allows websites to define security policies and contact information for security researchers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Present: ✅ Yes - File exists",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "File Location: /.well-known/security.txt - Standard location",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "PGP Signed: ❌ No - File is not cryptographically signed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Contact: /vulnz - Relative path to vulnerability reporting page",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Contact1: mailto@google.com - Direct email contact",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Encryption: /corporate/publickey.txt - Public key location",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Acknowledgments: / - Root path for acknowledgments",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Policy: /vrp - Vulnerability Reward Program information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Hiring: /SecurityPrivacyEngJobs - Security job opportunities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expires: 1 April 2030 - Far future expiration date",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "View Full Policy: Option available to view complete content",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HSTS Check",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP Strict Transport Security (HSTS) is a security feature that helps protect websites against protocol downgrade attacks and cookie hijacking.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HSTS Enabled?: ❌ No",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Note: \"Site does not serve any HSTS headers.\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security.txt Findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intelligence Value:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Provides direct security contact information (security@google.com)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reveals vulnerability reporting mechanisms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identifies security program structure including VRP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team benefit: Legitimate communication channels to report findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Concerns:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing PGP Signature: File is not cryptographically signed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cannot verify authenticity of security.txt content",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential for tampering or spoofing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Emphasize in findings report",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Long Expiration Time:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expires in 2030, indicating infrequent reviews",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Best practice is 1 year maximum expiration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Note as policy non-adherence",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HSTS Security Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing HSTS Headers:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No protection against SSL stripping attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Vulnerable to protocol downgrade attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cookies potentially exposed to MitM attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red team opportunity: Demonstrate SSL stripping attack",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mitigation Challenges:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Large organizations often have complex infrastructure making HSTS deployment challenging",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "May be using alternative protections not detected by scan",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Testing Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security.txt Verification:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attempt to access all referenced resources (/vulnz, /vrp, etc.)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify public key availability",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test response time to submitted findings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL/TLS Downgrade Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Perform SSL stripping attacks to demonstrate risk",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test cookie security when connection is downgraded",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Documentation Opportunities:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Recommend PGP signing of security.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Suggest shorter expiration timeframe",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Recommend HSTS implementation with appropriate max-age",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verification Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify the email contact actually works",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check if vulnerability reporting mechanisms are functional",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Confirm public key is valid and up-to-date",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image16.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "DNSSEC Analysis for Google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image shows DNSSEC (Domain Name System Security Extensions) configuration information for Google.com from web-check.xyz.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSSEC Configuration Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSSEC is a suite of extensions that add security to the DNS protocol by enabling DNS responses to be validated for authenticity.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Components Shown:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSKEY Present: ❌ No - DNS Key records are not available",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DS Present: ❌ No - Delegation Signer records are not available",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "RRSIG Present: ❌ No - Resource Record Signature records are not available",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Explanation of Fields",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSKEY",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSKEY records contain the public keys used to verify DNSSEC signatures in RRSIG records. These keys authenticate DNS data and verify that it hasn't been tampered with. The absence means Google.com isn't publishing cryptographic keys for signature verification.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DS (Delegation Signer)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DS records reside in the parent zone and hold the hash of a DNSKEY record in the child zone. They create a chain of trust between the parent zone (com.) and the child zone (google.com). The absence indicates there's no cryptographic linkage establishing trust between these zones.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "RRSIG (Resource Record Signature)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "RRSIG records contain digital signatures for DNS record sets. They provide authentication and integrity protection for DNS records. The absence means DNS responses for Google.com aren't cryptographically signed.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intelligence Value:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNSSEC Non-Implementation: Google.com operates without DNSSEC protection, relying on alternative security measures.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Trust Model: Reveals Google's security strategy may focus on endpoint security rather than DNS-layer protections.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Spoofing Vulnerability: Without DNSSEC, the domain remains theoretically vulnerable to DNS cache poisoning and spoofing attacks.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Man-in-the-Middle Potential: Attackers could potentially intercept and modify DNS responses to redirect users to malicious sites.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Trust Chain Fragility: No cryptographic chain of trust exists between the TLD (.com) and Google's authoritative nameservers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Possibilities:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Cache Poisoning: A red team could potentially demonstrate DNS poisoning attacks against recursive resolvers serving Google.com.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "BGP Hijacking + DNS Attack: Combine route hijacking with DNS spoofing to redirect traffic from legitimate Google services.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Local Network Attacks: On compromised networks, demonstrate DNS response manipulation to redirect Google traffic.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Spoofing Simulation: Set up controlled environments to demonstrate the impact of successful DNS spoofing.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Resolver Security Testing: Evaluate how different DNS resolvers handle potentially spoofed Google.com responses.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Split-Horizon DNS Tests: Test if internal vs. external DNS configurations differ in vulnerability.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTPS Bypass Attempts: Test if DNS spoofing combined with SSL stripping could affect users despite HTTPS.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Documentation Value:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Risk Contextualization: Major companies like Google often make calculated decisions about DNSSEC implementation based on:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Alternative security measures (HTTPS, HSTS, CAA records, Certificate Transparency)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Performance considerations (DNSSEC adds overhead)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Complex infrastructure requirements",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Remediation Strategy: While reporting the absence of DNSSEC, a red team should:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Acknowledge the nuanced risk calculation for high-traffic domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Demonstrate practical attack scenarios that specifically affect the target",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Suggest a phased DNSSEC implementation approach if warranted",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mitigation Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement DNSSEC: Deploy DNSSEC signing for critical domains to prevent DNS spoofing.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS Monitoring: Establish monitoring for unexpected DNS changes or anomalies.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DNS-over-HTTPS/TLS: Consider supplementing with encrypted DNS protocols.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "DANE Records: Implement TLSA records to bind certificates to DNS (requires DNSSEC).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Important Context",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google's non-implementation of DNSSEC isn't necessarily an oversight—many large organizations evaluate the complexity, performance impacts, and alternative protections before deciding on DNSSEC deployment. The absence should be evaluated alongside their overall security architecture.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image3.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "TLS Security Issues Analysis for Google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image shows TLS (Transport Layer Security) configuration analysis for Google.com from web-check.xyz, highlighting various security issues and recommendations.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Basic Configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Host: google.com - The target domain being analyzed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CA Authorization: ✅ Yes - CAA records are properly implemented",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CAAs allowed to Issue Certs: pki.goog - Only Google's internal PKI is authorized to issue certificates",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mozilla Grading: 91.5 - Relatively high security rating based on Mozilla's SSL configuration standards",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No distrusted Symantec SSL?: ✅ Yes - Site is not using problematic Symantec certificates that were distrusted industry-wide",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Rank: 1 October 2001 - Likely indicates when the root certificate was created/trusted",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mozilla Evaluation Level: non compliant - Does not fully comply with Mozilla's modern security standards",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configuration Issues Breakdown",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Compatibility Config Issues (5)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "These are issues that affect compatibility with older systems while maintaining security:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SHA256WithRSAEncryption issue: \"SHA256WithRSAEncryption is not an old certificate signature, use sha1WithRSAEncr...\" - Suggests using older signature algorithm for compatibility",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing Ciphers: \"Consider adding ciphers ECDHE-ECDSA-CHACHA20-POLY1305, ECDHE-RSA-CHACHA20-POLY13...\" - Recommends additional cipher suites for compatibility",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing Protocol: \"Add protocols SSLv3\" - Suggests adding an older, now deprecated protocol",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OCSP Stapling: \"Consider enabling OCSP stapling\" - OCSP stapling isn't enabled but would improve performance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Type: \"Use a certificate of the type rsa, not ECDSA\" - Recommends RSA over ECDSA for broader compatibility",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intermediate Issues (3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issues that affect systems not using the latest standards:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing Ciphers: Similar cipher recommendation as above for ChaCha20-Poly1305",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OCSP Stapling: Same recommendation as above",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Type: Same recommendation to use RSA over ECDSA",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Modern Issues (4)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issues that affect security for modern systems:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Remove Weak Ciphersuites: \"Remove ciphersuites ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-GCM-SHA25...\" - Recommends removing older, potentially vulnerable cipher suites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Add Strong Ciphers: \"Consider adding ciphers ECDHE-ECDSA-AES384, ECDHE-ECDSA-CHACHA20-POLY...\" - Suggests stronger modern ciphers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Remove Old Protocols: \"Remove protocols TLSv1, TLSv1.1\" - Recommends removing older TLS versions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OCSP Stapling: Same recommendation as previous sections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intelligence Value:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Authority Details: Google uses its internal PKI (pki.goog) for certificate issuance, indicating a custom CA infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implementation Priorities: Google seems to prioritize wide compatibility over strict adherence to the newest standards",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security vs. Compatibility Balance: Despite scoring 91.5, Mozilla considers it \"non-compliant,\" suggesting calculated trade-offs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protocol Weaknesses:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential support for older TLS versions (TLSv1, TLSv1.1) increases attack surface",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing modern cipher suites may reduce perfect forward secrecy protections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Lack of OCSP stapling affects certificate revocation checking efficiency",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cipher Configuration Issues:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Some supported ciphers use older algorithms potentially more vulnerable to attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Missing ChaCha20-Poly1305 ciphers that would be more efficient on mobile devices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configuration prioritizes compatibility over strictest security",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Handling:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ECDSA vs RSA certificate choice affects compatibility with older clients",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OCSP stapling not implemented, potentially allowing privacy leakage during certificate validation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Possibilities:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Downgrade Attacks:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "If TLSv1/TLSv1.1 are indeed supported, potential for forcing connections to use older protocols",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test if server can be forced to use weaker ciphers through client manipulation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Fingerprinting Opportunities:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The specific cipher configuration creates a unique fingerprint for Google's infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Useful for identifying Google-owned properties or impersonation detection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Man-in-the-Middle Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test OCSP checking behavior - without stapling, clients might skip revocation checking if OCSP responders are slow",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test certificate validation behavior with various client configurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protocol Downgrade Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify if older TLS versions are actually negotiable",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Document potential security impacts if downgrades succeed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cipher Negotiation Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test which ciphers are actually negotiated with different client configurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify any preference for weaker ciphers that could be exploited",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Validation Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test how Google handles certificate revocation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Evaluate performance impact of missing OCSP stapling",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CAA Verification:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify that the CAA record is correctly limiting certificate issuance to pki.goog",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test if any loopholes exist in CAA implementation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Documentation Value:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Risk Contextualization:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google's choices likely reflect calculated decisions balancing security, performance and compatibility",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "High-traffic sites often make different security trade-offs than smaller sites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The Mozilla score of 91.5 indicates generally strong security despite \"non-compliant\" status",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Client Compatibility Impact:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Document how these choices affect older clients and browsers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analyze the potential user base that benefits from these compatibility choices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mitigation Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protocol Upgrades:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Disable TLSv1 and TLSv1.1 if still enabled",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement TLSv1.3 if not already in place",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cipher Optimization:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Add recommended ChaCha20-Poly1305 ciphers for better mobile performance",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Remove older cipher suites that are no longer considered secure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certificate Improvements:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement OCSP stapling to improve certificate validation performance and privacy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider certificate type recommendations based on client analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing and Monitoring:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement regular TLS configuration testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Monitor for emerging TLS vulnerabilities and best practices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Important Context",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "For large organizations like Google, TLS configuration decisions often involve complex trade-offs between security, global accessibility, performance, and backward compatibility. Their configurations may intentionally deviate from standard recommendations to support specific business requirements or legacy clients. A red team assessment should recognize these nuances while still highlighting potential security improvements.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image18.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "TLS Handshake Simulation Analysis for Google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This image shows the TLS Handshake Simulation results for Google.com from web-check.xyz, testing compatibility with a wide range of clients.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The TLS Handshake Simulation tests whether Google.com's TLS configuration can successfully establish secure connections with various client devices, browsers, crawlers, and libraries. The scan simulates handshakes from different client systems to verify compatibility.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Compatibility Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The image shows extensive compatibility testing results, with nearly all clients successfully connecting (marked with green checkmarks ✅). Only a few specific older clients show failures (marked with red X ❌).",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Findings:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Almost Universal Compatibility: Google.com's TLS configuration successfully establishes connections with:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Android devices (versions 2.3.7 through 9.0)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All major browsers (Chrome, Firefox, Safari, Edge, Opera) across multiple operating systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All search engine crawlers (Googlebot, Bingbot, Yahoo Slurp) except one older YandexBot version",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All Java versions from 6u45 through 12.0.1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "All OpenSSL versions from 0.9.8y through 1.1.1c",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Incompatible Clients (❌):",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Internet Explorer 6 (two variants)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "YandexBot 3.0 (an older version)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intelligence Value:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Breadth of Compatibility: Google's TLS configuration is designed for maximum compatibility, suggesting business prioritization of accessibility over strictest security.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Legacy Support: Supporting very old clients (Android 2.3.7, OpenSSL 0.9.8y) indicates deliberate effort to maintain backward compatibility.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Browser Coverage: Supports all major browsers across multiple operating systems and versions, suggesting extensive testing practices.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Bot Compatibility: Functions with all major search engine crawlers, indicating SEO optimization priorities.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Implications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protocol Flexibility:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Supporting older clients likely means Google is allowing older TLS protocol versions (TLS 1.0, TLS 1.1)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This creates potential downgrade attack vectors where attackers could force connections to use older, more vulnerable protocol versions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cipher Flexibility:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wide compatibility requires supporting older cipher suites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Some older supported ciphers may have known cryptographic weaknesses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Legacy Support Risks:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Supporting Android 2.3.7 (released in 2011) and other legacy systems exposes the site to potential exploitation via deprecated cryptographic methods",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Older clients typically lack modern security mitigations, making them vulnerable entry points",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Selective Blocking:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google has drawn a security boundary at IE6 and YandexBot 3.0, possibly indicating specific security concerns with these clients",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Possibilities:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protocol Downgrade Attacks:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential to force connections to use older TLS versions with known vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Example: POODLE attack against TLS 1.0 connections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Weak Cipher Selection:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Man-in-the-middle attackers could potentially force selection of weaker ciphers supported for compatibility reasons",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for CBC mode ciphers vulnerable to padding oracle attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Client Impersonation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Impersonating older clients could potentially bypass certain security controls",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Malicious actors could simulate legacy crawlers or browsers to access content with reduced security measures",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Unknown Client Fingerprinting:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing with obscure or custom client fingerprints not included in this test suite may reveal additional compatibility or security issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protocol Version Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify which TLS versions are actually negotiated with each client type",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for ability to force downgrade to TLS 1.0 in various network conditions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Document security implications of supported protocol versions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cipher Suite Analysis:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Enumerate all cipher suites accepted from each client category",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify specific weak ciphers being offered to legacy clients",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test cipher negotiation behavior under various network conditions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Client Simulation Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create custom client simulations beyond those in the standard test suite",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test with deliberately malformed client hello messages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analyze server behavior with unusual or unexpected extensions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Authentication Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test certificate validation handling with various client capabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify how clients handle certificate errors or revocation checking",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Documentation Value:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Risk Contextualization:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google's configuration shows a calculated risk management approach, accepting potential security trade-offs for universal compatibility",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Appropriate for global platforms with diverse user bases",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Browser Compatibility Matrix:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Provides complete documentation of supported client technologies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Useful for security compliance documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Helps trace the minimum security baseline across the client ecosystem",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Legacy Support Timeline:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Shows Google's investment in supporting older client technologies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Indicates potential technical debt in security infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mitigation Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Selective Protocol Deprecation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider phasing out support for TLS 1.0 and 1.1 for non-critical clients",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Apply stricter requirements for sensitive operations (login, payments)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Client-Specific Security Policies:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement adaptive security based on client capabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Provide stronger protection mechanisms for modern clients while maintaining compatibility for legacy systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Monitoring and Alert Implementation:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Set up monitoring for connection attempts using deprecated protocols/ciphers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configure alerts for unusual patterns in TLS negotiation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Gradual Hardening Strategy:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Document a roadmap for incrementally improving TLS security without breaking compatibility",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Establish metrics for acceptable compatibility vs. security improvements",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Important Context",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This comprehensive compatibility reflects Google's global reach and business imperative to be accessible to all users worldwide, including those on legacy devices and in regions with older technology. The deliberate choice to maintain such broad compatibility represents a calculated business decision that balances security with accessibility.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "When conducting red team assessments against similar high-traffic sites, it's important to recognize that these compatibility decisions aren't oversights but strategic choices to serve business requirements. Security recommendations should acknowledge these constraints while presenting risk-based improvement options.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image5.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Block Lists Summary for google.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The image displays a \"Block Lists\" scan result for google.com using web-check.xyz. The scan checks the target domain against multiple security and content filtering services.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Total Block Lists Checked: 19 Status: Not blocked on any list (All entries show \"✓ Not Blocked\")",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detailed List of Block Lists:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "AdGuard - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "AdGuard Family - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CleanBrowsing Adult - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CleanBrowsing Family - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CleanBrowsing Security - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CloudFlare - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CloudFlare Family - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Comodo Secure - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google DNS - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Neustar Family - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Neustar Protection - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Norton Family - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OpenDNS - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OpenDNS Family - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Quad9 - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Yandex Family - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Yandex Safe - Not Blocked",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Understanding the Fields",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Block Lists: These are DNS-based filtering services that categorize and potentially block domains based on security risks, content type, or other criteria:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security-focused lists (CleanBrowsing Security, Comodo Secure, Quad9): Target malware, phishing, and known threat domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Family/Content filtering lists (AdGuard Family, CleanBrowsing Family/Adult, CloudFlare Family, Norton Family, OpenDNS Family, Yandex Family): Block adult content and inappropriate websites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "General DNS providers (Google DNS, OpenDNS, CloudFlare): May include security filtering options",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Status indicators: The green checkmarks with \"Not Blocked\" text indicate the domain is considered safe/legitimate by each service.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Teaming Implications & Usage",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Assessment Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reputation Analysis: This scan provides visibility into how security services perceive your target domain. For legitimate sites like google.com, no blocks are expected.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "False Positive Detection: If your legitimate domain appears on block lists, it may indicate reputation issues requiring remediation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Posture Evaluation: Understanding which security services might block your assets helps identify potential defensive measures in place.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Applications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Planning:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domains that appear on security block lists will face reduced effectiveness for phishing/social engineering",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider using newly registered domains or compromised legitimate domains with clean reputations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Evasion Techniques:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "If targeting organizations using specific DNS filtering (e.g., OpenDNS), knowing block list status helps determine if infrastructure might be filtered",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider using less-monitored TLDs or subdomain techniques to bypass filtering",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Social Engineering Enhancement:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domains not on block lists appear more legitimate to targets and security tools",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test multiple domains to find those with optimal security posture assessments",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Risk Assessment:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check client domains against these lists to identify security gaps",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Recommend DNS filtering solutions based on identified weaknesses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Practical Exploitation Approaches",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain Reputation Leveraging:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use clean domains as redirectors or C2 infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Prioritize domains that pass all block list checks for critical infrastructure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Weaknesses Identification:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Organizations not using DNS filtering solutions are more vulnerable to malicious domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target networks using weaker DNS filtering based on block list coverage",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Payload Delivery:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Host payloads on domains with clean reputations across major security providers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use recently expired domains that retain positive reputation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Operational Security:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Regularly check your red team infrastructure against these lists",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Rotate compromised infrastructure when it starts appearing on block lists",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image10.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Linked Pages Analysis for google.com (web-check.xyz)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary of Link Structure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The image displays a \"Linked Pages\" scan from web-check.xyz analyzing the link structure for google.com.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Link Count Overview:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Internal Links: 9",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "External Links: 9",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Internal Links (Relative URLs)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The scan identifies 9 internal links within the google.com domain:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/imghp - Google Images",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/preferences - Search preferences settings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/advanced_search - Advanced search options",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/intl/en/ads/ - Google Ads information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/services/ - Google services directory",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/intl/en/about.html - About Google page",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/setprefdomain - Domain preference setting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/intl/en/policies/privacy/ - Privacy policy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/intl/en/policies/terms/ - Terms of service",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "External Links (Absolute URLs)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The scan shows 9 external links to other Google properties:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://maps.google.co.uk/maps?hl=en&tab=wl - Google Maps (UK)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://play.google.com/?hl=en&tab=w8 - Google Play",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://www.youtube.com/?tab=w1 - YouTube",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://news.google.com/?tab=wn - Google News",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://mail.google.com/mail/?tab=wm - Gmail",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://drive.google.com/?tab=wo - Google Drive",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://www.google.co.uk/intl/en/about/products?tab=wh - Google Products (UK)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http://www.google.co.uk/history/optout?hl=en - Search history opt-out (UK)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://www.google.com/&ec=GAZAAQ - Google Account login",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Understanding the Fields for Red Teaming",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Link Structure Fields",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Internal Link Count: Number of links pointing to pages within the same domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "External Link Count: Number of links pointing to external domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Internal Links: List of relative URLs within the same domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "External Links: List of absolute URLs pointing to other domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Applications & Exploitation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attack Surface Mapping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Each link represents a potential entry point or functionality to probe",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Internal links reveal the site's directory structure and key functionality",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "External links show trusted relationships with other services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Gathering",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "URL patterns expose naming conventions and directory structure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify key application components through URL paths (e.g., /advanced_search, /services/)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Discover internationalization approaches (/intl/en/ patterns)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential Vulnerabilities to Explore",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Parameter Analysis: URLs with parameters (like ?hl=en&tab=wn) may be susceptible to:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Parameter pollution",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cross-site scripting (XSS) through unvalidated parameters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Open redirects via manipulation of URL parameters (e.g., continue= in login URL)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Path Traversal: Test for directory traversal vulnerabilities in relative paths",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Access Control: Test if restricted functionality can be accessed through direct URL navigation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Social Engineering Opportunities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Login URL structure can be used in credential harvesting campaigns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Understanding the site's navigation flow helps create more convincing phishing scenarios",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Session Management",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analyze how parameters in login URLs (ServiceLogin?) handle authentication state",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for session fixation vulnerabilities in authentication flows",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Practical Exploitation Approaches",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Broken Link Exploitation: Test if any links lead to deprecated or unmaintained pages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Parameter Fuzzing: Systematically test parameters in external links for injection vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain Enumeration: Use patterns from links to discover additional subdomains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Open Redirect Testing: Focus on links with continue= parameters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content Discovery: Use identified URL patterns to find similar but potentially unprotected resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defense Evasion",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP vs HTTPS: Note that one link (history/optout) uses HTTP rather than HTTPS, potentially indicating legacy code that might have less security scrutiny",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The UK-specific domains (.co.uk) reveal geographical targeting and infrastructure distribution",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Parameter patterns (e.g., ?tab=w1) suggest a common navigation system across Google properties",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image15.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Pages/Sitemap Analysis for Google.com (web-check.xyz)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary of Sitemap Structure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The image displays a \"Pages\" scan result from web-check.xyz showing sitemap indexes found on Google.com.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Finding: The site returns a sitemap index, which contains a list of multiple sitemaps across various Google services and products.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detailed Sitemap List",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The scan identifies 27 sitemap files:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/gmail/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/forms/sitemaps.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/slides/sitemaps.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/sheets/sitemaps.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/drive/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/docs/sitemaps.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/get/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/travel/flights/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/admob/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/business/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/services/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/partners/about/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/adwords/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/search/about/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/adsense/start/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/retail/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/sitemap_search.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/webmasters/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/chromebook/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/chrome/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/calendar/about/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/photos/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/nonprofits/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/finance/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "/shopping/sitemap.xml",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Understanding the Fields for Red Teaming",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sitemap Structure Fields",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Pages/Sitemap Index: Lists available sitemap files on the target domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The sitemap files provide structured information about pages and content organization",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Applications & Exploitation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Discovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sitemaps provide a comprehensive view of the site's architecture without manual crawling",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Each sitemap reveals the structure and endpoints of a specific Google service",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Unveils potentially less-known services and features (e.g., /nonprofits/, /partners/about/)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reconnaissance Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Enumeration: Identify active Google services and products",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Path Disclosure: Reveals directory structures that might not be linked from main pages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content Mapping: Quickly identify areas of interest for specific attack vectors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential Vulnerabilities to Explore",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Outdated Content: Older or less maintained services might have security gaps",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Inconsistent Security Controls: Test if security implementations vary across different services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Access Control Issues: Check if all listed resources enforce proper authentication",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "XML Processing Vulnerabilities: Test sitemap files for XXE (XML External Entity) attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Practical Exploitation Approaches",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "XML-Based Attacks:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test each sitemap for XML External Entity (XXE) vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for XML injection points in sitemap processing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content Discovery:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Parse each sitemap to extract all URLs for comprehensive mapping",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify patterns in URL structures to discover unlisted endpoints",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Look for testing/staging environments with similar naming conventions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service-Specific Testing:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Target less popular services (like /admob/ or /partners/) that might receive less security scrutiny",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Focus on services with financial implications (/adwords/, /adsense/, /finance/)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Metadata Extraction:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extract modification dates, priorities, and other metadata from sitemaps",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify recently updated sections that might contain new, less-tested code",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Automated Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Develop scripts to:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Download and parse all sitemaps recursively",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extract patterns and common parameters",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify outliers in URL structures that might indicate custom implementations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Compare actual site content with sitemap-declared content to find discrepancies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defense Evasion Insights",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Some paths (/partners/about/, /search/about/) suggest information or documentation sections that might contain sensitive details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Administrative interfaces might be identified through patterns like /webmasters/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Impact Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The breadth of services indicates a large attack surface",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service-specific sitemaps allow for targeted testing rather than unfocused scanning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "When using this information for red teaming, prioritize parsing each sitemap to extract all URLs, then focus on less mainstream services and those handling sensitive data. Look for inconsistencies in implementation across different services, which often indicate security gaps.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image17.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Open Ports Analysis for google.com (web-check.xyz)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary of Port Scan Results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The image displays an \"Open Ports\" scan from web-check.xyz showing port availability for google.com.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Open Ports Detected: 2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Port 80 (HTTP)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Port 443 (HTTPS)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Closed/Filtered Ports: The scan attempted to connect to numerous common ports but was unable to establish connections to: 20, 21, 22, 23, 25, 53, 67, 68, 69, 110, 119, 123, 143, 156, 161, 162, 179, 194, 389, 587, 993, 995, 3000, 3306, 3389, 5060, 5900, 8000, 8080, 8888",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Understanding the Fields for Red Teaming",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Port Scan Fields",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Open Ports: Ports accepting connections on the target system",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Unable to establish connections to: Ports that are either closed, filtered by firewalls, or not responding",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Applications & Exploitation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attack Surface Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The minimal open port footprint (only HTTP/HTTPS) indicates a hardened security posture",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Standard web ports suggest the target is primarily a web service with limited additional entry points",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The lack of administrative ports (SSH:22, Telnet:23) indicates proper security practices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service Enumeration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Port 80 (HTTP): Standard unencrypted web traffic",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Port 443 (HTTPS): Encrypted web traffic",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No database ports (3306/MySQL), mail ports (25/SMTP, 110/POP3, 143/IMAP), or remote access ports (3389/RDP) are accessible",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Posture Insights",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The limited attack surface suggests:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Well-configured firewall rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Proper network segmentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Service isolation practices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Edge security is likely configured to only allow web traffic",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Practical Red Team Approaches",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web-Based Attacks: Focus exclusively on web application vulnerabilities since other service vectors are unavailable:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content discovery on HTTP/HTTPS services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Testing for subdomain takeovers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web application vulnerability scanning",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL/TLS configuration testing on port 443",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Port Redirection Techniques:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test if HTTP/HTTPS ports can be used for tunneling other protocols",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for HTTP CONNECT method support that might allow proxy pivoting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Mapping:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The limited port exposure suggests a sophisticated edge security model",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Look for less hardened assets on the same network using other discovery methods",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider cloud infrastructure mapping since the target likely uses cloud providers with robust edge security",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Evasion Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Standard scanning likely won't reveal additional ports due to:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tight firewall rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Possible rate limiting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Potential IDS/IPS systems detecting port scans",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider low-and-slow scanning techniques or targeted service probing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Advanced Testing Options",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Protocol Analysis: Test for protocol-specific vulnerabilities on open ports",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP/2 implementation flaws",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "TLS configuration weaknesses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP request smuggling",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Load Balancer Detection: Different responses on ports 80/443 might indicate load balancers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "CDN Bypass: Attempt to reach origin servers directly, bypassing edge protection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reporting Context",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This limited port exposure is expected for a major web service like Google",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The proper lockdown of all non-essential ports demonstrates strong security practices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The absence of development/debugging ports (3000, 8000, 8080) shows proper separation of environments",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "When red teaming against this target, focus entirely on web application attacks, subdomain enumeration, and content discovery since the traditional network attack surface is minimal. Look for misconfigurations in web servers, CDN settings, or application logic rather than attempting to exploit network services.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image19.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Threats Analysis for Domain (web-check.xyz)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Summary of Threat Detection Results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The image displays a \"Threats\" scan from web-check.xyz showing security threat indicators for a domain.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Critical Security Findings:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Phishing Status: ❌ Phishing Identified",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Phish Info ID: 1983370",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Malware Status: ❌ Malware Identified",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "First Seen: 5 January 2021",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Bad URLs Count: 1 January 2001 (likely showing a count of 1 with a date format error)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Details:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expand Results section shows partial information about a problematic URL with ID 3287374",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Understanding the Fields for Red Teaming",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Threat Detection Fields",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Phishing Status: Indicates if the domain has been identified in phishing campaigns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Phish Info: Reference ID for the phishing detection (likely from a threat intelligence database)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Status: Overall malware detection status",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "First Seen: Date when the threat was first identified",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Bad URLs Count: Number of malicious URLs associated with the domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Expand Results: Additional details about specific problematic URLs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Applications & Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Risk Assessment Implications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The domain shows both phishing and malware detections, indicating significant security concerns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "First seen date (January 2021) suggests the domain has a relatively long-established negative reputation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The domain appears in multiple threat intelligence feeds, corroborating its malicious status",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Posture Insights",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The domain has been flagged in at least two different threat contexts (phishing and malware)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The significant time period since first detection (over 4 years) indicates persistent malicious activity",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Inclusion in threat intelligence feeds means the domain is likely blocked by many security solutions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Team Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Selection Warnings:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This domain would be unsuitable for red team operations due to its known malicious status",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security tools would likely block communication with this domain automatically",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using such a domain would trigger immediate detection by security monitoring systems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detection Evasion Requirements:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security tools would need to be disabled to allow traffic to/from this domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Custom DNS resolution might be required to bypass DNS-based security controls",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Enterprise proxy and web filtering solutions would likely block this domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Alternative Approaches:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Fresh domains with no negative reputation would be necessary instead",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain rotation strategies would be essential if operating with similar profiles",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider using newly registered domains with similar patterns but clean history",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "For Defenders:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Block this domain at network edges (firewalls, proxies, DNS filtering)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Create SIEM alerts for any traffic to/from this domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider the domain a strong indicator of compromise if seen in logs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use the associated threat IDs to gather more intelligence about the threat actors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "For Red Teams (to share with clients):",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Demonstrate how quickly security tools identified the malicious domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Show detection gaps if any traffic to this domain was permitted",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use as an example of proper threat intelligence integration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Intelligence Gathering Value",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The specific Phish Info ID (1983370) can be used to:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Research related campaigns in threat intelligence platforms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identify similar domains used by the same threat actors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analyze TTPs associated with this specific campaign",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image13.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Summary of Crawl Rules",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "General Structure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User-agent: *: Applies to all bots.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User-agent: Yandex: Specific rules for Yandex bot.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Disallow and Allow directives are used to control access to specific paths.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Disallowed Paths (Restricted for Crawling):",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Search results (/search, /search?, /search*)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "User and account pages (/u/, /setprefs, /accounts/ClientLogin)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Internal or mobile-specific paths (/m?, /wml?, /pda?, /imode?)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Book and ebook search queries (/books?*q=*, /ebooks?*q=*)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Google Scholar and Citations navigation (/scholar, /citations?*cstart=)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Maps API JS (/maps/api/js/)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analytics, Ads, Shopping, Travel, and Trusted Stores endpoints",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Careers application pages with dynamic content or sensitive paths",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Misc paths like /chart?, /tbproxy/, /urchin_test/, /buzz/post",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Allowed Paths (Explicitly Allowed for Crawling):",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Informational search pages (/search/about, /search/howsearchworks)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Specific maps and books pages (e.g., /maps/, /books/about)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Certain structured paths for /alerts, /profiles, /about/careers/applications/*",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Safe browsing and diagnostic reports",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Specific query patterns using ?hl=, ?gws_rd=ssl$",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Special Patterns:Disallow: /?hl=*&*&gws_rd=ssl blocks overly complex query combinations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Allow: /?hl=*&gws_rd=ssl$ allows a specific query pattern",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Date values like Allow 1 January 2001 appear to be malformed or misused (possibly accidental or placeholder)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose of These Rules:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Reduce load on the server by blocking non-essential or duplicate pages.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Prevent indexing of sensitive or irrelevant content, like internal redirects, search result pages, and user-specific data.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Improve SEO by focusing crawler attention on high-value, user-accessible pages.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6. Troubleshooting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Common Errors:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Rate Limiting: \"Too many requests\" message",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Solution: Wait and try again later, or self-host the application",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Invalid Domain Format:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Solution: Ensure you're entering a valid domain name without protocols (http://)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analysis Timeouts:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Solution: Some checks may time out for certain websites; retry or check individual components",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Self-Hosting Issues:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Solution: Check required API keys in .env file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Ensure ports are not blocked by firewall or other services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Support Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GitHub Issues: https://github.com/Lissy93/web-check/issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Project Discussions: https://github.com/Lissy93/web-check/discussions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7. Security Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OPSEC Concerns:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Domain lookups are logged in the hosted service",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Your IP address is visible to web-check.xyz when submitting domains",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "For sensitive investigations, consider self-hosting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Usage Cautions:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Performing port scans may be against some website's terms of service",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Frequent scanning of the same target might be detected as suspicious activity",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Some websites may block automated scanning tools",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8. References and Additional Resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cheat Sheet:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Basic analysis: Enter domain and click \"Analyze\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Focus on security: Check SSL and Security Headers sections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical SEO: Review DNS Records and Technologies sections",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Tools:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "urlscan.io: Interactive website scanner with more focus on behavior analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SecurityHeaders.com: Focused analysis of HTTP security headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL Labs: In-depth SSL/TLS configuration analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Shodan: Search engine for internet-connected devices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "BuiltWith: Technology profiler for websites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WebPageTest: Detailed performance testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Further Reading:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GitHub README: https://github.com/Lissy93/web-check/blob/master/README.md",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web Security Best Practices: https://web.dev/secure/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP Security Headers Guide: https://securityheaders.com/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Community Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Contributing to the project: https://github.com/Lissy93/web-check/blob/master/CONTRIBUTING.md",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Feature requests and discussions on GitHub",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Self-hosting guides and customization options",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  }
+]

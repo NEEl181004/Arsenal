@@ -1,0 +1,1174 @@
+[
+  {
+    "type": "p",
+    "text": "Whatweb",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. Tool Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description: WhatWeb is a next-generation web scanner that identifies technologies used by websites including content management systems (CMS), blogging platforms, statistic/analytics packages, JavaScript libraries, web servers, and embedded devices.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Category: Reconnaissance, Fingerprinting, Information Gathering",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Developer/Maintainer: Andrew Horton (urbanadventurer) and the WhatWeb contributors",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "License: GNU General Public License v2.0 (GPL-2.0)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Official Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GitHub Repository",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wiki",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Official Website",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. Installation Guide",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "System Requirements:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Operating Systems: Linux, macOS, Windows (with Ruby)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Ruby 2.x or newer",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Dependencies: ruby-dev, libcurl4-openssl-dev, make, zlib1g-dev, liblzma-dev",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Installation Methods:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using Git: bashgit clone https://github.com/urbanadventurer/whatweb.git",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "cd whatweb",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "bundle install",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "On Kali Linux/Debian/Ubuntu: bashapt-get update",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "apt-get install whatweb",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Using Ruby Gems: bashgem install whatweb",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Docker Installation: bashdocker pull urbanadventurer/whatweb",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "docker run -it urbanadventurer/whatweb whatweb example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verification: bashwhatweb --version",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Basic Configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Initial Setup: No specific initial setup required after installation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configuration Files:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Plugin files located in <installation_path>/plugins/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Custom plugins can be added to the plugins directory",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Environment Variables: No specific environment variables required.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Default Credentials: Not applicable (no authentication needed for the tool itself)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4. Core Functionality",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Features:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identifies web technologies, including CMS, blogging platforms, analytics packages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Over 1800 plugins for fingerprinting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Supports multiple targets and recursive website spidering",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configurable aggression levels (stealth to aggressive)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Plugin system for easy customization",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Various output formats (JSON, XML, SQL, etc.)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Ability to scan through proxies or use custom user agents",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Batch mode for scanning multiple targets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Basic Usage: bashwhatweb https://example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Structure: whatweb [options] <target> Where:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "options are various command-line flags",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<target> is a URL, IP address, IP range, or filename containing targets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Common Parameters:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-a - Aggression level (1-4, higher = more aggressive)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-v - Verbose output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-i - Take input from a file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-o - Output to file",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--log-json - Log in JSON format",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--log-xml - Log in XML format",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--log-sql - Log in SQL format",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--user-agent - Set custom user agent",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--max-threads - Set maximum number of threads",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--proxy - Use proxy server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "--grep - Search for string in the results",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5. Test Scenarios & Commands",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Modified whatweb Commands",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Information Gathering: Enumerate Web Applications",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "whatweb -v https://example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image3.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Example.com WhatWeb Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Output Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "The command reveals detailed information about example.com's web technologies, HTTP headers, and server characteristics using the WhatWeb reconnaissance tool.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Site Information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Basic Site Details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Status: 200 OK (Site is operational)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Title: Example Domain",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP Address: 96.7.128.198",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Location: United States, US",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technical Summary",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technologies: HTML5, UncommonHeaders",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Special Headers: alt-svc",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Technology Details",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTML5",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detected via doctype declaration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Modern web standard implementation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Indicates contemporary site development",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "UncommonHeaders",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detected non-standard HTTP headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Specifically found \"alt-svc\" header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This header enables Alternative Services specification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP Headers Analysis",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Standard Headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP/1.1 200 OK: Standard success response",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content-Type: text/html",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ETag: \"84238dfc8092e5d9c0dac8ef93371a07:1736799080.121134\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Last-Modified: Mon, 13 Jan 2025 20:11:20 GMT",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Vary: Accept-Encoding",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cache-Control: max-age=1162",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Date: Thu, 10 Apr 2025 06:45:25 GMT",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Content-Length: 1256",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Connection: close",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Non-Standard Headers",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Alt-Svc: h3=\":443\"; ma=93600,h3-29=\":443\"; ma=93600,quic=\":443\"; ma=93600; v=\"43\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Indicates HTTP/3 support",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "QUIC protocol implementation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multiple versions supported (h3, h3-29)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ma=93600: Max age of 93600 seconds (26 hours)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Assessment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server Information Disclosure:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IP address publicly visible",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Geographic location identifiable",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP version exposed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Infrastructure Insights:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP/3 (QUIC) implementation suggested by Alt-Svc header",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Long cache times (max-age=1162)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Possible CDN usage (based on header patterns)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Red Teaming Implications:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Alt-Svc header reveals protocol capabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Limited technology stack identified (minimal attack surface)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Server headers deliberately minimized (good security practice)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "No server software or version disclosed (security by obscurity)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Techniques for Red Team Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Extended Reconnaissance:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Port scanning to identify additional services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL/TLS analysis with tools like testssl.sh",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Subdomain enumeration to discover related assets",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for CORS misconfigurations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HTTP/3 Testing Specifics:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for HTTP/3 protocol-specific vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Probe QUIC implementation for weaknesses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use specialized HTTP/3 clients for deeper inspection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Defensive Recommendations:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider removing ETag for enhanced privacy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Implement security headers (missing Content-Security-Policy, X-Frame-Options)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Review cache-control settings for sensitive content",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Consider more restrictive CORS policies",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Additional Investigation Areas:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for HTTP request smuggling vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check for path traversal vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verify proper input validation on any forms",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test for open redirects",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This WhatWeb analysis reveals that example.com employs a modern but minimalist technology stack, with HTTP/3 capability and careful control over information disclosure through headers.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "whatweb -a 3 -v https://mozilla.org",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image5.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image7.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image10.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "whatweb -i domains.txt -v",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image1.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "whatweb 93.184.216.34-93.184.216.40",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image8.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "whatweb https://example.com:443 https://example.com:80 https://example.com:8080",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image4.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "whatweb -a 3 --log-json=results.json https://www.wikipedia.org",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image6.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "whatweb -a 3 --grep \"Apache\" https://apache.org",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image11.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "whatweb -a 3 --user-agent=\"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\" https://httpbin.org/user-agent",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image2.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "whatweb -a 3 --user=admin --password=password https://httpbin.org/basic-auth/admin/password",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image9.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6. Troubleshooting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Common Errors:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SSL/TLS Errors:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issue: SSL certificate verification problems",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Solution: Use --no-check-certificate option",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Slow or Hanging Scans:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issue: Scan taking too long or hanging",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Solution: Reduce aggression level with -a or set a timeout with --max-run-time",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Memory Issues:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issue: Out of memory when scanning large sites",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Solution: Reduce the number of threads with --max-threads or scan smaller batches",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Plugin Errors:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Issue: Plugin failures",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Solution: Update WhatWeb to the latest version or disable problematic plugins with --disable-plugin",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Debugging:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use -v for verbose output",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use --debug for detailed debugging information",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Check plugin errors with --log-errors option",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Support Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GitHub Issues",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wiki Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7. Security Considerations",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OPSEC Concerns:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Default User-Agent is recognizable (\"WhatWeb/X.X.X\")",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "High aggression levels can generate significant traffic",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Some targets might log or block scanning attempts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detection Methods:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Detection of specific User-Agent strings",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Pattern matching for rapid sequential requests",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Monitoring for requests to non-linked resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WAF rules specifically targeting scanning patterns",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Mitigation Techniques:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use custom User-Agent with --user-agent",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use lower aggression levels (1-2) with -a",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Slow down scanning with --wait option",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use proxies or Tor with --proxy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Distribute scanning across multiple source IPs",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Scan during periods of high traffic to blend in",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "8. References and Additional Resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cheat Sheet:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Basic scan: whatweb example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Aggressive scan: whatweb -a 3 example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Scan multiple sites: whatweb -i targets.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "JSON output: whatweb --log-json=results.json example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Stealth mode: whatweb -a 1 --wait 10 example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Grep for specific technology: whatweb --grep \"WordPress\" example.com",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Related Tools:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Wappalyzer - Browser extension for technology identification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "BuiltWith - Web technology identification service",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Shodan - Search engine for Internet-connected devices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Netcraft - Provides web server fingerprinting",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Nikto - Web server scanner",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Further Reading:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "OWASP Information Gathering",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web Application Fingerprinting Techniques",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Morning Star Security Blog",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Community Resources:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "WhatWeb Wiki",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Custom Plugins Development Guide",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  }
+]

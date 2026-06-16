@@ -1,0 +1,3121 @@
+[
+  {
+    "type": "p",
+    "text": "Hydra Documentation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "1. Tool Overview",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Description Hydra (THC-Hydra) is a fast and flexible login cracker used for brute-forcing various authentication services. It is commonly used by penetration testers, red teamers, and security professionals to test password security and verify authentication mechanisms. Hydra supports numerous protocols, including SSH, FTP, HTTP, RDP, SMB, and many more.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "It enables users to test weak or default credentials and identify vulnerabilities in authentication systems, helping organizations strengthen their security posture. Hydra supports multi-threading, custom wordlists, and password spraying techniques, making it highly efficient for credential brute-forcing.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Category",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Category",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Role",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Credential Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Brute-forcing login credentials across multiple protocols",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Exploitation Preparation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Identifying weak passwords and insecure authentication setups",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Post-Exploitation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Accessing additional systems with compromised credentials",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Evasion & Stealth",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Adjusting attack speed, delays, and proxies to bypass detection",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Developer/Maintainer Hydra is developed and maintained by The Hacker's Choice (THC), a well-known security research group. The tool has been continuously updated to keep up with modern security challenges and authentication protocols.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "License Hydra is open-source and distributed under the GNU General Public License (GPLv3), meaning it can be freely used, modified, and distributed.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Official Resources",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Official Website: https://www.thc.org/thc-hydra/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "GitHub Repository: https://github.com/vanhauser-thc/thc-hydra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Documentation: https://github.com/vanhauser-thc/thc-hydra/blob/master/README.md",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Cheat Sheet: https://highon.coffee/blog/hydra-cheat-sheet/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "2. Installation Guide",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "System Requirements",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Operating Systems: Linux (all major distros), macOS, Windows (via WSL or Cygwin)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Hardware Requirements:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Minimum: 1 GHz processor, 512 MB RAM",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Recommended: Multi-core processor, 2 GB RAM for large-scale attacks",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Installation Methods",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Linux (Using Package Manager)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt update",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt install hydra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "macOS (Using Homebrew)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "brew install hydra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Windows (Using Cygwin or WSL)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Install Cygwin and select Hydra during installation.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Or, use Windows Subsystem for Linux (WSL) and install Hydra via apt: sudo apt install hydra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Manual Installation (Compiling from Source)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "git clone https://github.com/vanhauser-thc/thc-hydra.git",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "cd thc-hydra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "./configure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "make",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo make install",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Docker Deployment",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "docker pull frapsoft/hydra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Run Hydra in a container:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "docker run --rm -it frapsoft/hydra -L users.txt -P passwords.txt ssh://192.168.1.100",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Verification",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -h",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "This should display the help menu if Hydra is installed correctly.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "3. Basic Configuration",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Configuration Files Hydra does not require a configuration file, but wordlists and input files are commonly used for better customization.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Environment Variables",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HYDRA_PROXY: Defines proxy settings for anonymization.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HYDRA_THREADS: Controls the number of attack threads.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "HYDRA_RETRIES: Sets retry limits for failed attempts.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Default Credentials Some Hydra modules attempt authentication using known default credentials like admin:admin or root:toor.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "4. Core Functionality",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Key Features",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Multi-Protocol Support: SSH, FTP, HTTP, SMB, RDP, MySQL, Telnet, etc.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Fast & Efficient: Multi-threading for high-speed brute-force attacks.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Customizable Attacks: Use different attack modes, wordlists, and credential combinations.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Proxy & Anonymity Support: Route attacks through proxies or Tor.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "IPv6 and SSL Support: Works on modern network infrastructures.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Login Form Support: Attacks web logins via HTTP POST requests.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command Structure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra [options] -L <user_list> -P <password_list> <protocol>://<target>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Common Commands",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Purpose",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Command",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Explanation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Basic Brute-Force (SSH)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -l admin -P rockyou.txt ssh://192.168.1.100",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attempts SSH login using admin with passwords from rockyou.txt.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Username List (FTP)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -L users.txt -P passlist.txt ftp://192.168.1.100",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Uses multiple usernames and passwords to brute-force an FTP server.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Web Login (HTTP Form)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -L users.txt -P passlist.txt 192.168.1.100 http-post-form \"/login.php:user=^USER^&pass=^PASS^:Invalid\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attacks an HTTP login form, detecting invalid responses.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "RDP Attack",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -L users.txt -P passwords.txt rdp://192.168.1.100",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Tests weak RDP credentials.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "MySQL Attack",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -L users.txt -P passwords.txt mysql://192.168.1.100",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Brute-forces a MySQL database login.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "SMB Login Attack",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -L users.txt -P passwords.txt smb://192.168.1.100",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Attempts login to an SMB share.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "5. Security Best Practices",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use only on authorized systems: Unauthorized testing can be illegal.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Limit login attempts: To avoid account lockouts.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Respect security policies: Ensure you have permission before testing.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use VPNs and Proxies: For anonymity during testing.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Analyze Results: Improve security by addressing weak credentials.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "6. Advanced Usage & Tips",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Speed Control: Reduce detection chances by slowing attacks: hydra -L users.txt -P passwords.txt -t 4 ssh://192.168.1.100",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Use TOR for Anonymity: proxychains hydra -L users.txt -P passwords.txt ssh://192.168.1.100",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Resume Interrupted Attacks: hydra -R",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Bypass Account Lockouts: Use a delay between attempts: hydra -L users.txt -P passwords.txt -w 30 ssh://192.168.1.100",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "7. Use Cases",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Credential Storage Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Aim  Verify secure storage and transmission of credentials",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step1 - check and update all packages & install hydra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt install hydra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt install openssh-server -y",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image6.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 2 - set up target ssh",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt update && sudo apt install openssh-server -y",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo systemctl start ssh",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo systemctl enable ssh",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image6.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 3- check system’s ip address",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ip a | grep inet",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image6.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 4- create test user with weak password",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo useradd -m testuser",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo \"testuser:password123\" | sudo chpasswd",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image26.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Usage of hydra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 5 - Create Username & Password Wordlists",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo -e \"root\\ntestuser\\nadmin\" > userlist.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo -e \"password\\n123456\\npassword123\\nqwerty\" > passlist.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image13.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 6 - Run Hydra Against SSH Service",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -L userlist.txt -P passlist.txt ssh://127.0.0.8 -V",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "(ip address will change from user to user according to step 3)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image31.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Conclusion - Since the SSH is secured, Hydra  fails to find valid credentials.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Default Credential Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Aim Check for default/guessable credentials on apps/services",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Method 1",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step -1 check hydra against ftp with same userlist and passlist  (port21)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -L userlist.txt -P passlist.txt ftp://127.0.0.8 -V",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image24.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Method 2  Retry the same lists for http login page (port 80)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Setup an open http login page",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Test hydra for open http port",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-1  Install Apache Web Server & PHP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt install apache2 php -y",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-2 Create a Simple Login Page",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo nano /var/www/html/login.php",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image2.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-3  Paste the following for basic setup page",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<html>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<body>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<form action=\"login.php\" method=\"POST\">",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Username: <input type=\"text\" name=\"username\">",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Password: <input type=\"password\" name=\"password\">",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<input type=\"submit\" value=\"Login\">",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "</form>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "</body>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "</html>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Save and exit",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-4 Restart apache2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Sudo systemctl restart apache2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image12.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-5  Check if webserver is running",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo netstat -tulnp | grep 80",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image19.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-6  Test Hydra on HTTP Login",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -L userlist.txt -P passlist.txt 127.0.0.1 http-post-form \"/login.php:username=^USER^&password=^PASS^:F=incorrect\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image9.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Conclusion :- successfully tested for ftp , ssh and html  for default /guessable password",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Account Lockout Mechanism",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Aim:-Evaluate lockout controls to prevent brute-forcing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-1 Rerun the test script for hydra against http",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -L userlist.txt -P passlist.txt 192.168.1.10 http-post-form \"/admin/login.php:user=^USER^&pass=^PASS^:F=incorrect\" -V",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image15.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-2  check logs for apache2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo tail -f /var/log/apache2/access.log",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image29.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Since there is no  lockout controls to prevent brute-forcing the logs are being displayed, Else",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "“530 Login incorrect.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Too many failed login attempts, user locked.”",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Will be displayed",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Password Reset Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "aim :-Test password reset functionality for vulnerabilities",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-1 Install and setup docker",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt update",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt install docker.io -y",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo systemctl start docker",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo systemctl enable docker",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image1.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-2  Run a Vulnerable Web App (DVWA)",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo docker run --rm -d -p 80:80 vulnerables/web-dvwa",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image23.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-3 Test password resetting using hydra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step3.1  create a token list",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo -e \"123456\\nresetme\\nletmein\\ntemp123\\npassword123\" > token_list.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image18.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Step-3.2  Run Hydra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -L token_list.txt -p \"\" localhost http-post-form \"/DVWA/reset-password.php:email=test@example.com&reset_token=^USER^:F=Invalid token\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image25.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Conclusion :- Hydra brute-force attack was successful, as indicated by the \"12 valid passwords found\" message. This confirms that the login system is vulnerable.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Security Questions Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "aim:-Evaluate security questions for weaknesses/bypasses",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-1 Install required packages",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt update",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt install -y apache2 php libapache2-mod-php hydra",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-2 Start the Apache web server",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo systemctl start apache2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-3 Create a directory for  test:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo mkdir -p /var/www/html/recovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "cd /var/www/html/recovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image22.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-4 Create the HTML form:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo nano index.html",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image20.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Paste the following content of form:-",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<!DOCTYPE html>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<html lang=\"en\">",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<head>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<meta charset=\"UTF-8\">",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<title>Account Recovery</title>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<style>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "body {",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "font-family: Arial, sans-serif;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "line-height: 1.6;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "max-width: 600px;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "margin: 0 auto;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "padding: 20px;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "}",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": ".form-group {",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "margin-bottom: 15px;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "}",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "label {",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "display: block;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "margin-bottom: 5px;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "}",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "input[type=\"text\"], input[type=\"submit\"] {",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "width: 100%;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "padding: 8px;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "box-sizing: border-box;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "}",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "input[type=\"submit\"] {",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "background-color: #4CAF50;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "color: white;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "border: none;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "cursor: pointer;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "}",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "input[type=\"submit\"]:hover {",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "background-color: #45a049;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "}",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "</style>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "</head>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<body>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<h2>Account Recovery</h2>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<p>Please answer your security question to reset your password.</p>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<form action=\"process_recovery.php\" method=\"post\" id=\"recoveryForm\">",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<div class=\"form-group\">",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<label for=\"username\">Username:</label>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<input type=\"text\" id=\"username\" name=\"username\" required>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "</div>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<div class=\"form-group\">",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<label for=\"security_question\">Security Question: What was the name of your first pet?</label>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<input type=\"text\" id=\"security_answer\" name=\"security_answer\" required>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "</div>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<div class=\"form-group\">",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<input type=\"submit\" value=\"Verify\">",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "</div>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "</form>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "</body>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "</html>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-5 Create the PHP backend script:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo nano process_recovery.php",
+    "images": [
+      "image28.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Paste the following content for the backend of form:-",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "<?php",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "// This is a simplified example script for testing purposes",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "// In a real scenario, this would connect to a database",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "// Hardcoded sample user data for testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "$users = [",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "'admin' => ['security_answer' => 'fluffy'],",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "'john' => ['security_answer' => 'spot'],",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "'sarah' => ['security_answer' => 'mittens'],",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "'mike' => ['security_answer' => 'rex']",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "];",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "// Check if form was submitted",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "if ($_SERVER['REQUEST_METHOD'] === 'POST') {",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "$username = isset($_POST['username']) ? $_POST['username'] : '';",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "$answer = isset($_POST['security_answer']) ? strtolower($_POST['security_answer']) : '';",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "// Simple validation",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "if (empty($username) || empty($answer)) {",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo \"Please fill in all fields\";",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "exit;",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "}",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "// Check if username exists and answer is correct",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "if (isset($users[$username]) && $users[$username]['security_answer'] === $answer) {",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "// Success",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo \"Success: Account recovery verified. You can now reset your password.\";",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "} else {",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "// Failure",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo \"Failed: Incorrect username or security answer\";",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sleep(1); // Small delay to slow down brute force attempts",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "}",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "}",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "?>",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-6  Set proper permissions",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo chown -R www-data:www-data /var/www/html/recovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo chmod -R 755 /var/www/html/recovery",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image17.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-7  Create the Wordlists",
+    "images": [
+      "image21.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Add the following content in pet_names.txt and usernames.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "#!/bin/bash",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "pet_names.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "fluffy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "spot",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "mittens",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "rex",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "buddy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "max",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "bella",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "charlie",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "lucy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "molly",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "daisy",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "rocky",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "coco",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "luna",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "bailey",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "oscar",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ruby",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "toby",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "lily",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "jack",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "maggie",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sophie",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sadie",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "tucker",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "duke",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "zoe",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "bear",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "oliver",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "princess",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "ginger",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "usernames.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "admin",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "john",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sarah",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "mike",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "test",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "user",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Demo",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-8 : Create the Hydra Attack Script and make it executable",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image7.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Paste the following content in hydra_security_questions.sh",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo \"=== Testing security questions with Hydra ===\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo \"Target URL: http://localhost/process_recovery.php\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -L usernames.txt -P pet_names.txt \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "localhost http-post-form \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "\"/process_recovery.php:username=^USER^&security_answer=^PASS^:Failed\" \\",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "-V -f",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "echo \"=== Test completed ===\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step 9: Test the Form Manually",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Open a web browser and navigate to:",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "http://localhost/recovery/",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image4.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Step 9: Run the Script",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "./hydra_security_questions.sh",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image32.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Successful implementation leads to finding 4 valid passwords",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image5.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Authentication Matrix Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Aim -Test authentication across different channels like web, mobile",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-1 Install and setup  Apache & PHP",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt update",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo apt install apache2 php libapache2-mod-php -y",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo systemctl start apache2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo systemctl enable apache2",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image27.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-2 Create a Login Page",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo mkdir /var/www/html/auth_test",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "cd /var/www/html/auth_test",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image8.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-3Create a login.php, user.txt , passwords.txt file accordingly :",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo nano login.phpsudo nano users.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "sudo nano passwords.txt",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image16.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image10.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image3.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Step-4 execute Hydra with the uploaded files",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "hydra -L users.txt -P passwords.txt 127.0.0.1 http-post-form \"/auth_test/login.php:username=^USER^&password=^PASS^:Login Failed\"",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": [
+      "image30.png"
+    ]
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Conclusion :- Authentication testing with Hydra helped evaluate login security, revealing weak credentials and system response patterns. Strengthening password policies and implementing multi-factor authentication can enhance security.",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "Federated Access Testing",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "aim:-Test authentication/authorization flows in federated environments",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  },
+  {
+    "type": "p",
+    "text": "",
+    "images": []
+  }
+]
