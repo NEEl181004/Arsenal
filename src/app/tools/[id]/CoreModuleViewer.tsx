@@ -58,7 +58,7 @@ export default function CoreModuleViewer({ modules }: { modules: any[] }) {
                             ) : (
                                 <Icon className={`w-6 h-6 ${isActive ? "text-primary" : "text-white/40 group-hover:text-white"} transition-colors`} />
                             )}
-                            <span className={`text-[10px] lg:text-[11px] font-black tracking-[0.1em] lg:tracking-[0.2em] text-center ${isActive ? "text-primary" : "text-white/60 group-hover:text-white"} break-words w-full`}>{m.name.toUpperCase()}</span>
+                            <span className={`text-xs font-black tracking-[0.1em] lg:tracking-[0.2em] text-center ${isActive ? "text-primary" : "text-white/60 group-hover:text-white"} break-words w-full`}>{m.name.toUpperCase()}</span>
                         </div>
                     );
                 })}
@@ -67,24 +67,24 @@ export default function CoreModuleViewer({ modules }: { modules: any[] }) {
             <div className="bg-white/[0.02] border border-white/5 p-6 sm:p-12 md:p-16 xl:p-20 grid grid-cols-1 xl:grid-cols-5 gap-12 xl:gap-20 relative overflow-hidden animate-in fade-in duration-700">
                 <div className="xl:col-span-3 space-y-6 sm:space-y-10">
                     <h3 className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-black text-primary uppercase tracking-tighter break-words" dangerouslySetInnerHTML={{ __html: active.title.toUpperCase() }} />
-                    <p className="text-white/40 text-lg lg:text-xl leading-relaxed font-light break-words" dangerouslySetInnerHTML={{ __html: active.description }} />
+                    <p className="text-white/40 text-sm md:text-base leading-relaxed font-light break-words" dangerouslySetInnerHTML={{ __html: active.description }} />
                 </div>
                 
                 {/* Telemetry Section - Adjusted for Tablet */}
                 <div className="xl:col-span-2 border-t xl:border-t-0 xl:border-l border-primary/20 pt-10 xl:pt-6 xl:pl-16">
-                    <div className="text-[14px] lg:text-[16px] font-black text-white uppercase tracking-[0.2em] xl:tracking-[0.4em] border-l-2 border-primary pl-4 mb-8 sm:mb-12 whitespace-nowrap">LIVE TELEMETRY</div>
+                    <div className="text-sm font-black text-white uppercase tracking-[0.2em] xl:tracking-[0.4em] border-l-2 border-primary pl-4 mb-8 sm:mb-12 whitespace-nowrap">LIVE TELEMETRY</div>
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-x-12 gap-y-6 sm:gap-y-8">
                         {active.telemetry?.map((row: any, i: number) => (
                             <div key={i} className="space-y-2 pb-4 sm:pb-6 border-b border-white/5 last:border-0">
                                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
                                     <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                                         <div className="w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_10px_rgba(255,0,60,0.8)] shrink-0"></div>
-                                        <span className="text-[10px] lg:text-[11px] font-black text-white uppercase tracking-wider whitespace-nowrap overflow-hidden" dangerouslySetInnerHTML={{ __html: row.key.toUpperCase() }} />
+                                        <span className="text-xs font-black text-white uppercase tracking-wider whitespace-nowrap overflow-hidden" dangerouslySetInnerHTML={{ __html: row.key.toUpperCase() }} />
                                     </div>
-                                    <span className="text-[10px] lg:text-[11px] font-black text-primary uppercase tracking-wider whitespace-nowrap text-right" dangerouslySetInnerHTML={{ __html: row.value.toUpperCase() }} />
+                                    <span className="text-xs font-black text-primary uppercase tracking-wider whitespace-nowrap text-right" dangerouslySetInnerHTML={{ __html: row.value.toUpperCase() }} />
                                 </div>
                                 {row.description && (
-                                    <div className="text-[10px] text-white/30 font-light leading-relaxed pl-5 italic break-words">
+                                    <div className="text-xs text-white/30 font-light leading-relaxed pl-5 italic break-words">
                                         {row.description}
                                     </div>
                                 )}

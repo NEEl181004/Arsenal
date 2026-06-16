@@ -37,7 +37,7 @@ export default function TopNav({ onMenuClick, isCollapsed }: any) {
                 <span className="text-xl sm:text-2xl font-black tracking-tighter text-white group-hover:text-primary transition-colors leading-none">
                     ARSENAL
                 </span>
-                <span className="text-[8px] sm:text-[9px] font-black text-primary tracking-[0.4em] uppercase opacity-60 group-hover:opacity-100 transition-opacity">
+                <span className="text-[10px] font-black text-primary tracking-[0.4em] uppercase opacity-60 group-hover:opacity-100 transition-opacity">
                     COMMAND CENTER
                 </span>
             </Link>
@@ -46,7 +46,7 @@ export default function TopNav({ onMenuClick, isCollapsed }: any) {
         <div className="hidden lg:flex items-center h-8 w-[1px] bg-white/[0.05]" />
 
         <div className="hidden lg:flex items-center gap-8">
-            <Link href="/" className="text-[12px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors relative group">
+            <Link href="/" className="text-xs font-black uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors relative group">
                 DOCUMENTATION
                 <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300"></span>
             </Link>
@@ -60,7 +60,7 @@ export default function TopNav({ onMenuClick, isCollapsed }: any) {
                 <Search className="w-4 h-4 text-white/20 group-focus-within:text-primary transition-colors" />
             </div>
             <input
-                className="w-full bg-white/[0.02] border border-white/[0.05] group-hover:border-white/[0.1] focus:border-primary/40 focus:bg-white/[0.04] transition-all px-12 py-2.5 text-[12px] font-black tracking-[0.1em] text-white placeholder:text-white/10 uppercase focus:outline-none"
+                className="w-full bg-white/[0.02] border border-white/[0.05] group-hover:border-white/[0.1] focus:border-primary/40 focus:bg-white/[0.04] transition-all px-12 py-2.5 text-xs font-black tracking-[0.1em] text-white placeholder:text-white/10 uppercase focus:outline-none"
                 placeholder="SEARCH_MISSION_DATABASE..."
                 type="text"
                 value={searchQuery}
@@ -76,9 +76,9 @@ export default function TopNav({ onMenuClick, isCollapsed }: any) {
       <div className="flex items-center gap-2 sm:gap-6 shrink-0">
         <div className="hidden xl:flex items-center gap-3">
             <div className="flex flex-col items-end">
-                <span className="text-[10px] font-black text-white/20 uppercase tracking-widest leading-none mb-1">SYSTEM STATUS</span>
+                <span className="text-xs font-black text-white/20 uppercase tracking-widest leading-none mb-1">SYSTEM STATUS</span>
                 <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-black text-primary uppercase tracking-tighter">OPERATIONAL</span>
+                    <span className="text-xs font-black text-primary uppercase tracking-tighter">OPERATIONAL</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(255,0,60,0.8)]"></span>
                 </div>
             </div>
@@ -122,23 +122,23 @@ export default function TopNav({ onMenuClick, isCollapsed }: any) {
                                     {session.user?.name?.[0].toUpperCase() || "A"}
                                 </div>
                                 <div>
-                                    <div className="text-[10px] font-black text-white/20 uppercase tracking-widest mb-1">OPERATOR LOGGED IN</div>
-                                    <div className="text-[10px] font-bold text-primary uppercase tracking-widest">CLEARANCE L4</div>
+                                    <div className="text-xs font-black text-white/20 uppercase tracking-widest mb-1">OPERATOR LOGGED IN</div>
+                                    <div className="text-xs font-bold text-primary uppercase tracking-widest">CLEARANCE L4</div>
                                 </div>
                             </div>
                             <div className="p-2">
-                                <button className="w-full flex items-center gap-4 px-4 py-3 text-[10px] font-black text-white/40 hover:text-white hover:bg-white/[0.03] transition-all uppercase tracking-widest group">
+                                <button className="w-full flex items-center gap-4 px-4 py-3 text-xs font-black text-white/40 hover:text-white hover:bg-white/[0.03] transition-all uppercase tracking-widest group">
                                     <Settings className="w-4 h-4 group-hover:rotate-90 transition-transform duration-500" />
                                     SYSTEM SETTINGS
                                 </button>
-                                <button className="w-full flex items-center gap-4 px-4 py-3 text-[10px] font-black text-white/40 hover:text-white hover:bg-white/[0.03] transition-all uppercase tracking-widest group">
+                                <button className="w-full flex items-center gap-4 px-4 py-3 text-xs font-black text-white/40 hover:text-white hover:bg-white/[0.03] transition-all uppercase tracking-widest group">
                                     <ShieldCheck className="w-4 h-4 text-primary" />
                                     ACCESS LOGS
                                 </button>
                                 <div className="h-[1px] bg-white/5 my-2 mx-4" />
                                 <button 
                                     onClick={() => signOut()}
-                                    className="w-full flex items-center gap-4 px-4 py-4 text-[10px] font-black text-primary hover:bg-primary hover:text-white transition-all uppercase tracking-widest group"
+                                    className="w-full flex items-center gap-4 px-4 py-4 text-xs font-black text-primary hover:bg-primary hover:text-white transition-all uppercase tracking-widest group"
                                 >
                                     <LogOut className="w-4 h-4" />
                                     TERMINATE SESSION
@@ -151,9 +151,9 @@ export default function TopNav({ onMenuClick, isCollapsed }: any) {
           ) : (
             <Link
               href="/login"
-              className="px-4 sm:px-8 py-2 sm:py-2.5 bg-primary text-white font-black text-[10px] sm:text-[12px] uppercase tracking-[0.2em] hover:bg-primary-hover transition-all shadow-[0_0_20px_rgba(255,0,60,0.3)]"
+              className="px-4 sm:px-8 py-2 sm:py-2.5 bg-primary text-white font-black text-xs sm:text-sm uppercase tracking-[0.2em] hover:bg-primary-hover transition-all shadow-[0_0_20px_rgba(255,0,60,0.3)]"
             >
-              AUTH
+              LOGIN
             </Link>
           )}
         </div>

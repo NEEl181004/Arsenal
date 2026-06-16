@@ -1,6 +1,6 @@
 import connectToDatabase from "@/lib/db";
 import Tool from "@/models/Tool";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { 
     Pencil, 
@@ -45,6 +45,9 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
     if (!tool) return notFound();
 
     const session = await getServerSession(authOptions);
+    if (!session) {
+        redirect("/login");
+    }
     const isAdmin = session?.user?.role === "admin";
 
     return (
@@ -77,11 +80,11 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                             <span className="text-white/40">ID: {tool._id.toString().slice(-8)}</span>
                         </div>
                         <div className="flex gap-2 sm:gap-4">
-                            <div className="bg-primary text-white text-[10px] font-bold px-4 sm:px-6 py-1.5 flex items-center gap-2 uppercase shadow-lg shadow-primary/20 whitespace-nowrap">
+                            <div className="bg-primary text-white text-xs font-bold px-4 sm:px-6 py-1.5 flex items-center gap-2 uppercase shadow-lg shadow-primary/20 whitespace-nowrap">
                                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
                                 Tier: {tool.tier}
                             </div>
-                            <div className="bg-primary text-white text-[10px] font-bold px-4 sm:px-6 py-1.5 uppercase shadow-lg shadow-primary/20 whitespace-nowrap">
+                            <div className="bg-primary text-white text-xs font-bold px-4 sm:px-6 py-1.5 uppercase shadow-lg shadow-primary/20 whitespace-nowrap">
                                 Best For: {tool.bestFor}
                             </div>
                         </div>
@@ -128,8 +131,8 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                                 <div key={i} className="flex items-center gap-6 group">
                                     <o.icon className="w-10 h-10 text-primary transition-transform group-hover:scale-110 shrink-0" />
                                     <div className="min-w-0">
-                                        <div className="text-xl font-bold text-white uppercase tracking-wider">{o.os}</div>
-                                        <div className="text-[10px] text-white/40 mt-1 uppercase font-bold tracking-widest">{o.sub}</div>
+                                        <div className="text-base font-bold text-white uppercase tracking-wider">{o.os}</div>
+                                        <div className="text-xs text-white/40 mt-1 uppercase font-bold tracking-widest">{o.sub}</div>
                                     </div>
                                 </div>
                             ))}
@@ -148,7 +151,7 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                                 <div key={i} className="flex items-center justify-between p-4 bg-white/[0.01] border border-white/[0.03] group hover:bg-white/[0.03] transition-all">
                                     <div className="flex items-center gap-4 shrink-0">
                                         <div className="w-1 h-1 bg-primary/40 group-hover:bg-primary transition-colors"></div>
-                                        <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest whitespace-nowrap">{s.k}</span>
+                                        <span className="text-xs font-bold text-white/30 uppercase tracking-widest whitespace-nowrap">{s.k}</span>
                                     </div>
                                     <span className="text-sm font-bold text-white uppercase tracking-wider text-right">{s.v}</span>
                                 </div>
@@ -169,7 +172,7 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                                 <div key={i} className="flex items-center justify-between p-4 bg-white/[0.01] border border-white/[0.03] group hover:bg-white/[0.03] transition-all gap-4">
                                     <div className="flex items-center gap-4 shrink-0">
                                         <div className="w-1 h-1 bg-primary shadow-[0_0_8px_rgba(255,0,60,0.6)]"></div>
-                                        <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest whitespace-nowrap">{s.k}</span>
+                                        <span className="text-xs font-bold text-white/30 uppercase tracking-widest whitespace-nowrap">{s.k}</span>
                                     </div>
                                     <span className="text-sm font-bold text-primary uppercase tracking-wider text-right">{s.v}</span>
                                 </div>
@@ -230,8 +233,8 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                             <Link href={ref.url} target="_blank" className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 md:px-10 md:py-6 items-center cursor-pointer">
                                 {/* Mobile Header Info */}
                                 <div className="flex items-center justify-between md:col-span-1">
-                                    <span className="text-[11px] font-bold text-white/10 uppercase tracking-widest">{i < 9 ? `0${i+1}` : i+1}</span>
-                                    <span className="md:hidden px-3 py-1 bg-white/5 border border-white/10 text-[9px] font-bold text-white/40 uppercase tracking-widest">{ref.type || "Docs"}</span>
+                                    <span className="text-xs font-bold text-white/10 uppercase tracking-widest">{i < 9 ? `0${i+1}` : i+1}</span>
+                                    <span className="md:hidden px-3 py-1 bg-white/5 border border-white/10 text-xs font-bold text-white/40 uppercase tracking-widest">{ref.type || "Docs"}</span>
                                 </div>
 
                                 {/* Resource Name */}
@@ -240,16 +243,16 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                                         {ref.name}
                                         <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all text-primary" />
                                     </div>
-                                    <div className="text-[10px] font-medium text-white/10 uppercase tracking-widest mt-1">Resource Archive // v1.0.4</div>
+                                    <div className="text-xs font-medium text-white/10 uppercase tracking-widest mt-1">Resource Archive // v1.0.4</div>
                                 </div>
 
                                 {/* Desktop Category */}
                                 <div className="hidden md:block md:col-span-2">
-                                    <span className="px-3 py-1 bg-white/5 border border-white/10 text-[9px] font-bold text-white/40 uppercase tracking-widest">{ref.type || "Docs"}</span>
+                                    <span className="px-3 py-1 bg-white/5 border border-white/10 text-xs font-bold text-white/40 uppercase tracking-widest">{ref.type || "Docs"}</span>
                                 </div>
 
                                 {/* Desktop Modified Date */}
-                                <div className="hidden md:block md:col-span-3 text-[11px] font-bold text-white/20 uppercase tracking-widest text-right">
+                                <div className="hidden md:block md:col-span-3 text-xs font-bold text-white/20 uppercase tracking-widest text-right">
                                     {ref.updatedAt || "2024.03.12"}
                                 </div>
                             </Link>
