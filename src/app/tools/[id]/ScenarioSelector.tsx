@@ -17,6 +17,89 @@ import {
     Globe
 } from "lucide-react";
 
+const parseImages = (logsImage: any): string[] => {
+    if (!logsImage) return [];
+    if (Array.isArray(logsImage)) return logsImage.filter(Boolean);
+    if (typeof logsImage === "string") {
+        const str = logsImage.trim();
+        if (!str) return [];
+        if (str.includes("||")) {
+            return str.split("||").map(s => s.trim()).filter(Boolean);
+        }
+        if (str.includes(",data:")) {
+            return str.split(/,(?=data:)/).map(s => s.trim()).filter(Boolean);
+        }
+        return [str];
+    }
+    return [];
+};
+
+function ImageCarousel({ images }: { images: string[] }) {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    if (images.length === 0) {
+        return (
+            <div className="py-20 text-white/5 flex flex-col items-center gap-6">
+                <ShieldAlert className="w-20 h-20" />
+                <span className="text-xs font-bold uppercase tracking-widest whitespace-nowrap">no output shared yet</span>
+            </div>
+        );
+    }
+
+    if (images.length === 1) {
+        return (
+            <div className="w-full flex items-center justify-center p-4">
+                <img 
+                    src={images[0]} 
+                    alt="Output" 
+                    className="max-h-[360px] w-auto grayscale group-hover:grayscale-0 transition-all duration-1000 object-contain" 
+                />
+            </div>
+        );
+    }
+
+    return (
+        <div className="relative w-full group overflow-hidden">
+            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                {images.map((img, idx) => (
+                    <div key={idx} className="w-full flex-shrink-0 flex items-center justify-center p-4">
+                        <img 
+                            src={img} 
+                            alt={`Output Slide ${idx + 1}`} 
+                            className="max-h-[360px] w-auto grayscale group-hover:grayscale-0 transition-all duration-1000 object-contain" 
+                        />
+                    </div>
+                ))}
+            </div>
+
+            {/* Navigation Buttons */}
+            <button 
+                onClick={() => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-white/60 hover:text-white hover:border-primary/50 transition-all cursor-pointer z-10"
+            >
+                &larr;
+            </button>
+            <button 
+                onClick={() => setCurrentIndex((prev) => (prev + 1) % images.length)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-white/60 hover:text-white hover:border-primary/50 transition-all cursor-pointer z-10"
+            >
+                &rarr;
+            </button>
+
+            {/* Indicators */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                {images.map((_, idx) => (
+                    <button
+                        key={idx}
+                        onClick={() => setCurrentIndex(idx)}
+                        className={`w-1.5 h-1.5 rounded-full transition-all cursor-pointer ${idx === currentIndex ? "bg-primary w-3" : "bg-white/20"}`}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+}
+
 export default function ScenarioSelector({ scenarios }: { scenarios: IScenario[] }) {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
@@ -137,14 +220,7 @@ export default function ScenarioSelector({ scenarios }: { scenarios: IScenario[]
                 <div className="space-y-6">
                     <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">OUTPUT</div>
                     <div className="bg-[#080808] border border-white/5 p-4 relative group overflow-hidden max-h-[400px] flex items-center justify-center shadow-inner">
-                        {active.logsImage ? (
-                            <img src={active.logsImage} alt="Output" className="max-h-[360px] w-auto grayscale group-hover:grayscale-0 transition-all duration-1000 object-contain" />
-                        ) : (
-                            <div className="py-20 text-white/5 flex flex-col items-center gap-6">
-                                <ShieldAlert className="w-20 h-20" />
-                                <span className="text-xs font-bold uppercase tracking-widest whitespace-nowrap">NO OUTPUT ATTACHED</span>
-                            </div>
-                        )}
+                        <ImageCarousel images={parseImages(active.logsImage)} />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
                     </div>
                 </div>
