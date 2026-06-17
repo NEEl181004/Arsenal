@@ -36,9 +36,11 @@ export async function PUT(
         }
 
         if (data.scenarios && Array.isArray(data.scenarios)) {
-            data.scenarios = data.scenarios.map((sc: any, index: number) => {
+            data.scenarios = data.scenarios.map((sc: any) => {
                 if (sc.logsImage === "__KEEP_EXISTING_IMAGE__") {
-                    const existingScenario = existingTool.scenarios[index];
+                    const existingScenario = existingTool.scenarios.find(
+                        (es: any) => es._id && sc._id && es._id.toString() === sc._id.toString()
+                    );
                     if (existingScenario) {
                         sc.logsImage = existingScenario.logsImage;
                     } else {

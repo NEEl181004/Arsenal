@@ -80,8 +80,13 @@ export default function EditToolPage() {
         setLoading(true);
         try {
             // Optimize scenarios by omitting unchanged Base64 image payloads
-            const optimizedScenarios = scenarios.map((s, index) => {
-                const orig = originalScenarios[index];
+            const optimizedScenarios = scenarios.map((s) => {
+                const orig = originalScenarios.find(o => {
+                    const sId = (s as any)._id;
+                    const oId = (o as any)._id;
+                    return (sId && oId && sId === oId) || 
+                           (!sId && !oId && s.name === o.name);
+                });
                 if (orig && s.logsImage === orig.logsImage) {
                     return {
                         ...s,
