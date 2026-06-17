@@ -191,7 +191,7 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
             {/* 04. Execution */}
             <section id="scenarios" className="scroll-mt-24 mb-16">
                 {/* Header is handled inside ScenarioSelector to avoid duplication */}
-                <ScenarioSelector scenarios={JSON.parse(JSON.stringify(tool.scenarios))} />
+                <ScenarioSelector scenarios={JSON.parse(JSON.stringify(tool.scenarios))} isAdmin={isAdmin} toolId={tool._id.toString()} />
             </section>
 
             {/* 05. Diagnostics */}

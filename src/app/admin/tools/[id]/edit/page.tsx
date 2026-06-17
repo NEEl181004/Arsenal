@@ -284,9 +284,20 @@ export default function EditToolPage() {
                                     </div>
                                     <button onClick={() => addStepToTab(ti)} className="text-[10px] font-black text-white/20 hover:text-primary flex items-center gap-2">+ ADD_STEP</button>
                                     {tab.steps.map((step, si) => (
-                                        <div key={si} className="bg-black/60 p-4 border border-white/5 space-y-3">
-                                            <input value={step.name} onChange={e => { const n = [...installationSequence]; n[ti].steps[si].name = e.target.value; setInstallationSequence(n); }} className="w-full bg-black border border-white/10 p-2.5 text-xs font-black uppercase" placeholder="Step Name" />
-                                            <input value={step.cmd} onChange={e => { const n = [...installationSequence]; n[ti].steps[si].cmd = e.target.value; setInstallationSequence(n); }} className="w-full bg-black border border-white/10 p-3 text-xs text-white font-mono" placeholder="Command" />
+                                        <div key={si} className="bg-black/60 p-4 border border-white/5 space-y-3 relative group">
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    const n = [...installationSequence];
+                                                    n[ti].steps = n[ti].steps.filter((_, idx) => idx !== si);
+                                                    setInstallationSequence(n);
+                                                }}
+                                                className="absolute top-3 right-3 text-white/10 hover:text-primary opacity-0 group-hover:opacity-100 transition-opacity"
+                                            >
+                                                <Trash2 className="w-3.5 h-3.5" />
+                                            </button>
+                                            <input value={step.name} onChange={e => { const n = [...installationSequence]; n[ti].steps[si].name = e.target.value; setInstallationSequence(n); }} className="w-full bg-black border border-white/10 p-2.5 text-xs font-black uppercase pr-10" placeholder="Step Name" />
+                                            <input value={step.cmd} onChange={e => { const n = [...installationSequence]; n[ti].steps[si].cmd = e.target.value; setInstallationSequence(n); }} className="w-full bg-black border border-white/10 p-3 text-xs text-white font-mono pr-10" placeholder="Command" />
                                         </div>
                                     ))}
                                 </div>
