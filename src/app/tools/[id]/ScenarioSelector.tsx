@@ -128,6 +128,7 @@ export default function ScenarioSelector({
 
     const [formName, setFormName] = useState("");
     const [formObjective, setFormObjective] = useState("");
+    const [formObjectiveList, setFormObjectiveList] = useState<string[]>([]);
     const [formScript, setFormScript] = useState("");
     const [formLogsImage, setFormLogsImage] = useState("");
     const [formKeyTakeaways, setFormKeyTakeaways] = useState<IKeyTakeaway[]>([]);
@@ -140,6 +141,7 @@ export default function ScenarioSelector({
         setModalMode("edit");
         setFormName(active.name || "");
         setFormObjective(active.objective || "");
+        setFormObjectiveList(active.objectiveList ? [...active.objectiveList] : []);
         setFormScript(active.script || "");
         setFormLogsImage(active.logsImage || "");
         setFormKeyTakeaways(active.keyTakeaways ? JSON.parse(JSON.stringify(active.keyTakeaways)) : []);
@@ -151,6 +153,7 @@ export default function ScenarioSelector({
         setModalMode("add");
         setFormName("New Mission");
         setFormObjective("");
+        setFormObjectiveList([""]);
         setFormScript("");
         setFormLogsImage("");
         setFormKeyTakeaways([{ title: "SIGNATURE", content: "" }]);
@@ -171,7 +174,7 @@ export default function ScenarioSelector({
                 logsImage: formLogsImage,
                 keyTakeaways: formKeyTakeaways,
                 attackPaths: formAttackPaths,
-                objectiveList: (modalMode === "edit" && active) ? (active.objectiveList || []) : []
+                objectiveList: formObjectiveList.filter(Boolean)
             };
 
             if (modalMode === "edit") {
@@ -476,6 +479,44 @@ export default function ScenarioSelector({
                                     />
                                 </div>
                             </div>
+
+                             {/* Mission Objectives List */}
+                             <div className="space-y-3 pt-4 border-t border-white/5">
+                                 <div className="flex justify-between items-center">
+                                     <label className="text-[10px] font-black text-white/30 uppercase tracking-widest">Objective Boxes (Optional)</label>
+                                     <button 
+                                         type="button"
+                                         onClick={() => setFormObjectiveList([...formObjectiveList, ""])}
+                                         className="text-[9px] text-white/20 hover:text-primary flex items-center gap-1 uppercase font-black cursor-pointer"
+                                     >
+                                         <Plus className="w-3 h-3" /> Add Objective Box
+                                     </button>
+                                 </div>
+                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                     {formObjectiveList.map((obj, idx) => (
+                                         <div key={idx} className="flex gap-2 items-center bg-black/40 border border-white/5 p-3 relative group">
+                                             <input 
+                                                 type="text" 
+                                                 value={obj} 
+                                                 onChange={(e) => {
+                                                     const n = [...formObjectiveList];
+                                                     n[idx] = e.target.value;
+                                                     setFormObjectiveList(n);
+                                                 }}
+                                                 className="flex-1 bg-transparent text-xs text-white/60 font-light outline-none"
+                                                 placeholder="Objective description..."
+                                             />
+                                             <button 
+                                                 type="button"
+                                                 onClick={() => setFormObjectiveList(formObjectiveList.filter((_, i) => i !== idx))} 
+                                                 className="text-white/10 hover:text-primary opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+                                             >
+                                                 <Trash2 className="w-3.5 h-3.5" />
+                                             </button>
+                                         </div>
+                                     ))}
+                                 </div>
+                             </div>
 
                             {/* Script */}
                             <div className="space-y-2">

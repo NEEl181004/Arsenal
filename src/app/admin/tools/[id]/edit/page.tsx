@@ -319,6 +319,36 @@ export default function EditToolPage() {
                                     <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
                                         <div className="space-y-4">
                                             <RichInput placeholder="PRIMARY_OBJECTIVE" value={s.objective} onChange={val => { const n = [...scenarios]; n[si].objective = val; setScenarios(n); }} />
+                                            
+                                            {/* Objective List (Boxes) */}
+                                            <div className="space-y-3 pt-3 border-t border-white/5">
+                                                <div className="flex justify-between items-center">
+                                                    <label className="text-[10px] font-black text-white/20 uppercase tracking-widest">Objective Boxes</label>
+                                                    <button type="button" onClick={() => {
+                                                        const n = [...scenarios];
+                                                        if (!n[si].objectiveList) n[si].objectiveList = [];
+                                                        n[si].objectiveList.push("");
+                                                        setScenarios(n);
+                                                    }} className="text-[9px] text-white/20 hover:text-primary flex items-center gap-1 uppercase font-black"><Plus className="w-3 h-3"/>ADD</button>
+                                                </div>
+                                                <div className="space-y-2">
+                                                    {(s.objectiveList || []).map((obj, oi) => (
+                                                        <div key={oi} className="flex gap-2 items-center bg-black/40 border border-white/5 p-2 relative group/obj">
+                                                            <input value={obj} onChange={e => {
+                                                                const n = [...scenarios];
+                                                                n[si].objectiveList[oi] = e.target.value;
+                                                                setScenarios(n);
+                                                            }} className="flex-1 bg-transparent text-xs text-white/60 font-light outline-none" placeholder="Objective description..." />
+                                                            <button type="button" onClick={() => {
+                                                                const n = [...scenarios];
+                                                                n[si].objectiveList = n[si].objectiveList.filter((_, idx) => idx !== oi);
+                                                                setScenarios(n);
+                                                            }} className="text-white/10 hover:text-primary opacity-0 group-hover/obj:opacity-100"><Trash2 className="w-3.5 h-3.5" /></button>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+
                                             <RichTextarea placeholder="HADES_OPS_SCRIPT" value={s.script} onChange={val => { const n = [...scenarios]; n[si].script = val; setScenarios(n); }} rows={8} className="text-primary font-mono text-xs" />
                                         </div>
                                         <div className="space-y-4">

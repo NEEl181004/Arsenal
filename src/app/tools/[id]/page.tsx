@@ -24,12 +24,12 @@ import {
 } from "lucide-react";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/authOptions";
-import DeleteToolButton from "./DeleteToolButton";
 import ScenarioSelector from "./ScenarioSelector";
 import InstallationViewer from "./InstallationViewer";
 import DiagnosisAccordion from "./DiagnosisAccordion";
 import CoreModuleViewer from "./CoreModuleViewer";
-import AdminMobileLock from "./AdminMobileLock";
+import EditableOverview from "./EditableOverview";
+import EditableReferences from "./EditableReferences";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -52,56 +52,8 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
 
     return (
         <div className="w-full pb-20">
-            {/* Header / Hero Section */}
-            <header className="mb-8 sm:mb-12 pt-0">
-                <div className="flex items-center justify-between mb-6 sm:mb-12">
-                    <Link href="/" className="text-white/40 hover:text-white transition-colors flex items-center gap-2 text-xs font-bold uppercase tracking-widest whitespace-nowrap">
-                        <ArrowLeft className="w-3.5 h-3.5" /> Back to Index
-                    </Link>
-                    {isAdmin && (
-                        <div className="flex items-center gap-4">
-                            {/* Desktop only edit button */}
-                            <Link href={`/admin/tools/${tool._id}/edit`} className="hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-widest bg-white/[0.03] px-6 py-2.5 hover:bg-primary transition-all border border-white/10 whitespace-nowrap">
-                                <Pencil className="w-3.5 h-3.5" /> Edit
-                            </Link>
-                            {/* Delete button for Admin */}
-                            <DeleteToolButton id={tool._id.toString()} />
-                            {/* Mobile edit button with warning */}
-                            <AdminMobileLock />
-                        </div>
-                    )}
-                </div>
-
-                <div className="space-y-4">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white uppercase leading-tight" dangerouslySetInnerHTML={{ __html: tool.name }} />
-                    <div className="flex flex-wrap items-center gap-4 sm:gap-12 pt-0">
-                        <div className="text-xs font-bold text-white uppercase tracking-widest flex items-center gap-2 sm:gap-4">
-                            <span className="text-primary">//</span>
-                            <span dangerouslySetInnerHTML={{ __html: `Category: ${tool.category}` }} />
-                            <span className="h-[1px] w-8 sm:w-12 bg-white/10"></span>
-                            <span className="text-white/40">ID: {tool._id.toString().slice(-8)}</span>
-                        </div>
-                        <div className="flex gap-2 sm:gap-4">
-                            <div className="bg-primary text-white text-xs font-bold px-4 sm:px-6 py-1.5 flex items-center gap-2 uppercase shadow-lg shadow-primary/20 whitespace-nowrap">
-                                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-                                Tier: {tool.tier}
-                            </div>
-                            <div className="bg-primary text-white text-xs font-bold px-4 sm:px-6 py-1.5 uppercase shadow-lg shadow-primary/20 whitespace-nowrap">
-                                Best For: {tool.bestFor}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            {/* 01. Overview */}
-            <section id="overview" className="scroll-mt-24 mb-16">
-                <div className="max-w-5xl">
-                    <div className="prose prose-invert prose-p:text-white/50 prose-p:text-sm md:prose-p:text-base prose-p:font-normal prose-strong:text-primary leading-relaxed" 
-                        dangerouslySetInnerHTML={{ __html: tool.overview || "" }} 
-                    />
-                </div>
-            </section>
+            {/* Header / Hero Section & 01. Overview */}
+            <EditableOverview tool={tool} isAdmin={isAdmin} toolId={tool._id.toString()} />
 
             {/* 02. Core Module */}
             <section id="core" className="scroll-mt-24 mb-16">
@@ -110,7 +62,11 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                     <span className="h-[1px] flex-1 bg-white/5"></span>
                 </h2>
                 
-                <CoreModuleViewer modules={JSON.parse(JSON.stringify(tool.core_modules || []))} />
+                <CoreModuleViewer 
+                    modules={JSON.parse(JSON.stringify(tool.core_modules || []))} 
+                    isAdmin={isAdmin}
+                    toolId={tool._id.toString()}
+                />
             </section>
 
             {/* 03. Environment & Installation */}
@@ -184,14 +140,21 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                 </div>
 
                 <div className="space-y-6">
-                    <InstallationViewer data={JSON.parse(JSON.stringify(tool.installation_sequence || []))} />
+                    <InstallationViewer 
+                        data={JSON.parse(JSON.stringify(tool.installation_sequence || []))} 
+                        isAdmin={isAdmin}
+                        toolId={tool._id.toString()}
+                    />
                 </div>
             </section>
 
             {/* 04. Execution */}
             <section id="scenarios" className="scroll-mt-24 mb-16">
-                {/* Header is handled inside ScenarioSelector to avoid duplication */}
-                <ScenarioSelector scenarios={JSON.parse(JSON.stringify(tool.scenarios))} isAdmin={isAdmin} toolId={tool._id.toString()} />
+                <ScenarioSelector 
+                    scenarios={JSON.parse(JSON.stringify(tool.scenarios || []))} 
+                    isAdmin={isAdmin} 
+                    toolId={tool._id.toString()} 
+                />
             </section>
 
             {/* 05. Diagnostics */}
@@ -205,62 +168,20 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                         </h2>
                     </div>
                 </div>
-                <DiagnosisAccordion items={JSON.parse(JSON.stringify(tool.troubleshooting))} />
-            </section>
-
-            {/* 06. Records */}
-            <section id="references" className="scroll-mt-24 pb-20">
-                <div className="flex flex-wrap items-center justify-between gap-6 mb-8">
-                    <h2 className="text-sm md:text-base font-bold text-white uppercase tracking-wider mb-0 flex items-center gap-4">
-                        <span>References</span>
-                    </h2>
-                    <div className="relative w-full md:w-[400px]">
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
-                        <input type="text" className="bg-white/[0.03] border border-white/10 pl-12 pr-4 py-3 text-xs font-bold uppercase tracking-widest text-white w-full focus:outline-none focus:border-primary/50 transition-all" placeholder="Search references..." />
-                    </div>
-                </div>
                 
-                <div className="space-y-2">
-                    {/* Header - Desktop Only */}
-                    <div className="hidden md:grid grid-cols-12 gap-8 px-6 py-4 border-b border-white/10 text-[10px] font-bold text-white/40 uppercase tracking-widest items-center">
-                        <div className="col-span-1 text-white/20 whitespace-nowrap">ID</div>
-                        <div className="col-span-6 whitespace-nowrap">Resource Name</div>
-                        <div className="col-span-2 whitespace-nowrap">Category</div>
-                        <div className="col-span-3 text-right whitespace-nowrap">Modified</div>
-                    </div>
-
-                    {/* Content Rows */}
-                    {tool.references_list?.map((ref: any, i: number) => (
-                        <div key={i} className="group bg-white/[0.01] md:bg-transparent border border-white/5 md:border-0 md:border-b md:border-white/[0.03] p-4 md:p-0 hover:bg-white/[0.02] transition-all">
-                            <Link href={ref.url} target="_blank" className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:px-6 md:py-4 items-center cursor-pointer">
-                                {/* Mobile Header Info */}
-                                <div className="flex items-center justify-between md:col-span-1">
-                                    <span className="text-xs font-bold text-white/10 uppercase tracking-widest">{i < 9 ? `0${i+1}` : i+1}</span>
-                                    <span className="md:hidden px-3 py-1 bg-white/5 border border-white/10 text-xs font-bold text-white/40 uppercase tracking-widest">{ref.type || "Docs"}</span>
-                                </div>
-
-                                {/* Resource Name */}
-                                <div className="md:col-span-6">
-                                    <div className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider group-hover:text-primary transition-colors break-words flex items-center gap-2">
-                                        {ref.name}
-                                        <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all text-primary" />
-                                    </div>
-                                </div>
-
-                                {/* Desktop Category */}
-                                <div className="hidden md:block md:col-span-2">
-                                    <span className="px-3 py-1 bg-white/5 border border-white/10 text-xs font-bold text-white/40 uppercase tracking-widest">{ref.type || "Docs"}</span>
-                                </div>
-
-                                {/* Desktop Modified Date */}
-                                <div className="hidden md:block md:col-span-3 text-xs font-bold text-white/20 uppercase tracking-widest text-right">
-                                    {ref.updatedAt || "2024.03.12"}
-                                </div>
-                            </Link>
-                        </div>
-                    ))}
-                </div>
+                <DiagnosisAccordion 
+                    items={JSON.parse(JSON.stringify(tool.troubleshooting || []))} 
+                    isAdmin={isAdmin}
+                    toolId={tool._id.toString()}
+                />
             </section>
+
+            {/* 06. Records / References */}
+            <EditableReferences 
+                references={JSON.parse(JSON.stringify(tool.references_list || []))}
+                isAdmin={isAdmin}
+                toolId={tool._id.toString()}
+            />
         </div>
     );
 }
