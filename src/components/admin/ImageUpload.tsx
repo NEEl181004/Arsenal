@@ -22,6 +22,53 @@ const parseImages = (val: string): string[] => {
     return [str];
 };
 
+const compressImage = (base64Str: string): Promise<string> => {
+    return new Promise((resolve) => {
+        // If it's already a small string or not a standard base64 data URL, bypass
+        if (!base64Str.startsWith("data:image/")) {
+            resolve(base64Str);
+            return;
+        }
+
+        const img = new Image();
+        img.src = base64Str;
+        img.onload = () => {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+            if (!ctx) {
+                resolve(base64Str);
+                return;
+            }
+
+            // Target sensible resolutions for screenshots (e.g. max 1280px width/height)
+            const MAX_LIMIT = 1280;
+            let width = img.width;
+            let height = img.height;
+
+            if (width > MAX_LIMIT || height > MAX_LIMIT) {
+                if (width > height) {
+                    height = Math.round((height * MAX_LIMIT) / width);
+                    width = MAX_LIMIT;
+                } else {
+                    width = Math.round((width * MAX_LIMIT) / height);
+                    height = MAX_LIMIT;
+                }
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage(img, 0, 0, width, height);
+
+            // Compress to JPEG with 0.6 quality to reduce size to ~20-30KB per image
+            const compressed = canvas.toDataURL("image/jpeg", 0.6);
+            resolve(compressed);
+        };
+        img.onerror = () => {
+            resolve(base64Str);
+        };
+    });
+};
+
 export default function ImageUpload({ value, onChange, label }: ImageUploadProps) {
     const [isDragging, setIsDragging] = useState(false);
     const images = parseImages(value);
@@ -34,7 +81,8 @@ export default function ImageUpload({ value, onChange, label }: ImageUploadProps
             return new Promise<string>((resolve) => {
                 const reader = new FileReader();
                 reader.onloadend = () => {
-                    resolve(reader.result as string);
+                    const rawBase64 = reader.result as string;
+                    compressImage(rawBase64).then(resolve);
                 };
                 reader.readAsDataURL(file);
             });
