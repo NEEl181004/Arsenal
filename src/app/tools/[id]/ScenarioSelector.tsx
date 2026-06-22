@@ -313,7 +313,7 @@ export default function ScenarioSelector({
                                 <ChevronDown className={`w-5 h-5 text-white/20 transition-transform duration-500 shrink-0 ${isOpen ? "rotate-180 text-primary" : ""}`} />
                             </button>
                             {isOpen && (
-                                <div className="absolute top-full right-0 w-full bg-[#111] border border-white/[0.1] shadow-2xl z-40 mt-3 animate-in fade-in slide-in-from-top-2 duration-300">
+                                <div className="absolute top-full right-0 w-full bg-[#111] border border-white/[0.1] shadow-2xl z-40 mt-3 max-h-64 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-top-2 duration-300">
                                     {scenarios.map((s, i) => (
                                         <button 
                                             key={i} 
