@@ -65,18 +65,29 @@ export default async function Home({
                 ) : (
                     tools.map((tool) => (
                         <Link href={`/tools/${tool._id}`} key={tool._id.toString()} className="group block h-full">
-                            <div className="bg-gradient-to-br from-white/[0.01] to-white/[0.03] border border-white/[0.04] p-10 h-full flex flex-col hover:bg-white/[0.03] hover:border-primary/30 hover:shadow-[0_0_30px_rgba(255,0,60,0.05)] transition-all duration-500 relative overflow-hidden">
+                            <div className="bg-gradient-to-br from-white/[0.01] to-white/[0.03] border border-white/[0.04] p-10 h-full flex flex-col hover:bg-white/[0.03] hover:border-primary/20 hover:shadow-[0_0_40px_rgba(255,0,60,0.08)] transition-all duration-500 relative overflow-hidden rounded-sm">
                                 {/* Laser Scanning Sweep */}
-                                <div className="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[scan_3s_infinite] pointer-events-none"></div>
-                                <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.01] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                                <div className="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[scan_3s_infinite] pointer-events-none z-30"></div>
+                                <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.01] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10"></div>
 
                                 {/* Tech Corner Brackets */}
-                                <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-white/10 group-hover:border-primary/50 transition-colors duration-500"></div>
-                                <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-white/10 group-hover:border-primary/50 transition-colors duration-500"></div>
-                                <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-white/10 group-hover:border-primary/50 transition-colors duration-500"></div>
-                                <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-white/10 group-hover:border-primary/50 transition-colors duration-500"></div>
+                                <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-white/10 group-hover:border-primary/50 transition-colors duration-500 z-20"></div>
+                                <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-white/10 group-hover:border-primary/50 transition-colors duration-500 z-20"></div>
+                                <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-white/10 group-hover:border-primary/50 transition-colors duration-500 z-20"></div>
+                                <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-white/10 group-hover:border-primary/50 transition-colors duration-500 z-20"></div>
+
+                                {/* Top-Right 45-degree Corner Cutout */}
+                                <div className="absolute top-0 right-0 w-8 h-8 bg-[#080808] border-b border-l border-white/[0.06] group-hover:border-primary/20 rotate-45 translate-x-4 -translate-y-4 pointer-events-none transition-all duration-500 z-20"></div>
                                 
-                                <div className="flex items-start justify-between mb-8 relative z-10">
+                                {/* Bottom Glowing Laser Strip */}
+                                <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
+
+                                {/* Top-Left HUD Classification Header */}
+                                <div className="absolute top-3 left-4 text-[8px] font-black text-white/15 group-hover:text-primary/50 uppercase tracking-[0.25em] transition-colors duration-500 select-none z-20">
+                                    SYS_INDEX // {tool.category.replace(/&/g, '//').toUpperCase()}
+                                </div>
+
+                                <div className="flex items-start justify-between mb-8 mt-2 relative z-10">
                                     <div className="w-12 h-12 bg-white/[0.02] border border-white/5 flex items-center justify-center group-hover:bg-primary/5 group-hover:border-primary/30 group-hover:shadow-[0_0_15px_rgba(255,0,60,0.15)] transition-all duration-500">
                                         <Shield className="w-5 h-5 text-white/20 group-hover:text-primary group-hover:scale-110 transition-all duration-500" />
                                     </div>
@@ -90,15 +101,15 @@ export default async function Home({
                                     <h2 className="text-2xl font-bold tracking-tight text-white group-hover:text-primary transition-colors duration-300">
                                         {tool.name}
                                     </h2>
-                                    <span className="text-xs font-semibold text-white/40 uppercase tracking-widest mt-1 block">
-                                        {tool.category}
+                                    <span className="text-[9px] font-mono text-white/10 uppercase tracking-wider mt-1.5 block group-hover:text-white/20 transition-colors">
+                                        VAULT_ADDR: 0x{tool._id.toString().slice(-8).toUpperCase()} // PERMIT: UNRESTRICTED
                                     </span>
                                 </div>
                                 
                                 <div className="space-y-3 pt-6 border-t border-white/[0.03] relative z-10">
                                     <div className="flex items-center justify-between">
                                         <span className="text-[10px] font-bold text-white/20 uppercase tracking-widest">Clearance</span>
-                                        <span className="text-[10px] font-bold text-white uppercase tracking-widest">Unrestricted</span>
+                                        <span className="text-[10px] font-bold text-white/80 uppercase tracking-widest">{tool.category.toUpperCase()}</span>
                                     </div>
                                     <div className="flex items-center justify-between">
                                         <span className="text-[10px] font-bold text-white/20 uppercase tracking-widest">Status</span>

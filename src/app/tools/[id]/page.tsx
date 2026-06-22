@@ -32,6 +32,8 @@ import CoreModuleViewer from "./CoreModuleViewer";
 import EditableOverview from "./EditableOverview";
 import EditableReferences from "./EditableReferences";
 
+import EditableSpecs from "./EditableSpecs";
+
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -88,56 +90,13 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                     <span className="h-[1px] flex-1 bg-white/5"></span>
                 </h2>
                 
-                <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-16">
-                    <div className="bg-white/[0.02] border border-white/5 p-6 space-y-6">
-                        <div className="text-xs font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-3 mb-4 whitespace-nowrap">System Support</div>
-                        <div className="space-y-6">
-                            {systemSupportList.map((o: any, i: number) => {
-                                const IconComp = getIconComponent(o.icon);
-                                return (
-                                    <div key={i} className="flex items-center gap-4 group">
-                                        <IconComp className="w-8 h-8 text-primary transition-transform group-hover:scale-105 shrink-0" />
-                                        <div className="min-w-0">
-                                            <div className="text-sm font-bold text-white uppercase tracking-wider">{o.os}</div>
-                                            <div className="text-[10px] text-white/40 mt-0.5 uppercase font-bold tracking-widest">{o.sub}</div>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-
-                    <div className="bg-white/[0.02] border border-white/5 p-6 space-y-6">
-                        <div className="text-xs font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-3 mb-4 whitespace-nowrap">Minimum Spec</div>
-                        <div className="space-y-3">
-                            {minSpecs.map((s: any, i: number) => (
-                                <div key={i} className="flex items-center justify-between p-3 bg-white/[0.01] border border-white/[0.03] group hover:bg-white/[0.03] transition-all">
-                                    <div className="flex items-center gap-3 shrink-0">
-                                        <div className="w-1 h-1 bg-primary/40 group-hover:bg-primary transition-colors"></div>
-                                        <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest whitespace-nowrap">{s.k}</span>
-                                    </div>
-                                    <span className="text-xs font-bold text-white uppercase tracking-wider text-right">{s.v}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="bg-white/[0.02] border border-primary/10 p-6 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 -mr-12 -mt-12 rounded-full blur-3xl"></div>
-                        <div className="text-xs font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-3 mb-4 whitespace-nowrap">Optimized Spec</div>
-                        <div className="space-y-3">
-                            {optSpecs.map((s: any, i: number) => (
-                                <div key={i} className="flex items-center justify-between p-3 bg-white/[0.01] border border-white/[0.03] group hover:bg-white/[0.03] transition-all gap-3">
-                                    <div className="flex items-center gap-3 shrink-0">
-                                        <div className="w-1 h-1 bg-primary shadow-[0_0_8px_rgba(255,0,60,0.6)]"></div>
-                                        <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest whitespace-nowrap">{s.k}</span>
-                                    </div>
-                                    <span className="text-xs font-bold text-primary uppercase tracking-wider text-right">{s.v}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+                <EditableSpecs 
+                    systemSupport={JSON.parse(JSON.stringify(systemSupportList))} 
+                    minimumSpec={JSON.parse(JSON.stringify(minSpecs))} 
+                    optimizedSpec={JSON.parse(JSON.stringify(optSpecs))} 
+                    isAdmin={isAdmin}
+                    toolId={tool._id.toString()}
+                />
 
                 <div className="space-y-6">
                     <InstallationViewer 
