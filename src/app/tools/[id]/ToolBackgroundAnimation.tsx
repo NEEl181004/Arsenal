@@ -68,7 +68,7 @@ export default function ToolBackgroundAnimation() {
     }, []);
 
     return (
-        <div className="absolute inset-0 w-full h-full pointer-events-none -z-50 overflow-hidden">
+        <div className="fixed inset-0 w-full h-full pointer-events-none -z-50 overflow-hidden">
             {/* Dark background base */}
             <div className="absolute inset-0 bg-[#060608] -z-50" />
             

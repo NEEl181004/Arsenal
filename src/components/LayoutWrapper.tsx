@@ -15,7 +15,7 @@ export default function LayoutWrapper({
     const [isMobileOpen, setIsMobileOpen] = useState(false);
     const pathname = usePathname();
 
-    const isAuthPage = pathname === "/login" || pathname === "/signup";
+    const isFullPage = pathname === "/" || pathname === "/login" || pathname === "/signup";
 
     const onMenuClick = () => {
         if (window.innerWidth < 768) {
@@ -25,10 +25,10 @@ export default function LayoutWrapper({
         }
     };
 
-    if (isAuthPage) {
+    if (isFullPage) {
         return (
             <NextAuthProvider>
-                <div className="min-h-screen bg-[#0a0a0a]">
+                <div className="min-h-screen bg-[#0a0a0a] w-full">
                     {children}
                 </div>
             </NextAuthProvider>
