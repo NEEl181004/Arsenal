@@ -130,17 +130,17 @@ export default function SignupPage() {
                         )}
 
                         <div className="space-y-5">
-                            {/* Alias */}
+                            {/* Username */}
                             <div className="space-y-2">
                                 <label className="text-[10px] font-black text-white/30 uppercase tracking-[0.25em]">
-                                    Alias
+                                    Username
                                 </label>
                                 <input
                                     type="text"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     className="w-full bg-white/[0.03] border border-white/[0.06] text-white px-5 py-3.5 text-sm focus:outline-none focus:border-primary/50 focus:bg-white/[0.05] transition-all placeholder:text-white/10"
-                                    placeholder="Agent Zero"
+                                    placeholder="Username"
                                     disabled={isLoading}
                                     required
                                 />
@@ -149,14 +149,14 @@ export default function SignupPage() {
                             {/* Email */}
                             <div className="space-y-2">
                                 <label className="text-[10px] font-black text-white/30 uppercase tracking-[0.25em]">
-                                    Identifier
+                                    Email
                                 </label>
                                 <input
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="w-full bg-white/[0.03] border border-white/[0.06] text-white px-5 py-3.5 text-sm focus:outline-none focus:border-primary/50 focus:bg-white/[0.05] transition-all placeholder:text-white/10"
-                                    placeholder="agent@arsenal.security"
+                                    placeholder="Email Address"
                                     disabled={isLoading}
                                     required
                                 />
@@ -165,7 +165,7 @@ export default function SignupPage() {
                             {/* Password */}
                             <div className="space-y-2">
                                 <label className="text-[10px] font-black text-white/30 uppercase tracking-[0.25em]">
-                                    Security Key
+                                    Password
                                 </label>
                                 <div className="relative">
                                     <input
@@ -173,7 +173,7 @@ export default function SignupPage() {
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         className="w-full bg-white/[0.03] border border-white/[0.06] text-white px-5 py-3.5 text-sm focus:outline-none focus:border-primary/50 focus:bg-white/[0.05] transition-all font-mono placeholder:text-white/10"
-                                        placeholder="••••••••"
+                                        placeholder="Password"
                                         disabled={isLoading}
                                         required
                                     />
@@ -200,16 +200,16 @@ export default function SignupPage() {
                                         <Loader2 className="w-4 h-4 animate-spin" />
                                         Registering...
                                     </>
-                                ) : "Initialize Access"}
+                                ) : "Sign Up"}
                             </button>
 
                             <p className="text-center text-[11px] font-medium text-white/30 uppercase tracking-widest">
-                                Already cleared?{" "}
+                                Already have an account?{" "}
                                 <Link
                                     href="/login"
                                     className="text-primary hover:text-primary/80 transition-colors font-bold underline underline-offset-4 decoration-primary/30"
                                 >
-                                    Sign in
+                                    Sign In
                                 </Link>
                             </p>
                         </div>

@@ -134,7 +134,7 @@ export default function LoginPage() {
                             {/* Email */}
                             <div className="space-y-2">
                                 <label className="text-[10px] font-bold text-white/30 uppercase tracking-widest">
-                                    Email Address
+                                    Email
                                 </label>
                                 <input
                                     type="email"
