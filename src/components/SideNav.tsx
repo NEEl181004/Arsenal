@@ -153,10 +153,10 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
                             ))
                         ) : (
                             <div className="space-y-1">
-                                <NavItem href="/" icon={LayoutDashboard} label="Operations" active={pathname === "/"} />
-                                <NavItem href="/?category=Exploitation" icon={Zap} label="Exploitation" active={pathname.includes("Exploitation")} />
-                                <NavItem href="/?category=Discovery" icon={Search} label="Discovery" active={pathname.includes("Discovery")} />
-                                <NavItem href="/?category=Payloads" icon={Box} label="Payloads" active={pathname.includes("Payloads")} />
+                                <NavItem href="/dashboard" icon={LayoutDashboard} label="Operations" active={pathname === "/dashboard"} />
+                                <NavItem href="/dashboard?category=Exploitation" icon={Zap} label="Exploitation" active={pathname.includes("Exploitation")} />
+                                <NavItem href="/dashboard?category=Discovery" icon={Search} label="Discovery" active={pathname.includes("Discovery")} />
+                                <NavItem href="/dashboard?category=Payloads" icon={Box} label="Payloads" active={pathname.includes("Payloads")} />
                             </div>
                         )}
                     </nav>
@@ -190,10 +190,10 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
                         ))
                     ) : (
                         <div className="space-y-1">
-                            <NavItem href="/" icon={LayoutDashboard} label="Operations" active={pathname === "/"} />
-                            <NavItem href="/?category=Exploitation" icon={Zap} label="Exploitation" active={pathname.includes("Exploitation")} />
-                            <NavItem href="/?category=Discovery" icon={Search} label="Discovery" active={pathname.includes("Discovery")} />
-                            <NavItem href="/?category=Payloads" icon={Box} label="Payloads" active={pathname.includes("Payloads")} />
+                            <NavItem href="/dashboard" icon={LayoutDashboard} label="Operations" active={pathname === "/dashboard"} />
+                            <NavItem href="/dashboard?category=Exploitation" icon={Zap} label="Exploitation" active={pathname.includes("Exploitation")} />
+                            <NavItem href="/dashboard?category=Discovery" icon={Search} label="Discovery" active={pathname.includes("Discovery")} />
+                            <NavItem href="/dashboard?category=Payloads" icon={Box} label="Payloads" active={pathname.includes("Payloads")} />
                         </div>
                     )}
                 </nav>

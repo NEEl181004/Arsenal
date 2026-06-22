@@ -33,6 +33,7 @@ import EditableOverview from "./EditableOverview";
 import EditableReferences from "./EditableReferences";
 
 import EditableSpecs from "./EditableSpecs";
+import ToolBackgroundAnimation from "./ToolBackgroundAnimation";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -64,7 +65,8 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
     const optSpecs = tool.optimized_spec || [];
 
     return (
-        <div className="w-full pb-20">
+        <div className="w-full pb-20 relative">
+            <ToolBackgroundAnimation />
             {/* Header / Hero Section & 01. Overview */}
             <EditableOverview tool={tool} isAdmin={isAdmin} toolId={tool._id.toString()} />
 

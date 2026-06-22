@@ -1,132 +1,273 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import connectToDatabase from "@/lib/db";
-import Tool from "@/models/Tool";
-import { ShieldCheck, Activity, Terminal, Database, ArrowRight, Shield } from "lucide-react";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/lib/authOptions";
+import { Terminal, Shield, ArrowRight, Activity, Cpu, Disc, Zap } from "lucide-react";
 
-export const revalidate = 0;
+export default function LandingPage() {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const [terminalLogs, setTerminalLogs] = useState<string[]>([]);
+    const [stats, setStats] = useState({
+        nodesConnected: 142,
+        integrity: 98.4,
+        threatLevel: "ELEVATED"
+    });
 
-export default async function Home({ 
-    searchParams 
-}: { 
-    searchParams: Promise<{ category?: string, search?: string }> 
-}) {
-    await connectToDatabase();
-    const { category, search } = await searchParams;
-    
-    let query: any = {};
-    if (category) {
-        query.category = { $regex: new RegExp(category, "i") };
-    }
-    if (search) {
-        const safeSearch = search.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&');
-        query.$or = [
-            { name: { $regex: new RegExp("\\b" + safeSearch, "i") } },
-            { category: { $regex: new RegExp("\\b" + safeSearch, "i") } },
-            { bestFor: { $regex: new RegExp("\\b" + safeSearch, "i") } }
+    // Simulated terminal output logs
+    useEffect(() => {
+        const logs = [
+            "SYSTEM: Initializing tactical HUD...",
+            "DB: Connection established to cluster-0x4",
+            "SECURE_GATE: Decryption algorithm loaded successfully",
+            "RED_TEAM: Target list updated from main vault",
+            "PORT_SCAN: Scanning range 10.0.12.0/24...",
+            "PORT_SCAN: Found open ports: 22, 80, 443, 8080",
+            "EXPLOIT: Launching automated payload check...",
+            "EXPLOIT: CVE-2024-3847 vulnerability detected",
+            "SESSION: Spawned meterpreter shell at 10.0.12.89",
+            "PERSISTENCE: Deploying background beacon service...",
+            "AUDIT: Documentation indexing finalized."
         ];
-    }
-    
-    const tools = await Tool.find(query).sort({ createdAt: -1 });
-    
-    const session = await getServerSession(authOptions);
-    const isAdmin = session?.user?.role === "admin";
+
+        let index = 0;
+        const interval = setInterval(() => {
+            if (index < logs.length) {
+                setTerminalLogs(prev => [...prev.slice(-6), logs[index]]);
+                index++;
+            } else {
+                index = 0;
+                setTerminalLogs([]);
+            }
+        }, 2200);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    // Interactive canvas nodes network animation
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        let animationFrameId: number;
+        let width = (canvas.width = window.innerWidth);
+        let height = (canvas.height = window.innerHeight);
+
+        const handleResize = () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        const particles: Array<{
+            x: number;
+            y: number;
+            vx: number;
+            vy: number;
+            radius: number;
+        }> = [];
+
+        // Generate particle nodes
+        const particleCount = Math.min(60, Math.floor((width * height) / 25000));
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.8,
+                vy: (Math.random() - 0.5) * 0.8,
+                radius: Math.random() * 2 + 1
+            });
+        }
+
+        const draw = () => {
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw tactical grid backdrop
+            ctx.strokeStyle = "rgba(255, 0, 60, 0.02)";
+            ctx.lineWidth = 1;
+            const gridSpacing = 60;
+            for (let x = 0; x < width; x += gridSpacing) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+            for (let y = 0; y < height; y += gridSpacing) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+
+            // Draw particles and connection lines
+            particles.forEach((p, idx) => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Bounce off edges
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                // Draw node
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = "rgba(255, 0, 60, 0.4)";
+                ctx.fill();
+
+                // Draw lines to near neighbors
+                for (let j = idx + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 180) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(255, 0, 60, ${0.18 * (1 - dist / 180)})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            animationFrameId = requestAnimationFrame(draw);
+        };
+
+        draw();
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+            cancelAnimationFrame(animationFrameId);
+        };
+    }, []);
 
     return (
-        <div className="max-w-7xl mx-auto px-4 pb-32">
-            <header className="mb-12 pb-8 border-b border-white/[0.03]">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                    <div className="space-y-3">
-                        <div className="classified-label text-xs uppercase tracking-widest text-primary flex items-center gap-2">
-                            <Activity className="w-3.5 h-3.5" /> Tools Overview
-                        </div>
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
-                            Arsenal
+        <div className="relative min-h-[calc(100vh-7rem)] flex flex-col justify-center items-center overflow-hidden font-sans text-white py-10 px-4">
+            {/* Background Canvas */}
+            <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />
+            
+            {/* Glowing Red Ambient Ambient Lights */}
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/[0.04] blur-[150px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/[0.03] blur-[150px] rounded-full pointer-events-none" />
+
+            {/* Scanline effect */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[size:100%_4px,3px_100%] pointer-events-none z-10 opacity-30" />
+
+            <div className="w-full max-w-6xl z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                {/* ── LEFT HUD HERO PANEL (7 cols) ── */}
+                <div className="lg:col-span-7 space-y-8 text-left">
+                    <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/25 px-4 py-1.5 rounded-sm">
+                        <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Tactical Offense Hub</span>
+                    </div>
+
+                    <div className="space-y-4">
+                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.95] uppercase">
+                            Red Teaming<br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-rose-600 drop-shadow-[0_0_20px_rgba(255,0,60,0.25)]">
+                                Documentation
+                            </span>
                         </h1>
-                        <p className="text-white/40 font-medium text-[11px] uppercase tracking-widest">
-                            {category ? `Filter: ${category}` : "Offensive Security Index"}
+                        <p className="max-w-xl text-white/40 text-sm sm:text-base font-light leading-relaxed">
+                            Welcome to the Arsenal repository. A hardened command vault detailing exploits, scan routines, weaponized payloads, and network mapping structures for secure operations.
                         </p>
                     </div>
-                    
-                    {isAdmin && (
-                        <Link href="/admin/tools/create" className="px-6 py-4 bg-primary text-white font-bold text-xs tracking-widest hover:bg-primary-hover transition-all uppercase flex items-center gap-3 group">
-                            <Terminal className="w-5 h-5" /> Add Tool <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                    )}
-                </div>
-            </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {tools.length === 0 ? (
-                    <div className="col-span-full py-24 text-center border border-dashed border-white/10">
-                        <span className="text-xs font-medium text-white/20 uppercase tracking-widest">No tools found matching your search.</span>
+                    {/* Quick Stats Panel */}
+                    <div className="grid grid-cols-3 gap-4 border border-white/[0.04] bg-white/[0.01] backdrop-blur-md p-5 rounded-md relative overflow-hidden group">
+                        <div className="absolute top-0 left-0 w-2 h-[1px] bg-primary" />
+                        <div className="absolute top-0 left-0 w-[1px] h-2 bg-primary" />
+                        
+                        <div className="space-y-1">
+                            <span className="block text-[8px] text-white/20 uppercase tracking-widest font-mono">THREAT_LEVEL</span>
+                            <span className="block text-xs font-black text-primary tracking-wide">{stats.threatLevel}</span>
+                        </div>
+                        <div className="space-y-1">
+                            <span className="block text-[8px] text-white/20 uppercase tracking-widest font-mono">NODE_INTEGRITY</span>
+                            <span className="block text-xs font-black text-white/90 tracking-wide">{stats.integrity}%</span>
+                        </div>
+                        <div className="space-y-1">
+                            <span className="block text-[8px] text-white/20 uppercase tracking-widest font-mono">DENSITY_INDEX</span>
+                            <span className="block text-xs font-black text-white/90 tracking-wide">{stats.nodesConnected} PTS</span>
+                        </div>
                     </div>
-                ) : (
-                    tools.map((tool) => (
-                        <Link href={`/tools/${tool._id}`} key={tool._id.toString()} className="group block h-full">
-                            <div className="bg-gradient-to-br from-white/[0.01] to-white/[0.03] border border-white/[0.04] p-10 h-full flex flex-col hover:bg-white/[0.03] hover:border-primary/20 hover:shadow-[0_0_40px_rgba(255,0,60,0.08)] transition-all duration-500 relative overflow-hidden rounded-sm">
-                                {/* Laser Scanning Sweep */}
-                                <div className="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[scan_3s_infinite] pointer-events-none z-30"></div>
-                                <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.01] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10"></div>
 
-                                {/* Tech Corner Brackets */}
-                                <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-white/10 group-hover:border-primary/50 transition-colors duration-500 z-20"></div>
-                                <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-white/10 group-hover:border-primary/50 transition-colors duration-500 z-20"></div>
-                                <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-white/10 group-hover:border-primary/50 transition-colors duration-500 z-20"></div>
-                                <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-white/10 group-hover:border-primary/50 transition-colors duration-500 z-20"></div>
-
-                                {/* Top-Right 45-degree Corner Cutout */}
-                                <div className="absolute top-0 right-0 w-8 h-8 bg-[#080808] border-b border-l border-white/[0.06] group-hover:border-primary/20 rotate-45 translate-x-4 -translate-y-4 pointer-events-none transition-all duration-500 z-20"></div>
-                                
-                                {/* Bottom Glowing Laser Strip */}
-                                <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
-
-                                {/* Top-Left HUD Classification Header */}
-                                <div className="absolute top-3 left-4 text-[8px] font-black text-white/15 group-hover:text-primary/50 uppercase tracking-[0.25em] transition-colors duration-500 select-none z-20">
-                                    SYS_INDEX // {tool.category.replace(/&/g, '//').toUpperCase()}
-                                </div>
-
-                                <div className="flex items-start justify-between mb-8 mt-2 relative z-10">
-                                    <div className="w-12 h-12 bg-white/[0.02] border border-white/5 flex items-center justify-center group-hover:bg-primary/5 group-hover:border-primary/30 group-hover:shadow-[0_0_15px_rgba(255,0,60,0.15)] transition-all duration-500">
-                                        <Shield className="w-5 h-5 text-white/20 group-hover:text-primary group-hover:scale-110 transition-all duration-500" />
-                                    </div>
-                                    <div className="flex flex-col items-end">
-                                        <span className="text-[10px] font-bold text-primary uppercase tracking-widest">{tool.tier} Tier</span>
-                                        <span className="text-[10px] font-medium text-white/20 uppercase tracking-tight">ID: {tool._id.toString().slice(-4)}</span>
-                                    </div>
-                                </div>
-                                
-                                <div className="mb-8 flex-1 relative z-10">
-                                    <h2 className="text-2xl font-bold tracking-tight text-white group-hover:text-primary transition-colors duration-300">
-                                        {tool.name}
-                                    </h2>
-                                    <span className="text-[9px] font-mono text-white/10 uppercase tracking-wider mt-1.5 block group-hover:text-white/20 transition-colors">
-                                        VAULT_ADDR: 0x{tool._id.toString().slice(-8).toUpperCase()} // PERMIT: UNRESTRICTED
-                                    </span>
-                                </div>
-                                
-                                <div className="space-y-3 pt-6 border-t border-white/[0.03] relative z-10">
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-[10px] font-bold text-white/20 uppercase tracking-widest">Clearance</span>
-                                        <span className="text-[10px] font-bold text-white/80 uppercase tracking-widest">{tool.category.toUpperCase()}</span>
-                                    </div>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-[10px] font-bold text-white/20 uppercase tracking-widest">Status</span>
-                                        <div className="flex items-center gap-1.5">
-                                            <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse shadow-[0_0_8px_#ff003c]"></span>
-                                            <span className="text-[10px] font-bold text-primary uppercase tracking-widest">Active</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-500 z-10">
-                                    <ArrowRight className="w-4 h-4 text-primary" />
-                                </div>
-                            </div>
+                    {/* Entry Buttons */}
+                    <div className="flex flex-wrap gap-4 pt-4">
+                        <Link 
+                            href="/dashboard"
+                            className="px-8 py-4 bg-primary text-white font-black text-xs uppercase tracking-[0.25em] hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(255,0,60,0.3)] transition-all duration-300 flex items-center gap-3 group relative overflow-hidden"
+                        >
+                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+                            Enter Console <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                    ))
-                )}
+                    </div>
+                </div>
+
+                {/* ── RIGHT ANIMATED HUD PANEL (5 cols) ── */}
+                <div className="lg:col-span-5 relative w-full flex justify-center">
+                    
+                    {/* Simulated terminal feed & Cyber deck visualization */}
+                    <div className="w-full max-w-[420px] bg-black/80 border border-white/[0.08] rounded-md shadow-2xl relative overflow-hidden">
+                        
+                        {/* Terminal Header */}
+                        <div className="bg-[#0c0c0e] border-b border-white/[0.06] px-5 py-3.5 flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                                <span className="w-2.5 h-2.5 rounded-full bg-primary/40" />
+                                <span className="text-[10px] font-mono text-white/50 tracking-wider">tactical_hud_stream.log</span>
+                            </div>
+                            <Activity className="w-3.5 h-3.5 text-primary animate-pulse" />
+                        </div>
+
+                        {/* Interactive HUD Animation Area */}
+                        <div className="p-6 space-y-6">
+                            
+                            {/* Scanning rings or HUD radar */}
+                            <div className="w-40 h-40 mx-auto rounded-full border border-primary/20 flex items-center justify-center relative bg-primary/[0.01]">
+                                <div className="absolute inset-2 rounded-full border border-dashed border-primary/30 animate-[spin_30s_linear_infinite]" />
+                                <div className="absolute inset-8 rounded-full border border-primary/10" />
+                                <div className="absolute inset-14 rounded-full border border-dashed border-primary/40 animate-[spin_10s_linear_infinite]" />
+                                
+                                <Shield className="w-10 h-10 text-primary drop-shadow-[0_0_12px_rgba(255,0,60,0.4)] animate-pulse" />
+                                
+                                {/* Orbiting indicator point */}
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#ff003c] animate-ping" />
+                            </div>
+
+                            {/* Simulated Live Command Output Feed */}
+                            <div className="bg-black/60 border border-white/5 p-4 rounded font-mono text-[10px] space-y-2 h-36 overflow-hidden select-none">
+                                {terminalLogs.length === 0 ? (
+                                    <div className="text-white/20 flex items-center gap-2 py-4">
+                                        <span className="w-1 h-1.5 bg-primary animate-pulse" /> 
+                                        Awaiting connection stream...
+                                    </div>
+                                ) : (
+                                    terminalLogs.map((log, index) => {
+                                        const isSystem = log.startsWith("SYSTEM");
+                                        const isExploit = log.startsWith("EXPLOIT");
+                                        const colorClass = isSystem ? "text-primary font-bold" : isExploit ? "text-amber-500 font-bold" : "text-white/60";
+                                        return (
+                                            <div key={index} className="truncate flex items-start gap-2">
+                                                <span className="text-primary font-bold">{`>`}</span>
+                                                <span className={colorClass}>{log}</span>
+                                            </div>
+                                        );
+                                    })
+                                )}
+                            </div>
+                        </div>
+
+                        {/* HUD bottom indicators */}
+                        <div className="bg-[#0c0c0e] border-t border-white/[0.06] p-4 grid grid-cols-2 text-[9px] font-mono text-white/30">
+                            <div>SEC_LEVEL: CLASS_4</div>
+                            <div className="text-right text-primary font-bold animate-pulse">VAULT_LOCK: ACTIVE</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     );

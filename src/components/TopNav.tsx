@@ -19,9 +19,9 @@ export default function TopNav({ onMenuClick, isCollapsed }: any) {
   const handleSearchChange = (val: string) => {
     setSearchQuery(val);
     if (val.trim()) {
-      router.push(`/?search=${encodeURIComponent(val.trim())}`);
+      router.push(`/dashboard?search=${encodeURIComponent(val.trim())}`);
     } else {
-      router.push("/");
+      router.push("/dashboard");
     }
   };
 
@@ -41,12 +41,9 @@ export default function TopNav({ onMenuClick, isCollapsed }: any) {
                 <Menu className="w-5 h-5" />
             </button>
 
-            <Link href="/" className="flex flex-col group">
-                <span className="text-xl sm:text-2xl font-black tracking-tighter text-white group-hover:text-primary transition-colors leading-none">
+            <Link href="/" className="flex items-center group">
+                <span className="text-xl sm:text-2xl font-black tracking-[0.15em] text-white group-hover:text-primary transition-colors leading-none">
                     ARSENAL
-                </span>
-                <span className="text-[10px] font-black text-primary tracking-[0.4em] uppercase opacity-60 group-hover:opacity-100 transition-opacity">
-                    COMMAND CENTER
                 </span>
             </Link>
         </div>
@@ -54,7 +51,7 @@ export default function TopNav({ onMenuClick, isCollapsed }: any) {
         <div className="hidden lg:flex items-center h-8 w-[1px] bg-white/[0.05]" />
 
         <div className="hidden lg:flex items-center gap-8">
-            <Link href="/" className="text-xs font-black uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors relative group">
+            <Link href="/dashboard" className="text-xs font-black uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors relative group">
                 DOCUMENTATION
                 <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300"></span>
             </Link>
