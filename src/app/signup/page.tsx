@@ -20,17 +20,17 @@ export default function SignupPage() {
         setIsLoading(true);
 
         try {
-            const res = await fetch("/api/auth/signup", {
+            const res = await fetch("/api/auth/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, password }),
+                body: JSON.stringify({ username: name, email, password }),
             });
 
             if (res.ok) {
                 router.push("/login?signup=success");
             } else {
                 const data = await res.json();
-                setError(data.error || "Registration failed. Try again.");
+                setError(data.message || data.error || "Registration failed. Try again.");
             }
         } catch (error) {
             setError("Network failure during registration.");
