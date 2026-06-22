@@ -49,6 +49,15 @@ var ReferenceSchema = new mongoose_1.Schema({
     url: String,
     updatedAt: String
 });
+var SystemSupportSchema = new mongoose_1.Schema({
+    os: String,
+    icon: String,
+    sub: String
+});
+var SpecItemSchema = new mongoose_1.Schema({
+    k: String,
+    v: String
+});
 var ToolSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
     category: { type: String, required: true },
@@ -61,6 +70,9 @@ var ToolSchema = new mongoose_1.Schema({
     scenarios: [ScenarioSchema],
     troubleshooting: [TroubleshootingSchema],
     references_list: [ReferenceSchema],
-    security: { type: String }
+    security: { type: String },
+    system_support: [SystemSupportSchema],
+    minimum_spec: [SpecItemSchema],
+    optimized_spec: [SpecItemSchema]
 });
 exports.default = mongoose_1.default.models.Tool || mongoose_1.default.model("Tool", ToolSchema);

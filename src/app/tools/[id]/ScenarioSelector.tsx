@@ -263,182 +263,187 @@ export default function ScenarioSelector({
         }
     };
 
-    if (!scenarios || scenarios.length === 0) {
-        return (
-            <div className="p-20 border border-white/5 text-center text-white/10 uppercase font-black flex flex-col items-center gap-4">
-                <span>AWAITING MISSION PARAMETERS...</span>
-                {isAdmin && (
-                    <button onClick={handleOpenAdd} className="bg-primary/20 hover:bg-primary px-6 py-3 border border-primary/40 text-xs font-bold text-white uppercase tracking-widest transition-all">
-                        Create First Scenario
-                    </button>
-                )}
-            </div>
-        );
-    }
-
     return (
         <div className="space-y-12">
-            {/* Protocol Select Header */}
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12">
-                <div className="space-y-6">
-                    <h2 className="text-sm md:text-base font-bold text-white uppercase tracking-wider flex items-center gap-4">
-                        <span>Test</span> <span className="text-primary">Scenario</span>
-                        <span className="h-[1px] flex-1 bg-white/5"></span>
-                    </h2>
-                    <p className="text-sm text-white/40 font-light max-w-2xl leading-relaxed">
-                        Initialize automated offensive modules against target perimeter. Deploying The Crimson Vault authorization tokens for active session state.
-                    </p>
-                </div>
-                
-                <div className="relative w-full md:w-80 lg:w-96">
-                    <div className="flex justify-between items-center mb-4 ml-2">
-                        <div className="text-xs font-bold text-primary uppercase tracking-[0.2em] whitespace-nowrap">SELECT MISSION PROFILE</div>
-                        {isAdmin && (
-                            <div className="flex items-center gap-4">
-                                <button onClick={handleOpenAdd} className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1">
-                                    <Plus className="w-3 h-3 text-primary" /> Add
-                                </button>
-                                <button onClick={handleOpenEdit} className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1">
-                                    <Pencil className="w-3 h-3 text-primary" /> Edit
-                                </button>
-                                <button onClick={handleDeleteScenario} className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1">
-                                    <Trash2 className="w-3 h-3 text-primary" /> Delete
-                                </button>
-                            </div>
-                        )}
-                    </div>
-                    <button onClick={() => setIsOpen(!isOpen)} className="w-full flex items-center justify-between bg-white/[0.03] border border-white/10 px-6 py-4 sm:py-6 hover:bg-white/[0.08] transition-all group relative overflow-hidden">
-                        <div className="absolute top-0 left-0 w-1 h-full bg-primary/20 group-hover:bg-primary transition-colors"></div>
-                        <span className="text-xs font-bold uppercase tracking-[0.1em] lg:tracking-[0.2em] text-white truncate pr-4">
-                            {active.name.toUpperCase()}
-                        </span>
-                        <ChevronDown className={`w-5 h-5 text-white/20 transition-transform duration-500 shrink-0 ${isOpen ? "rotate-180 text-primary" : ""}`} />
-                    </button>
-                    {isOpen && (
-                        <div className="absolute top-full right-0 w-full bg-[#111] border border-white/[0.1] shadow-2xl z-40 mt-3 animate-in fade-in slide-in-from-top-2 duration-300">
-                            {scenarios.map((s, i) => (
-                                <button 
-                                    key={i} 
-                                    onClick={() => { setSelectedIndex(i); setIsOpen(false); }} 
-                                    className={`w-full text-left px-10 py-6 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all border-b border-white/[0.03] ${i === selectedIndex ? "text-primary bg-white/[0.01]" : "text-white/40"}`}
-                                >
-                                    {s.name.toUpperCase()}
-                                </button>
-                            ))}
-                        </div>
+            {!scenarios || scenarios.length === 0 ? (
+                <div className="p-20 border border-white/5 text-center text-white/10 uppercase font-black flex flex-col items-center gap-4">
+                    <span>AWAITING MISSION PARAMETERS...</span>
+                    {isAdmin && (
+                        <button onClick={handleOpenAdd} className="bg-primary/20 hover:bg-primary px-6 py-3 border border-primary/40 text-xs font-bold text-white uppercase tracking-widest transition-all cursor-pointer">
+                            Create First Scenario
+                        </button>
                     )}
                 </div>
-            </div>
-
-            {/* REORDERED Sections */}
-            <div className="space-y-12">
-                {/* 1. MISSION OBJECTIVE */}
-                {(active.objective || (active.objectiveList && active.objectiveList.filter(Boolean).length > 0)) && (
-                    <div className="space-y-6">
-                        <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">MISSION OBJECTIVE</div>
-                        <div className="space-y-4">
-                            {active.objective && (
-                                <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight break-words" dangerouslySetInnerHTML={{ __html: active.objective }} />
-                            )}
-                            {active.objectiveList && active.objectiveList.filter(Boolean).length > 0 && (
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                                    {active.objectiveList.filter(Boolean).map((obj, i) => (
-                                        <div key={i} className="flex items-start gap-3 p-4 bg-white/[0.01] border border-white/5">
-                                            <div className="w-1.5 h-1.5 bg-primary mt-1.5 shrink-0"></div>
-                                            <span className="text-xs text-white/60 font-light leading-relaxed break-words" dangerouslySetInnerHTML={{ __html: obj }} />
-                                        </div>
+            ) : (
+                <>
+                    {/* Protocol Select Header */}
+                    <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12">
+                        <div className="space-y-6">
+                            <h2 className="text-sm md:text-base font-bold text-white uppercase tracking-wider flex items-center gap-4">
+                                <span>Test</span> <span className="text-primary">Scenario</span>
+                                <span className="h-[1px] flex-1 bg-white/5"></span>
+                            </h2>
+                            <p className="text-sm text-white/40 font-light max-w-2xl leading-relaxed">
+                                Initialize automated offensive modules against target perimeter. Deploying The Crimson Vault authorization tokens for active session state.
+                            </p>
+                        </div>
+                        
+                        <div className="relative w-full md:w-80 lg:w-96">
+                            <div className="flex justify-between items-center mb-4 ml-2">
+                                <div className="text-xs font-bold text-primary uppercase tracking-[0.2em] whitespace-nowrap">SELECT MISSION PROFILE</div>
+                                {isAdmin && (
+                                    <div className="flex items-center gap-4">
+                                        <button onClick={handleOpenAdd} className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1">
+                                            <Plus className="w-3 h-3 text-primary" /> Add
+                                        </button>
+                                        <button onClick={handleOpenEdit} className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1">
+                                            <Pencil className="w-3 h-3 text-primary" /> Edit
+                                        </button>
+                                        <button onClick={handleDeleteScenario} className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1">
+                                            <Trash2 className="w-3 h-3 text-primary" /> Delete
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+                            <button onClick={() => setIsOpen(!isOpen)} className="w-full flex items-center justify-between bg-white/[0.03] border border-white/10 px-6 py-4 sm:py-6 hover:bg-white/[0.08] transition-all group relative overflow-hidden">
+                                <div className="absolute top-0 left-0 w-1 h-full bg-primary/20 group-hover:bg-primary transition-colors"></div>
+                                <span className="text-xs font-bold uppercase tracking-[0.1em] lg:tracking-[0.2em] text-white truncate pr-4">
+                                    {(active?.name || "").toUpperCase()}
+                                </span>
+                                <ChevronDown className={`w-5 h-5 text-white/20 transition-transform duration-500 shrink-0 ${isOpen ? "rotate-180 text-primary" : ""}`} />
+                            </button>
+                            {isOpen && (
+                                <div className="absolute top-full right-0 w-full bg-[#111] border border-white/[0.1] shadow-2xl z-40 mt-3 animate-in fade-in slide-in-from-top-2 duration-300">
+                                    {scenarios.map((s, i) => (
+                                        <button 
+                                            key={i} 
+                                            onClick={() => { setSelectedIndex(i); setIsOpen(false); }} 
+                                            className={`w-full text-left px-10 py-6 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all border-b border-white/[0.03] ${i === selectedIndex ? "text-primary bg-white/[0.01]" : "text-white/40"}`}
+                                        >
+                                            {s.name.toUpperCase()}
+                                        </button>
                                     ))}
                                 </div>
                             )}
                         </div>
                     </div>
-                )}
 
-                {/* 2. EXECUTION SCRIPT */}
-                <div className="space-y-4">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <div className="flex items-center gap-4">
-                            <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">EXECUTION SCRIPT</div>
-                            <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-xs font-bold text-primary uppercase tracking-widest animate-pulse whitespace-nowrap">LIVE PROTOCOL</span>
-                        </div>
-                        <button 
-                            onClick={() => {
-                                navigator.clipboard.writeText(active.script || "");
-                                alert("SCRIPT COPIED TO CLIPBOARD");
-                            }}
-                            className="group/btn self-start sm:self-auto flex items-center gap-3 px-6 py-2 bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all"
-                        >
-                            <span className="text-xs font-bold text-white/40 group-hover/btn:text-primary uppercase tracking-widest">EXTRACT DATA</span>
-                            <Copy className="w-3.5 h-3.5 text-white/20 group-hover/btn:text-primary" />
-                        </button>
-                    </div>
-                    
-                    <div className="relative">
-                        <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-primary/40"></div>
-                        <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-primary/40"></div>
-                        <div className="bg-[#050505] border border-white/[0.05] relative overflow-hidden group shadow-2xl">
-                            <div className="h-10 bg-white/[0.02] border-b border-white/[0.05] flex items-center justify-between px-6">
-                                <div className="flex gap-2">
-                                    <div className="w-2 h-2 rounded-full bg-white/10"></div>
-                                    <div className="w-2 h-2 rounded-full bg-white/10"></div>
-                                    <div className="w-2 h-2 rounded-full bg-white/10"></div>
+                    {/* REORDERED Sections */}
+                    <div className="space-y-12">
+                        {/* 1. MISSION OBJECTIVE */}
+                        {(active?.objective || (active?.objectiveList && active.objectiveList.filter(Boolean).length > 0)) && (
+                            <div className="space-y-6">
+                                <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">MISSION OBJECTIVE</div>
+                                <div className="space-y-4">
+                                    {active.objective && (
+                                        <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight break-words" dangerouslySetInnerHTML={{ __html: active.objective }} />
+                                    )}
+                                    {active.objectiveList && active.objectiveList.filter(Boolean).length > 0 && (
+                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                            {active.objectiveList.filter(Boolean).map((obj, i) => (
+                                                <div key={i} className="flex items-start gap-3 p-4 bg-white/[0.01] border border-white/5">
+                                                    <div className="w-1.5 h-1.5 bg-primary mt-1.5 shrink-0"></div>
+                                                    <span className="text-xs text-white/60 font-light leading-relaxed break-words" dangerouslySetInnerHTML={{ __html: obj }} />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
-                                <div className="text-[9px] font-black text-white/10 uppercase tracking-[0.3em] hidden sm:block">ARSENAL PROTOCOL V4</div>
                             </div>
-                            <div className="p-6 md:p-8 font-mono text-xs md:text-sm text-white/80 leading-relaxed whitespace-pre-wrap break-words max-h-[500px] overflow-y-auto custom-scrollbar">
-                                {(active.script || "AWAITING MISSION SCRIPT...").split('\n').map((line, i) => (
-                                    <div key={i} className="flex gap-4 sm:gap-6 group/line hover:bg-white/[0.02] transition-colors -mx-4 px-4">
-                                        <span className="text-primary font-black opacity-40 select-none">$</span>
-                                        <span className="flex-1">{line}</span>
+                        )}
+
+                        {/* 2. EXECUTION SCRIPT */}
+                        <div className="space-y-4">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div className="flex items-center gap-4">
+                                    <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">EXECUTION SCRIPT</div>
+                                    <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-xs font-bold text-primary uppercase tracking-widest animate-pulse whitespace-nowrap">LIVE PROTOCOL</span>
+                                </div>
+                                <button 
+                                    onClick={() => {
+                                        navigator.clipboard.writeText(active?.script || "");
+                                        alert("SCRIPT COPIED TO CLIPBOARD");
+                                    }}
+                                    className="group/btn self-start sm:self-auto flex items-center gap-3 px-6 py-2 bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all"
+                                >
+                                    <span className="text-xs font-bold text-white/40 group-hover/btn:text-primary uppercase tracking-widest">EXTRACT DATA</span>
+                                    <Copy className="w-3.5 h-3.5 text-white/20 group-hover/btn:text-primary" />
+                                </button>
+                            </div>
+                            
+                            <div className="relative">
+                                <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-primary/40"></div>
+                                <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-primary/40"></div>
+                                <div className="bg-[#050505] border border-white/[0.05] relative overflow-hidden group shadow-2xl">
+                                    <div className="h-10 bg-white/[0.02] border-b border-white/[0.05] flex items-center justify-between px-6">
+                                        <div className="flex gap-2">
+                                            <div className="w-2 h-2 rounded-full bg-white/10"></div>
+                                            <div className="w-2 h-2 rounded-full bg-white/10"></div>
+                                            <div className="w-2 h-2 rounded-full bg-white/10"></div>
+                                        </div>
+                                        <div className="text-[9px] font-black text-white/10 uppercase tracking-[0.3em] hidden sm:block">ARSENAL PROTOCOL V4</div>
+                                    </div>
+                                    <div className="p-6 md:p-8 font-mono text-xs md:text-sm text-white/80 leading-relaxed whitespace-pre-wrap break-words max-h-[500px] overflow-y-auto custom-scrollbar">
+                                        {(active?.script || "AWAITING MISSION SCRIPT...").split('\n').map((line, i) => (
+                                            <div key={i} className="flex gap-4 sm:gap-6 group/line hover:bg-white/[0.02] transition-colors -mx-4 px-4">
+                                                <span className="text-primary font-black opacity-40 select-none">$</span>
+                                                <span className="flex-1">{line}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 3. OUTPUT */}
+                        <div className="space-y-6">
+                            <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">OUTPUT</div>
+                            <div className="bg-[#080808] border border-white/5 p-4 relative group overflow-hidden max-h-[400px] flex items-center justify-center shadow-inner">
+                                <ImageCarousel images={parseImages(active?.logsImage)} />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                            </div>
+                        </div>
+
+                        {/* 4. MISSION TAKEAWAYS */}
+                        <div className="space-y-8">
+                            <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">MISSION TAKEAWAYS</div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {(active?.keyTakeaways || []).map((card, i) => {
+                                    const hasTitle = card.title && card.title.trim().length > 0;
+                                    return (
+                                        <div key={i} className={`bg-white/[0.02] border border-white/5 p-6 md:p-10 space-y-6 group hover:border-primary/40 transition-all relative overflow-hidden flex flex-col ${!hasTitle ? "justify-center items-center text-center" : ""}`}>
+                                            <div className="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 -mr-12 -mb-12 rounded-full blur-3xl group-hover:bg-primary/10 transition-all"></div>
+                                            {hasTitle && (
+                                                <h4 className="text-xs font-bold text-primary uppercase tracking-[0.2em] lg:tracking-[0.4em] break-words">{card.title.replace(/_/g, ' ')}</h4>
+                                            )}
+                                            <p className={`text-sm text-white/40 font-light leading-relaxed break-words ${!hasTitle ? "text-center" : ""}`} dangerouslySetInnerHTML={{ __html: card.content }} />
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+
+                        {/* 5. ATTACK PLANS */}
+                        <div className="space-y-8">
+                            <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">ATTACK PLANS</div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {(active?.attackPaths || []).map((path, i) => (
+                                    <div key={i} className="bg-white/[0.02] border border-white/5 p-6 md:p-8 relative overflow-hidden group hover:bg-white/[0.04] transition-all">
+                                        <div className="flex items-start justify-between mb-6 gap-4">
+                                            <TrendingUp className="w-6 h-6 md:w-8 md:h-8 text-primary shrink-0" />
+                                            <span className="bg-primary/10 border border-primary/20 text-xs font-bold text-primary px-3 py-1 uppercase tracking-widest whitespace-nowrap truncate max-w-[150px]">
+                                                {path.risk.replace(/_/g, ' ')}
+                                            </span>
+                                        </div>
+                                        <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 break-words">{path.title.replace(/_/g, ' ')}</h4>
+                                        <p className="text-sm text-white/40 font-light leading-relaxed break-words" dangerouslySetInnerHTML={{ __html: path.desc }} />
                                     </div>
                                 ))}
                             </div>
                         </div>
                     </div>
-                </div>
-
-                {/* 3. OUTPUT */}
-                <div className="space-y-6">
-                    <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">OUTPUT</div>
-                    <div className="bg-[#080808] border border-white/5 p-4 relative group overflow-hidden max-h-[400px] flex items-center justify-center shadow-inner">
-                        <ImageCarousel images={parseImages(active.logsImage)} />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-                    </div>
-                </div>
-
-                {/* 4. MISSION TAKEAWAYS */}
-                <div className="space-y-8">
-                    <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">MISSION TAKEAWAYS</div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {(active.keyTakeaways || []).map((card, i) => (
-                            <div key={i} className="bg-white/[0.02] border border-white/5 p-6 md:p-10 space-y-6 group hover:border-primary/40 transition-all relative overflow-hidden">
-                                <div className="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 -mr-12 -mb-12 rounded-full blur-3xl group-hover:bg-primary/10 transition-all"></div>
-                                <h4 className="text-xs font-bold text-primary uppercase tracking-[0.2em] lg:tracking-[0.4em] break-words">{card.title.replace(/_/g, ' ')}</h4>
-                                <p className="text-sm text-white/40 font-light leading-relaxed break-words" dangerouslySetInnerHTML={{ __html: card.content }} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* 5. ATTACK PLANS */}
-                <div className="space-y-8">
-                    <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">ATTACK PLANS</div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {(active.attackPaths || []).map((path, i) => (
-                            <div key={i} className="bg-white/[0.02] border border-white/5 p-6 md:p-8 relative overflow-hidden group hover:bg-white/[0.04] transition-all">
-                                <div className="flex items-start justify-between mb-6 gap-4">
-                                    <TrendingUp className="w-6 h-6 md:w-8 md:h-8 text-primary shrink-0" />
-                                    <span className="bg-primary/10 border border-primary/20 text-xs font-bold text-primary px-3 py-1 uppercase tracking-widest whitespace-nowrap truncate max-w-[150px]">
-                                        {path.risk.replace(/_/g, ' ')}
-                                    </span>
-                                </div>
-                                <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 break-words">{path.title.replace(/_/g, ' ')}</h4>
-                                <p className="text-sm text-white/40 font-light leading-relaxed break-words" dangerouslySetInnerHTML={{ __html: path.desc }} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
+                </>
+            )}
 
             {/* Glassmorphic Edit/Add Scenario Modal */}
             {isEditModalOpen && (
@@ -447,7 +452,7 @@ export default function ScenarioSelector({
                         {/* Header */}
                         <div className="flex justify-between items-center border-b border-white/5 pb-4">
                             <h3 className="text-lg font-black text-white uppercase tracking-widest">
-                                {modalMode === "add" ? "ADD NEW SCENARIO" : `EDIT: ${active.name.toUpperCase()}`}
+                                {modalMode === "add" ? "ADD NEW SCENARIO" : `EDIT: ${(active?.name || "").toUpperCase()}`}
                             </h3>
                             <button onClick={() => setIsEditModalOpen(false)} className="text-white/40 hover:text-primary transition-colors">
                                 <X className="w-5 h-5" />

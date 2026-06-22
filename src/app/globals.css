@@ -3,11 +3,11 @@
 @theme {
   --color-primary: #ff003c;
   --color-primary-hover: #ff1a4d;
-  --color-background: #0a0a0a;
-  --color-surface: #111111;
-  --color-surface-hover: #161616;
-  --color-outline: #222222;
-  --color-text-dim: #888888;
+  --color-background: #080808;
+  --color-surface: #0e0e0e;
+  --color-surface-hover: #141414;
+  --color-outline: #1f1f1f;
+  --color-text-dim: #999999;
   
   --font-headline: var(--font-outfit), sans-serif;
   --font-sans: var(--font-plus-jakarta), sans-serif;
@@ -16,11 +16,20 @@
 
 @layer base {
   body {
-    @apply bg-background text-white antialiased font-sans text-base;
+    @apply bg-background text-white antialiased text-base;
+    font-family: var(--font-sans);
+    background-image: 
+      radial-gradient(at 50% 0%, rgba(255, 0, 60, 0.08) 0px, transparent 50%),
+      linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    background-attachment: fixed;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline;
+    @apply tracking-wider;
+    font-family: var(--font-headline);
+    text-shadow: 0 0 15px rgba(255, 0, 60, 0.1);
   }
   
   * {
@@ -46,11 +55,16 @@
   }
   
   .glass-panel {
-    @apply bg-white/[0.02] border border-white/[0.05] backdrop-blur-md;
+    @apply bg-black/60 border border-white/[0.04] backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.4)];
+  }
+
+  .cyber-card {
+    @apply bg-gradient-to-br from-white/[0.01] to-transparent border border-white/[0.04] hover:border-primary/20 transition-all duration-500 relative overflow-hidden;
   }
 
   .classified-label {
-    @apply text-[11px] font-bold tracking-widest uppercase text-primary mb-2 flex items-center gap-2 opacity-80;
+    @apply text-[11px] font-bold tracking-widest uppercase text-primary mb-2 flex items-center gap-2 opacity-90;
+    text-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
   }
 }
 

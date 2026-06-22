@@ -64,7 +64,24 @@ export default function CreateToolPage() {
                     name, category, developer, tier, bestFor, overview, security,
                     core_modules: coreModules,
                     installation_sequence: installationSequence,
-                    scenarios, troubleshooting, references_list: referencesList
+                    scenarios, troubleshooting, references_list: referencesList,
+                    system_support: [
+                        { os: "Debian/Ubuntu", icon: "Terminal", sub: "Kernel 5.x+ Required" },
+                        { os: "Windows 11", icon: "Monitor", sub: "WSL2 Subsystem Refined" },
+                        { os: "macOS Silicon", icon: "Globe", sub: "ARM64 Native Architecture" }
+                    ],
+                    minimum_spec: [
+                        { k: "CPU", v: "8 CORES" },
+                        { k: "RAM", v: "16 GB DDR5" },
+                        { k: "STORAGE", v: "5 GB SSD" },
+                        { k: "GPU", v: "SUPPORTED" }
+                    ],
+                    optimized_spec: [
+                        { k: "CPU", v: "32 CORES (5.0GHz+)" },
+                        { k: "RAM", v: "64 GB DDR5" },
+                        { k: "STORAGE", v: "25 GB NVMe Gen5" },
+                        { k: "NETWORK", v: "10Gbps+ SYMMETRIC" }
+                    ]
                 }),
             });
             if (res.ok) router.push("/");

@@ -34,6 +34,9 @@ export default function EditToolPage() {
     const [originalScenarios, setOriginalScenarios] = useState<IScenario[]>([]);
     const [troubleshooting, setTroubleshooting] = useState<ITroubleshooting[]>([]);
     const [referencesList, setReferencesList] = useState<IReference[]>([]);
+    const [systemSupport, setSystemSupport] = useState<any[]>([]);
+    const [minimumSpec, setMinimumSpec] = useState<any[]>([]);
+    const [optimizedSpec, setOptimizedSpec] = useState<any[]>([]);
 
     const [activeTab, setActiveTab] = useState("general");
     const [loading, setLoading] = useState(false);
@@ -70,6 +73,9 @@ export default function EditToolPage() {
                 setOriginalScenarios(JSON.parse(JSON.stringify(normalizedScenarios)));
                 setTroubleshooting(data.troubleshooting || []);
                 setReferencesList(data.references_list || []);
+                setSystemSupport(data.system_support || []);
+                setMinimumSpec(data.minimum_spec || []);
+                setOptimizedSpec(data.optimized_spec || []);
             } catch (e) { console.error(e); }
             finally { setFetching(false); }
         };
@@ -103,7 +109,10 @@ export default function EditToolPage() {
                     name, category, developer, tier, bestFor, overview, security,
                     core_modules: coreModules,
                     installation_sequence: installationSequence,
-                    scenarios: optimizedScenarios, troubleshooting, references_list: referencesList
+                    scenarios: optimizedScenarios, troubleshooting, references_list: referencesList,
+                    system_support: systemSupport,
+                    minimum_spec: minimumSpec,
+                    optimized_spec: optimizedSpec
                 }),
             });
             if (res.ok) {
@@ -160,6 +169,9 @@ export default function EditToolPage() {
 
     const addTrouble = () => setTroubleshooting([...troubleshooting, { problem: "", cause: "", resolution: "" }]);
     const addReference = () => setReferencesList([...referencesList, { name: "", type: "Docs", url: "", updatedAt: new Date().toISOString().split('T')[0].replace(/-/g, '.') }]);
+    const addSystemSupport = () => setSystemSupport([...systemSupport, { os: "New OS", icon: "Terminal", sub: "Requirements..." }]);
+    const addMinimumSpec = () => setMinimumSpec([...minimumSpec, { k: "CPU", v: "4 CORES" }]);
+    const addOptimizedSpec = () => setOptimizedSpec([...optimizedSpec, { k: "CPU", v: "16 CORES" }]);
 
     if (fetching) return <div className="flex items-center justify-center min-h-screen bg-black"><Loader2 className="w-12 h-12 text-primary animate-spin" /></div>;
 
@@ -185,7 +197,8 @@ export default function EditToolPage() {
                         { id: "installation", label: "Installation", icon: LayoutGrid },
                         { id: "scenarios", label: "Scenarios", icon: Target },
                         { id: "troubleshooting", label: "Diagnostics", icon: AlertTriangle },
-                        { id: "references", label: "References", icon: Globe }
+                        { id: "references", label: "References", icon: Globe },
+                        { id: "specs", label: "Specs", icon: Cpu }
                     ].map(t => (
                         <button key={t.id} onClick={() => setActiveTab(t.id)} className={`shrink-0 lg:w-full text-left px-4 py-3 text-xs font-bold uppercase tracking-widest border-l-2 transition-all flex items-center gap-3 whitespace-nowrap ${activeTab === t.id ? "bg-white/[0.04] border-primary text-white" : "border-transparent text-white/25 hover:text-white hover:bg-white/[0.01]"}`}>
                             <t.icon className={`w-4 h-4 shrink-0 ${activeTab === t.id ? "text-primary" : "text-white/10"}`} />
@@ -433,6 +446,81 @@ export default function EditToolPage() {
                                     <input value={ref.url} onChange={e => { const n = [...referencesList]; n[i].url = e.target.value; setReferencesList(n); }} className="flex-[2] bg-black border border-white/10 p-3 text-white/40 font-mono text-xs outline-none uppercase" placeholder="SECURE_URL" />
                                 </div>
                             ))}
+                        </div>
+                    )}
+
+                    {/* 07. Environment & Specs */}
+                    {activeTab === "specs" && (
+                        <div className="space-y-12 animate-in fade-in slide-in-from-left-4 duration-500">
+                            <div className="space-y-6">
+                                <div className="flex justify-between items-center border-b border-white/5 pb-4">
+                                    <h3 className="text-lg font-bold text-white uppercase tracking-widest">System Support Specs</h3>
+                                    <button onClick={addSystemSupport} className="bg-white/5 px-4 py-2 hover:bg-primary transition-all border border-white/10 text-[10px] font-bold tracking-widest uppercase">Add OS Support</button>
+                                </div>
+                                {systemSupport.map((sys, idx) => (
+                                    <div key={idx} className="bg-white/[0.02] border border-white/5 p-5 space-y-4 relative group">
+                                        <button onClick={() => setSystemSupport(systemSupport.filter((_, i) => i !== idx))} className="absolute top-4 right-4 text-white/10 hover:text-primary"><Trash2 className="w-4 h-4" /></button>
+                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                            <div className="space-y-1">
+                                                <label className="text-[10px] font-bold text-white/20 uppercase tracking-widest">OS Name</label>
+                                                <input value={sys.os} onChange={e => { const n = [...systemSupport]; n[idx].os = e.target.value; setSystemSupport(n); }} className="w-full bg-black border border-white/10 p-3 text-white outline-none text-xs" />
+                                            </div>
+                                            <div className="space-y-1">
+                                                <label className="text-[10px] font-bold text-white/20 uppercase tracking-widest">Lucide Icon (e.g. Terminal, Monitor)</label>
+                                                <input value={sys.icon} onChange={e => { const n = [...systemSupport]; n[idx].icon = e.target.value; setSystemSupport(n); }} className="w-full bg-black border border-white/10 p-3 text-white outline-none font-mono text-xs" />
+                                            </div>
+                                            <div className="space-y-1">
+                                                <label className="text-[10px] font-bold text-white/20 uppercase tracking-widest">Requirements Subtitle</label>
+                                                <input value={sys.sub} onChange={e => { const n = [...systemSupport]; n[idx].sub = e.target.value; setSystemSupport(n); }} className="w-full bg-black border border-white/10 p-3 text-white outline-none text-xs" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="space-y-6 pt-6 border-t border-white/5">
+                                <div className="flex justify-between items-center border-b border-white/5 pb-4">
+                                    <h3 className="text-lg font-bold text-white uppercase tracking-widest">Minimum Specifications</h3>
+                                    <button onClick={addMinimumSpec} className="bg-white/5 px-4 py-2 hover:bg-primary transition-all border border-white/10 text-[10px] font-bold tracking-widest uppercase">Add Min Spec</button>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {minimumSpec.map((spec, idx) => (
+                                        <div key={idx} className="bg-white/[0.02] border border-white/5 p-4 flex gap-4 items-end relative group">
+                                            <div className="flex-1 space-y-1">
+                                                <label className="text-[10px] font-bold text-white/20 uppercase tracking-widest">Key (e.g. CPU, RAM)</label>
+                                                <input value={spec.k} onChange={e => { const n = [...minimumSpec]; n[idx].k = e.target.value; setMinimumSpec(n); }} className="w-full bg-black border border-white/10 p-2.5 text-white outline-none text-xs" />
+                                            </div>
+                                            <div className="flex-1 space-y-1">
+                                                <label className="text-[10px] font-bold text-white/20 uppercase tracking-widest">Value</label>
+                                                <input value={spec.v} onChange={e => { const n = [...minimumSpec]; n[idx].v = e.target.value; setMinimumSpec(n); }} className="w-full bg-black border border-white/10 p-2.5 text-white outline-none text-xs" />
+                                            </div>
+                                            <button onClick={() => setMinimumSpec(minimumSpec.filter((_, i) => i !== idx))} className="text-white/10 hover:text-primary mb-2.5"><Trash2 className="w-4 h-4" /></button>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="space-y-6 pt-6 border-t border-white/5">
+                                <div className="flex justify-between items-center border-b border-white/5 pb-4">
+                                    <h3 className="text-lg font-bold text-white uppercase tracking-widest">Optimized Specifications</h3>
+                                    <button onClick={addOptimizedSpec} className="bg-white/5 px-4 py-2 hover:bg-primary transition-all border border-white/10 text-[10px] font-bold tracking-widest uppercase">Add Optimized Spec</button>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {optimizedSpec.map((spec, idx) => (
+                                        <div key={idx} className="bg-white/[0.02] border border-white/5 p-4 flex gap-4 items-end relative group">
+                                            <div className="flex-1 space-y-1">
+                                                <label className="text-[10px] font-bold text-white/20 uppercase tracking-widest">Key (e.g. CPU, RAM)</label>
+                                                <input value={spec.k} onChange={e => { const n = [...optimizedSpec]; n[idx].k = e.target.value; setOptimizedSpec(n); }} className="w-full bg-black border border-white/10 p-2.5 text-white outline-none text-xs" />
+                                            </div>
+                                            <div className="flex-1 space-y-1">
+                                                <label className="text-[10px] font-bold text-white/20 uppercase tracking-widest">Value</label>
+                                                <input value={spec.v} onChange={e => { const n = [...optimizedSpec]; n[idx].v = e.target.value; setOptimizedSpec(n); }} className="w-full bg-black border border-white/10 p-2.5 text-white outline-none text-xs" />
+                                            </div>
+                                            <button onClick={() => setOptimizedSpec(optimizedSpec.filter((_, i) => i !== idx))} className="text-white/10 hover:text-primary mb-2.5"><Trash2 className="w-4 h-4" /></button>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     )}
                 </div>

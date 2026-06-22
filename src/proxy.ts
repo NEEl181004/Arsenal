@@ -1,13 +1,14 @@
 import { withAuth } from "next-auth/middleware";
 import { NextRequest, NextResponse } from "next/server";
 
-export default async function proxy(req: NextRequest, event: any) {
+export default async function middleware(req: NextRequest, event: any) {
     const host = req.headers.get("host") || "localhost:3000";
-    const protocol = req.nextUrl.protocol || "http:";
-    process.env.NEXTAUTH_URL = `${protocol}//${host}`;
+    // Check x-forwarded-proto first to support reverse proxies / SSL termination correctly
+    const protocol = req.headers.get("x-forwarded-proto") || req.nextUrl.protocol.replace(":", "") || "http";
+    process.env.NEXTAUTH_URL = `${protocol}://${host}`;
     
     const handler = withAuth(
-        function proxy(req) {
+        function middleware(req) {
             if (req.nextUrl.pathname.startsWith("/admin") && req.nextauth.token?.role !== "admin") {
                 return NextResponse.redirect(new URL("/", req.url));
             }

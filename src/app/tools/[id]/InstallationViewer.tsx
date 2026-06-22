@@ -138,33 +138,38 @@ export default function InstallationViewer({
             {/* Steps List */}
             {currentTab && (
                 <div className="space-y-4">
-                    {currentTab.steps.map((step, i) => (
-                        <div key={i} className="bg-white/[0.01] border border-white/5 hover:bg-white/[0.02] transition-all group overflow-hidden">
-                            <div className="grid grid-cols-1 lg:grid-cols-2">
-                                <div className="p-5 md:p-6 border-b lg:border-b-0 lg:border-r border-white/5 relative">
-                                    <div className="absolute top-0 left-0 w-[2px] h-full bg-primary/20 group-hover:bg-primary transition-colors"></div>
-                                    <div className="text-xs font-bold text-white uppercase tracking-wider border-l border-primary pl-3 mb-3 break-words">
-                                        STEP {step.id || `0${i+1}`}: {step.name.toUpperCase()}
+                    {currentTab.steps.map((step, i) => {
+                        const hasCmd = step.cmd && step.cmd.trim().length > 0;
+                        return (
+                            <div key={i} className="bg-white/[0.01] border border-white/5 hover:bg-white/[0.02] transition-all group overflow-hidden">
+                                <div className={hasCmd ? "grid grid-cols-1 lg:grid-cols-2" : "w-full"}>
+                                    <div className={`p-5 md:p-6 relative ${hasCmd ? "border-b lg:border-b-0 lg:border-r border-white/5" : ""}`}>
+                                        <div className="absolute top-0 left-0 w-[2px] h-full bg-primary/20 group-hover:bg-primary transition-colors"></div>
+                                        <div className="text-xs font-bold text-white uppercase tracking-wider border-l border-primary pl-3 mb-3 break-words">
+                                            STEP {step.id || `0${i+1}`}: {step.name.toUpperCase()}
+                                        </div>
+                                        <p className="text-xs text-white/40 font-normal leading-relaxed pr-4 break-words">
+                                            {step.desc}
+                                        </p>
                                     </div>
-                                    <p className="text-xs text-white/40 font-normal leading-relaxed pr-4 break-words">
-                                        {step.desc}
-                                    </p>
-                                </div>
-                                <div className="flex-1 p-5 md:p-6 bg-black/20 flex items-center justify-between group/cmd relative">
-                                    <div className="flex items-start gap-3 font-mono text-xs scroll-smooth">
-                                        <span className="text-primary font-black animate-pulse shrink-0">$</span>
-                                        <span className="text-white tracking-wide break-words whitespace-normal leading-relaxed">{step.cmd}</span>
-                                    </div>
-                                    <button 
-                                        onClick={() => copyToClipboard(step.cmd, i)}
-                                        className="p-2 bg-white/[0.03] border border-white/5 text-white/20 hover:text-primary hover:border-primary/30 transition-all shrink-0 ml-4"
-                                    >
-                                        {copiedIndex === i ? <CheckCircle2 className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4" />}
-                                    </button>
+                                    {hasCmd && (
+                                        <div className="flex-1 p-5 md:p-6 bg-black/20 flex items-center justify-between group/cmd relative">
+                                            <div className="flex items-start gap-3 font-mono text-xs scroll-smooth">
+                                                <span className="text-primary font-black animate-pulse shrink-0">$</span>
+                                                <span className="text-white tracking-wide break-words whitespace-normal leading-relaxed">{step.cmd}</span>
+                                            </div>
+                                            <button 
+                                                onClick={() => copyToClipboard(step.cmd, i)}
+                                                className="p-2 bg-white/[0.03] border border-white/5 text-white/20 hover:text-primary hover:border-primary/30 transition-all shrink-0 ml-4"
+                                            >
+                                                {copiedIndex === i ? <CheckCircle2 className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4" />}
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             )}
 

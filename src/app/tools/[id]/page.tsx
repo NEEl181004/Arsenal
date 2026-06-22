@@ -2,6 +2,7 @@ import connectToDatabase from "@/lib/db";
 import Tool from "@/models/Tool";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import * as LucideIcons from "lucide-react";
 import { 
     Pencil, 
     ArrowLeft, 
@@ -34,6 +35,11 @@ import EditableReferences from "./EditableReferences";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+const getIconComponent = (iconName: string) => {
+    const Icon = (LucideIcons as any)[iconName] || Terminal;
+    return Icon;
+};
+
 export default async function ToolPage({ params }: { params: Promise<{ id: string }> }) {
     await connectToDatabase();
     
@@ -49,6 +55,11 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
 
     const session = await getServerSession(authOptions);
     const isAdmin = session?.user?.role === "admin";
+
+    // Fallbacks if not populated
+    const systemSupportList = tool.system_support || [];
+    const minSpecs = tool.minimum_spec || [];
+    const optSpecs = tool.optimized_spec || [];
 
     return (
         <div className="w-full pb-20">
@@ -81,31 +92,25 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                     <div className="bg-white/[0.02] border border-white/5 p-6 space-y-6">
                         <div className="text-xs font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-3 mb-4 whitespace-nowrap">System Support</div>
                         <div className="space-y-6">
-                            {[
-                                { os: "Debian/Ubuntu", icon: Terminal, sub: "Kernel 5.x+ Required" },
-                                { os: "Windows 11", icon: Monitor, sub: "WSL2 Subsystem Refined" },
-                                { os: "macOS Silicon", icon: Globe, sub: "ARM64 Native Architecture" }
-                            ].map((o, i) => (
-                                <div key={i} className="flex items-center gap-4 group">
-                                    <o.icon className="w-8 h-8 text-primary transition-transform group-hover:scale-105 shrink-0" />
-                                    <div className="min-w-0">
-                                        <div className="text-sm font-bold text-white uppercase tracking-wider">{o.os}</div>
-                                        <div className="text-[10px] text-white/40 mt-0.5 uppercase font-bold tracking-widest">{o.sub}</div>
+                            {systemSupportList.map((o: any, i: number) => {
+                                const IconComp = getIconComponent(o.icon);
+                                return (
+                                    <div key={i} className="flex items-center gap-4 group">
+                                        <IconComp className="w-8 h-8 text-primary transition-transform group-hover:scale-105 shrink-0" />
+                                        <div className="min-w-0">
+                                            <div className="text-sm font-bold text-white uppercase tracking-wider">{o.os}</div>
+                                            <div className="text-[10px] text-white/40 mt-0.5 uppercase font-bold tracking-widest">{o.sub}</div>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
 
                     <div className="bg-white/[0.02] border border-white/5 p-6 space-y-6">
                         <div className="text-xs font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-3 mb-4 whitespace-nowrap">Minimum Spec</div>
                         <div className="space-y-3">
-                            {[
-                                { k: "CPU", v: "8 CORES" },
-                                { k: "RAM", v: "16 GB DDR5" },
-                                { k: "STORAGE", v: "5 GB SSD" },
-                                { k: "GPU", v: "SUPPORTED" }
-                            ].map((s, i) => (
+                            {minSpecs.map((s: any, i: number) => (
                                 <div key={i} className="flex items-center justify-between p-3 bg-white/[0.01] border border-white/[0.03] group hover:bg-white/[0.03] transition-all">
                                     <div className="flex items-center gap-3 shrink-0">
                                         <div className="w-1 h-1 bg-primary/40 group-hover:bg-primary transition-colors"></div>
@@ -121,12 +126,7 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                         <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 -mr-12 -mt-12 rounded-full blur-3xl"></div>
                         <div className="text-xs font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-3 mb-4 whitespace-nowrap">Optimized Spec</div>
                         <div className="space-y-3">
-                            {[
-                                { k: "CPU", v: "32 CORES (5.0GHz+)" },
-                                { k: "RAM", v: "64 GB DDR5" },
-                                { k: "STORAGE", v: "25 GB NVMe Gen5" },
-                                { k: "NETWORK", v: "10Gbps+ SYMMETRIC" }
-                            ].map((s, i) => (
+                            {optSpecs.map((s: any, i: number) => (
                                 <div key={i} className="flex items-center justify-between p-3 bg-white/[0.01] border border-white/[0.03] group hover:bg-white/[0.03] transition-all gap-3">
                                     <div className="flex items-center gap-3 shrink-0">
                                         <div className="w-1 h-1 bg-primary shadow-[0_0_8px_rgba(255,0,60,0.6)]"></div>

@@ -104,6 +104,28 @@ const ReferenceSchema = new Schema({
     updatedAt: String
 });
 
+export interface ISystemSupport {
+    os: string;
+    icon: string;
+    sub: string;
+}
+
+const SystemSupportSchema = new Schema({
+    os: String,
+    icon: String,
+    sub: String
+});
+
+export interface ISpecItem {
+    k: string;
+    v: string;
+}
+
+const SpecItemSchema = new Schema({
+    k: String,
+    v: String
+});
+
 const ToolSchema: Schema = new Schema({
     name: { type: String, required: true },
     category: { type: String, required: true },
@@ -116,7 +138,10 @@ const ToolSchema: Schema = new Schema({
     scenarios: [ScenarioSchema],
     troubleshooting: [TroubleshootingSchema],
     references_list: [ReferenceSchema],
-    security: { type: String }
+    security: { type: String },
+    system_support: [SystemSupportSchema],
+    minimum_spec: [SpecItemSchema],
+    optimized_spec: [SpecItemSchema]
 });
 
 export default mongoose.models.Tool || mongoose.model("Tool", ToolSchema);
