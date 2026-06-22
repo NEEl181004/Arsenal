@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 
 // Continent outlines: [longitude, latitude] in degrees
-const CONTINENT_OUTLINES = [
+const CONTINENT_OUTLINES: [number, number][][] = [
     // North America (detailed trace)
     [
         [-168, 65], [-160, 70], [-140, 71], [-120, 68], [-100, 69], [-80, 70], [-60, 60], [-55, 50],
