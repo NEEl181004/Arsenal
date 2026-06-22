@@ -24,36 +24,32 @@ export default function ToolBackgroundAnimation() {
 
         window.addEventListener("resize", handleResize);
 
-        // Matrix code/binary streams
-        const fontSize = 10;
+        const fontSize = 12;
         const columns = Math.floor(width / fontSize);
+        // Track the current y position for each column
         const drops: number[] = Array(columns).fill(1);
 
-        // Slowing down the speed of matrix drops
         let lastTime = 0;
-        const fpsInterval = 1000 / 20; // 20 FPS for Matrix rain to keep it slow and non-distracting
+        const fpsInterval = 1000 / 15; // Slow 15 FPS to be subtle
 
         const draw = (timestamp: number) => {
-            // Ambient pulsing lights drawn behind matrix code
-            ctx.fillStyle = "rgba(10, 10, 10, 0.15)";
-            ctx.fillRect(0, 0, width, height);
-
             if (timestamp - lastTime > fpsInterval) {
                 lastTime = timestamp;
 
-                ctx.fillStyle = "rgba(255, 0, 60, 0.05)"; // Ultra low opacity crimson
+                // Clear with transparent color to keep background transparent
+                ctx.clearRect(0, 0, width, height);
+
+                ctx.fillStyle = "rgba(255, 0, 60, 0.08)"; // Very subtle red
                 ctx.font = `${fontSize}px monospace`;
 
                 for (let i = 0; i < drops.length; i++) {
-                    // Random binary or hex digit
                     const text = Math.random() > 0.5 ? "0" : "1";
                     const x = i * fontSize;
                     const y = drops[i] * fontSize;
 
                     ctx.fillText(text, x, y);
 
-                    // Reset drops when they reach bottom
-                    if (y > height && Math.random() > 0.975) {
+                    if (y > height && Math.random() > 0.98) {
                         drops[i] = 0;
                     }
                     drops[i]++;
@@ -72,22 +68,22 @@ export default function ToolBackgroundAnimation() {
     }, []);
 
     return (
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+        <div className="absolute inset-0 w-full h-full pointer-events-none -z-50 overflow-hidden">
             {/* Dark background base */}
-            <div className="absolute inset-0 bg-[#070708] -z-20" />
+            <div className="absolute inset-0 bg-[#060608] -z-50" />
             
             {/* The matrix binary rain canvas */}
-            <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60 -z-10" />
+            <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-40 -z-40" />
 
             {/* Glowing tactical grids */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] -z-10" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:40px_40px] -z-30" />
 
             {/* Red tactical overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-primary/[0.015] to-[#0a0a0a] -z-10" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-primary/[0.01] to-[#0a0a0a] -z-20" />
 
             {/* Floating blurred red orbs */}
-            <div className="absolute top-1/4 left-1/12 w-[35rem] h-[35rem] bg-primary/[0.03] blur-[150px] rounded-full animate-[pulse_10s_ease-in-out_infinite] -z-10" />
-            <div className="absolute bottom-1/4 right-1/12 w-[35rem] h-[35rem] bg-primary/[0.025] blur-[150px] rounded-full animate-[pulse_12s_ease-in-out_infinite] delay-1000 -z-10" />
+            <div className="absolute top-1/4 left-1/10 w-[30rem] h-[30rem] bg-primary/[0.02] blur-[150px] rounded-full animate-pulse -z-20" />
+            <div className="absolute bottom-1/4 right-1/10 w-[30rem] h-[30rem] bg-primary/[0.015] blur-[150px] rounded-full animate-pulse -z-20" />
         </div>
     );
 }

@@ -2,48 +2,49 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Terminal, Shield, ArrowRight, Activity, Cpu, Disc, Zap } from "lucide-react";
+import { Terminal, Shield, ArrowRight, Activity, Cpu, Database, Eye, Radio, Network } from "lucide-react";
 
 export default function LandingPage() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [terminalLogs, setTerminalLogs] = useState<string[]>([]);
-    const [stats, setStats] = useState({
-        nodesConnected: 142,
-        integrity: 98.4,
-        threatLevel: "ELEVATED"
-    });
+    const [activeTab, setActiveTab] = useState("logs");
+    const [commandInput, setCommandInput] = useState("");
+    const [terminalLines, setTerminalLines] = useState<string[]>([
+        "SYSTEM: AUTHENTICATION OK - SECLEVEL 4 BEACON ACTIVE",
+        "SECURE_GATE: CONNECTED TO ARSENAL CLUSTER V1.4.0",
+        "Type 'help' to list available system overrides."
+    ]);
 
-    // Simulated terminal output logs
-    useEffect(() => {
-        const logs = [
-            "SYSTEM: Initializing tactical HUD...",
-            "DB: Connection established to cluster-0x4",
-            "SECURE_GATE: Decryption algorithm loaded successfully",
-            "RED_TEAM: Target list updated from main vault",
-            "PORT_SCAN: Scanning range 10.0.12.0/24...",
-            "PORT_SCAN: Found open ports: 22, 80, 443, 8080",
-            "EXPLOIT: Launching automated payload check...",
-            "EXPLOIT: CVE-2024-3847 vulnerability detected",
-            "SESSION: Spawned meterpreter shell at 10.0.12.89",
-            "PERSISTENCE: Deploying background beacon service...",
-            "AUDIT: Documentation indexing finalized."
-        ];
+    // Command line interactive parser for the dashboard widget
+    const handleCommandSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        const cmd = commandInput.trim().toLowerCase();
+        if (!cmd) return;
 
-        let index = 0;
-        const interval = setInterval(() => {
-            if (index < logs.length) {
-                setTerminalLogs(prev => [...prev.slice(-6), logs[index]]);
-                index++;
-            } else {
-                index = 0;
-                setTerminalLogs([]);
-            }
-        }, 2200);
+        let response = "";
+        if (cmd === "help") {
+            response = "AVAILABLE COMMANDS: help, clear, status, scan, decrypt";
+        } else if (cmd === "clear") {
+            setTerminalLines([]);
+            setCommandInput("");
+            return;
+        } else if (cmd === "status") {
+            response = "ALL NODES COMPLIANT. ACTIVE SESSIONS: 4. THREAT LEVEL: ELEVATED.";
+        } else if (cmd === "scan") {
+            response = "INITIATING TARGET ENUMERATION... 12 COMPROMISED HOSTS RECORDED.";
+        } else if (cmd === "decrypt") {
+            response = "VAULT STATUS: FULLY DECRYPTED. REDIRECTING...";
+            setTimeout(() => {
+                window.location.href = "/dashboard";
+            }, 1000);
+        } else {
+            response = `COMMAND NOT FOUND: '${cmd}'. Type 'help' for console options.`;
+        }
 
-        return () => clearInterval(interval);
-    }, []);
+        setTerminalLines(prev => [...prev, `> ${commandInput}`, response]);
+        setCommandInput("");
+    };
 
-    // Interactive canvas nodes network animation
+    // 3D Perspective Wireframe Grid canvas animation
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
@@ -59,78 +60,94 @@ export default function LandingPage() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
         };
-
         window.addEventListener("resize", handleResize);
 
-        const particles: Array<{
-            x: number;
-            y: number;
-            vx: number;
-            vy: number;
-            radius: number;
-        }> = [];
-
-        // Generate particle nodes
-        const particleCount = Math.min(60, Math.floor((width * height) / 25000));
-        for (let i = 0; i < particleCount; i++) {
-            particles.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 0.8,
-                vy: (Math.random() - 0.5) * 0.8,
-                radius: Math.random() * 2 + 1
-            });
-        }
+        let rotation = 0;
+        let pitch = 60; // tilt angle
 
         const draw = () => {
             ctx.clearRect(0, 0, width, height);
 
-            // Draw tactical grid backdrop
-            ctx.strokeStyle = "rgba(255, 0, 60, 0.02)";
+            // Draw radial dark vignette gradient
+            const bgGrad = ctx.createRadialGradient(
+                width / 2,
+                height / 2,
+                10,
+                width / 2,
+                height / 2,
+                width * 0.8
+            );
+            bgGrad.addColorStop(0, "rgba(8, 8, 10, 0.4)");
+            bgGrad.addColorStop(1, "rgba(4, 4, 5, 0.95)");
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, width, height);
+
+            // Draw 3D-looking grid lines
+            ctx.strokeStyle = "rgba(255, 0, 60, 0.04)";
             ctx.lineWidth = 1;
-            const gridSpacing = 60;
-            for (let x = 0; x < width; x += gridSpacing) {
+            rotation += 0.0008;
+
+            const centerX = width / 2;
+            const centerY = height * 0.75; // horizon point
+            const maxRadius = Math.max(width, height) * 1.2;
+
+            // Perspective grid rays radiating from horizon
+            const rayCount = 42;
+            for (let i = 0; i < rayCount; i++) {
+                const angle = (i / rayCount) * Math.PI * 2 + rotation;
+                const cos = Math.cos(angle);
+                const sin = Math.sin(angle);
+
                 ctx.beginPath();
-                ctx.moveTo(x, 0);
-                ctx.lineTo(x, height);
+                ctx.moveTo(centerX, centerY);
+                // Project outward to bounds
+                ctx.lineTo(centerX + cos * maxRadius, centerY + sin * maxRadius * 0.35);
                 ctx.stroke();
             }
-            for (let y = 0; y < height; y += gridSpacing) {
+
+            // Concentric rings (perspective rings)
+            const ringCount = 12;
+            for (let i = 1; i <= ringCount; i++) {
+                const radius = (i / ringCount) * maxRadius;
                 ctx.beginPath();
-                ctx.moveTo(0, y);
-                ctx.lineTo(width, y);
+                // Draw ellipse representing perspective circle
+                ctx.ellipse(
+                    centerX,
+                    centerY,
+                    radius,
+                    radius * 0.35,
+                    0,
+                    0,
+                    Math.PI * 2
+                );
+                ctx.strokeStyle = `rgba(255, 0, 60, ${0.07 * (1 - i / ringCount)})`;
                 ctx.stroke();
             }
 
-            // Draw particles and connection lines
-            particles.forEach((p, idx) => {
-                p.x += p.vx;
-                p.y += p.vy;
+            // Draw floating tech nodes in 3D space
+            const nodeCount = 18;
+            for (let i = 0; i < nodeCount; i++) {
+                const seed = i * 133.7;
+                const distRatio = ((seed + rotation * 200) % maxRadius) / maxRadius;
+                const angle = (seed + rotation * 0.2) % (Math.PI * 2);
+                
+                const x = centerX + Math.cos(angle) * (distRatio * maxRadius);
+                const y = centerY + Math.sin(angle) * (distRatio * maxRadius) * 0.35;
 
-                // Bounce off edges
-                if (p.x < 0 || p.x > width) p.vx *= -1;
-                if (p.y < 0 || p.y > height) p.vy *= -1;
+                if (y > centerY) { // Only draw elements below horizon line
+                    ctx.beginPath();
+                    ctx.arc(x, y, 2 + (1 - distRatio) * 3, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 0, 60, ${0.45 * (1 - distRatio)})`;
+                    ctx.fill();
 
-                // Draw node
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = "rgba(255, 0, 60, 0.4)";
-                ctx.fill();
-
-                // Draw lines to near neighbors
-                for (let j = idx + 1; j < particles.length; j++) {
-                    const p2 = particles[j];
-                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                    if (dist < 180) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(255, 0, 60, ${0.18 * (1 - dist / 180)})`;
-                        ctx.lineWidth = 0.8;
-                        ctx.stroke();
-                    }
+                    // Optional vertical projection line to "ground"
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(x, y - (1 - distRatio) * 60);
+                    ctx.strokeStyle = `rgba(255, 0, 60, ${0.15 * (1 - distRatio)})`;
+                    ctx.stroke();
                 }
-            });
+            }
 
             animationFrameId = requestAnimationFrame(draw);
         };
@@ -144,126 +161,148 @@ export default function LandingPage() {
     }, []);
 
     return (
-        <div className="relative min-h-[calc(100vh-7rem)] flex flex-col justify-center items-center overflow-hidden font-sans text-white py-10 px-4">
-            {/* Background Canvas */}
+        <div className="relative min-h-[calc(100vh-7rem)] flex flex-col justify-center items-center overflow-hidden font-sans text-white py-12 px-6">
+            {/* Background 3D Perspective Plane Canvas */}
             <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />
             
-            {/* Glowing Red Ambient Ambient Lights */}
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/[0.04] blur-[150px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/[0.03] blur-[150px] rounded-full pointer-events-none" />
+            {/* Hologram scanline strip overlays */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.15)_50%),linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,255,0,0.01),rgba(0,0,255,0.03))] bg-[size:100%_6px,4px_100%] pointer-events-none z-10 opacity-40" />
 
-            {/* Scanline effect */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[size:100%_4px,3px_100%] pointer-events-none z-10 opacity-30" />
-
-            <div className="w-full max-w-6xl z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="w-full max-w-7xl z-10 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                 
-                {/* ── LEFT HUD HERO PANEL (7 cols) ── */}
+                {/* ── LEFT TACTICAL BRIEFING (7 cols) ── */}
                 <div className="lg:col-span-7 space-y-8 text-left">
-                    <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/25 px-4 py-1.5 rounded-sm">
-                        <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Tactical Offense Hub</span>
+                    
+                    {/* Security Agency Badge Header */}
+                    <div className="inline-flex items-center gap-2 bg-[#0c0c0f] border border-white/10 px-4 py-2 rounded-sm relative overflow-hidden group">
+                        <div className="absolute top-0 left-0 w-[2px] h-full bg-primary" />
+                        <Radio className="w-4 h-4 text-primary animate-pulse" />
+                        <span className="text-[9px] font-mono uppercase tracking-[0.3em] text-white/60">
+                            NODE ADDRESS: <span className="text-white">ARSENAL_GW_0x49</span>
+                        </span>
                     </div>
 
+                    {/* Pro Level Headline */}
                     <div className="space-y-4">
-                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.95] uppercase">
-                            Red Teaming<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-rose-600 drop-shadow-[0_0_20px_rgba(255,0,60,0.25)]">
-                                Documentation
+                        <div className="text-[11px] font-black uppercase text-primary tracking-[0.4em] mb-1">
+                            CLASSIFIED INTELLIGENCE SYSTEM
+                        </div>
+                        <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black tracking-tight leading-[0.9] uppercase relative group">
+                            ARSENAL
+                            <span className="block text-2xl sm:text-3xl lg:text-4xl text-white/50 font-light mt-2 tracking-[0.1em]">
+                                RED TEAM PLATFORM
                             </span>
                         </h1>
-                        <p className="max-w-xl text-white/40 text-sm sm:text-base font-light leading-relaxed">
-                            Welcome to the Arsenal repository. A hardened command vault detailing exploits, scan routines, weaponized payloads, and network mapping structures for secure operations.
+                        <p className="max-w-xl text-white/40 text-xs sm:text-sm font-light leading-relaxed pt-2">
+                            The military-grade orchestration documentation and command repository. Housing advanced payload models, host discovery maps, automated threat emulation sequences, and secure diagnostics logs.
                         </p>
                     </div>
 
-                    {/* Quick Stats Panel */}
-                    <div className="grid grid-cols-3 gap-4 border border-white/[0.04] bg-white/[0.01] backdrop-blur-md p-5 rounded-md relative overflow-hidden group">
-                        <div className="absolute top-0 left-0 w-2 h-[1px] bg-primary" />
-                        <div className="absolute top-0 left-0 w-[1px] h-2 bg-primary" />
-                        
+                    {/* Operational Dashboard Counters */}
+                    <div className="grid grid-cols-3 gap-6 pt-4 border-t border-b border-white/[0.05] py-6 max-w-lg">
                         <div className="space-y-1">
-                            <span className="block text-[8px] text-white/20 uppercase tracking-widest font-mono">THREAT_LEVEL</span>
-                            <span className="block text-xs font-black text-primary tracking-wide">{stats.threatLevel}</span>
+                            <div className="text-[9px] font-mono text-white/30 uppercase tracking-widest">DECRYPTED_TOOLS</div>
+                            <div className="text-2xl font-black text-white">09 <span className="text-[10px] font-normal text-primary">SECURE</span></div>
                         </div>
                         <div className="space-y-1">
-                            <span className="block text-[8px] text-white/20 uppercase tracking-widest font-mono">NODE_INTEGRITY</span>
-                            <span className="block text-xs font-black text-white/90 tracking-wide">{stats.integrity}%</span>
+                            <div className="text-[9px] font-mono text-white/30 uppercase tracking-widest">ACTIVE_BEACONS</div>
+                            <div className="text-2xl font-black text-white">04 <span className="text-[10px] font-normal text-primary">LIVE</span></div>
                         </div>
                         <div className="space-y-1">
-                            <span className="block text-[8px] text-white/20 uppercase tracking-widest font-mono">DENSITY_INDEX</span>
-                            <span className="block text-xs font-black text-white/90 tracking-wide">{stats.nodesConnected} PTS</span>
+                            <div className="text-[9px] font-mono text-white/30 uppercase tracking-widest">SECTOR_THREAT</div>
+                            <div className="text-2xl font-black text-primary">92% <span className="text-[10px] font-normal text-white/40">CRIT</span></div>
                         </div>
                     </div>
 
-                    {/* Entry Buttons */}
+                    {/* Core CTA triggers */}
                     <div className="flex flex-wrap gap-4 pt-4">
                         <Link 
                             href="/dashboard"
-                            className="px-8 py-4 bg-primary text-white font-black text-xs uppercase tracking-[0.25em] hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(255,0,60,0.3)] transition-all duration-300 flex items-center gap-3 group relative overflow-hidden"
+                            className="px-10 py-5 bg-primary text-white font-black text-[11px] uppercase tracking-[0.3em] hover:bg-primary-hover transition-all duration-300 flex items-center gap-3 group relative overflow-hidden shadow-[0_0_40px_rgba(255,0,60,0.2)] border border-primary/40 rounded-sm"
                         >
-                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
-                            Enter Console <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+                            INITIALIZE SYSTEM CONSOLE <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                         </Link>
                     </div>
                 </div>
 
-                {/* ── RIGHT ANIMATED HUD PANEL (5 cols) ── */}
+                {/* ── RIGHT HACKER DECK WIDGET (5 cols) ── */}
                 <div className="lg:col-span-5 relative w-full flex justify-center">
                     
-                    {/* Simulated terminal feed & Cyber deck visualization */}
-                    <div className="w-full max-w-[420px] bg-black/80 border border-white/[0.08] rounded-md shadow-2xl relative overflow-hidden">
-                        
-                        {/* Terminal Header */}
-                        <div className="bg-[#0c0c0e] border-b border-white/[0.06] px-5 py-3.5 flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                                <span className="w-2.5 h-2.5 rounded-full bg-primary/40" />
-                                <span className="text-[10px] font-mono text-white/50 tracking-wider">tactical_hud_stream.log</span>
+                    <div className="w-full max-w-[450px] bg-[#08080a] border border-white/10 shadow-2xl relative overflow-hidden rounded-sm">
+                        {/* Interactive Widget Header Tabs */}
+                        <div className="bg-[#0b0b0e] border-b border-white/[0.08] flex items-center justify-between px-4">
+                            <div className="flex gap-4">
+                                <button 
+                                    onClick={() => setActiveTab("logs")}
+                                    className={`py-3 text-[10px] font-mono uppercase tracking-wider border-b-2 cursor-pointer transition-all ${activeTab === "logs" ? "border-primary text-white" : "border-transparent text-white/30"}`}
+                                >
+                                    LOGS_STREAM
+                                </button>
+                                <button 
+                                    onClick={() => setActiveTab("console")}
+                                    className={`py-3 text-[10px] font-mono uppercase tracking-wider border-b-2 cursor-pointer transition-all ${activeTab === "console" ? "border-primary text-white" : "border-transparent text-white/30"}`}
+                                >
+                                    INTERACTIVE_SH
+                                </button>
                             </div>
-                            <Activity className="w-3.5 h-3.5 text-primary animate-pulse" />
+                            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                         </div>
 
-                        {/* Interactive HUD Animation Area */}
-                        <div className="p-6 space-y-6">
+                        {/* Interactive Widget Body */}
+                        <div className="p-6 h-[250px] overflow-y-auto font-mono text-[10px] space-y-3">
                             
-                            {/* Scanning rings or HUD radar */}
-                            <div className="w-40 h-40 mx-auto rounded-full border border-primary/20 flex items-center justify-center relative bg-primary/[0.01]">
-                                <div className="absolute inset-2 rounded-full border border-dashed border-primary/30 animate-[spin_30s_linear_infinite]" />
-                                <div className="absolute inset-8 rounded-full border border-primary/10" />
-                                <div className="absolute inset-14 rounded-full border border-dashed border-primary/40 animate-[spin_10s_linear_infinite]" />
-                                
-                                <Shield className="w-10 h-10 text-primary drop-shadow-[0_0_12px_rgba(255,0,60,0.4)] animate-pulse" />
-                                
-                                {/* Orbiting indicator point */}
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#ff003c] animate-ping" />
-                            </div>
-
-                            {/* Simulated Live Command Output Feed */}
-                            <div className="bg-black/60 border border-white/5 p-4 rounded font-mono text-[10px] space-y-2 h-36 overflow-hidden select-none">
-                                {terminalLogs.length === 0 ? (
-                                    <div className="text-white/20 flex items-center gap-2 py-4">
-                                        <span className="w-1 h-1.5 bg-primary animate-pulse" /> 
-                                        Awaiting connection stream...
+                            {activeTab === "logs" ? (
+                                <div className="space-y-2.5">
+                                    <div className="flex items-center gap-2 text-white/50">
+                                        <Activity className="w-3.5 h-3.5 text-primary shrink-0" />
+                                        <span>[SYS] SCANNING PORT SUITE ON LOCAL HOSTS</span>
                                     </div>
-                                ) : (
-                                    terminalLogs.map((log, index) => {
-                                        const isSystem = log.startsWith("SYSTEM");
-                                        const isExploit = log.startsWith("EXPLOIT");
-                                        const colorClass = isSystem ? "text-primary font-bold" : isExploit ? "text-amber-500 font-bold" : "text-white/60";
-                                        return (
-                                            <div key={index} className="truncate flex items-start gap-2">
-                                                <span className="text-primary font-bold">{`>`}</span>
-                                                <span className={colorClass}>{log}</span>
+                                    <div className="flex items-center gap-2 text-white/50">
+                                        <Cpu className="w-3.5 h-3.5 text-primary shrink-0" />
+                                        <span>[SYS] WEAPONIZED EXPLOIT PAYLOAD BUILDS LOADED</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-white/50">
+                                        <Database className="w-3.5 h-3.5 text-primary shrink-0" />
+                                        <span>[DB] DATABASE CONNECTED - MONGO_CLUSTER_7</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-white/50">
+                                        <Network className="w-3.5 h-3.5 text-primary shrink-0" />
+                                        <span>[NET] GATEWAY HANDSHAKE CONFIRMED AT IP 10.99.1.1</span>
+                                    </div>
+                                    <div className="text-white/20 pt-4 flex items-center gap-1.5 animate-pulse">
+                                        <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                                        LISTENING FOR TACTICAL BEACONS...
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="flex flex-col h-full justify-between">
+                                    <div className="space-y-1.5 overflow-y-auto max-h-[160px] pr-2">
+                                        {terminalLines.map((line, idx) => (
+                                            <div key={idx} className={line.startsWith(">") ? "text-primary font-bold" : "text-white/60"}>
+                                                {line}
                                             </div>
-                                        );
-                                    })
-                                )}
-                            </div>
+                                        ))}
+                                    </div>
+                                    <form onSubmit={handleCommandSubmit} className="flex gap-2 border-t border-white/5 pt-3 mt-3">
+                                        <span className="text-primary font-bold">{`$`}</span>
+                                        <input
+                                            type="text"
+                                            value={commandInput}
+                                            onChange={(e) => setCommandInput(e.target.value)}
+                                            placeholder="Type 'help' or commands here..."
+                                            className="bg-transparent flex-1 focus:outline-none text-[10px] text-white font-mono placeholder:text-white/25"
+                                        />
+                                    </form>
+                                </div>
+                            )}
+
                         </div>
 
-                        {/* HUD bottom indicators */}
-                        <div className="bg-[#0c0c0e] border-t border-white/[0.06] p-4 grid grid-cols-2 text-[9px] font-mono text-white/30">
-                            <div>SEC_LEVEL: CLASS_4</div>
-                            <div className="text-right text-primary font-bold animate-pulse">VAULT_LOCK: ACTIVE</div>
+                        {/* Interactive Widget Footer */}
+                        <div className="bg-[#0b0b0e] border-t border-white/[0.08] px-4 py-3 flex justify-between text-[8px] font-mono text-white/30 uppercase tracking-widest">
+                            <div>CLEARANCE: LEVEL_4</div>
+                            <div className="text-primary font-bold animate-pulse">HUD_ONLINE</div>
                         </div>
                     </div>
                 </div>
