@@ -131,7 +131,7 @@ export default async function DashboardPage({
                         <span className="text-xs font-bold text-white/25 uppercase tracking-widest">No tools found matching query.</span>
                     </div>
                 ) : (
-                    tools.map((tool) => (
+                    tools.map((tool: any) => (
                         <ToolCard key={tool._id.toString()} tool={tool} />
                     ))
                 )}
