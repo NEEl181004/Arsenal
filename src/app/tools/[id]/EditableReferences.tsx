@@ -60,75 +60,79 @@ export default function EditableReferences({
 
     return (
         <section id="references" className="scroll-mt-24 pb-20">
-            <div className="flex flex-wrap items-center justify-between gap-6 mb-8 border-b border-white/5 pb-4">
-                <h2 className="text-sm md:text-base font-bold text-white uppercase tracking-wider mb-0 flex items-center gap-4">
-                    <span>References</span>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-8 border-b border-white/[0.04] pb-6">
+                <div className="flex items-center justify-between w-full sm:w-auto flex-1 gap-6">
+                    <h2 className="text-[14px] md:text-[15px] font-black text-white uppercase tracking-widest flex items-center gap-4 flex-1" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>
+                        REFERENCES
+                    </h2>
                     {isAdmin && (
                         <button 
                             onClick={handleOpenEdit}
-                            className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1 cursor-pointer"
+                            className="text-[10px] font-black text-white/40 hover:text-white transition-colors uppercase flex items-center gap-1.5 shrink-0" style={{ fontFamily: "var(--font-barlow), sans-serif" }}
                         >
-                            <Pencil className="w-3 h-3 text-primary" /> Edit References
+                            <Pencil className="w-3.5 h-3.5 text-white/40" strokeWidth={2.5} /> EDIT REFERENCES
                         </button>
                     )}
-                </h2>
-                <div className="relative w-full md:w-[400px]">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
+                </div>
+                <div className="relative w-full sm:w-[300px] shrink-0">
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" strokeWidth={2} />
                     <input 
                         type="text" 
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="bg-white/[0.03] border border-white/10 pl-12 pr-4 py-3 text-xs font-bold uppercase tracking-widest text-white w-full focus:outline-none focus:border-primary/50 transition-all placeholder:text-white/10" 
+                        className="bg-transparent border border-white/10 rounded-xl pl-11 pr-4 py-3 text-[12px] font-medium text-white w-full focus:outline-none focus:border-white/30 transition-all placeholder:text-white/20" 
                         placeholder="Search references..." 
                     />
                 </div>
             </div>
             
-            <div className="space-y-2">
+            <div className="bg-[#0b0d11] border border-white/[0.08] rounded-xl overflow-hidden shadow-inner">
                 {/* Header - Desktop Only */}
-                <div className="hidden md:grid grid-cols-12 gap-8 px-6 py-4 border-b border-white/10 text-[10px] font-bold text-white/40 uppercase tracking-widest items-center">
-                    <div className="col-span-1 text-white/20 whitespace-nowrap">ID</div>
-                    <div className="col-span-6 whitespace-nowrap">Resource Name</div>
-                    <div className="col-span-2 whitespace-nowrap">Category</div>
-                    <div className="col-span-3 text-right whitespace-nowrap">Modified</div>
+                <div className="hidden md:grid grid-cols-12 gap-8 px-6 py-4 bg-white/[0.02] border-b border-white/[0.08] text-[10px] font-black text-white/30 uppercase tracking-widest items-center" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>
+                    <div className="col-span-1 whitespace-nowrap">ID</div>
+                    <div className="col-span-6 whitespace-nowrap">RESOURCE NAME</div>
+                    <div className="col-span-2 whitespace-nowrap text-center">CATEGORY</div>
+                    <div className="col-span-3 text-right whitespace-nowrap">MODIFIED</div>
                 </div>
 
                 {/* Content Rows */}
-                {filteredReferences.length === 0 ? (
-                    <div className="py-12 text-center text-white/10 uppercase font-black text-xs tracking-widest border border-dashed border-white/5">
-                        NO REFERENCES FOUND
-                    </div>
-                ) : (
-                    filteredReferences.map((ref, i) => (
-                        <div key={i} className="group bg-white/[0.01] md:bg-transparent border border-white/5 md:border-0 md:border-b md:border-white/[0.03] p-4 md:p-0 hover:bg-white/[0.02] transition-all">
-                            <Link href={ref.url || "#"} target="_blank" className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:px-6 md:py-4 items-center cursor-pointer">
-                                {/* Mobile Header Info */}
-                                <div className="flex items-center justify-between md:col-span-1">
-                                    <span className="text-xs font-bold text-white/10 uppercase tracking-widest">{i < 9 ? `0${i+1}` : i+1}</span>
-                                    <span className="md:hidden px-3 py-1 bg-white/5 border border-white/10 text-xs font-bold text-white/40 uppercase tracking-widest">{ref.type || "Docs"}</span>
-                                </div>
-
-                                {/* Resource Name */}
-                                <div className="md:col-span-6">
-                                    <div className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider group-hover:text-primary transition-colors break-words flex items-center gap-2">
-                                        {ref.name}
-                                        <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all text-primary" />
-                                    </div>
-                                </div>
-
-                                {/* Desktop Category */}
-                                <div className="hidden md:block md:col-span-2">
-                                    <span className="px-3 py-1 bg-white/5 border border-white/10 text-xs font-bold text-white/40 uppercase tracking-widest">{ref.type || "Docs"}</span>
-                                </div>
-
-                                {/* Desktop Modified Date */}
-                                <div className="hidden md:block md:col-span-3 text-xs font-bold text-white/20 uppercase tracking-widest text-right">
-                                    {ref.updatedAt || "2024.03.12"}
-                                </div>
-                            </Link>
+                <div className="divide-y divide-white/[0.04]">
+                    {filteredReferences.length === 0 ? (
+                        <div className="py-12 text-center text-white/10 uppercase font-black text-xs tracking-widest">
+                            NO REFERENCES FOUND
                         </div>
-                    ))
-                )}
+                    ) : (
+                        filteredReferences.map((ref, i) => (
+                            <div key={i} className="group bg-transparent hover:bg-white/[0.02] transition-colors">
+                                <Link href={ref.url || "#"} target="_blank" className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 px-6 py-5 items-center cursor-pointer">
+                                    {/* Mobile Header Info */}
+                                    <div className="flex items-center justify-between md:col-span-1">
+                                        <span className="text-[12px] font-black text-white/20 uppercase tracking-widest" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>{i < 9 ? `0${i+1}` : i+1}</span>
+                                        <span className="md:hidden px-3 py-1 bg-white/[0.03] border border-white/[0.08] text-[10px] font-black text-white/40 uppercase tracking-widest rounded" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>{ref.type || "DOCS"}</span>
+                                    </div>
+
+                                    {/* Resource Name */}
+                                    <div className="md:col-span-6">
+                                        <div className="text-[12px] md:text-[13px] font-black text-white uppercase tracking-wider group-hover:text-white transition-colors break-words flex items-center gap-2" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>
+                                            {ref.name}
+                                            <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-all text-white/40" strokeWidth={2} />
+                                        </div>
+                                    </div>
+
+                                    {/* Desktop Category */}
+                                    <div className="hidden md:block md:col-span-2 text-center">
+                                        <span className="px-3 py-1 bg-white/[0.03] border border-white/[0.08] text-[10px] font-black text-white/40 uppercase tracking-widest rounded" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>{ref.type || "DOCS"}</span>
+                                    </div>
+
+                                    {/* Desktop Modified Date */}
+                                    <div className="hidden md:block md:col-span-3 text-[11px] font-black text-white/20 uppercase tracking-widest text-right" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>
+                                        {ref.updatedAt || "2024.01.15"}
+                                    </div>
+                                </Link>
+                            </div>
+                        ))
+                    )}
+                </div>
             </div>
 
             {/* Glassmorphic Edit References Modal */}

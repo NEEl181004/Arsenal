@@ -1,89 +1,51 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
 export default function ToolBackgroundAnimation() {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
-
-        let animationFrameId: number;
-        let width = (canvas.width = window.innerWidth);
-        let height = (canvas.height = window.innerHeight);
-
-        const handleResize = () => {
-            if (!canvas) return;
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        };
-
-        window.addEventListener("resize", handleResize);
-
-        const fontSize = 12;
-        const columns = Math.floor(width / fontSize);
-        // Track the current y position for each column
-        const drops: number[] = Array(columns).fill(1);
-
-        let lastTime = 0;
-        const fpsInterval = 1000 / 15; // Slow 15 FPS to be subtle
-
-        const draw = (timestamp: number) => {
-            if (timestamp - lastTime > fpsInterval) {
-                lastTime = timestamp;
-
-                // Clear with transparent color to keep background transparent
-                ctx.clearRect(0, 0, width, height);
-
-                ctx.fillStyle = "rgba(255, 0, 60, 0.08)"; // Very subtle red
-                ctx.font = `${fontSize}px monospace`;
-
-                for (let i = 0; i < drops.length; i++) {
-                    const text = Math.random() > 0.5 ? "0" : "1";
-                    const x = i * fontSize;
-                    const y = drops[i] * fontSize;
-
-                    ctx.fillText(text, x, y);
-
-                    if (y > height && Math.random() > 0.98) {
-                        drops[i] = 0;
-                    }
-                    drops[i]++;
-                }
-            }
-
-            animationFrameId = requestAnimationFrame(draw);
-        };
-
-        animationFrameId = requestAnimationFrame(draw);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-            cancelAnimationFrame(animationFrameId);
-        };
-    }, []);
-
     return (
         <div className="fixed inset-0 w-full h-full pointer-events-none -z-50 overflow-hidden">
-            {/* Dark background base */}
-            <div className="absolute inset-0 bg-[#060608] -z-50" />
-            
-            {/* The matrix binary rain canvas */}
-            <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-40 -z-40" />
+            {/* Pure black base */}
+            <div className="absolute inset-0 bg-black -z-50" />
 
-            {/* Glowing tactical grids */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:40px_40px] -z-30" />
+            {/* Subtle dot grid */}
+            <div
+                className="absolute inset-0 -z-40 opacity-30"
+                style={{
+                    backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
+                    backgroundSize: "32px 32px",
+                }}
+            />
 
-            {/* Red tactical overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-primary/[0.01] to-[#0a0a0a] -z-20" />
+            {/* Faint red nebula top-right */}
+            <div
+                className="absolute -z-30"
+                style={{
+                    top: 0,
+                    right: 0,
+                    width: "50vw",
+                    height: "50vh",
+                    background: "radial-gradient(ellipse 70% 70% at 100% 0%, rgba(255,0,60,0.08) 0%, transparent 70%)",
+                    pointerEvents: "none",
+                }}
+            />
 
-            {/* Floating blurred red orbs */}
-            <div className="absolute top-1/4 left-1/10 w-[30rem] h-[30rem] bg-primary/[0.02] blur-[150px] rounded-full animate-pulse -z-20" />
-            <div className="absolute bottom-1/4 right-1/10 w-[30rem] h-[30rem] bg-primary/[0.015] blur-[150px] rounded-full animate-pulse -z-20" />
+            {/* Faint red nebula bottom-left */}
+            <div
+                className="absolute -z-30"
+                style={{
+                    bottom: 0,
+                    left: 0,
+                    width: "40vw",
+                    height: "40vh",
+                    background: "radial-gradient(ellipse 60% 60% at 0% 100%, rgba(180,0,40,0.05) 0%, transparent 70%)",
+                    pointerEvents: "none",
+                }}
+            />
+
+            {/* Horizontal scanline accent */}
+            <div
+                className="absolute inset-x-0 top-0 h-px -z-20"
+                style={{ background: "linear-gradient(90deg, transparent, rgba(255,0,60,0.3), transparent)" }}
+            />
         </div>
     );
 }

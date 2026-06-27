@@ -1,29 +1,49 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Inter, Barlow_Condensed, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
 
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
-const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-plus-jakarta" });
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono-jetbrains" });
+/* Body / UI text — clean, modern, readable */
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+/* Headlines / large display text — tight, bold, condensed */
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-barlow",
+  display: "swap",
+});
+
+/* Monospace — labels, tags, code snippets */
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-    title: "Arsenal - Red Team Tool Documentation",
-    description: "Red Team Tool Documentation",
+  title: "Arsenal — Red Team. Documented. Weaponized.",
+  description:
+    "Arsenal is your comprehensive documentation hub for red teaming tools, techniques, and tradecraft.",
 };
 
 export default function RootLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <html lang="en" className={`${outfit.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} dark`}>
-            <body className="bg-[#0a0a0a] text-white selection:bg-primary/20 selection:text-primary antialiased overflow-x-hidden">
-                <LayoutWrapper>
-                    {children}
-                </LayoutWrapper>
-            </body>
-        </html>
-    );
+  return (
+    <html
+      lang="en"
+      className={`${inter.variable} ${barlowCondensed.variable} ${jetbrainsMono.variable} dark`}
+    >
+      <body className="bg-[#05070B] text-white antialiased overflow-x-hidden">
+        <LayoutWrapper>{children}</LayoutWrapper>
+      </body>
+    </html>
+  );
 }

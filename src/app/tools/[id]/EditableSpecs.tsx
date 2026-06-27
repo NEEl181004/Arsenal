@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Pencil, X, Save, Loader2, Plus, Trash2, Terminal } from "lucide-react";
+import { Pencil, X, Save, Loader2, Plus, Trash2, Terminal, ChevronDown, Cpu, MemoryStick, Database, MonitorPlay, Globe } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 
 export default function EditableSpecs({
@@ -67,8 +67,18 @@ export default function EditableSpecs({
         return Icon;
     };
 
+    const getSpecIcon = (key: string) => {
+        const k = key.toUpperCase();
+        if (k.includes("CPU") || k.includes("PROCESSOR")) return Cpu;
+        if (k.includes("RAM") || k.includes("MEMORY")) return MemoryStick;
+        if (k.includes("STORAGE") || k.includes("DISK") || k.includes("SSD")) return Database;
+        if (k.includes("GPU") || k.includes("GRAPHICS")) return MonitorPlay;
+        if (k.includes("NETWORK") || k.includes("WIFI") || k.includes("INTERNET")) return Globe;
+        return Plus;
+    };
+
     return (
-        <div className="space-y-6 mb-16">
+        <div className="space-y-6 mb-6">
             {isAdmin && (
                 <div className="flex justify-end mb-1">
                     <button 
@@ -82,17 +92,26 @@ export default function EditableSpecs({
 
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
                 {/* System Support */}
-                <div className="bg-[#0e0e0e]/80 border border-white/[0.04] p-6 space-y-6 relative rounded-sm">
-                    <div className="text-xs font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-3 mb-4 whitespace-nowrap">System Support</div>
+                <div 
+                    className="relative p-6 space-y-6 rounded-xl"
+                    style={{
+                        background: "linear-gradient(135deg, #0b0d11 0%, #080a0d 50%, #0a0b0e 100%)",
+                        border: "1px solid rgba(255,255,255,0.08)"
+                    }}
+                >
+                    <div className="flex items-center gap-3 mb-6">
+                        <ChevronDown className="w-4 h-4 text-[#FF003C] -rotate-90" strokeWidth={3} />
+                        <span className="text-[13px] font-black text-white/90 uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>System Support</span>
+                    </div>
                     <div className="space-y-6">
                         {systemSupport.map((o, i) => {
                             const IconComp = getIconComponent(o.icon);
                             return (
-                                <div key={i} className="flex items-center gap-4 group">
-                                    <IconComp className="w-8 h-8 text-primary transition-transform group-hover:scale-105 shrink-0" />
+                                <div key={i} className="flex items-start gap-4 group">
+                                    <IconComp className="w-5 h-5 text-[#FF003C] transition-transform group-hover:scale-105 shrink-0 mt-0.5" strokeWidth={1.5} />
                                     <div className="min-w-0">
-                                        <div className="text-sm font-bold text-white uppercase tracking-wider">{o.os}</div>
-                                        <div className="text-[10px] text-white/40 mt-0.5 uppercase font-bold tracking-widest">{o.sub}</div>
+                                        <div className="text-[13px] font-black text-white uppercase tracking-widest" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>{o.os}</div>
+                                        <div className="text-[11px] text-white/40 mt-1" style={{ fontFamily: "var(--font-sans)" }}>{o.sub}</div>
                                     </div>
                                 </div>
                             );
@@ -101,35 +120,61 @@ export default function EditableSpecs({
                 </div>
 
                 {/* Minimum Spec */}
-                <div className="bg-[#0e0e0e]/80 border border-white/[0.04] p-6 space-y-6 relative rounded-sm">
-                    <div className="text-xs font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-3 mb-4 whitespace-nowrap">Minimum Spec</div>
-                    <div className="space-y-3">
-                        {minimumSpec.map((s, i) => (
-                            <div key={i} className="flex items-center justify-between p-3 bg-white/[0.01] border border-white/[0.03] group hover:bg-white/[0.03] transition-all">
-                                <div className="flex items-center gap-3 shrink-0">
-                                    <div className="w-1.5 h-1.5 bg-primary/40 group-hover:bg-primary transition-colors"></div>
-                                    <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest whitespace-nowrap">{s.k}</span>
+                <div 
+                    className="relative p-6 space-y-6 rounded-xl"
+                    style={{
+                        background: "linear-gradient(135deg, #0b0d11 0%, #080a0d 50%, #0a0b0e 100%)",
+                        border: "1px solid rgba(255,255,255,0.08)"
+                    }}
+                >
+                    <div className="flex items-center gap-3 mb-6">
+                        <ChevronDown className="w-4 h-4 text-[#FF003C] -rotate-90" strokeWidth={3} />
+                        <span className="text-[13px] font-black text-white/90 uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>Minimum Spec</span>
+                    </div>
+                    <div className="flex flex-col">
+                        {minimumSpec.map((s, i) => {
+                            const isLast = i === minimumSpec.length - 1;
+                            const SpecIcon = getSpecIcon(s.k);
+                            return (
+                                <div key={i} className={`flex items-center justify-between group py-4 ${!isLast ? 'border-b border-white/[0.04]' : ''}`}>
+                                    <div className="flex items-center gap-4 shrink-0">
+                                        <SpecIcon className="w-4 h-4 text-[#FF003C]" strokeWidth={2} />
+                                        <span className="text-[11px] font-black text-white/50 uppercase tracking-widest" style={{ fontFamily: "var(--font-mono), monospace" }}>{s.k}</span>
+                                    </div>
+                                    <span className="text-[12px] font-black text-white uppercase tracking-widest text-right" style={{ fontFamily: "var(--font-mono), monospace" }}>{s.v}</span>
                                 </div>
-                                <span className="text-xs font-bold text-white uppercase tracking-wider text-right">{s.v}</span>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
 
                 {/* Optimized Spec */}
-                <div className="bg-[#0e0e0e]/80 border border-primary/10 p-6 relative overflow-hidden rounded-sm">
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 -mr-12 -mt-12 rounded-full blur-3xl"></div>
-                    <div className="text-xs font-bold text-white uppercase tracking-widest border-l-2 border-primary pl-3 mb-4 whitespace-nowrap">Optimized Spec</div>
-                    <div className="space-y-3">
-                        {optimizedSpec.map((s, i) => (
-                            <div key={i} className="flex items-center justify-between p-3 bg-white/[0.01] border border-white/[0.03] group hover:bg-white/[0.03] transition-all gap-3">
-                                <div className="flex items-center gap-3 shrink-0">
-                                    <div className="w-1.5 h-1.5 bg-primary shadow-[0_0_8px_rgba(255,0,60,0.6)]"></div>
-                                    <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest whitespace-nowrap">{s.k}</span>
+                <div 
+                    className="relative p-6 space-y-6 rounded-xl overflow-hidden"
+                    style={{
+                        background: "linear-gradient(135deg, #0b0d11 0%, #080a0d 50%, #0a0b0e 100%)",
+                        border: "1px solid rgba(255,0,60,0.15)"
+                    }}
+                >
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF003C]/5 -mr-16 -mt-16 rounded-full blur-3xl"></div>
+                    <div className="flex items-center gap-3 mb-6 relative z-10">
+                        <ChevronDown className="w-4 h-4 text-[#FF003C] -rotate-90" strokeWidth={3} />
+                        <span className="text-[13px] font-black text-white/90 uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>Optimized Spec</span>
+                    </div>
+                    <div className="flex flex-col relative z-10">
+                        {optimizedSpec.map((s, i) => {
+                            const isLast = i === optimizedSpec.length - 1;
+                            const SpecIcon = getSpecIcon(s.k);
+                            return (
+                                <div key={i} className={`flex items-center justify-between group py-4 ${!isLast ? 'border-b border-[#FF003C]/[0.06]' : ''}`}>
+                                    <div className="flex items-center gap-4 shrink-0">
+                                        <SpecIcon className="w-4 h-4 text-[#FF003C]" strokeWidth={2} />
+                                        <span className="text-[11px] font-black text-white/50 uppercase tracking-widest" style={{ fontFamily: "var(--font-mono), monospace" }}>{s.k}</span>
+                                    </div>
+                                    <span className="text-[12px] font-black text-[#FF003C] uppercase tracking-widest text-right" style={{ fontFamily: "var(--font-mono), monospace" }}>{s.v}</span>
                                 </div>
-                                <span className="text-xs font-bold text-primary uppercase tracking-wider text-right">{s.v}</span>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </div>

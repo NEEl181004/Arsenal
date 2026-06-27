@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Terminal, Copy, CheckCircle2, ChevronDown, Pencil, X, Save, Loader2, Plus, Trash2 } from "lucide-react";
+import { Terminal, Copy, CheckCircle2, ChevronDown, Pencil, X, Save, Loader2, Plus, Trash2, SquarePen } from "lucide-react";
 import { IInstallationTab } from "@/models/Tool";
 
 export default function InstallationViewer({ 
@@ -76,28 +76,17 @@ export default function InstallationViewer({
     }
 
     return (
-        <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-1000 relative">
-            {/* Header Overlay Edit Button */}
-            {isAdmin && (
-                <div className="flex justify-end mb-1">
-                    <button 
-                        onClick={handleOpenEdit}
-                        className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1 cursor-pointer bg-white/[0.03] border border-white/10 px-4 py-2"
-                    >
-                        <Pencil className="w-3 h-3 text-primary" /> Edit Installation
-                    </button>
-                </div>
-            )}
-
+        <div className="space-y-6 animate-in fade-in duration-1000 relative">
             {/* Environment Selection Header */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-white/5 pb-4 sm:pb-6 gap-4">
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
                 {/* Mobile Dropdown View (Phone only) */}
                 <div className="md:hidden relative w-full group">
-                    <div className="text-[10px] font-bold text-primary/70 uppercase tracking-widest mb-2 ml-1">SELECT ENVIRONMENT</div>
+                    <div className="text-[10px] font-bold text-[#FF003C]/70 uppercase tracking-widest mb-2 ml-1" style={{ fontFamily: "var(--font-mono), monospace" }}>SELECT ENVIRONMENT</div>
                     <select 
                         value={activeTab}
                         onChange={(e) => setActiveTab(Number(e.target.value))}
-                        className="w-full bg-white/[0.03] border border-white/10 p-3 pr-10 appearance-none text-[11px] font-bold text-white uppercase tracking-wider focus:outline-none focus:border-primary/50 transition-all cursor-pointer"
+                        className="w-full bg-white/[0.03] border border-white/10 rounded-lg p-3 pr-10 appearance-none text-[11px] font-bold text-white uppercase tracking-wider focus:outline-none focus:border-[#FF003C]/50 transition-all cursor-pointer"
+                        style={{ fontFamily: "var(--font-mono), monospace" }}
                     >
                         {data.map((tab, i) => (
                             <option key={i} value={i} className="bg-[#0a0a0a] text-white">
@@ -105,68 +94,162 @@ export default function InstallationViewer({
                             </option>
                         ))}
                     </select>
-                    <div className="absolute right-4 bottom-3 pointer-events-none text-primary">
+                    <div className="absolute right-4 bottom-3 pointer-events-none text-[#FF003C]">
                         <ChevronDown className="w-4 h-4" />
                     </div>
                 </div>
 
                 {/* Tablet & Desktop Tabs View (768px+) */}
-                <div className="hidden md:flex flex-wrap gap-3">
-                    {data.map((tab, i) => (
-                        <button 
-                            key={i} 
-                            onClick={() => setActiveTab(i)}
-                            className={`px-5 py-2 text-[10px] font-bold uppercase tracking-wider transition-all border ${
-                                i === activeTab 
-                                ? "bg-primary text-white border-primary shadow-[0_0_10px_rgba(255,0,60,0.2)]" 
-                                : "text-white/30 border-white/5 hover:text-white hover:bg-white/5"
-                            }`}
-                        >
-                            {tab.tabName.toUpperCase()}
-                        </button>
-                    ))}
+                <div className="hidden md:flex items-center gap-3">
+                    {data.map((tab, i) => {
+                        const isActive = i === activeTab;
+                        return (
+                            <button
+                                key={i}
+                                onClick={() => setActiveTab(i)}
+                                className="relative flex items-center cursor-pointer rounded-lg border transition-all duration-200"
+                                style={{
+                                    fontFamily: "var(--font-mono), monospace",
+                                    fontSize: "10px",
+                                    fontWeight: 900,
+                                    letterSpacing: "0.15em",
+                                    textTransform: "uppercase",
+                                    padding: "10px 24px",
+                                    color: isActive ? "#ffffff" : "rgba(255,255,255,0.45)",
+                                    backgroundColor: isActive ? "rgba(255,0,60,0.06)" : "transparent",
+                                    borderColor: isActive ? "rgba(255,0,60,0.4)" : "rgba(255,255,255,0.1)",
+                                    boxShadow: isActive ? "0 0 12px rgba(255,0,60,0.15) inset, 0 0 12px rgba(255,0,60,0.15)" : "none",
+                                }}
+                                onMouseEnter={e => {
+                                    if (!isActive) {
+                                        e.currentTarget.style.color = "#ffffff";
+                                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)";
+                                    }
+                                }}
+                                onMouseLeave={e => {
+                                    if (!isActive) {
+                                        e.currentTarget.style.color = "rgba(255,255,255,0.45)";
+                                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                                    }
+                                }}
+                            >
+                                {tab.tabName.toUpperCase()}
+                            </button>
+                        );
+                    })}
                 </div>
 
-                <div className="flex flex-col items-start md:items-end gap-1">
-                    <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest whitespace-nowrap">
-                        MODULE: DEPLOY SEQUENCE 0{activeTab + 1}
+                {/* Right Side: Edit Button & Module Label */}
+                <div className="flex flex-col items-start md:items-end gap-2">
+                    {isAdmin && (
+                        <button
+                            onClick={handleOpenEdit}
+                            className="flex items-center gap-2 cursor-pointer rounded-lg border transition-all duration-200"
+                            style={{
+                                fontFamily: "var(--font-mono), monospace",
+                                fontSize: "9px",
+                                fontWeight: 900,
+                                letterSpacing: "0.15em",
+                                textTransform: "uppercase",
+                                color: "rgba(255,255,255,0.4)",
+                                padding: "9px 18px",
+                                backgroundColor: "rgba(255,255,255,0.02)",
+                                borderColor: "rgba(255,255,255,0.1)",
+                            }}
+                            onMouseEnter={e => {
+                                e.currentTarget.style.color = "#ffffff";
+                                e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.05)";
+                                e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)";
+                            }}
+                            onMouseLeave={e => {
+                                e.currentTarget.style.color = "rgba(255,255,255,0.4)";
+                                e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.02)";
+                                e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                            }}
+                        >
+                            <SquarePen style={{ width: "11px", height: "11px", color: "#FF003C" }} />
+                            Edit Installation
+                        </button>
+                    )}
+                    <div className="text-[9px] font-black text-white/30 uppercase tracking-[0.2em] whitespace-nowrap md:mr-1" style={{ fontFamily: "var(--font-mono), monospace" }}>
+                        MODULE DEPLOY SEQUENCE 0{activeTab + 1}
                     </div>
-                    <div className="h-0.5 w-8 bg-primary/20 self-start md:self-end"></div>
                 </div>
             </div>
 
             {/* Steps List */}
             {currentTab && (
-                <div className="space-y-4">
+                <div 
+                    className="border border-white/5 rounded-xl overflow-hidden relative"
+                    style={{ background: "linear-gradient(135deg, #0b0d11 0%, #080a0d 50%, #0a0b0e 100%)" }}
+                >
                     {currentTab.steps.map((step, i) => {
                         const hasCmd = step.cmd && step.cmd.trim().length > 0;
+                        const isLast = i === currentTab.steps.length - 1;
                         return (
-                            <div key={i} className="bg-white/[0.01] border border-white/5 hover:bg-white/[0.02] transition-all group overflow-hidden">
-                                <div className={hasCmd ? "grid grid-cols-1 lg:grid-cols-2" : "w-full"}>
-                                    <div className={`p-5 md:p-6 relative ${hasCmd ? "border-b lg:border-b-0 lg:border-r border-white/5" : ""}`}>
-                                        <div className="absolute top-0 left-0 w-[2px] h-full bg-primary/20 group-hover:bg-primary transition-colors"></div>
-                                        <div className="text-xs font-bold text-white uppercase tracking-wider border-l border-primary pl-3 mb-3 break-words">
+                            <div 
+                                key={i} 
+                                className={`flex flex-col lg:flex-row items-stretch ${!isLast ? "border-b border-white/[0.04]" : ""}`}
+                            >
+                                {/* Left Side: Step Info */}
+                                <div className={`flex items-start gap-5 p-6 ${hasCmd ? "lg:w-5/12 border-b lg:border-b-0 lg:border-r border-white/[0.04]" : "w-full"}`}>
+                                    {/* Number Box */}
+                                    <div className="flex items-center justify-center shrink-0 w-11 h-11 rounded-lg" style={{ background: "rgba(255,0,60,0.05)", border: "1px solid rgba(255,0,60,0.12)" }}>
+                                        <span className="text-[13px] font-black text-white/90" style={{ fontFamily: "var(--font-barlow), sans-serif", letterSpacing: "0.05em" }}>
+                                            {step.id || `0${i+1}`}
+                                        </span>
+                                    </div>
+                                    <div className="pt-0.5">
+                                        <div className="text-[11px] font-black text-white/90 uppercase tracking-widest mb-1.5" style={{ fontFamily: "var(--font-mono), monospace" }}>
                                             STEP {step.id || `0${i+1}`}: {step.name.toUpperCase()}
                                         </div>
-                                        <p className="text-xs text-white/40 font-normal leading-relaxed pr-4 break-words">
+                                        <div className="text-[10px] text-white/40" style={{ fontFamily: "var(--font-sans)", lineHeight: "1.6" }}>
                                             {step.desc}
-                                        </p>
+                                        </div>
                                     </div>
-                                    {hasCmd && (
-                                        <div className="flex-1 p-5 md:p-6 bg-black/20 flex items-center justify-between group/cmd relative">
-                                            <div className="flex items-start gap-3 font-mono text-xs scroll-smooth">
-                                                <span className="text-primary font-black animate-pulse shrink-0">$</span>
-                                                <span className="text-white tracking-wide break-words whitespace-normal leading-relaxed">{step.cmd}</span>
-                                            </div>
+                                </div>
+
+                                {/* Right Side: Command */}
+                                {hasCmd && (
+                                    <div className="lg:w-7/12 p-6 flex flex-col justify-center relative bg-black/20">
+                                        <div className="flex items-center justify-between gap-4">
+                                            <code className="text-[11px] text-white/70 break-all whitespace-pre-wrap select-all" style={{ fontFamily: "var(--font-mono), monospace" }}>
+                                                <span className="text-[#FF003C] mr-3 select-none font-black">$</span>
+                                                {step.cmd}
+                                            </code>
                                             <button 
-                                                onClick={() => copyToClipboard(step.cmd, i)}
-                                                className="p-2 bg-white/[0.03] border border-white/5 text-white/20 hover:text-primary hover:border-primary/30 transition-all shrink-0 ml-4"
+                                                onClick={() => copyToClipboard(step.cmd || "", i)}
+                                                className="p-2.5 rounded-lg border transition-all shrink-0 cursor-pointer flex items-center justify-center"
+                                                style={{
+                                                    backgroundColor: copiedIndex === i ? "rgba(255,0,60,0.15)" : "rgba(255,255,255,0.02)",
+                                                    borderColor: copiedIndex === i ? "rgba(255,0,60,0.3)" : "rgba(255,255,255,0.08)",
+                                                    color: copiedIndex === i ? "#FF003C" : "rgba(255,255,255,0.4)",
+                                                }}
+                                                onMouseEnter={e => {
+                                                    if (copiedIndex !== i) {
+                                                        e.currentTarget.style.color = "#ffffff";
+                                                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)";
+                                                        e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.05)";
+                                                    }
+                                                }}
+                                                onMouseLeave={e => {
+                                                    if (copiedIndex !== i) {
+                                                        e.currentTarget.style.color = "rgba(255,255,255,0.4)";
+                                                        e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                                                        e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.02)";
+                                                    }
+                                                }}
+                                                title="Copy to clipboard"
                                             >
-                                                {copiedIndex === i ? <CheckCircle2 className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4" />}
+                                                {copiedIndex === i ? (
+                                                    <CheckCircle2 className="w-4 h-4" />
+                                                ) : (
+                                                    <Copy className="w-4 h-4" />
+                                                )}
                                             </button>
                                         </div>
-                                    )}
-                                </div>
+                                    </div>
+                                )}
                             </div>
                         );
                     })}

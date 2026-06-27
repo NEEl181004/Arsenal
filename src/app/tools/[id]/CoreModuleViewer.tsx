@@ -2,24 +2,49 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import * as LucideIcons from "lucide-react";
-import { ChevronDown, Pencil, X, Save, Loader2, Plus, Trash2 } from "lucide-react";
+import { ChevronDown, SquarePen, X, Save, Loader2, Plus, Trash2, ArrowRight, BarChart2 } from "lucide-react";
 
-export default function CoreModuleViewer({ 
-    modules, 
-    isAdmin = false, 
-    toolId 
-}: { 
-    modules: any[]; 
-    isAdmin?: boolean; 
-    toolId?: string; 
+/* ─── Value color logic ─────────────────────────────────────── */
+function valueColor(val: string): string {
+    const v = val?.toUpperCase() || "";
+    if (/^(UP|ACTIVE|ONLINE|PASS|OK|SUCCESS|ENABLED)/.test(v)) return "#22C55E";
+    return "#FF003C";
+}
+
+/* ─── Faint world-map bg ────────────────────────────── */
+function WorldMapBg() {
+    return (
+        <div 
+            className="absolute inset-0 z-0 pointer-events-none opacity-60 mix-blend-screen"
+            style={{
+                backgroundImage: "url('/world-map-bg.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat"
+            }}
+        >
+            {/* Fade overlay so the right side stays dark for text readability */}
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to right, transparent 0%, transparent 40%, #0a0b0e 85%)" }} />
+            {/* Top/Bottom fade */}
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #0a0b0e 0%, transparent 20%, transparent 80%, #0a0b0e 100%)" }} />
+        </div>
+    );
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+export default function CoreModuleViewer({
+    modules,
+    isAdmin = false,
+    toolId,
+}: {
+    modules: any[];
+    isAdmin?: boolean;
+    toolId?: string;
 }) {
     const router = useRouter();
     const [activeIndex, setActiveIndex] = useState(0);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [saving, setSaving] = useState(false);
-
-    // Form State
     const [formModules, setFormModules] = useState<any[]>([]);
 
     const active = modules[activeIndex] || modules[0];
@@ -36,31 +61,25 @@ export default function CoreModuleViewer({
             const res = await fetch(`/api/tools/${toolId}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    core_modules: formModules
-                })
+                body: JSON.stringify({ core_modules: formModules }),
             });
-
-            if (res.ok) {
-                setIsEditModalOpen(false);
-                router.refresh();
-            } else {
-                const err = await res.json();
-                alert(`Error saving modules: ${err.error || "Unknown error"}`);
-            }
+            if (res.ok) { setIsEditModalOpen(false); router.refresh(); }
+            else { const err = await res.json(); alert(`Error: ${err.error || "Unknown"}`); }
         } catch (e: any) {
-            alert(`Error: ${e.message || e}`);
-        } finally {
-            setSaving(false);
-        }
+            alert(`Error: ${e.message}`);
+        } finally { setSaving(false); }
     };
 
+    /* ── Empty state ─────────────────────────── */
     if (!modules || modules.length === 0) {
         return (
-            <div className="p-20 border border-dashed border-white/5 text-center text-white/10 font-black text-[11px] tracking-[0.5em] uppercase flex flex-col items-center gap-4">
+            <div className="p-16 border border-dashed border-white/5 text-center flex flex-col items-center gap-4"
+                style={{ color: "rgba(255,255,255,0.1)", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.5em" }}>
                 <span>AWAITING CORE MODULES...</span>
                 {isAdmin && (
-                    <button onClick={handleOpenEdit} className="bg-primary/20 hover:bg-primary px-6 py-3 border border-primary/40 text-xs font-bold text-white uppercase tracking-widest transition-all">
+                    <button onClick={handleOpenEdit}
+                        className="px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-white transition-all"
+                        style={{ background: "rgba(255,0,60,0.15)", border: "1px solid rgba(255,0,60,0.3)" }}>
                         Create First Module
                     </button>
                 )}
@@ -68,180 +87,290 @@ export default function CoreModuleViewer({
         );
     }
 
+    /* ─────────────────────────────────────────────────────── */
     return (
-        <div className="space-y-1 relative">
-            {/* Header Overlay Edit Button */}
-            {isAdmin && (
-                <div className="flex justify-end mb-4">
-                    <button 
-                        onClick={handleOpenEdit}
-                        className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1 cursor-pointer bg-white/[0.03] border border-white/10 px-4 py-2"
-                    >
-                        <Pencil className="w-3 h-3 text-primary" /> Edit Modules
-                    </button>
-                </div>
-            )}
+        <div className="relative">
 
-            {/* Mobile Dropdown View (Phone only) */}
-            <div className="md:hidden mb-4">
-                <div className="relative group">
-                    <select 
-                        value={activeIndex}
-                        onChange={(e) => setActiveIndex(Number(e.target.value))}
-                        className="w-full bg-white/[0.03] border border-white/10 p-5 pr-12 appearance-none text-[12px] font-black text-white uppercase tracking-[0.3em] focus:outline-none focus:border-primary/50 transition-all cursor-pointer"
-                    >
-                        {modules.map((m, i) => (
-                            <option key={i} value={i} className="bg-[#0a0a0a] text-white">
-                                {m.name.toUpperCase()}
-                            </option>
-                        ))}
-                    </select>
-                    <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-primary">
-                        <ChevronDown className="w-5 h-5" />
-                    </div>
-                </div>
-            </div>
-
-            {/* Tablet & Desktop Tabs View (768px+) */}
-            <div className="hidden md:grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mb-1">
-                {modules.map((m, i) => {
-                    const isSvg = m.icon?.trim().startsWith("<svg");
-                    const Icon = (LucideIcons as any)[m.icon] || LucideIcons.Layers;
-                    const isActive = i === activeIndex;
-                    return (
-                        <div 
-                            key={i} 
-                            onClick={() => setActiveIndex(i)}
-                            className={`flex flex-col items-center gap-4 p-6 border border-white/5 group cursor-pointer transition-all ${isActive ? "bg-white/[0.03] border-primary/20 shadow-[0_0_30px_rgba(255,0,60,0.05)]" : "hover:bg-white/[0.01]"}`}
+            {/* ══ TABS ROW ══════════════════════════════════════════════ */}
+            <div className="flex items-center justify-between mb-4">
+                {/* Left: tab buttons */}
+                <div className="flex items-center gap-3">
+                    {/* Mobile dropdown */}
+                    <div className="md:hidden relative w-full">
+                        <select value={activeIndex} onChange={e => setActiveIndex(Number(e.target.value))}
+                            className="bg-transparent border border-white/10 rounded-lg text-white uppercase appearance-none focus:outline-none pr-7 pl-4 py-3"
+                            style={{ fontFamily: "var(--font-mono), monospace", fontSize: "10px", fontWeight: 900, letterSpacing: "0.18em" }}
                         >
-                            {isSvg ? (
-                                <div 
-                                    className={`w-6 h-6 ${isActive ? "text-primary" : "text-white/40 group-hover:text-white"} transition-colors`}
-                                    dangerouslySetInnerHTML={{ __html: m.icon }}
-                                />
-                            ) : (
-                                <Icon className={`w-6 h-6 ${isActive ? "text-primary" : "text-white/40 group-hover:text-white"} transition-colors`} />
-                            )}
-                            <span className={`text-xs font-black tracking-[0.1em] lg:tracking-[0.2em] text-center ${isActive ? "text-primary" : "text-white/60 group-hover:text-white"} break-words w-full`}>{m.name.toUpperCase()}</span>
-                        </div>
-                    );
-                })}
+                            {modules.map((m, i) => (
+                                <option key={i} value={i} className="bg-[#0a0a0a]">{m.name.toUpperCase()}</option>
+                            ))}
+                        </select>
+                        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-white/40 pointer-events-none" />
+                    </div>
+
+                    {/* Desktop tabs */}
+                    <div className="hidden md:flex items-center gap-3">
+                        {modules.map((m, i) => {
+                            const isActive = i === activeIndex;
+                            return (
+                                <button
+                                    key={i}
+                                    onClick={() => setActiveIndex(i)}
+                                    className="relative flex items-center cursor-pointer rounded-lg border transition-all duration-200"
+                                    style={{
+                                        fontFamily: "var(--font-mono), monospace",
+                                        fontSize: "10px",
+                                        fontWeight: 900,
+                                        letterSpacing: "0.15em",
+                                        textTransform: "uppercase",
+                                        padding: "10px 24px",
+                                        color: isActive ? "#ffffff" : "rgba(255,255,255,0.45)",
+                                        backgroundColor: isActive ? "rgba(255,0,60,0.06)" : "transparent",
+                                        borderColor: isActive ? "rgba(255,0,60,0.4)" : "rgba(255,255,255,0.1)",
+                                        boxShadow: isActive ? "0 0 12px rgba(255,0,60,0.15) inset, 0 0 12px rgba(255,0,60,0.15)" : "none",
+                                    }}
+                                    onMouseEnter={e => {
+                                        if (!isActive) {
+                                            e.currentTarget.style.color = "#ffffff";
+                                            e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)";
+                                        }
+                                    }}
+                                    onMouseLeave={e => {
+                                        if (!isActive) {
+                                            e.currentTarget.style.color = "rgba(255,255,255,0.45)";
+                                            e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                                        }
+                                    }}
+                                >
+                                    {m.name.toUpperCase()}
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                {/* Right: EDIT MODULES button */}
+                {isAdmin && (
+                    <button
+                        onClick={handleOpenEdit}
+                        className="hidden md:flex items-center gap-2 cursor-pointer rounded-lg border transition-all duration-200"
+                        style={{
+                            fontFamily: "var(--font-mono), monospace",
+                            fontSize: "9px",
+                            fontWeight: 900,
+                            letterSpacing: "0.15em",
+                            textTransform: "uppercase",
+                            color: "rgba(255,255,255,0.4)",
+                            padding: "9px 18px",
+                            backgroundColor: "rgba(255,255,255,0.02)",
+                            borderColor: "rgba(255,255,255,0.1)",
+                        }}
+                        onMouseEnter={e => {
+                            e.currentTarget.style.color = "#ffffff";
+                            e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.05)";
+                            e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)";
+                        }}
+                        onMouseLeave={e => {
+                            e.currentTarget.style.color = "rgba(255,255,255,0.4)";
+                            e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.02)";
+                            e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                        }}
+                    >
+                        <SquarePen style={{ width: "11px", height: "11px", color: "#FF003C" }} />
+                        Edit Modules
+                    </button>
+                )}
             </div>
 
+            {/* ══ MODULE CARD ═══════════════════════════════════════════ */}
             {active && (
-                <div className="bg-white/[0.02] border border-white/5 p-6 sm:p-10 md:p-12 xl:p-14 grid grid-cols-1 xl:grid-cols-5 gap-12 xl:gap-16 relative overflow-hidden animate-in fade-in duration-700">
-                    <div className="xl:col-span-3 space-y-6 sm:space-y-8">
-                        <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-primary uppercase tracking-tight break-words" dangerouslySetInnerHTML={{ __html: active.title.toUpperCase() }} />
-                        <p className="text-white/40 text-sm leading-relaxed font-light break-words" dangerouslySetInnerHTML={{ __html: active.description }} />
+                <div
+                    className="relative overflow-hidden grid grid-cols-1 lg:grid-cols-5 rounded-xl"
+                    style={{
+                        background: "linear-gradient(135deg, #0b0d11 0%, #080a0d 50%, #0a0b0e 100%)",
+                        border: "1px solid rgba(255,255,255,0.08)",
+                        minHeight: "260px",
+                    }}
+                >
+                    {/* World-map bg */}
+                    <div className="absolute inset-0 pointer-events-none"><WorldMapBg /></div>
+                    {/* Left vignette */}
+                    <div className="absolute inset-0 pointer-events-none"
+                        style={{ background: "linear-gradient(90deg, rgba(9,11,15,0.75) 0%, transparent 65%)" }} />
+
+                    {/* LEFT: title + description */}
+                    <div className="relative z-10 lg:col-span-3 px-10 py-10 space-y-4">
+                        <h3
+                            className="text-xl md:text-2xl font-black uppercase leading-tight"
+                            style={{
+                                color: "#FF003C",
+                                fontFamily: "var(--font-barlow), sans-serif",
+                                letterSpacing: "0.02em",
+                                textShadow: "0 0 20px rgba(255,0,60,0.25)",
+                            }}
+                            dangerouslySetInnerHTML={{ __html: active.title?.toUpperCase() || "" }}
+                        />
+                        <p
+                            style={{
+                                color: "rgba(255,255,255,0.45)",
+                                fontFamily: "var(--font-sans)",
+                                fontSize: "0.86rem",
+                                lineHeight: "1.65",
+                                maxWidth: "460px",
+                            }}
+                            dangerouslySetInnerHTML={{ __html: active.description || "" }}
+                        />
                     </div>
-                    
-                    {/* Telemetry Section */}
-                    <div className="xl:col-span-2 border-t xl:border-t-0 xl:border-l border-primary/20 pt-10 xl:pt-6 xl:pl-12">
-                        <div className="text-xs font-bold text-white uppercase tracking-[0.2em] border-l-2 border-primary pl-3 mb-6 whitespace-nowrap">LIVE TELEMETRY</div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-x-12 gap-y-6">
-                            {active.telemetry?.map((row: any, i: number) => (
-                                <div key={i} className="space-y-2 pb-4 border-b border-white/5 last:border-0">
-                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
-                                        <div className="flex items-center gap-3 min-w-0">
-                                            <div className="w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_10px_rgba(255,0,60,0.8)] shrink-0"></div>
-                                            <span className="text-xs font-bold text-white uppercase tracking-wider whitespace-nowrap overflow-hidden" dangerouslySetInnerHTML={{ __html: row.key.toUpperCase() }} />
-                                        </div>
-                                        <span className="text-xs font-bold text-primary uppercase tracking-wider whitespace-nowrap text-right" dangerouslySetInnerHTML={{ __html: row.value.toUpperCase() }} />
+
+                    {/* RIGHT: telemetry */}
+                    <div
+                        className="relative z-10 lg:col-span-2 flex flex-col justify-center border-t lg:border-t-0 lg:border-l"
+                        style={{ borderColor: "rgba(255,255,255,0.06)" }}
+                    >
+                        {active.telemetry?.map((row: any, i: number) => {
+                            const vColor = valueColor(row.value);
+                            const isLast = i === (active.telemetry.length - 1);
+                            const showIcon = /^(UP|ACTIVE|ONLINE)/.test(row.value?.toUpperCase() || "");
+                            return (
+                                <div key={i}
+                                    className="flex items-center justify-between px-8 py-[18px]"
+                                    style={{ borderBottom: isLast ? "none" : "1px solid rgba(255,255,255,0.04)" }}
+                                >
+                                    {/* Label */}
+                                    <div className="flex items-center gap-3">
+                                        <ArrowRight style={{ width: "13px", height: "13px", color: "#FF003C", flexShrink: 0 }} />
+                                        <span
+                                            style={{
+                                                fontFamily: "var(--font-mono), monospace",
+                                                fontSize: "10px",
+                                                fontWeight: 900,
+                                                letterSpacing: "0.15em",
+                                                textTransform: "uppercase",
+                                                color: "rgba(255,255,255,0.55)",
+                                            }}
+                                            dangerouslySetInnerHTML={{ __html: row.key?.toUpperCase() || "" }}
+                                        />
                                     </div>
-                                    {row.description && (
-                                        <div className="text-xs text-white/30 font-light leading-relaxed pl-5 italic break-words">
-                                            {row.description}
-                                        </div>
-                                    )}
+                                    {/* Value */}
+                                    <div className="flex items-center gap-1.5">
+                                        {showIcon && <BarChart2 style={{ width: "12px", height: "12px", color: vColor }} />}
+                                        <span
+                                            style={{
+                                                fontFamily: "var(--font-mono), monospace",
+                                                fontSize: "10px",
+                                                fontWeight: 900,
+                                                letterSpacing: "0.12em",
+                                                textTransform: "uppercase",
+                                                color: vColor,
+                                            }}
+                                            dangerouslySetInnerHTML={{ __html: row.value?.toUpperCase() || "" }}
+                                        />
+                                    </div>
                                 </div>
-                            ))}
-                        </div>
+                            );
+                        })}
+                        {(!active.telemetry || active.telemetry.length === 0) && (
+                            <div className="flex items-center justify-center py-12"
+                                style={{ color: "rgba(255,255,255,0.1)", fontFamily: "var(--font-mono), monospace", fontSize: "10px", fontWeight: 900, textTransform: "uppercase", letterSpacing: "0.4em" }}>
+                                NO TELEMETRY DATA
+                            </div>
+                        )}
                     </div>
                 </div>
             )}
 
-            {/* Glassmorphic Edit Modules Modal */}
+            {/* ══ EDIT MODAL ════════════════════════════════════════════ */}
             {isEditModalOpen && (
-                <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] flex items-center justify-center p-4 overflow-y-auto">
-                    <div className="bg-[#0b0b0b] border border-white/10 w-full max-w-4xl p-6 md:p-8 shadow-2xl relative space-y-6 max-h-[90vh] overflow-y-auto custom-scrollbar">
-                        {/* Header */}
+                <div className="fixed inset-0 bg-black/85 backdrop-blur-md z-[100] flex items-center justify-center p-4 overflow-y-auto">
+                    <div className="bg-[#0b0b0b] border border-white/10 w-full max-w-4xl p-6 md:p-8 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
                         <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                            <h3 className="text-lg font-black text-white uppercase tracking-widest">EDIT CORE MODULES</h3>
-                            <button onClick={() => setIsEditModalOpen(false)} className="text-white/40 hover:text-primary transition-colors">
+                            <h3 style={{ fontFamily: "var(--font-mono), monospace", fontSize: "13px", fontWeight: 900, color: "#fff", textTransform: "uppercase", letterSpacing: "0.2em" }}>
+                                Edit Core Modules
+                            </h3>
+                            <button onClick={() => setIsEditModalOpen(false)} className="text-white/40 hover:text-red-500 transition-colors">
                                 <X className="w-5 h-5" />
                             </button>
                         </div>
 
-                        {/* Fields */}
                         <div className="space-y-6">
                             <div className="flex justify-between items-center">
-                                <span className="text-[10px] font-black text-white/30 uppercase tracking-widest">Modules List</span>
-                                <button 
-                                    onClick={() => setFormModules([...formModules, { name: "New Module", icon: "Layers", title: "", description: "", telemetry: [] }])}
-                                    className="text-[9px] text-white/20 hover:text-primary flex items-center gap-1 uppercase font-black"
+                                <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: "10px", fontWeight: 900, color: "rgba(255,255,255,0.3)", textTransform: "uppercase", letterSpacing: "0.2em" }}>
+                                    Modules List
+                                </span>
+                                <button onClick={() => setFormModules([...formModules, { name: "New Module", icon: "Layers", title: "", description: "", telemetry: [] }])}
+                                    className="flex items-center gap-1 transition-colors"
+                                    style={{ fontFamily: "var(--font-mono), monospace", fontSize: "9px", fontWeight: 900, color: "rgba(255,255,255,0.3)", textTransform: "uppercase", letterSpacing: "0.15em" }}
+                                    onMouseEnter={e => { e.currentTarget.style.color = "#FF003C"; }}
+                                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.3)"; }}
                                 >
                                     <Plus className="w-3 h-3" /> Add Module
                                 </button>
                             </div>
+
                             <div className="space-y-6">
                                 {formModules.map((m, mi) => (
-                                    <div key={mi} className="bg-white/[0.01] border border-white/5 p-5 space-y-4 relative group">
-                                        <button 
-                                            onClick={() => setFormModules(formModules.filter((_, i) => i !== mi))}
-                                            className="absolute top-4 right-4 text-white/10 hover:text-primary opacity-0 group-hover:opacity-100 transition-opacity"
-                                        >
+                                    <div key={mi} className="bg-white/[0.02] border border-white/5 p-5 space-y-4 relative group">
+                                        <button onClick={() => setFormModules(formModules.filter((_, i) => i !== mi))}
+                                            className="absolute top-4 right-4 text-white/10 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all">
                                             <Trash2 className="w-4 h-4" />
                                         </button>
+
                                         <div className="grid grid-cols-2 gap-4">
-                                            <div className="space-y-1">
-                                                <label className="text-[9px] font-black text-white/20 uppercase tracking-widest">Module Label</label>
-                                                <input value={m.name} onChange={e => { const n = [...formModules]; n[mi].name = e.target.value; setFormModules(n); }} className="w-full bg-black border border-white/10 p-3 text-primary font-black uppercase outline-none text-sm" placeholder="MODULE_LABEL" />
+                                            <div className="space-y-1.5">
+                                                <label style={{ fontFamily: "var(--font-mono), monospace", fontSize: "9px", fontWeight: 900, color: "rgba(255,255,255,0.25)", textTransform: "uppercase", letterSpacing: "0.2em" }}>Module Label</label>
+                                                <input value={m.name} onChange={e => { const n = [...formModules]; n[mi].name = e.target.value; setFormModules(n); }}
+                                                    className="w-full bg-black border border-white/10 p-3 font-black uppercase outline-none text-sm focus:border-red-500/40"
+                                                    style={{ color: "#FF003C" }} placeholder="MODULE_LABEL" />
                                             </div>
-                                            <div className="space-y-1">
-                                                <label className="text-[9px] font-black text-white/20 uppercase tracking-widest">Lucide Icon or SVG</label>
-                                                <input value={m.icon} onChange={e => { const n = [...formModules]; n[mi].icon = e.target.value; setFormModules(n); }} className="w-full bg-black border border-white/10 p-3 text-white/40 font-mono outline-none text-xs" placeholder="LUCIDE_NAME or <svg>..." />
+                                            <div className="space-y-1.5">
+                                                <label style={{ fontFamily: "var(--font-mono), monospace", fontSize: "9px", fontWeight: 900, color: "rgba(255,255,255,0.25)", textTransform: "uppercase", letterSpacing: "0.2em" }}>Icon</label>
+                                                <input value={m.icon} onChange={e => { const n = [...formModules]; n[mi].icon = e.target.value; setFormModules(n); }}
+                                                    className="w-full bg-black border border-white/10 p-3 text-white/40 font-mono outline-none text-xs focus:border-red-500/40"
+                                                    placeholder="LucideName or <svg>..." />
                                             </div>
                                         </div>
-                                        <div className="space-y-1">
-                                            <label className="text-[9px] font-black text-white/20 uppercase tracking-widest">Module Title</label>
-                                            <input value={m.title} onChange={e => { const n = [...formModules]; n[mi].title = e.target.value; setFormModules(n); }} className="w-full bg-black border border-white/10 p-3 text-white outline-none text-sm" placeholder="Module Title" />
+
+                                        <div className="space-y-1.5">
+                                            <label style={{ fontFamily: "var(--font-mono), monospace", fontSize: "9px", fontWeight: 900, color: "rgba(255,255,255,0.25)", textTransform: "uppercase", letterSpacing: "0.2em" }}>Module Title</label>
+                                            <input value={m.title} onChange={e => { const n = [...formModules]; n[mi].title = e.target.value; setFormModules(n); }}
+                                                className="w-full bg-black border border-white/10 p-3 text-white outline-none text-sm focus:border-red-500/40"
+                                                placeholder="Module Title" />
                                         </div>
-                                        <div className="space-y-1">
-                                            <label className="text-[9px] font-black text-white/20 uppercase tracking-widest">Description</label>
-                                            <textarea value={m.description} onChange={e => { const n = [...formModules]; n[mi].description = e.target.value; setFormModules(n); }} className="w-full bg-black border border-white/10 p-3 text-white/80 outline-none text-sm" rows={3} placeholder="Module description..." />
+
+                                        <div className="space-y-1.5">
+                                            <label style={{ fontFamily: "var(--font-mono), monospace", fontSize: "9px", fontWeight: 900, color: "rgba(255,255,255,0.25)", textTransform: "uppercase", letterSpacing: "0.2em" }}>Description</label>
+                                            <textarea value={m.description} onChange={e => { const n = [...formModules]; n[mi].description = e.target.value; setFormModules(n); }}
+                                                className="w-full bg-black border border-white/10 p-3 text-white/70 outline-none text-sm focus:border-red-500/40"
+                                                rows={3} placeholder="Module description..." />
                                         </div>
-                                        <div className="space-y-2">
+
+                                        <div className="space-y-3">
                                             <div className="flex justify-between items-center">
-                                                <label className="text-[10px] font-black text-primary tracking-widest">Telemetry Data Feed</label>
-                                                <button 
-                                                    onClick={() => {
-                                                        const n = [...formModules];
-                                                        if (!n[mi].telemetry) n[mi].telemetry = [];
-                                                        n[mi].telemetry.push({ key: "", value: "", description: "" });
-                                                        setFormModules(n);
-                                                    }} 
-                                                    className="text-[9px] text-white/20 hover:text-primary flex items-center gap-1 uppercase font-black"
+                                                <label style={{ fontFamily: "var(--font-mono), monospace", fontSize: "9px", fontWeight: 900, color: "#FF003C", textTransform: "uppercase", letterSpacing: "0.2em" }}>Telemetry Feed</label>
+                                                <button onClick={() => { const n = [...formModules]; if (!n[mi].telemetry) n[mi].telemetry = []; n[mi].telemetry.push({ key: "", value: "", description: "" }); setFormModules(n); }}
+                                                    className="flex items-center gap-1 transition-colors"
+                                                    style={{ fontFamily: "var(--font-mono), monospace", fontSize: "9px", fontWeight: 900, color: "rgba(255,255,255,0.25)", textTransform: "uppercase", letterSpacing: "0.15em" }}
+                                                    onMouseEnter={e => { e.currentTarget.style.color = "#FF003C"; }}
+                                                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.25)"; }}
                                                 >
-                                                    <Plus className="w-3 h-3"/> Add Telemetry
+                                                    <Plus className="w-3 h-3" /> Add Row
                                                 </button>
                                             </div>
                                             {m.telemetry?.map((row: any, ri: number) => (
-                                                <div key={ri} className="bg-black/40 border border-white/5 p-3 space-y-2 relative group/tel">
-                                                    <button 
-                                                        onClick={() => {
-                                                            const n = [...formModules];
-                                                            n[mi].telemetry = n[mi].telemetry.filter((_: any, i: any) => i !== ri);
-                                                            setFormModules(n);
-                                                        }}
-                                                        className="absolute top-2 right-2 text-white/10 hover:text-primary opacity-0 group-hover/tel:opacity-100 transition-opacity"
-                                                    >
+                                                <div key={ri} className="bg-black/50 border border-white/5 p-3 space-y-2 relative group/tel">
+                                                    <button onClick={() => { const n = [...formModules]; n[mi].telemetry = n[mi].telemetry.filter((_: any, i: any) => i !== ri); setFormModules(n); }}
+                                                        className="absolute top-2 right-2 text-white/10 hover:text-red-500 opacity-0 group-hover/tel:opacity-100 transition-all">
                                                         <Trash2 className="w-3.5 h-3.5" />
                                                     </button>
                                                     <div className="grid grid-cols-2 gap-3">
-                                                        <input value={row.key} onChange={e => { const n = [...formModules]; n[mi].telemetry[ri].key = e.target.value; setFormModules(n); }} className="w-full bg-black p-2 text-xs border border-white/5 uppercase" placeholder="Key" />
-                                                        <input value={row.value} onChange={e => { const n = [...formModules]; n[mi].telemetry[ri].value = e.target.value; setFormModules(n); }} className="w-full bg-black p-2 text-xs border border-white/5 text-primary" placeholder="Value" />
+                                                        <input value={row.key} onChange={e => { const n = [...formModules]; n[mi].telemetry[ri].key = e.target.value; setFormModules(n); }}
+                                                            className="w-full bg-black p-2 text-xs border border-white/5 uppercase text-white/60 outline-none" placeholder="KEY" />
+                                                        <input value={row.value} onChange={e => { const n = [...formModules]; n[mi].telemetry[ri].value = e.target.value; setFormModules(n); }}
+                                                            className="w-full bg-black p-2 text-xs border border-white/5 outline-none" style={{ color: "#FF003C" }} placeholder="VALUE" />
                                                     </div>
-                                                    <input value={row.description || ""} onChange={e => { const n = [...formModules]; n[mi].telemetry[ri].description = e.target.value; setFormModules(n); }} className="w-full bg-black/20 p-2 text-[10px] border border-white/5 italic text-white/30" placeholder="Telemetry description (optional)..." />
+                                                    <input value={row.description || ""} onChange={e => { const n = [...formModules]; n[mi].telemetry[ri].description = e.target.value; setFormModules(n); }}
+                                                        className="w-full bg-black/20 p-2 text-[10px] border border-white/5 italic text-white/30 outline-none"
+                                                        placeholder="Description (optional)..." />
                                                 </div>
                                             ))}
                                         </div>
@@ -250,30 +379,18 @@ export default function CoreModuleViewer({
                             </div>
                         </div>
 
-                        {/* Save Actions */}
-                        <div className="flex justify-end gap-4 border-t border-white/5 pt-4">
-                            <button 
-                                onClick={() => setIsEditModalOpen(false)}
-                                className="px-6 py-2.5 bg-white/5 text-white/60 hover:text-white border border-white/10 text-xs font-bold uppercase tracking-widest transition-all"
-                            >
+                        <div className="flex justify-end gap-3 border-t border-white/5 pt-4">
+                            <button onClick={() => setIsEditModalOpen(false)}
+                                className="px-6 py-2.5 transition-all"
+                                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.6)", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>
                                 Cancel
                             </button>
-                            <button 
-                                onClick={handleSave}
-                                disabled={saving}
-                                className="px-8 py-2.5 bg-primary text-white hover:bg-primary/95 text-xs font-bold uppercase tracking-widest transition-all flex items-center gap-2"
-                            >
-                                {saving ? (
-                                    <>
-                                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                                        Saving...
-                                    </>
-                                ) : (
-                                    <>
-                                        <Save className="w-3.5 h-3.5" />
-                                        Save Changes
-                                    </>
-                                )}
+                            <button onClick={handleSave} disabled={saving}
+                                className="px-8 py-2.5 flex items-center gap-2 transition-all disabled:opacity-50"
+                                style={{ background: "#FF003C", color: "#fff", fontFamily: "var(--font-mono), monospace", fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>
+                                {saving
+                                    ? <><Loader2 className="w-3.5 h-3.5 animate-spin" />Saving...</>
+                                    : <><Save className="w-3.5 h-3.5" />Save Changes</>}
                             </button>
                         </div>
                     </div>

@@ -35,9 +35,17 @@ export default function DeleteToolButton({ id }: { id: string }) {
         <button 
             onClick={handleDelete}
             disabled={isDeleting}
-            className="flex items-center gap-2 text-xs font-label uppercase tracking-widest bg-error-container text-on-error-container px-4 py-2 hover:brightness-110 transition-colors disabled:opacity-50"
+            className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest px-3 py-1.5 transition-all disabled:opacity-50 cursor-pointer"
+            style={{
+                background: "rgba(255,0,60,0.06)",
+                border: "1px solid rgba(255,0,60,0.25)",
+                color: "#FF003C",
+                fontFamily: "var(--font-mono), monospace",
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,0,60,0.12)"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,0,60,0.06)"; }}
         >
-            <Trash2 className="w-4 h-4" /> {isDeleting ? "DELETING..." : "DELETE"}
+            <Trash2 className="w-3 h-3" /> {isDeleting ? "DELETING..." : "DELETE"}
         </button>
     );
 }

@@ -279,9 +279,9 @@ export default function ScenarioSelector({
                     {/* Protocol Select Header */}
                     <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12">
                         <div className="space-y-6">
-                            <h2 className="text-sm md:text-base font-bold text-white uppercase tracking-wider flex items-center gap-4">
-                                <span>Test</span> <span className="text-primary">Scenario</span>
-                                <span className="h-[1px] flex-1 bg-white/5"></span>
+                            <h2 className="text-[15px] font-black uppercase tracking-widest flex items-center gap-4" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>
+                                <span className="text-white">TEST</span> <span className="text-[#FF003C]">SCENARIO</span>
+                                <span className="h-[1px] flex-1 bg-white/[0.04]"></span>
                             </h2>
                             <p className="text-sm text-white/40 font-light max-w-2xl leading-relaxed">
                                 Initialize automated offensive modules against target perimeter. Deploying The Crimson Vault authorization tokens for active session state.
@@ -290,35 +290,35 @@ export default function ScenarioSelector({
                         
                         <div className="relative w-full md:w-80 lg:w-96">
                             <div className="flex justify-between items-center mb-4 ml-2">
-                                <div className="text-xs font-bold text-primary uppercase tracking-[0.2em] whitespace-nowrap">SELECT MISSION PROFILE</div>
+                                <div className="text-[13px] font-black text-[#FF003C] uppercase tracking-widest whitespace-nowrap" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>SELECT MISSION PROFILE</div>
                                 {isAdmin && (
                                     <div className="flex items-center gap-4">
-                                        <button onClick={handleOpenAdd} className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1">
-                                            <Plus className="w-3 h-3 text-primary" /> Add
+                                        <button onClick={handleOpenAdd} className="text-[10px] font-black text-white/40 hover:text-white transition-colors uppercase flex items-center gap-1.5" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>
+                                            <Plus className="w-3.5 h-3.5 text-white/40" strokeWidth={2.5} /> ADD
                                         </button>
-                                        <button onClick={handleOpenEdit} className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1">
-                                            <Pencil className="w-3 h-3 text-primary" /> Edit
+                                        <button onClick={handleOpenEdit} className="text-[10px] font-black text-white/40 hover:text-white transition-colors uppercase flex items-center gap-1.5" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>
+                                            <Pencil className="w-3.5 h-3.5 text-white/40" strokeWidth={2.5} /> EDIT
                                         </button>
-                                        <button onClick={handleDeleteScenario} className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1">
-                                            <Trash2 className="w-3 h-3 text-primary" /> Delete
+                                        <button onClick={handleDeleteScenario} className="text-[10px] font-black text-white/40 hover:text-[#FF003C] transition-colors uppercase flex items-center gap-1.5" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>
+                                            <Trash2 className="w-3.5 h-3.5 text-white/40 hover:text-[#FF003C]" strokeWidth={2.5} /> DELETE
                                         </button>
                                     </div>
                                 )}
                             </div>
-                            <button onClick={() => setIsOpen(!isOpen)} className="w-full flex items-center justify-between bg-white/[0.03] border border-white/10 px-6 py-4 sm:py-6 hover:bg-white/[0.08] transition-all group relative overflow-hidden">
-                                <div className="absolute top-0 left-0 w-1 h-full bg-primary/20 group-hover:bg-primary transition-colors"></div>
-                                <span className="text-xs font-bold uppercase tracking-[0.1em] lg:tracking-[0.2em] text-white truncate pr-4">
+                            <button onClick={() => setIsOpen(!isOpen)} className="w-full flex items-center justify-between bg-gradient-to-r from-[#0b0d11] to-[#FF003C]/[0.02] border border-white/[0.08] rounded-xl px-6 py-4 sm:py-5 hover:border-[#FF003C]/20 hover:to-[#FF003C]/[0.05] transition-all group relative overflow-hidden shadow-inner">
+                                <span className="text-[13px] font-black uppercase tracking-[0.1em] text-white truncate pr-4" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>
                                     {(active?.name || "").toUpperCase()}
                                 </span>
-                                <ChevronDown className={`w-5 h-5 text-white/20 transition-transform duration-500 shrink-0 ${isOpen ? "rotate-180 text-primary" : ""}`} />
+                                <ChevronDown className={`w-4 h-4 text-[#FF003C] transition-transform duration-500 shrink-0 ${isOpen ? "rotate-180" : ""}`} strokeWidth={3} />
                             </button>
                             {isOpen && (
-                                <div className="absolute top-full right-0 w-full bg-[#111] border border-white/[0.1] shadow-2xl z-40 mt-3 max-h-64 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-top-2 duration-300">
+                                <div className="absolute top-[calc(100%+8px)] right-0 w-full bg-[#0b0d11] border border-white/[0.08] rounded-xl shadow-2xl z-40 max-h-64 overflow-y-auto custom-scrollbar animate-in fade-in slide-in-from-top-2 duration-300">
                                     {scenarios.map((s, i) => (
                                         <button 
                                             key={i} 
                                             onClick={() => { setSelectedIndex(i); setIsOpen(false); }} 
-                                            className={`w-full text-left px-10 py-6 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all border-b border-white/[0.03] ${i === selectedIndex ? "text-primary bg-white/[0.01]" : "text-white/40"}`}
+                                            className={`w-full text-left px-6 py-4 text-[12px] font-black uppercase tracking-widest hover:bg-[#FF003C]/10 transition-all border-b border-white/[0.04] last:border-0 ${i === selectedIndex ? "text-[#FF003C] bg-[#FF003C]/5" : "text-white/60 hover:text-white"}`}
+                                            style={{ fontFamily: "var(--font-barlow), sans-serif" }}
                                         >
                                             {s.name.toUpperCase()}
                                         </button>
@@ -333,16 +333,19 @@ export default function ScenarioSelector({
                         {/* 1. MISSION OBJECTIVE */}
                         {(active?.objective || (active?.objectiveList && active.objectiveList.filter(Boolean).length > 0)) && (
                             <div className="space-y-6">
-                                <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">MISSION OBJECTIVE</div>
+                                <div className="flex items-center gap-4 mb-2">
+                                    <span className="text-[14px] font-black text-[#FF003C] tracking-[0.1em]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>01</span>
+                                    <span className="text-[13px] font-black text-white uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>MISSION OBJECTIVE</span>
+                                </div>
                                 <div className="space-y-4">
                                     {active.objective && (
-                                        <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight break-words" dangerouslySetInnerHTML={{ __html: active.objective }} />
+                                        <h3 className="text-[12px] font-black text-white/60 uppercase tracking-widest break-words" style={{ fontFamily: "var(--font-mono), monospace" }} dangerouslySetInnerHTML={{ __html: active.objective }} />
                                     )}
                                     {active.objectiveList && active.objectiveList.filter(Boolean).length > 0 && (
                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                             {active.objectiveList.filter(Boolean).map((obj, i) => (
-                                                <div key={i} className="flex items-start gap-3 p-4 bg-white/[0.01] border border-white/5">
-                                                    <div className="w-1.5 h-1.5 bg-primary mt-1.5 shrink-0"></div>
+                                                <div key={i} className="flex items-start gap-3 p-4 bg-[#0b0d11] border border-white/[0.08] rounded-xl shadow-inner">
+                                                    <div className="w-1.5 h-1.5 bg-[#FF003C] mt-1.5 shrink-0 rounded-full"></div>
                                                     <span className="text-xs text-white/60 font-light leading-relaxed break-words" dangerouslySetInnerHTML={{ __html: obj }} />
                                                 </div>
                                             ))}
@@ -356,38 +359,29 @@ export default function ScenarioSelector({
                         <div className="space-y-4">
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <div className="flex items-center gap-4">
-                                    <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">EXECUTION SCRIPT</div>
-                                    <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-xs font-bold text-primary uppercase tracking-widest animate-pulse whitespace-nowrap">LIVE PROTOCOL</span>
+                                    <span className="text-[14px] font-black text-[#FF003C] tracking-[0.1em]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>02</span>
+                                    <span className="text-[13px] font-black text-white uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>EXECUTION SCRIPT</span>
+                                    <span className="ml-2 px-3 py-1 bg-transparent border border-[#FF003C]/40 rounded text-[10px] font-black text-[#FF003C] uppercase tracking-widest whitespace-nowrap" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>LIVE PROTOCOL</span>
                                 </div>
-                                <button 
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(active?.script || "");
-                                        alert("SCRIPT COPIED TO CLIPBOARD");
-                                    }}
-                                    className="group/btn self-start sm:self-auto flex items-center gap-3 px-6 py-2 bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all"
-                                >
-                                    <span className="text-xs font-bold text-white/40 group-hover/btn:text-primary uppercase tracking-widest">EXTRACT DATA</span>
-                                    <Copy className="w-3.5 h-3.5 text-white/20 group-hover/btn:text-primary" />
-                                </button>
                             </div>
                             
                             <div className="relative">
-                                <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-primary/40"></div>
-                                <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-primary/40"></div>
-                                <div className="bg-[#050505] border border-white/[0.05] relative overflow-hidden group shadow-2xl">
-                                    <div className="h-10 bg-white/[0.02] border-b border-white/[0.05] flex items-center justify-between px-6">
-                                        <div className="flex gap-2">
-                                            <div className="w-2 h-2 rounded-full bg-white/10"></div>
-                                            <div className="w-2 h-2 rounded-full bg-white/10"></div>
-                                            <div className="w-2 h-2 rounded-full bg-white/10"></div>
-                                        </div>
-                                        <div className="text-[9px] font-black text-white/10 uppercase tracking-[0.3em] hidden sm:block">ARSENAL PROTOCOL V4</div>
-                                    </div>
-                                    <div className="p-6 md:p-8 font-mono text-xs md:text-sm text-white/80 leading-relaxed whitespace-pre-wrap break-words max-h-[500px] overflow-y-auto custom-scrollbar">
+                                <div className="bg-[#0b0d11] border border-white/[0.06] rounded-xl relative overflow-hidden shadow-2xl p-6 md:p-8">
+                                    <button 
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(active?.script || "");
+                                            alert("SCRIPT COPIED TO CLIPBOARD");
+                                        }}
+                                        className="absolute top-6 right-6 p-2 rounded-lg bg-white/[0.03] border border-white/[0.06] text-white/30 hover:text-white hover:bg-white/[0.08] hover:border-[#FF003C]/40 transition-all z-10"
+                                        title="Copy to clipboard"
+                                    >
+                                        <Copy className="w-4 h-4" strokeWidth={2} />
+                                    </button>
+                                    <div className="font-mono text-[13px] md:text-[14px] text-white/80 leading-[2] whitespace-pre-wrap break-words max-h-[500px] overflow-y-auto custom-scrollbar pr-12">
                                         {(active?.script || "AWAITING MISSION SCRIPT...").split('\n').map((line, i) => (
-                                            <div key={i} className="flex gap-4 sm:gap-6 group/line hover:bg-white/[0.02] transition-colors -mx-4 px-4">
-                                                <span className="text-primary font-black opacity-40 select-none">$</span>
-                                                <span className="flex-1">{line}</span>
+                                            <div key={i} className="flex gap-4 sm:gap-5 group/line mb-1.5 last:mb-0">
+                                                <span className="text-[#FF003C] font-black select-none">$</span>
+                                                <span className="flex-1 font-bold tracking-wide text-white/80">{line}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -397,26 +391,36 @@ export default function ScenarioSelector({
 
                         {/* 3. OUTPUT */}
                         <div className="space-y-6">
-                            <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">OUTPUT</div>
-                            <div className="bg-[#080808] border border-white/5 p-4 relative group overflow-hidden max-h-[400px] flex items-center justify-center shadow-inner">
+                            <div className="flex items-center gap-4 mb-2">
+                                <span className="text-[14px] font-black text-[#FF003C] tracking-[0.1em]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>8</span>
+                                <span className="text-[13px] font-black text-white uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>OUTPUT</span>
+                            </div>
+                            <div className="bg-[#0b0d11] border border-white/[0.08] rounded-xl p-4 relative group overflow-hidden max-h-[400px] flex items-center justify-center shadow-inner">
                                 <ImageCarousel images={parseImages(active?.logsImage)} />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
                             </div>
                         </div>
 
                         {/* 4. MISSION TAKEAWAYS */}
-                        <div className="space-y-8">
-                            <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">MISSION TAKEAWAYS</div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="space-y-6">
+                            <div className="flex items-center gap-4 mb-2">
+                                <ShieldAlert className="w-4 h-4 text-[#FF003C]" strokeWidth={2.5} />
+                                <span className="text-[13px] font-black text-white uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>MISSION TAKEAWAYS</span>
+                            </div>
+                            <div className="bg-[#0b0d11] border border-white/[0.08] rounded-xl p-6 sm:p-8 shadow-inner flex flex-col space-y-6">
                                 {(active?.keyTakeaways || []).map((card, i) => {
                                     const hasTitle = card.title && card.title.trim().length > 0;
                                     return (
-                                        <div key={i} className={`bg-white/[0.02] border border-white/5 p-6 md:p-10 space-y-6 group hover:border-primary/40 transition-all relative overflow-hidden flex flex-col ${!hasTitle ? "justify-center items-center text-center" : ""}`}>
-                                            <div className="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 -mr-12 -mb-12 rounded-full blur-3xl group-hover:bg-primary/10 transition-all"></div>
-                                            {hasTitle && (
-                                                <h4 className="text-xs font-bold text-primary uppercase tracking-[0.2em] lg:tracking-[0.4em] break-words">{card.title.replace(/_/g, ' ')}</h4>
-                                            )}
-                                            <p className={`text-sm text-white/40 font-light leading-relaxed break-words ${!hasTitle ? "text-center" : ""}`} dangerouslySetInnerHTML={{ __html: card.content }} />
+                                        <div key={i} className="flex gap-4 sm:gap-6 items-start group">
+                                            <div className="w-10 h-10 rounded-xl bg-[#FF003C]/10 border border-[#FF003C]/20 flex items-center justify-center shrink-0 mt-1 transition-transform group-hover:scale-105">
+                                                <Target className="w-5 h-5 text-[#FF003C]" strokeWidth={1.5} />
+                                            </div>
+                                            <div className="flex flex-col gap-1.5">
+                                                {hasTitle && (
+                                                    <h4 className="text-[13px] font-black text-[#FF003C] uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>{card.title.replace(/_/g, ' ')}</h4>
+                                                )}
+                                                <p className="text-sm text-white/60 font-light leading-relaxed break-words" dangerouslySetInnerHTML={{ __html: card.content }} />
+                                            </div>
                                         </div>
                                     );
                                 })}
@@ -424,19 +428,22 @@ export default function ScenarioSelector({
                         </div>
 
                         {/* 5. ATTACK PLANS */}
-                        <div className="space-y-8">
-                            <div className="text-xs font-bold text-white/50 uppercase tracking-widest border-l-2 border-primary pl-3 whitespace-nowrap">ATTACK PLANS</div>
+                        <div className="space-y-6">
+                            <div className="flex items-center gap-4 mb-2">
+                                <Activity className="w-4 h-4 text-[#FF003C]" strokeWidth={2.5} />
+                                <span className="text-[13px] font-black text-white uppercase tracking-[0.1em]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>ATTACK PLANS</span>
+                            </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {(active?.attackPaths || []).map((path, i) => (
-                                    <div key={i} className="bg-white/[0.02] border border-white/5 p-6 md:p-8 relative overflow-hidden group hover:bg-white/[0.04] transition-all">
-                                        <div className="flex items-start justify-between mb-6 gap-4">
-                                            <TrendingUp className="w-6 h-6 md:w-8 md:h-8 text-primary shrink-0" />
-                                            <span className="bg-primary/10 border border-primary/20 text-xs font-bold text-primary px-3 py-1 uppercase tracking-widest whitespace-nowrap truncate max-w-[150px]">
+                                    <div key={i} className="bg-[#0b0d11] border border-white/[0.08] rounded-xl p-6 sm:p-8 relative overflow-hidden group shadow-inner">
+                                        <div className="absolute top-0 right-0 w-24 h-24 bg-[#FF003C]/5 -mr-12 -mt-12 rounded-full blur-3xl group-hover:bg-[#FF003C]/10 transition-all"></div>
+                                        <div className="flex items-start justify-between mb-6 gap-4 relative z-10">
+                                            <span className="px-3 py-1 bg-transparent border border-[#FF003C]/40 rounded text-[10px] font-black text-[#FF003C] uppercase tracking-widest whitespace-nowrap truncate max-w-[150px]" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>
                                                 {path.risk.replace(/_/g, ' ')}
                                             </span>
                                         </div>
-                                        <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 break-words">{path.title.replace(/_/g, ' ')}</h4>
-                                        <p className="text-sm text-white/40 font-light leading-relaxed break-words" dangerouslySetInnerHTML={{ __html: path.desc }} />
+                                        <h4 className="text-[14px] font-black text-white uppercase tracking-wider mb-3 break-words relative z-10" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>{path.title.replace(/_/g, ' ')}</h4>
+                                        <p className="text-sm text-white/50 font-light leading-relaxed break-words relative z-10" dangerouslySetInnerHTML={{ __html: path.desc }} />
                                     </div>
                                 ))}
                             </div>

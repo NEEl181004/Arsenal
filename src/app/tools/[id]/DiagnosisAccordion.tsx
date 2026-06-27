@@ -60,18 +60,22 @@ export default function DiagnosisAccordion({
     };
 
     return (
-        <div className="relative">
-            {/* Header Overlay Edit Button (rendered absolute if admin is true, since the image header container is the parent in page.tsx) */}
-            {isAdmin && (
-                <div className="flex justify-end mb-4">
+        <div className="space-y-8">
+            <div className="flex justify-between items-end gap-8">
+                <h2 className="text-[15px] font-black uppercase tracking-widest flex items-center gap-4 flex-1" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>
+                    <span className="text-white">SYSTEM</span> <span className="text-[#FF003C]">DIAGNOSTICS</span>
+                    <span className="h-[1px] flex-1 bg-white/[0.04]"></span>
+                </h2>
+                
+                {isAdmin && (
                     <button 
                         onClick={handleOpenEdit}
-                        className="text-[10px] font-black text-white/40 hover:text-primary transition-colors uppercase flex items-center gap-1 cursor-pointer bg-white/[0.03] border border-white/10 px-4 py-2"
+                        className="text-[10px] font-black text-white/40 hover:text-white transition-colors uppercase flex items-center gap-1.5 shrink-0 pb-0.5" style={{ fontFamily: "var(--font-barlow), sans-serif" }}
                     >
-                        <Pencil className="w-3 h-3 text-primary" /> Edit Diagnostics
+                        <Pencil className="w-3.5 h-3.5 text-white/40" strokeWidth={2.5} /> EDIT DIAGNOSTICS
                     </button>
-                </div>
-            )}
+                )}
+            </div>
 
             <div className="space-y-4">
                 {items.length === 0 ? (
@@ -80,18 +84,18 @@ export default function DiagnosisAccordion({
                     </div>
                 ) : (
                     items.map((item, i) => (
-                        <div key={i} className={`bg-white/[0.01] border border-white/5 overflow-hidden transition-all duration-500 ${openIndex === i ? "bg-white/[0.02] border-primary/20" : "hover:bg-white/[0.02]"}`}>
+                        <div key={i} className={`bg-[#0b0d11] border border-white/[0.08] rounded-xl overflow-hidden shadow-inner transition-all duration-500 ${openIndex === i ? "border-[#FF003C]/30 bg-[#0f1116]" : "hover:border-white/[0.15]"}`}>
                             <button 
                                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                                 className="w-full flex items-center justify-between p-6 md:p-8 group text-left"
                             >
                                 <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-                                    <div className="text-xs font-bold text-white/20 uppercase tracking-widest group-hover:text-primary transition-colors">
+                                    <div className="text-[13px] font-black text-[#FF003C] uppercase tracking-widest group-hover:text-[#FF003C]/80 transition-colors" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>
                                         {String.fromCharCode(75 + i)}-{400 + i * 12}:
                                     </div>
-                                    <h3 className={`text-base md:text-lg font-bold text-white uppercase tracking-widest transition-all ${openIndex === i ? "text-primary" : "group-hover:text-white"}`} dangerouslySetInnerHTML={{ __html: item.problem }} />
+                                    <h3 className={`text-[14px] md:text-[15px] font-black uppercase tracking-wider transition-all ${openIndex === i ? "text-white" : "text-white/80 group-hover:text-white"}`} style={{ fontFamily: "var(--font-barlow), sans-serif" }} dangerouslySetInnerHTML={{ __html: item.problem }} />
                                 </div>
-                                <ChevronDown className={`w-5 h-5 transition-transform duration-300 shrink-0 ${openIndex === i ? "rotate-180 text-primary" : "text-white/10"}`} />
+                                <ChevronDown className={`w-4 h-4 transition-transform duration-500 shrink-0 text-[#FF003C] ${openIndex === i ? "rotate-180" : ""}`} strokeWidth={3} />
                             </button>
                             
                             <div className={`transition-all duration-500 ease-in-out ${openIndex === i ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
@@ -101,27 +105,27 @@ export default function DiagnosisAccordion({
                                     </p>
                                     
                                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                        <div className="space-y-6">
-                                            <div className="text-xs font-bold text-primary uppercase tracking-[0.4em] flex items-center gap-2">
-                                                <div className="w-1.5 h-1.5 bg-primary"></div>
-                                                ROOT CAUSE
+                                        <div className="space-y-4">
+                                            <div className="flex items-center gap-3 mb-2">
+                                                <div className="w-2 h-2 bg-[#FF003C] rounded-full shadow-[0_0_8px_rgba(255,0,60,0.5)]"></div>
+                                                <div className="text-[12px] font-black text-white/50 uppercase tracking-widest" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>ROOT CAUSE</div>
                                             </div>
-                                            <div className="bg-[#0e0e0e] border border-white/5 p-6 md:p-10 min-h-[140px] flex items-center text-sm text-white/60 font-light leading-relaxed" dangerouslySetInnerHTML={{ __html: item.cause }} />
+                                            <div className="bg-black/40 border border-white/[0.04] rounded-xl p-6 md:p-8 min-h-[140px] flex items-center text-[13px] text-white/60 font-light leading-[1.8]" dangerouslySetInnerHTML={{ __html: item.cause }} />
                                         </div>
-                                        <div className="space-y-6">
-                                            <div className="text-xs font-bold text-primary uppercase tracking-[0.4em] flex items-center gap-2">
-                                                <div className="w-1.5 h-1.5 bg-primary"></div>
-                                                SOLUTION PROTOCOL
+                                        <div className="space-y-4">
+                                            <div className="flex items-center gap-3 mb-2">
+                                                <div className="w-2 h-2 bg-[#27C93F] rounded-full shadow-[0_0_8px_rgba(39,201,63,0.5)]"></div>
+                                                <div className="text-[12px] font-black text-white/50 uppercase tracking-widest" style={{ fontFamily: "var(--font-barlow), sans-serif" }}>SOLUTION PROTOCOL</div>
                                             </div>
                                             <div className="space-y-4">
-                                                <div className="bg-[#0e0e0e] border border-white/5 p-6 md:p-10 flex items-center text-sm text-white/80 leading-relaxed">
+                                                <div className="bg-black/40 border border-white/[0.04] rounded-xl p-6 md:p-8 flex items-center text-[13px] text-white/80 leading-[1.8]">
                                                     <span dangerouslySetInnerHTML={{ __html: item.resolution }} />
                                                 </div>
                                                  {item.command && (
                                                       <div className="relative group/cmd">
-                                                        <div className="bg-black/80 border border-primary/20 p-6 flex items-start text-xs md:text-sm text-primary font-mono leading-relaxed transition-all hover:bg-black">
-                                                            <span className="mr-4 font-black opacity-40 select-none">$</span>
-                                                            <span className="break-words whitespace-pre-wrap flex-1" dangerouslySetInnerHTML={{ __html: item.command }} />
+                                                        <div className="bg-[#050608] border border-white/[0.06] rounded-xl p-6 flex items-start text-[13px] font-mono leading-[1.8] shadow-inner transition-all hover:bg-black">
+                                                            <span className="mr-4 font-black text-[#FF003C] select-none mt-0.5">$</span>
+                                                            <span className="break-words whitespace-pre-wrap flex-1 font-bold text-white/70" dangerouslySetInnerHTML={{ __html: item.command }} />
                                                         </div>
                                                         <button 
                                                             onClick={() => {
@@ -130,10 +134,10 @@ export default function DiagnosisAccordion({
                                                                 navigator.clipboard.writeText(el.textContent || el.innerText || "");
                                                                 alert("COMMAND COPIED TO CLIPBOARD");
                                                             }}
-                                                            className="absolute top-1/2 -translate-y-1/2 right-4 p-2 bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all opacity-0 group-hover/cmd:opacity-100"
+                                                            className="absolute top-4 right-4 p-2 rounded-lg bg-white/[0.03] border border-white/[0.06] text-white/30 hover:text-white hover:bg-white/[0.08] hover:border-[#FF003C]/40 transition-all opacity-0 group-hover/cmd:opacity-100"
                                                             title="Copy Protocol"
                                                         >
-                                                            <Copy className="w-4 h-4" />
+                                                            <Copy className="w-4 h-4" strokeWidth={2} />
                                                         </button>
                                                       </div>
                                                  )}
