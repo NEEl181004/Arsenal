@@ -67,7 +67,7 @@ export default function Navbar({ onLoginOpen, onSignupOpen, onMenuClick }: Navba
     >
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-red-500/15 to-transparent" />
 
-      <div className="flex h-[60px] w-full items-center justify-between px-6 gap-4">
+      <div className="flex h-[60px] w-full items-center justify-between px-4 md:px-6 gap-4">
 
         <div className="flex items-center gap-4 shrink-0">
           {onMenuClick && (

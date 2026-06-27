@@ -67,7 +67,7 @@ export default function AboutPage() {
             </p>
             <h1
               className="text-white leading-tight mb-6"
-              style={{ fontFamily: "var(--font-barlow), sans-serif", fontWeight: 900, fontSize: "clamp(3rem, 5vw, 5rem)", letterSpacing: "-0.01em" }}
+              style={{ fontFamily: "var(--font-barlow), sans-serif", fontWeight: 900, fontSize: "clamp(2.2rem, 8vw, 5rem)", letterSpacing: "-0.01em" }}
             >
               WEAPONIZING <br />
               <span style={{ color: "#FF003C", textShadow: "0 0 30px rgba(255,0,60,0.4)" }}>TRADECRAFT</span>

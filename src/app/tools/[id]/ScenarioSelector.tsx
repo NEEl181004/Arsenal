@@ -44,6 +44,30 @@ const parseImages = (logsImage: any): string[] => {
 
 function ImageCarousel({ images }: { images: string[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
+
+    const renderModal = () => {
+        if (!fullScreenImage) return null;
+        return (
+            <div 
+                className="fixed inset-0 bg-black/90 backdrop-blur-md z-[200] flex items-center justify-center p-4 cursor-zoom-out"
+                onClick={() => setFullScreenImage(null)}
+            >
+                <button 
+                    className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-2 bg-white/5 hover:bg-white/10 rounded-full z-10"
+                    onClick={(e) => { e.stopPropagation(); setFullScreenImage(null); }}
+                >
+                    <X className="w-6 h-6" />
+                </button>
+                <img 
+                    src={fullScreenImage} 
+                    alt="Fullscreen Output" 
+                    className="max-w-full max-h-full object-contain cursor-default"
+                    onClick={(e) => e.stopPropagation()} 
+                />
+            </div>
+        );
+    };
 
     if (images.length === 0) {
         return (
@@ -56,55 +80,63 @@ function ImageCarousel({ images }: { images: string[] }) {
 
     if (images.length === 1) {
         return (
-            <div className="w-full flex items-center justify-center p-4">
-                <img 
-                    src={images[0]} 
-                    alt="Output" 
-                    className="max-h-[360px] w-auto grayscale group-hover:grayscale-0 transition-all duration-1000 object-contain" 
-                />
-            </div>
+            <>
+                <div className="w-full flex items-center justify-center p-4">
+                    <img 
+                        src={images[0]} 
+                        alt="Output" 
+                        className="max-h-[360px] w-auto grayscale group-hover:grayscale-0 transition-all duration-1000 object-contain cursor-pointer" 
+                        onClick={() => setFullScreenImage(images[0])}
+                    />
+                </div>
+                {renderModal()}
+            </>
         );
     }
 
     return (
-        <div className="relative w-full group overflow-hidden">
-            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-                {images.map((img, idx) => (
-                    <div key={idx} className="w-full flex-shrink-0 flex items-center justify-center p-4">
-                        <img 
-                            src={img} 
-                            alt={`Output Slide ${idx + 1}`} 
-                            className="max-h-[360px] w-auto grayscale group-hover:grayscale-0 transition-all duration-1000 object-contain" 
+        <>
+            <div className="relative w-full group overflow-hidden">
+                <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                    {images.map((img, idx) => (
+                        <div key={idx} className="w-full flex-shrink-0 flex items-center justify-center p-4">
+                            <img 
+                                src={img} 
+                                alt={`Output Slide ${idx + 1}`} 
+                                className="max-h-[360px] w-auto grayscale group-hover:grayscale-0 transition-all duration-1000 object-contain cursor-pointer" 
+                                onClick={() => setFullScreenImage(img)}
+                            />
+                        </div>
+                    ))}
+                </div>
+
+                {/* Navigation Buttons */}
+                <button 
+                    onClick={() => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-white/60 hover:text-white hover:border-[#FF003C]/50 transition-all cursor-pointer z-10"
+                >
+                    &larr;
+                </button>
+                <button 
+                    onClick={() => setCurrentIndex((prev) => (prev + 1) % images.length)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-white/60 hover:text-white hover:border-[#FF003C]/50 transition-all cursor-pointer z-10"
+                >
+                    &rarr;
+                </button>
+
+                {/* Indicators */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    {images.map((_, idx) => (
+                        <button
+                            key={idx}
+                            onClick={() => setCurrentIndex(idx)}
+                            className={`w-1.5 h-1.5 rounded-full transition-all cursor-pointer ${idx === currentIndex ? "bg-[#FF003C] w-3" : "bg-white/20"}`}
                         />
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-
-            {/* Navigation Buttons */}
-            <button 
-                onClick={() => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-white/60 hover:text-white hover:border-primary/50 transition-all cursor-pointer z-10"
-            >
-                &larr;
-            </button>
-            <button 
-                onClick={() => setCurrentIndex((prev) => (prev + 1) % images.length)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-black/60 border border-white/10 text-white/60 hover:text-white hover:border-primary/50 transition-all cursor-pointer z-10"
-            >
-                &rarr;
-            </button>
-
-            {/* Indicators */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                {images.map((_, idx) => (
-                    <button
-                        key={idx}
-                        onClick={() => setCurrentIndex(idx)}
-                        className={`w-1.5 h-1.5 rounded-full transition-all cursor-pointer ${idx === currentIndex ? "bg-primary w-3" : "bg-white/20"}`}
-                    />
-                ))}
-            </div>
-        </div>
+            {renderModal()}
+        </>
     );
 }
 
