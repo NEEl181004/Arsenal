@@ -7,7 +7,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Eye, EyeOff, Loader2, Mail, Lock, User, ArrowRight, AlertCircle } from "lucide-react";
 
-/* ── helpers ──────────────────────────────────────── */
+/* -- helpers ---------------------------------------- */
 const fS: React.CSSProperties = {
   width: "100%",
   background: "rgba(255,255,255,0.04)",

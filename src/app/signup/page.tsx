@@ -296,7 +296,7 @@ export default function SignupPage() {
   );
 }
 
-/* ─── Helpers ────────────────────────────── */
+/* --- Helpers ------------------------------ */
 const fieldStyle: React.CSSProperties = {
   width: "100%",
   background: "rgba(255,255,255,0.04)",
