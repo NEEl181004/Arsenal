@@ -154,7 +154,7 @@ export default function SideNav({ isCollapsed, setIsCollapsed, isMobileOpen, set
                             ) : (
                                 <NavItem 
                                     key={section.id} 
-                                    href={section.href} 
+                                    href={(section as any).href} 
                                     icon={section.icon} 
                                     label={section.label} 
                                     active={pathname === "/dashboard" && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("category") === section.label} 
